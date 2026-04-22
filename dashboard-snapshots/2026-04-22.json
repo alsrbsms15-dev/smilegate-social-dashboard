@@ -1,6 +1,6 @@
 {
   "snapshotDate": "2026-04-22",
-  "runTimestamp": "2026-04-22T05:29:13+00:00",
+  "runTimestamp": "2026-04-22T05:43:53+00:00",
   "credentialStatus": {
     "youtube": {
       "configured": true
@@ -39,14 +39,7 @@
           "region": "Korea",
           "handle": "@EpicSevenKR",
           "url": "https://www.youtube.com/c/EpicSevenKR",
-          "yt_handle": "@EpicSevenKR",
-          "yt_id": "UC4dV8Fy1GiqjxU4OQ6ZoKWw",
-          "title": "에픽세븐",
-          "thumbnail": "https://yt3.ggpht.com/Gaph9t5FDWmEXxvzgD6IpLTr39jYK2UKD3VpKv73Ok3IB3p7-WOO1WMyoOPQrenpUnuwd8Xb=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 39700,
-          "viewCount": 40588773,
-          "videoCount": 1267,
-          "latestVideo": null
+          "yt_handle": "@EpicSevenKR"
         },
         {
           "platform": "youtube",
@@ -66,7 +59,10 @@
           "platform": "x",
           "region": "Global",
           "handle": "@Epic7_Global",
-          "url": "https://x.com/Epic7_Global"
+          "url": "https://x.com/Epic7_Global",
+          "followers": 32372,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
         },
         {
           "platform": "x",
@@ -86,21 +82,21 @@
           "handle": "@epicseven_global",
           "url": "https://www.instagram.com/epicseven_global/",
           "ig_business_id": "17841407368977464",
-          "followers": 85310,
+          "followers": 85311,
           "mediaCount": 1277,
           "igUsername": "epicseven_global",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ShyZe5Zjk-MQ7kNvwGbVB2U&_nc_oc=AdrGKUv0ZlDPdHpbrXxpYggJ0z7_6vAmX-Uen7n7mxMAr5kx-2lJmfUeeFKZFdVjcO8&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=q7Mhd4l1NTRj7doJJrI6qg&oh=00_Af1FESnsrb206KKxlLmxG1G3ypK1Woroex7nlMM1xZPrcQ&oe=69EE1621",
+          "thumbnail": "https://scontent-sjc3-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ShyZe5Zjk-MQ7kNvwFFwuKS&_nc_oc=Adr63GszNd8dhkQKDjGWbhsqAAxDdoDaZVid2o7LdFhF4s3IEJaKPNsSv8OHj4pUIhU&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=3PPSiRoCxz01NXY5GM0WfA&oh=00_Af0AwPFRQW8W7BkdPQYg3FktAkoGTJoMZ56k9-wjwZKhdA&oe=69EE4E61",
           "title": "Epic Seven Global",
           "latestPost": {
             "caption": "🎞️ Episode 6, Dirge of the End",
             "timestamp": "2026-04-22T03:00:40+0000",
-            "likeCount": 345,
-            "commentCount": 9,
+            "likeCount": 361,
+            "commentCount": 11,
             "permalink": "https://www.instagram.com/p/DXawe8NEfqN/",
             "mediaType": "CAROUSEL_ALBUM",
-            "thumbnailUrl": "https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/677042888_991472136894568_2837757526005823717_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=E432slW9J1UQ7kNvwHaBqWd&_nc_oc=AdoBoUwI2kAhIvGd0X7Hp-atrexNFbCNP1LRGZKWlu5_mT6pZIxuPhlnQ8AWlvWj25o&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=v7BhyVtY54hs40X_ZobnJw&oh=00_Af39N2X8o0yfiU0HANdnxyq6OG7tnaEp33YXS3t465aa4w&oe=69EE44D7"
+            "thumbnailUrl": "https://scontent-sjc6-1.cdninstagram.com/v/t39.30808-6/677042888_991472136894568_2837757526005823717_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=E432slW9J1UQ7kNvwHA7umt&_nc_oc=Adq__83o4QEiKYcu319Kr3nvrBzmu1M7PDGsxQGPMdt9c3RU69Ztb7g_wCNOUrjoocs&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=J2AltJ88fG_S7LMuRej51A&oh=00_Af1mmBETK83yrNHiUsT0YLaweMKINt1LXzj1mHX6oyzYqw&oe=69EE44D7"
           },
-          "recentAvgLikes": 502,
+          "recentAvgLikes": 503,
           "recentAvgComments": 6,
           "recentSampleSize": 10
         },
@@ -113,7 +109,7 @@
           "followers": 223103,
           "title": "Epic Seven",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/656423825_968025065905942_3396141351968415983_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=111&ccb=1-7&_nc_sid=08baa4&_nc_ohc=WV2MYOcc2NIQ7kNvwEQg7UV&_nc_oc=AdpkmqqSxqJU5yrHRcCIKundGmc-TmxtSTxlfikX-qiDJgAi-sHrbnIZSVByoSM23rY&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&edm=AJdBtusEAAAA&_nc_gid=gFZu7maFpI_upTLYGQSXuA&_nc_tpa=Q5bMBQGF6vGery3X5uLh0vReWczjys2aZspA3yrxnhUJUX28za-BGprKpC9cVhHrNPQKTs5ED5BO1Obf&oh=00_Af2uhTPkcPwYCfb32cvIeO0SySqojTW1rlnzhRlr8HiZuw&oe=69EE3731"
+          "thumbnail": "https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/656423825_968025065905942_3396141351968415983_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=111&ccb=1-7&_nc_sid=08baa4&_nc_ohc=WV2MYOcc2NIQ7kNvwFBEY3k&_nc_oc=AdpxYNe0lfCAN2Vn5K_xxHhORRKdlWnBdNLM8Nb9V9Xyqt4VFiwRK705fenuwMsPCjc&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&edm=AJdBtusEAAAA&_nc_gid=WWSdV11BX4m3ZhbKBZYFyQ&_nc_tpa=Q5bMBQFzSL2bZTGuyrcHkEnndsYTlA3X7t6yC34slOmB9xufNAv2JJCodOvV4qrDSC8zNEN9CZKnxMAO&oh=00_Af29tjhtjAXFznOQT4bt3uJ-u3ScBEfwZiPxpc4baN4d4w&oe=69EE3731"
         },
         {
           "platform": "discord",
@@ -121,8 +117,8 @@
           "handle": "discord.gg/vUUQvUQPZC",
           "url": "https://discord.com/invite/vUUQvUQPZC",
           "invite_code": "vUUQvUQPZC",
-          "followers": 96652,
-          "onlineCount": 18637,
+          "followers": 96653,
+          "onlineCount": 18400,
           "guildName": "Epic 7 Official Discord",
           "guildId": "595385354908073984",
           "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64"
@@ -185,21 +181,21 @@
           "handle": "@czn.official.en",
           "url": "https://www.instagram.com/czn.official.en/",
           "ig_business_id": "17841465051500490",
-          "followers": 13442,
+          "followers": 13441,
           "mediaCount": 195,
           "igUsername": "czn.official.en",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=6QtE8YlmzKEQ7kNvwHC-oQq&_nc_oc=AdrTfUgljOz_lElcDpw7nqjiR4WsmXSzfx32G46XVgzZuVkSKn6Xxy3yH5YeH8Ieats&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=xs5uu6Q8GBWhwN6S33U9GQ&oh=00_Af0hWuIKHFObFGLfXYsaIsTfdOh7ZiEGH0j6pTrw319IGQ&oe=69EE3C2C",
+          "thumbnail": "https://scontent-sjc3-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=6QtE8YlmzKEQ7kNvwFhxScz&_nc_oc=Adp_Dtbq4XDc9XK74OHHyqy1dJEka-4UT8HwMSkvQTHjNT46xhsVQmUiMyBJFMP3HTI&_nc_zt=23&_nc_ht=scontent-sjc3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=FdMc0lhVEzCJ5r31PNPXMA&oh=00_Af1n3tRPIeFb6VAJQlZxHumw0IsgPzxXGsqPyuTIr190Tg&oe=69EE3C2C",
           "title": "Chaos Zero Nightmare",
           "latestPost": {
             "caption": "◤Half-Anniversary Coupon Reveal◢",
             "timestamp": "2026-04-22T03:00:51+0000",
-            "likeCount": 395,
+            "likeCount": 422,
             "commentCount": 14,
             "permalink": "https://www.instagram.com/p/DXawgSMDPRu/",
             "mediaType": "IMAGE",
-            "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/676897529_821425964350138_5225241386619070898_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=1&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=f952QTiOa80Q7kNvwFWU1LC&_nc_oc=AdoxDPrvj3Bx796ks3_U8cHcpag6XcqrRXIEjhHSnu1ThBUN9UVCYaFqJizgdJXpwDE&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=AeyM-vw2KzeoYjKrPJ47jg&oh=00_Af1eghkl7inG0WrG4IqqiB9uRpmO6NU2NklflQrKCBW_dA&oe=69EE2598"
+            "thumbnailUrl": "https://scontent-sjc6-1.cdninstagram.com/v/t39.30808-6/676897529_821425964350138_5225241386619070898_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=1&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=f952QTiOa80Q7kNvwHWm5Cp&_nc_oc=Adra3tBJWVEuipgzcbR9IpQexwfxX7_7YQrKTmeHJuUV8RpbT6wanFh6DIDVnv8KIk4&_nc_zt=23&_nc_ht=scontent-sjc6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=k90MDI5SzkZa1kuKLZ-MZg&oh=00_Af0TVxizrJ3gDd4hGx70z08-i-dxjKCP3fRTRCYjVZxU_w&oe=69EE2598"
           },
-          "recentAvgLikes": 655,
+          "recentAvgLikes": 657,
           "recentAvgComments": 15,
           "recentSampleSize": 10
         },
@@ -209,10 +205,10 @@
           "handle": "ChaosZeroNightmare",
           "url": "https://www.facebook.com/ChaosZeroNightmare/",
           "fb_page_id": "101588973009044",
-          "followers": 98031,
+          "followers": 98039,
           "title": "Chaos Zero Nightmare",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/519107359_598110333348370_1351690681752974868_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=108&ccb=1-7&_nc_sid=08baa4&_nc_ohc=VzT7gN3LW6oQ7kNvwFkbLIp&_nc_oc=Ado1eRPSKSV9Ov9puNHA8ES5XGlfA2YczCoHwLQEpltFFiSXlYROEjEiBn9ERRx52TY&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=H3m0Q6ARnGswDymZbROoqw&_nc_tpa=Q5bMBQG4CCVJjXYuNLF3Y_dt_bSjWWKDWHtUQ5JpFeMTCihyxFBwRrb8QOkJLjfYOwW96GV4jO70Xg7p&oh=00_Af2D0blYeWwvxlbcxwIAx8VmtA5DPiLtBI6RS-6yV4Mmog&oe=69EE251C"
+          "thumbnail": "https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/519107359_598110333348370_1351690681752974868_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=108&ccb=1-7&_nc_sid=08baa4&_nc_ohc=VzT7gN3LW6oQ7kNvwGorUfY&_nc_oc=AdpG9ltTcs1tjl7xYf3lzKUcxpJiLWD3UZiyW4juN3bGxWA80PNGiWHmVBp2SGZDrMk&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&edm=AJdBtusEAAAA&_nc_gid=t7KTAkJd5Ha-7C_Q5Tt_gg&_nc_tpa=Q5bMBQFHpwDHmG4E5IOk8kectuRM_asSlsNKOW0898czVC6XYmzLeB2gRM6MtailGEYoOWedXkgsWSDn&oh=00_Af09c1xjH9L6ZwohIHsCceQ_2UJQSsrC3e_3uqQRTJP3Qw&oe=69EE251C"
         },
         {
           "platform": "facebook",
@@ -220,10 +216,10 @@
           "handle": "卡厄思夢境",
           "url": "https://www.facebook.com/107964449030742",
           "fb_page_id": "107964449030742",
-          "followers": 16662,
+          "followers": 16661,
           "title": "卡厄思夢境",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/518251317_592654753901280_7529169493909043393_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=110&ccb=1-7&_nc_sid=08baa4&_nc_ohc=oVdJQWiaNNYQ7kNvwHsg0C-&_nc_oc=AdqwN1Et4xuO3IYXygpkjx9Fm6rliR2zGL_tWW8MReNWLnE6pVCvvvfowe7wiWmHXWw&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=LRaianSl1HVlvIxf3o89xQ&_nc_tpa=Q5bMBQGF9wA89LvdK384QUngvX-r5rDkDvhOJue0oBFeXvr8HkF3P92uKpBsdWW1lSC0u3TfOMkxXMgu&oh=00_Af1ILJ2EQHfvLb2BYfu4dnFnJ97Jgw15fWrLLhd55kcLLQ&oe=69EE43A2"
+          "thumbnail": "https://scontent-sjc3-1.xx.fbcdn.net/v/t39.30808-1/518251317_592654753901280_7529169493909043393_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=110&ccb=1-7&_nc_sid=08baa4&_nc_ohc=oVdJQWiaNNYQ7kNvwFsvAak&_nc_oc=AdpFGXcYu259rpwD1iiQ9GAPWl8jiAp-O-BqkmdcpSqvf4tp4tOh852RmjpMPSBf8PM&_nc_zt=24&_nc_ht=scontent-sjc3-1.xx&edm=AJdBtusEAAAA&_nc_gid=GGuhBQwzNvDiAlG7dK0AZQ&_nc_tpa=Q5bMBQEA1_buAC3w3HwT8ABMlEFHYlWn_e5DZ70xI4oQa-smN4OYJwbw0ykJK6m2zHYbSccA0uZ6GboM&oh=00_Af26BhRi-6eKpJ7LcPani6qmWm24wrU1cFEe1S4CkqjswQ&oe=69EE43A2"
         },
         {
           "platform": "discord",
@@ -231,8 +227,8 @@
           "handle": "discord.gg/chaoszeronightmare",
           "url": "https://discord.gg/chaoszeronightmare",
           "invite_code": "chaoszeronightmare",
-          "followers": 61315,
-          "onlineCount": 16855,
+          "followers": 61320,
+          "onlineCount": 16646,
           "guildName": "Chaos Zero Nightmare Official",
           "guildId": "1199065921365475470",
           "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64"
@@ -279,7 +275,7 @@
           "followers": 112036,
           "title": "LORDNINE SEA",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495207752_122118958400831583_7196864148246345190_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=100&ccb=1-7&_nc_sid=08baa4&_nc_ohc=3L_iklAsfJkQ7kNvwFU6Dgg&_nc_oc=AdqIbITifekhgUzR26IvXButKztQC-ZslgJGaQeZkjeIT01uadj3Jrjwc3xPk6jos_w&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=A56S6mVdtrH6Wys8kOVGdg&_nc_tpa=Q5bMBQGnbP0LROxIWAV0SIFvFBs4NK9zTdABEHjocersb5VuvtPIFUN6IqiKxqMaPdahyW9Ozn1EYxnV&oh=00_Af3V13FiEEYnKXPRgUYN1aHHBRkS4ohzj8jj-efTyJ2GOw&oe=69EE42A7"
+          "thumbnail": "https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/495207752_122118958400831583_7196864148246345190_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=100&ccb=1-7&_nc_sid=08baa4&_nc_ohc=3L_iklAsfJkQ7kNvwHyn2_h&_nc_oc=Adr8QHrYu8Iqkg7lggW3xlBi9q0aA0iIZVdCyMjqAz1H5CrDTrbew5c2rbdxLmxXxoM&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&edm=AJdBtusEAAAA&_nc_gid=kVHKa1fZDSOcKcRSPld3Kw&_nc_tpa=Q5bMBQEnCP1E6X999CX7tESH0bRaTOAKfbggTxtEuybqMYOAjSOiK7l1roNnN-itC4Bht8DNQmeY7C7Y&oh=00_Af1dmcAqSGgl24KKOsjgjQZjvry24SRajUJjAl6_c3gJFg&oe=69EE42A7"
         },
         {
           "platform": "facebook",
@@ -290,7 +286,7 @@
           "followers": 33729,
           "title": "LORDNINE Thailand",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495004494_122114918270838321_3347801829444906397_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=109&ccb=1-7&_nc_sid=08baa4&_nc_ohc=mow0UF6wXwMQ7kNvwEIqXBr&_nc_oc=AdrngdsuKNDFh-DyTfv-8piUW2wxsgrsLVl_thCfuo6dOpU1QMc6mXyTLD9nFoaaZNA&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=cBoIXaW_Ljl5Yl0JpwwoLw&_nc_tpa=Q5bMBQGhJfbl7hCR3ljciaqzHgd9gTJdjMGLI-Pj3wLucu3UAxmj1zxGRW2lRQKpB0m_CqPrysJYCJ4r&oh=00_Af2FR8e8IOPEq1UGEOcujcZvGvv_YvWGj3nllJ7k5Oup9A&oe=69EE417B"
+          "thumbnail": "https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/495004494_122114918270838321_3347801829444906397_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=109&ccb=1-7&_nc_sid=08baa4&_nc_ohc=mow0UF6wXwMQ7kNvwGkE8bm&_nc_oc=Adru4f7XwUoYWNZI05dfsyBWBqCCTE6itqgDMSBKjipiL-FfMADkmWoxTTG8dSOczl4&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&edm=AJdBtusEAAAA&_nc_gid=EDTgd9wMGp2052g9alZWfA&_nc_tpa=Q5bMBQG-HaHXoFARuLhgkrDuyfwBgUVXPFaywD9BJqxwIVP3905TmcrQAGdPpqCPkoKO-ZOETmFPY7sS&oh=00_Af1Ykp5GcFi7ahXwCLtetHxh5TFH4f_Z3M4LKXlby4sL0g&oe=69EE417B"
         },
         {
           "platform": "facebook",
@@ -301,7 +297,7 @@
           "followers": 12813,
           "title": "權力之望 LORDNINE",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/444149909_122114051426300844_3596859462107917752_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=boj6xM1RBUEQ7kNvwHTrVGO&_nc_oc=AdpIsdCunXf7vWFSsjuklTXjedbzqtGXL7SY4RcptQX7VXtd6Z-RjULu_RI5k3ZWl9I&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=_b6qISB6VhpXwQk4AL3w0Q&_nc_tpa=Q5bMBQGAU4vkT34Pt_sVt1hiWyopMjG30ow_tTZcC6L-TeyBBf4ZrurN2fBr47Pa9ecIYXLnq-apZAtI&oh=00_Af08YJIxzxwqNXSlXIHnEdAxGvgnlhOOwW2fU8xJFv51wQ&oe=69EE2665"
+          "thumbnail": "https://scontent-sjc6-1.xx.fbcdn.net/v/t39.30808-1/444149909_122114051426300844_3596859462107917752_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=boj6xM1RBUEQ7kNvwE8ArMa&_nc_oc=AdoU01MukTg3BQWrTti76_ml2OZDZjlUlbWcgIoEtT8Tft95tzr3g8doDYzfyy_inwg&_nc_zt=24&_nc_ht=scontent-sjc6-1.xx&edm=AJdBtusEAAAA&_nc_gid=PILum3MvCKj3TPS9vjYZNQ&_nc_tpa=Q5bMBQFFpb_SKS3aEjvwaYiae43uglN6oUCx1xosVTFk5i7EjH1BRokYcSyH3MiUNM54YsRkWpfUtkbV&oh=00_Af0-9q0vfbSTR6dUC3K1Q_8nRmI4M1EBzqET3GvDlsJUEA&oe=69EE2665"
         },
         {
           "platform": "discord",
@@ -309,8 +305,8 @@
           "handle": "discord.gg/lordninesea",
           "url": "https://discord.gg/lordninesea",
           "invite_code": "lordninesea",
-          "followers": 32860,
-          "onlineCount": 6362,
+          "followers": 32859,
+          "onlineCount": 6357,
           "guildName": "LORDNINE SEA",
           "guildId": "1361496239501217963",
           "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64"
@@ -321,6 +317,10 @@
   "apiErrors": [
     {
       "channel": "epic7/@EpicSeven",
+      "error": "HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u0"
+    },
+    {
+      "channel": "epic7/@EpicSevenKR",
       "error": "HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u0"
     },
     {
