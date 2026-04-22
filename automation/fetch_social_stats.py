@@ -713,13 +713,14 @@ document.addEventListener('DOMContentLoaded', () => { drawSparklines(); drawTren
 
 
 def fmt_num(n):
+    """Format a number with thousands separators (e.g. 85311 -> '85,311').
+    Shows full precision down to the ones digit."""
     if n is None:
         return "—"
-    if n >= 1e6:
-        return f"{n/1e6:.1f}M" if n >= 1e7 else f"{n/1e6:.2f}M"
-    if n >= 1e3:
-        return f"{n/1e3:.1f}K" if n >= 1e4 else f"{n/1e3:.2f}K"
-    return str(n)
+    try:
+        return f"{int(n):,}"
+    except (TypeError, ValueError):
+        return str(n)
 
 
 def fmt_signed(n):
