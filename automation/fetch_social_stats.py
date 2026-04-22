@@ -618,6 +618,8 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .delta-chip.flat { color: var(--muted); background: #F1F2F4; }
 .delta-chip.nil { color: var(--muted); background: transparent; border: 1px dashed var(--border); font-weight: 500; }
 .delta-chip.manual { color: #7A5B00; background: #FFF4D6; border: 1px solid #F0D98A; font-weight: 500; }
+.badge-group { display: inline-flex; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap; }
+.manual-tag { font-size: 10px; font-weight: 500; color: #7A5B00; background: #FFF4D6; border: 1px solid #F0D98A; padding: 1px 6px; border-radius: 999px; white-space: nowrap; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -860,17 +862,17 @@ def channel_card_html(game, ch, hist):
         guild_name = ch.get("guildName") or ""
         sub_note = f'<div class="subnote"><b>Online:</b> {fmt_num(ch["onlineCount"])}<span style="float:right;color:var(--muted);">{guild_name[:30]}</span></div>'
 
-    # Manual entries get a distinct badge instead of delta/history chip
+    # Manual entries show delta chip + a small "수동" marker so changes are visible
     if ch.get("followersSource") == "manual":
         as_of_full = ch.get("manualAsOf") or ""
-        # Shorten "2026-04-22" -> "26-04-22" so the badge stays on one line
+        # Shorten "2026-04-22" -> "26-04-22" so the badge stays compact
         as_of_short = as_of_full[2:] if len(as_of_full) >= 10 and as_of_full[:2] == "20" else as_of_full
         title_suffix = (" · " + as_of_full) if as_of_full else ""
-        badge_suffix = (" · " + as_of_short) if as_of_short else ""
-        badge_html = (
-            f'<span class="delta-chip manual" title="Manually entered{title_suffix}">'
-            f'수동 기록{badge_suffix}</span>'
+        manual_tag = (
+            f'<span class="manual-tag" title="Manually entered{title_suffix}">'
+            f'수동{(" · " + as_of_short) if as_of_short else ""}</span>'
         )
+        badge_html = f'<span class="badge-group">{delta_chip_html(delta_week)}{manual_tag}</span>'
     else:
         badge_html = delta_chip_html(delta_week)
 
