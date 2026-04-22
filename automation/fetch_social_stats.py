@@ -633,9 +633,11 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .channel.missing { background: repeating-linear-gradient(45deg,#FAFAFA,#FAFAFA 8px,#F3F4F6 8px,#F3F4F6 16px); border-style: dashed; }
 .channel-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
 .platform { display: inline-flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; color: var(--text-2); }
-.platform .plogo { width: 20px; height: 20px; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; color: #fff; }
+.plogo { width: 20px; height: 20px; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+.plogo svg { color: #fff; fill: #fff; }
 .plogo.yt { background: var(--yt); }
-.plogo.x  { background: var(--x); }
+.plogo.x  { background: #000; color: #fff; }
+.plogo.x svg path { fill: #fff !important; }
 .plogo.ig { background: linear-gradient(135deg, var(--ig-a), var(--ig-b) 55%, var(--ig-c)); }
 .plogo.fb { background: var(--fb); }
 .plogo.dc { background: var(--dc); }
