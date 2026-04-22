@@ -645,8 +645,8 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .channel-head .ext:hover { background: var(--bg); color: var(--text); }
 .handle { font-size: 12px; color: var(--muted); word-break: break-all; line-height: 1.35; }
 .handle a:hover { text-decoration: underline; color: var(--text-2); }
-.metric-row { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
-.follower-num { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; }
+.metric-row { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; flex-wrap: wrap; row-gap: 6px; }
+.follower-num { font-size: 22px; font-weight: 700; letter-spacing: -0.015em; flex-shrink: 1; min-width: 0; }
 .follower-num small { font-size: 11px; font-weight: 500; color: var(--muted); margin-left: 4px; }
 .delta-chip { font-size: 11px; font-weight: 600; padding: 2px 7px; border-radius: 999px; display: inline-flex; align-items: center; gap: 3px; }
 .delta-chip.up { color: var(--pos); background: #E8F7EE; }
