@@ -1,0 +1,406 @@
+{
+  "snapshotDate": "2026-04-22",
+  "runTimestamp": "2026-04-22T08:05:00+09:00",
+  "credentialStatus": {
+    "youtube": {
+      "configured": true,
+      "lastSuccessfulFetch": "2026-04-21",
+      "status": "stale_fetch_failed"
+    },
+    "x": {
+      "configured": false,
+      "note": "bearer_token not provisioned"
+    },
+    "facebook": {
+      "configured": false,
+      "note": "meta.system_token not provisioned"
+    },
+    "instagram": {
+      "configured": false,
+      "note": "meta.system_token not provisioned"
+    },
+    "discord": {
+      "configured": true,
+      "method": "public invite API (no auth)",
+      "lastSuccessfulFetch": "2026-04-21",
+      "status": "stale_fetch_failed"
+    }
+  },
+  "games": {
+    "epic7": {
+      "name": "Epic Seven",
+      "ko": "에픽세븐",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@EpicSeven",
+          "url": "https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w",
+          "yt_id": "UCa1C3tWzsn4FFRR7t3LqU5w",
+          "title": "EpicSeven",
+          "thumbnail": "https://yt3.ggpht.com/qBRFJtQS8NhWAdyyXTLMu66Vp1Fok9kpz-XnYU-oB3iUng6csiOopZlHGm-doJVfm7HTLmnNhA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 180000,
+          "viewCount": 126761869,
+          "videoCount": 1799,
+          "latestVideo": {
+            "title": "Lascivious Setsuka, Caught Red-Handed #epicseven",
+            "publishedAt": "2026-04-21T04:00:26Z",
+            "videoId": "TC6V1nqcXjI"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@EpicSevenKR",
+          "url": "https://www.youtube.com/c/EpicSevenKR",
+          "yt_handle": "@EpicSevenKR",
+          "yt_id": "UC4dV8Fy1GiqjxU4OQ6ZoKWw",
+          "title": "에픽세븐",
+          "thumbnail": "https://yt3.ggpht.com/Gaph9t5FDWmEXxvzgD6IpLTr39jYK2UKD3VpKv73Ok3IB3p7-WOO1WMyoOPQrenpUnuwd8Xb=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 39700,
+          "viewCount": 40555854,
+          "videoCount": 1265,
+          "latestVideo": {
+            "title": "풍기문란 설화 현장 검거 #에픽세븐",
+            "publishedAt": "2026-04-21T04:00:10Z",
+            "videoId": "9ybvhDJIvag"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@EpicSevenJP",
+          "url": "https://www.youtube.com/@EpicSevenJP",
+          "yt_handle": "@EpicSevenJP",
+          "yt_id": "UC1F7_Zs35bNSrYerlGzzrVA",
+          "title": "エピックセブン",
+          "thumbnail": "https://yt3.ggpht.com/668yi2CxCyAGDJKYtyttzEwAoFugIgX94-w8VaOF_xzd_BA3XO25-3Ru-of7epVMEb8dQcrFpjg=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 18000,
+          "viewCount": 23888560,
+          "videoCount": 756,
+          "latestVideo": {
+            "title": "風紀を乱すセツカ現行犯確保 #エピックセブン",
+            "publishedAt": "2026-04-21T04:00:39Z",
+            "videoId": "bXBsGVPK0pA"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Taiwan",
+          "handle": "@EpicSevenTW",
+          "url": "https://www.youtube.com/@EpicSevenTW",
+          "yt_handle": "@EpicSevenTW",
+          "yt_id": "UChm_apkrLewkgrdBuWXEW-Q",
+          "title": "第七史詩",
+          "thumbnail": "https://yt3.ggpht.com/8YXwkylUt_iY5LCyprn88ATyzE0g0052GKTK3jOjVKL4ABfEfmLWAI5kLPbpfQwOfWT6ISSx=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 19200,
+          "viewCount": 14898423,
+          "videoCount": 997,
+          "latestVideo": {
+            "title": "不檢點的雪花，現場逮捕 #第七史詩",
+            "publishedAt": "2026-04-21T04:00:07Z",
+            "videoId": "98ZA_3yaQZ4"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "x",
+          "region": "Global",
+          "handle": "@Epic7_Global",
+          "url": "https://x.com/Epic7_Global"
+        },
+        {
+          "platform": "x",
+          "region": "Korea",
+          "handle": "@Epic7Twt",
+          "url": "https://x.com/Epic7Twt"
+        },
+        {
+          "platform": "instagram",
+          "region": "Global",
+          "handle": "@epicseven_global",
+          "url": "https://www.instagram.com/epicseven_global/"
+        },
+        {
+          "platform": "facebook",
+          "region": "Global",
+          "handle": "EpicSevenGlobal",
+          "url": "https://www.facebook.com/EpicSevenGlobal/"
+        },
+        {
+          "platform": "facebook",
+          "region": "Korea",
+          "handle": "EpicSevenKR",
+          "url": "https://www.facebook.com/EpicSevenKR/"
+        },
+        {
+          "platform": "discord",
+          "region": "Official",
+          "handle": "discord.gg/vUUQvUQPZC",
+          "url": "https://discord.com/invite/vUUQvUQPZC",
+          "invite_code": "vUUQvUQPZC",
+          "followers": 96632,
+          "onlineCount": 16083,
+          "guildName": "Epic 7 Official Discord",
+          "guildId": "595385354908073984",
+          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        }
+      ]
+    },
+    "czn": {
+      "name": "Chaos Zero Nightmare",
+      "ko": "카오스 제로 나이트메어",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@ChaosZeroNightmare_KR",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_KR",
+          "yt_handle": "@ChaosZeroNightmare_KR",
+          "yt_id": "UCniAsoSWiHsfeCJNJPZ0Jzg",
+          "title": "카오스 제로 나이트메어",
+          "thumbnail": "https://yt3.ggpht.com/WlJL05SvBAOPNvQmhxzXUyu-N1U3iyJxYmjExdLT8u3cLiIjxdITln3FkLhwcMU2wgjzOP4W=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 10300,
+          "viewCount": 14254966,
+          "videoCount": 136,
+          "latestVideo": {
+            "title": "[카오스 제로 나이트메어] 은하계 재해 시즌3 PV",
+            "publishedAt": "2026-04-18T04:01:51Z",
+            "videoId": "QFJ6TcH6aNs"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@ChaosZeroNightmare_EN",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_EN",
+          "yt_handle": "@ChaosZeroNightmare_EN",
+          "yt_id": "UCQ7YAXPdiccbFBmwuGvO3Jg",
+          "title": "Chaos Zero Nightmare",
+          "thumbnail": "https://yt3.ggpht.com/3sEN_e891wF-zugwts48nU4qnPVetpO7rDesiZrNeMrDODhBrYbejKQfnQaLadH6wtAZ2qliwA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 73100,
+          "viewCount": 18656024,
+          "videoCount": 132,
+          "latestVideo": {
+            "title": "[Chaos Zero Nightmare] Galactic Disaster Season 3 PV",
+            "publishedAt": "2026-04-18T04:01:47Z",
+            "videoId": "MwLxnHu2_bo"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@ChaosZeroNightmare_JP",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_JP",
+          "yt_handle": "@ChaosZeroNightmare_JP",
+          "yt_id": "UCtVUqg-8ja1XCZfmGndMTog",
+          "title": "カオスゼロナイトメア公式 (カオゼロ)",
+          "thumbnail": "https://yt3.ggpht.com/ungcnxER6kNjeAE99z-aI1xidXyY-Yn2gm17F_Y7sVQfiYXg2lqz9-kLxDnwdfPGKHTqLDvUJw=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 19300,
+          "viewCount": 28253496,
+          "videoCount": 152,
+          "latestVideo": {
+            "title": "【カオスゼロナイトメア】銀河系災害シーズン3：銀河に響く歌声PV",
+            "publishedAt": "2026-04-18T04:01:50Z",
+            "videoId": "s4supATDunQ"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Taiwan",
+          "handle": "@ChaosZeroNightmare_TW",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_TW",
+          "yt_handle": "@ChaosZeroNightmare_TW",
+          "yt_id": "UCNmUWtRXbKoQNbLQ0f8oYpg",
+          "title": "卡厄思夢境【TW】",
+          "thumbnail": "https://yt3.ggpht.com/GUhKE34EdPN3blkS7fBtRktSbTityNqerFsf3DYrebdwCoCCFgSM8TogSVy7RAVx1LPC5bALtA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 8220,
+          "viewCount": 4342870,
+          "videoCount": 134,
+          "latestVideo": {
+            "title": "《卡厄思夢境》「銀河系災害」第3季宣傳影片",
+            "publishedAt": "2026-04-18T04:01:53Z",
+            "videoId": "ETWQ3rgpFgw"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "x",
+          "region": "Global",
+          "handle": "@CZN_Official_EN",
+          "url": "https://x.com/CZN_Official_EN"
+        },
+        {
+          "platform": "instagram",
+          "region": "Global",
+          "handle": "@czn.official.en",
+          "url": "https://www.instagram.com/czn.official.en/"
+        },
+        {
+          "platform": "facebook",
+          "region": "Official",
+          "handle": "ChaosZeroNightmare",
+          "url": "https://www.facebook.com/ChaosZeroNightmare/"
+        },
+        {
+          "platform": "discord",
+          "region": "Official",
+          "handle": "discord.gg/chaoszeronightmare",
+          "url": "https://discord.gg/chaoszeronightmare",
+          "invite_code": "chaoszeronightmare",
+          "followers": 61240,
+          "onlineCount": 15228,
+          "guildName": "Chaos Zero Nightmare Official",
+          "guildId": "1199065921365475470",
+          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        }
+      ]
+    },
+    "l9": {
+      "name": "Lord Nine",
+      "ko": "로드나인",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@LORDNINE_KR",
+          "url": "https://www.youtube.com/@LORDNINE_KR",
+          "yt_handle": "@LORDNINE_KR",
+          "yt_id": "UCDDqUR66YKDqkJFdBD-eBiQ",
+          "title": "로드나인",
+          "thumbnail": "https://yt3.ggpht.com/D1nWjc4h1lP25Mxa0Y8mfmyE5OUszgEgeqqd_xxSwtE37TZv2CvD-VhuiXUsZAopSTTFmnwgmw=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 22600,
+          "viewCount": 19743862,
+          "videoCount": 155,
+          "latestVideo": {
+            "title": "[로드나인] 신규 서버 디나페리로 어쎔블!",
+            "publishedAt": "2026-04-09T04:18:12Z",
+            "videoId": "mOIY8Dwxm_o"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@LORDNINE_GLOBAL",
+          "url": "https://www.youtube.com/@LORDNINE_GLOBAL",
+          "yt_handle": "@LORDNINE_GLOBAL",
+          "yt_id": "UCd0a0FVb7TEkxtFrH1YyohA",
+          "title": "LORDNINE",
+          "thumbnail": "https://yt3.ggpht.com/LKzFrpdAh1tMs6wz041MBXl9ilRI5BylvHtjdWnO5i6Ink7qF5bekTlE507Cq4xZMyTc7V7UAA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 27300,
+          "viewCount": 966451,
+          "videoCount": 51,
+          "latestVideo": {
+            "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
+            "publishedAt": "2026-03-17T07:42:51Z",
+            "videoId": "2NzuUYIlhH0"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@LORDNINE_JP",
+          "url": "https://www.youtube.com/@LORDNINE_JP",
+          "yt_handle": "@LORDNINE_JP",
+          "yt_id": "UCbwHMDhUhgFoMQVyPlNhPZg",
+          "title": "ロードナイン (LORDNINE)",
+          "thumbnail": "https://yt3.ggpht.com/PVunCLfzztaj6_3GRgYVrSXw0tGuHv96kNieLyzaR79umyTbct7yftLrPmmx7jIDkFUVsc0WUQ=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 2350,
+          "viewCount": 107214,
+          "videoCount": 44,
+          "latestVideo": {
+            "title": "3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加",
+            "publishedAt": "2026-03-17T07:43:28Z",
+            "videoId": "98MtSQjXdEU"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        },
+        {
+          "platform": "x",
+          "region": "Global",
+          "handle": "TBD",
+          "url": "",
+          "missing": true,
+          "note": "Unconfirmed — please provide URL"
+        },
+        {
+          "platform": "instagram",
+          "region": "Global",
+          "handle": "TBD",
+          "url": "",
+          "missing": true,
+          "note": "Unconfirmed — please provide URL"
+        },
+        {
+          "platform": "facebook",
+          "region": "Korea",
+          "handle": "LordnineKR",
+          "url": "https://www.facebook.com/LordnineKR/"
+        },
+        {
+          "platform": "facebook",
+          "region": "SEA",
+          "handle": "LordnineSEA",
+          "url": "https://www.facebook.com/LordnineSEA/"
+        },
+        {
+          "platform": "discord",
+          "region": "SEA",
+          "handle": "discord.gg/lordninesea",
+          "url": "https://discord.gg/lordninesea",
+          "invite_code": "lordninesea",
+          "followers": 32876,
+          "onlineCount": 6722,
+          "guildName": "LORDNINE SEA",
+          "guildId": "1361496239501217963",
+          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-21"
+        }
+      ]
+    }
+  },
+  "apiErrors": [
+    {
+      "platform": "youtube",
+      "endpoint": "youtube.v3/channels",
+      "error": "EGRESS_BLOCKED www.googleapis.com",
+      "time": "2026-04-22T08:05:00+09:00"
+    },
+    {
+      "platform": "discord",
+      "endpoint": "discord.com/api/guilds/{id}/widget.json",
+      "error": "EGRESS_BLOCKED discord.com",
+      "time": "2026-04-22T08:05:00+09:00"
+    }
+  ],
+  "platformsPendingCredentials": [
+    "x",
+    "facebook",
+    "instagram"
+  ],
+  "fetchFailureNote": "Dashboard host blocked from reaching googleapis.com and discord.com during this run; values carried forward from the last successful fetch on 2026-04-21."
+}

@@ -1,0 +1,23 @@
+{
+  "entries": [
+    {
+      "date": "2026-04-21",
+      "channels": {
+        "epic7:youtube:Global": 180000,
+        "epic7:youtube:Korea": 39700,
+        "epic7:youtube:Japan": 18000,
+        "epic7:youtube:Taiwan": 19200,
+        "epic7:discord:Official": 96632,
+        "czn:youtube:Korea": 10300,
+        "czn:youtube:Global": 73100,
+        "czn:youtube:Japan": 19300,
+        "czn:youtube:Taiwan": 8220,
+        "czn:discord:Official": 61240,
+        "l9:youtube:Korea": 22600,
+        "l9:youtube:Global": 27300,
+        "l9:youtube:Japan": 2350,
+        "l9:discord:SEA": 32876
+      }
+    }
+  ]
+}
