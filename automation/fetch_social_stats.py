@@ -211,16 +211,23 @@ def yt_fetch_by_id(channel_id, api_key):
 
 
 def yt_latest_video(channel_id, api_key):
-    """Best-effort — returns {title, publishedAt, videoId} or None."""
+    """Best-effort — returns {title, publishedAt, videoId} or None.
+
+    Uses playlistItems.list on the channel's 'uploads' playlist (cost: 1 unit)
+    instead of search.list (cost: 100 units). The uploads playlist ID is the
+    channel ID with the 'UC' prefix replaced by 'UU'.
+    Docs: https://developers.google.com/youtube/v3/determine_quota_cost
+    """
+    if not channel_id or not channel_id.startswith("UC"):
+        return None
+    uploads_playlist_id = "UU" + channel_id[2:]
     try:
         url = (
-            "https://www.googleapis.com/youtube/v3/search?"
+            "https://www.googleapis.com/youtube/v3/playlistItems?"
             + urllib.parse.urlencode({
                 "part": "snippet",
-                "channelId": channel_id,
-                "order": "date",
+                "playlistId": uploads_playlist_id,
                 "maxResults": 1,
-                "type": "video",
                 "key": api_key,
             })
         )
@@ -228,14 +235,15 @@ def yt_latest_video(channel_id, api_key):
         items = data.get("items") or []
         if not items:
             return None
-        it = items[0]
+        snip = items[0].get("snippet") or {}
+        res_id = snip.get("resourceId") or {}
         return {
-            "title":       it["snippet"]["title"],
-            "publishedAt": it["snippet"]["publishedAt"],
-            "videoId":     it["id"].get("videoId"),
+            "title":       snip.get("title"),
+            "publishedAt": snip.get("publishedAt"),
+            "videoId":     res_id.get("videoId"),
         }
     except Exception as e:
-        log(f"WARN: latest video lookup failed for {channel_id}: {e}")
+        log(f"    WARN: latest video lookup failed for {channel_id}: {e}")
         return None
 
 
