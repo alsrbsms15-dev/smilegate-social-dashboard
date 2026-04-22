@@ -9,7 +9,7 @@
     "After editing, GitHub Actions will pick up the new values on the next workflow run."
   ],
   "x": {
-    "@Epic7_Global":    { "followers": null, "asOf": null },
+    "@Epic7_Global":    { "followers": 32372, "asOf": "2026-04-22" },
     "@Epic7Twt":        { "followers": null, "asOf": null },
     "@Epic7_jp":        { "followers": null, "asOf": null },
     "@CZN_Official_EN": { "followers": null, "asOf": null },
