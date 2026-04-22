@@ -59,6 +59,7 @@ if SSL_CTX is None:
 SCRIPT_DIR   = Path(__file__).resolve().parent
 WORKSPACE    = SCRIPT_DIR.parent                       # "Claude Tasks" folder
 CRED_FILE    = WORKSPACE / "smilegate-sns-credentials.yaml"
+MANUAL_FILE  = WORKSPACE / "manual-followers.json"     # user-editable overrides
 SNAPSHOTS    = WORKSPACE / "dashboard-snapshots"
 HISTORY_FILE = SNAPSHOTS / "history.json"
 LATEST_HTML  = WORKSPACE / "latest-dashboard.html"
@@ -83,6 +84,7 @@ GAMES = [
             {"platform": "youtube",   "region": "Taiwan", "handle": "@EpicSevenTW",       "url": "https://www.youtube.com/@EpicSevenTW",                      "yt_handle": "@EpicSevenTW"},
             {"platform": "x",         "region": "Global", "handle": "@Epic7_Global",      "url": "https://x.com/Epic7_Global"},
             {"platform": "x",         "region": "Korea",  "handle": "@Epic7Twt",          "url": "https://x.com/Epic7Twt"},
+            {"platform": "x",         "region": "Japan",  "handle": "@Epic7_jp",          "url": "https://x.com/Epic7_jp"},
             {"platform": "instagram", "region": "Global", "handle": "@epicseven_global",  "url": "https://www.instagram.com/epicseven_global/", "ig_business_id": "17841407368977464"},
             # Epic Seven FB: KR/Global/TW pages are linked at the Meta Business
             # level and return identical follower counts, so we track them as
@@ -102,6 +104,8 @@ GAMES = [
             {"platform": "youtube",   "region": "Japan",   "handle": "@ChaosZeroNightmare_JP", "url": "https://www.youtube.com/@ChaosZeroNightmare_JP", "yt_handle": "@ChaosZeroNightmare_JP"},
             {"platform": "youtube",   "region": "Taiwan",  "handle": "@ChaosZeroNightmare_TW", "url": "https://www.youtube.com/@ChaosZeroNightmare_TW", "yt_handle": "@ChaosZeroNightmare_TW"},
             {"platform": "x",         "region": "Global",  "handle": "@CZN_Official_EN",      "url": "https://x.com/CZN_Official_EN"},
+            {"platform": "x",         "region": "Korea",   "handle": "@CZN_Official_KR",      "url": "https://x.com/CZN_Official_KR"},
+            {"platform": "x",         "region": "Japan",   "handle": "@CZN_Official_jp",      "url": "https://x.com/CZN_Official_jp"},
             {"platform": "instagram", "region": "Global",  "handle": "@czn.official.en",       "url": "https://www.instagram.com/czn.official.en/", "ig_business_id": "17841465051500490"},
             {"platform": "facebook",  "region": "Global",  "handle": "ChaosZeroNightmare",    "url": "https://www.facebook.com/ChaosZeroNightmare/",       "fb_page_id": "101588973009044"},
             {"platform": "facebook",  "region": "China",   "handle": "卡厄思夢境",              "url": "https://www.facebook.com/107964449030742",            "fb_page_id": "107964449030742"},
@@ -117,8 +121,7 @@ GAMES = [
             {"platform": "youtube",   "region": "Korea",  "handle": "@LORDNINE_KR",     "url": "https://www.youtube.com/@LORDNINE_KR",     "yt_handle": "@LORDNINE_KR"},
             {"platform": "youtube",   "region": "Global", "handle": "@LORDNINE_GLOBAL", "url": "https://www.youtube.com/@LORDNINE_GLOBAL", "yt_handle": "@LORDNINE_GLOBAL"},
             {"platform": "youtube",   "region": "Japan",  "handle": "@LORDNINE_JP",     "url": "https://www.youtube.com/@LORDNINE_JP",     "yt_handle": "@LORDNINE_JP"},
-            {"platform": "x",         "region": "Global", "handle": "TBD", "url": "", "missing": True, "note": "Unconfirmed — please provide URL"},
-            {"platform": "facebook",  "region": "Korea",   "handle": "LordnineKR",        "url": "https://www.facebook.com/LordnineKR/",          "fb_page_id": "337644159430761"},
+            {"platform": "x",         "region": "Japan",  "handle": "@LORD9_jp", "url": "https://x.com/LORD9_jp"},
             {"platform": "facebook",  "region": "SEA",     "handle": "LordnineSEA",       "url": "https://www.facebook.com/LordnineSEA/",         "fb_page_id": "646314575225540"},
             {"platform": "facebook",  "region": "Thailand","handle": "LORDNINE Thailand", "url": "https://www.facebook.com/561566950382982",      "fb_page_id": "561566950382982"},
             {"platform": "facebook",  "region": "China",   "handle": "權力之望 LORDNINE",    "url": "https://www.facebook.com/293217650546931",      "fb_page_id": "293217650546931"},
@@ -166,6 +169,25 @@ def load_credentials():
     if not creds:
         log(f"WARN: no credentials found (no YAML, no env vars)")
     return creds
+
+
+def load_manual_followers():
+    """
+    Load user-maintained follower overrides from manual-followers.json.
+    Shape:
+      { "x": { "@handle": {"followers": 12345, "asOf": "2026-04-22"}, ... }, ... }
+    Keys beginning with '_' (e.g. '_readme') are ignored.
+    Returns {} on any error — manual input is always optional.
+    """
+    if not MANUAL_FILE.exists():
+        return {}
+    try:
+        with open(MANUAL_FILE, "r", encoding="utf-8") as f:
+            raw = json.load(f) or {}
+    except Exception as e:
+        log(f"WARN: failed to read manual-followers.json: {e}")
+        return {}
+    return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, dict)}
 
 
 # ==================================================================
@@ -595,6 +617,7 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .delta-chip.down { color: var(--neg); background: #FDE7ED; }
 .delta-chip.flat { color: var(--muted); background: #F1F2F4; }
 .delta-chip.nil { color: var(--muted); background: transparent; border: 1px dashed var(--border); font-weight: 500; }
+.delta-chip.manual { color: #7A5B00; background: #FFF4D6; border: 1px solid #F0D98A; font-weight: 500; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -836,6 +859,17 @@ def channel_card_html(game, ch, hist):
         guild_name = ch.get("guildName") or ""
         sub_note = f'<div class="subnote"><b>Online:</b> {fmt_num(ch["onlineCount"])}<span style="float:right;color:var(--muted);">{guild_name[:30]}</span></div>'
 
+    # Manual entries get a distinct badge instead of delta/history chip
+    if ch.get("followersSource") == "manual":
+        as_of = ch.get("manualAsOf") or ""
+        as_of_suffix = (" · " + as_of) if as_of else ""
+        badge_html = (
+            f'<span class="delta-chip manual" title="Manually entered{as_of_suffix}">'
+            f'수동 기록{as_of_suffix}</span>'
+        )
+    else:
+        badge_html = delta_chip_html(delta_week)
+
     return f"""
       <div class="channel">
         <div class="channel-head">
@@ -845,7 +879,7 @@ def channel_card_html(game, ch, hist):
         <div class="handle"><a href="{ch['url']}" target="_blank" rel="noopener">{ch['handle']}</a></div>
         <div class="metric-row">
           <div class="follower-num">{fmt_num(ch["followers"])}<small>{meta_metric}</small></div>
-          {delta_chip_html(delta_week)}
+          {badge_html}
         </div>
         <div class="spark-wrap"><canvas data-series='{series_json}' data-color="{spark_color}"></canvas></div>
         {sub_note}
@@ -988,6 +1022,45 @@ def main():
         credential_status["x"] = {"configured": False, "note": "bearer_token not provisioned"}
         platforms_pending.append("x")
 
+    # -------- Apply manual follower overrides (e.g. X counts entered by hand) --------
+    manual_data = load_manual_followers()
+    if manual_data:
+        applied = 0
+        for g in GAMES:
+            for c in g["channels"]:
+                platform = c.get("platform")
+                handle   = c.get("handle")
+                override = ((manual_data.get(platform) or {}).get(handle) or {})
+                followers = override.get("followers")
+                if followers is None:
+                    continue
+                if c.get("followers") is not None:
+                    # Live API data already set — skip manual override
+                    continue
+                try:
+                    c["followers"] = int(followers)
+                except (TypeError, ValueError):
+                    continue
+                c["followersSource"] = "manual"
+                as_of = override.get("asOf")
+                if as_of:
+                    c["manualAsOf"] = as_of
+                # Clear 'missing' / pending markers so card renders normally
+                c.pop("missing", None)
+                applied += 1
+                log(f"  ✎ manual: {g['id']}/{handle} → {int(followers):,} "
+                    f"followers (asOf {as_of or 'n/a'})")
+        if applied:
+            log(f"Manual overrides: applied {applied} channel(s) from manual-followers.json")
+            # If every X channel now has data via manual input, remove 'x' from pending
+            x_live = [c for g in GAMES for c in g["channels"]
+                      if c["platform"] == "x" and c.get("followers") is not None]
+            x_total = [c for g in GAMES for c in g["channels"]
+                       if c["platform"] == "x"]
+            if x_total and len(x_live) == len(x_total) and "x" in platforms_pending:
+                platforms_pending.remove("x")
+                credential_status["x"] = {"configured": True, "method": "manual entry"}
+
     # -------- Instagram (via Meta Graph API system-user token) --------
     meta_token = (creds.get("meta") or {}).get("system_token")
     if meta_token:
@@ -1070,7 +1143,6 @@ def main():
     html_out = build_html(snapshot, hist)
     with open(LATEST_HTML, "w", encoding="utf-8") as f:
         f.write(html_out)
-    # Also write index.html at repo root — GitHub Pages serves this as the default.
     with open(INDEX_HTML, "w", encoding="utf-8") as f:
         f.write(html_out)
     dated_html = SNAPSHOTS / f"{TODAY}.html"

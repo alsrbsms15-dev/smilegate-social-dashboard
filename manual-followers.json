@@ -1,0 +1,20 @@
+{
+  "_readme": [
+    "Manually-maintained follower counts for channels without automated API integration.",
+    "The fetch script reads this file and applies these values to matching channels.",
+    "Keys under each platform are channel handles (exactly as configured in GAMES).",
+    "Set 'followers' to the latest number you observed. Set 'asOf' to the check date (YYYY-MM-DD).",
+    "Leave 'followers' as null or remove the entry to fall back to 'Awaiting API credentials' state.",
+    "To edit without cloning the repo: open this file on GitHub.com and click the pencil icon.",
+    "After editing, GitHub Actions will pick up the new values on the next workflow run."
+  ],
+  "x": {
+    "@Epic7_Global":    { "followers": null, "asOf": null },
+    "@Epic7Twt":        { "followers": null, "asOf": null },
+    "@Epic7_jp":        { "followers": null, "asOf": null },
+    "@CZN_Official_EN": { "followers": null, "asOf": null },
+    "@CZN_Official_KR": { "followers": null, "asOf": null },
+    "@CZN_Official_jp": { "followers": null, "asOf": null },
+    "@LORD9_jp":        { "followers": null, "asOf": null }
+  }
+}
