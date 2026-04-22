@@ -118,10 +118,8 @@ GAMES = [
             {"platform": "youtube",   "region": "Global", "handle": "@LORDNINE_GLOBAL", "url": "https://www.youtube.com/@LORDNINE_GLOBAL", "yt_handle": "@LORDNINE_GLOBAL"},
             {"platform": "youtube",   "region": "Japan",  "handle": "@LORDNINE_JP",     "url": "https://www.youtube.com/@LORDNINE_JP",     "yt_handle": "@LORDNINE_JP"},
             {"platform": "x",         "region": "Global", "handle": "TBD", "url": "", "missing": True, "note": "Unconfirmed — please provide URL"},
-            {"platform": "instagram", "region": "Global", "handle": "TBD", "url": "", "missing": True, "note": "Unconfirmed — please provide URL"},
             {"platform": "facebook",  "region": "Korea",   "handle": "LordnineKR",        "url": "https://www.facebook.com/LordnineKR/",          "fb_page_id": "337644159430761"},
             {"platform": "facebook",  "region": "SEA",     "handle": "LordnineSEA",       "url": "https://www.facebook.com/LordnineSEA/",         "fb_page_id": "646314575225540"},
-            {"platform": "facebook",  "region": "Japan",   "handle": "ロードナイン",        "url": "https://www.facebook.com/630342166838803",      "fb_page_id": "630342166838803"},
             {"platform": "facebook",  "region": "Thailand","handle": "LORDNINE Thailand", "url": "https://www.facebook.com/561566950382982",      "fb_page_id": "561566950382982"},
             {"platform": "facebook",  "region": "China",   "handle": "權力之望 LORDNINE",    "url": "https://www.facebook.com/293217650546931",      "fb_page_id": "293217650546931"},
             {"platform": "discord",   "region": "SEA",    "handle": "discord.gg/lordninesea", "url": "https://discord.gg/lordninesea", "invite_code": "lordninesea"},
@@ -375,13 +373,29 @@ def fetch_facebook_for_channel(ch, token):
             })
         )
         page = http_get_json(page_url)
+        # Diagnostic: log what the API actually returned, so we can spot
+        # cases where multiple page_ids resolve to the same canonical page
+        # (e.g. merged pages) or where permissions cause silent fallbacks.
+        log(f"    FB [{page_id}] returned id={page.get('id')!r} "
+            f"name={page.get('name')!r} "
+            f"followers_count={page.get('followers_count')!r} "
+            f"fan_count={page.get('fan_count')!r}")
         followers = page.get("followers_count")
+        followers_source = "followers_count"
         if followers is None:
             followers = page.get("fan_count")  # legacy fallback
+            followers_source = "fan_count"
         if followers is None:
             return False, "no followers_count/fan_count in response (check page permissions)"
         ch["followers"] = int(followers)
         ch["title"]     = page.get("name")
+        ch["followersSource"] = followers_source
+        # Detect ID-remapping: some pages (esp. merged ones) return a different
+        # id than requested. Store for later inspection in the JSON snapshot.
+        returned_id = str(page.get("id") or "")
+        if returned_id and returned_id != str(page_id):
+            ch["fbResolvedId"] = returned_id
+            log(f"    ⚠ FB page_id mismatch: requested {page_id} but API returned {returned_id}")
         pic = (page.get("picture") or {}).get("data") or {}
         ch["thumbnail"] = pic.get("url")
 
@@ -1049,29 +1063,3 @@ def main():
 
     # Update history & generate HTML
     hist = load_history()
-    save_history(hist, snapshot)
-    hist = load_history()  # reload so today's entry is included
-
-    html_out = build_html(snapshot, hist)
-    with open(LATEST_HTML, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    # Also write index.html at repo root — GitHub Pages serves this as the default.
-    with open(INDEX_HTML, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    dated_html = SNAPSHOTS / f"{TODAY}.html"
-    with open(dated_html, "w", encoding="utf-8") as f:
-        f.write(html_out)
-
-    # -------- Report --------
-    live_cnt = sum(1 for g in GAMES for c in g["channels"] if c.get("followers") is not None)
-    total    = sum(c["followers"] for g in GAMES for c in g["channels"] if c.get("followers") is not None)
-    log("")
-    log(f"Done. {live_cnt} live channels, {len(errors)} errors, {len(platforms_pending)} platforms pending.")
-    log(f"Total combined live followers: {total:,}")
-    log(f"JSON: {json_path}")
-    log(f"HTML: {LATEST_HTML}")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
