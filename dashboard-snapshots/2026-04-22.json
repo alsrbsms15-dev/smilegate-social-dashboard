@@ -1,11 +1,9 @@
 {
   "snapshotDate": "2026-04-22",
-  "runTimestamp": "2026-04-22T08:05:00+09:00",
+  "runTimestamp": "2026-04-22T00:57:41+00:00",
   "credentialStatus": {
     "youtube": {
-      "configured": true,
-      "lastSuccessfulFetch": "2026-04-21",
-      "status": "stale_fetch_failed"
+      "configured": true
     },
     "x": {
       "configured": false,
@@ -21,9 +19,7 @@
     },
     "discord": {
       "configured": true,
-      "method": "public invite API (no auth)",
-      "lastSuccessfulFetch": "2026-04-21",
-      "status": "stale_fetch_failed"
+      "method": "public invite API (no auth)"
     }
   },
   "games": {
@@ -40,15 +36,13 @@
           "title": "EpicSeven",
           "thumbnail": "https://yt3.ggpht.com/qBRFJtQS8NhWAdyyXTLMu66Vp1Fok9kpz-XnYU-oB3iUng6csiOopZlHGm-doJVfm7HTLmnNhA=s88-c-k-c0x00ffffff-no-rj",
           "followers": 180000,
-          "viewCount": 126761869,
-          "videoCount": 1799,
+          "viewCount": 126780670,
+          "videoCount": 1800,
           "latestVideo": {
-            "title": "Lascivious Setsuka, Caught Red-Handed #epicseven",
-            "publishedAt": "2026-04-21T04:00:26Z",
-            "videoId": "TC6V1nqcXjI"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "270 Remaining! #epicseven",
+            "publishedAt": "2026-04-21T09:00:44Z",
+            "videoId": "YDnN1Y90HQ4"
+          }
         },
         {
           "platform": "youtube",
@@ -60,15 +54,13 @@
           "title": "에픽세븐",
           "thumbnail": "https://yt3.ggpht.com/Gaph9t5FDWmEXxvzgD6IpLTr39jYK2UKD3VpKv73Ok3IB3p7-WOO1WMyoOPQrenpUnuwd8Xb=s88-c-k-c0x00ffffff-no-rj",
           "followers": 39700,
-          "viewCount": 40555854,
-          "videoCount": 1265,
+          "viewCount": 40566261,
+          "videoCount": 1266,
           "latestVideo": {
-            "title": "풍기문란 설화 현장 검거 #에픽세븐",
-            "publishedAt": "2026-04-21T04:00:10Z",
-            "videoId": "9ybvhDJIvag"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "남았어요, 270!! #에픽세븐",
+            "publishedAt": "2026-04-21T09:01:06Z",
+            "videoId": "jvVwOOZqrd8"
+          }
         },
         {
           "platform": "youtube",
@@ -80,15 +72,13 @@
           "title": "エピックセブン",
           "thumbnail": "https://yt3.ggpht.com/668yi2CxCyAGDJKYtyttzEwAoFugIgX94-w8VaOF_xzd_BA3XO25-3Ru-of7epVMEb8dQcrFpjg=s88-c-k-c0x00ffffff-no-rj",
           "followers": 18000,
-          "viewCount": 23888560,
-          "videoCount": 756,
+          "viewCount": 23889101,
+          "videoCount": 757,
           "latestVideo": {
-            "title": "風紀を乱すセツカ現行犯確保 #エピックセブン",
-            "publishedAt": "2026-04-21T04:00:39Z",
-            "videoId": "bXBsGVPK0pA"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "残り、270!! #エピックセブン",
+            "publishedAt": "2026-04-21T09:00:11Z",
+            "videoId": "95ILyUQdVMg"
+          }
         },
         {
           "platform": "youtube",
@@ -100,15 +90,13 @@
           "title": "第七史詩",
           "thumbnail": "https://yt3.ggpht.com/8YXwkylUt_iY5LCyprn88ATyzE0g0052GKTK3jOjVKL4ABfEfmLWAI5kLPbpfQwOfWT6ISSx=s88-c-k-c0x00ffffff-no-rj",
           "followers": 19200,
-          "viewCount": 14898423,
-          "videoCount": 997,
+          "viewCount": 14899541,
+          "videoCount": 998,
           "latestVideo": {
-            "title": "不檢點的雪花，現場逮捕 #第七史詩",
-            "publishedAt": "2026-04-21T04:00:07Z",
-            "videoId": "98ZA_3yaQZ4"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "還剩下270！！ #第七史詩",
+            "publishedAt": "2026-04-21T09:01:17Z",
+            "videoId": "vL3dDc44iRw"
+          }
         },
         {
           "platform": "x",
@@ -146,13 +134,11 @@
           "handle": "discord.gg/vUUQvUQPZC",
           "url": "https://discord.com/invite/vUUQvUQPZC",
           "invite_code": "vUUQvUQPZC",
-          "followers": 96632,
-          "onlineCount": 16083,
+          "followers": 96652,
+          "onlineCount": 20217,
           "guildName": "Epic 7 Official Discord",
           "guildId": "595385354908073984",
-          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64",
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64"
         }
       ]
     },
@@ -170,15 +156,13 @@
           "title": "카오스 제로 나이트메어",
           "thumbnail": "https://yt3.ggpht.com/WlJL05SvBAOPNvQmhxzXUyu-N1U3iyJxYmjExdLT8u3cLiIjxdITln3FkLhwcMU2wgjzOP4W=s88-c-k-c0x00ffffff-no-rj",
           "followers": 10300,
-          "viewCount": 14254966,
+          "viewCount": 14256471,
           "videoCount": 136,
           "latestVideo": {
             "title": "[카오스 제로 나이트메어] 은하계 재해 시즌3 PV",
             "publishedAt": "2026-04-18T04:01:51Z",
             "videoId": "QFJ6TcH6aNs"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          }
         },
         {
           "platform": "youtube",
@@ -189,16 +173,14 @@
           "yt_id": "UCQ7YAXPdiccbFBmwuGvO3Jg",
           "title": "Chaos Zero Nightmare",
           "thumbnail": "https://yt3.ggpht.com/3sEN_e891wF-zugwts48nU4qnPVetpO7rDesiZrNeMrDODhBrYbejKQfnQaLadH6wtAZ2qliwA=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 73100,
-          "viewCount": 18656024,
+          "followers": 73200,
+          "viewCount": 18662861,
           "videoCount": 132,
           "latestVideo": {
             "title": "[Chaos Zero Nightmare] Galactic Disaster Season 3 PV",
             "publishedAt": "2026-04-18T04:01:47Z",
             "videoId": "MwLxnHu2_bo"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          }
         },
         {
           "platform": "youtube",
@@ -210,15 +192,13 @@
           "title": "カオスゼロナイトメア公式 (カオゼロ)",
           "thumbnail": "https://yt3.ggpht.com/ungcnxER6kNjeAE99z-aI1xidXyY-Yn2gm17F_Y7sVQfiYXg2lqz9-kLxDnwdfPGKHTqLDvUJw=s88-c-k-c0x00ffffff-no-rj",
           "followers": 19300,
-          "viewCount": 28253496,
+          "viewCount": 28255041,
           "videoCount": 152,
           "latestVideo": {
-            "title": "【カオスゼロナイトメア】銀河系災害シーズン3：銀河に響く歌声PV",
-            "publishedAt": "2026-04-18T04:01:50Z",
-            "videoId": "s4supATDunQ"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】",
+            "publishedAt": "2026-04-21T05:13:20Z",
+            "videoId": "Dm2GIEkrhMc"
+          }
         },
         {
           "platform": "youtube",
@@ -229,16 +209,14 @@
           "yt_id": "UCNmUWtRXbKoQNbLQ0f8oYpg",
           "title": "卡厄思夢境【TW】",
           "thumbnail": "https://yt3.ggpht.com/GUhKE34EdPN3blkS7fBtRktSbTityNqerFsf3DYrebdwCoCCFgSM8TogSVy7RAVx1LPC5bALtA=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 8220,
-          "viewCount": 4342870,
+          "followers": 8210,
+          "viewCount": 4343505,
           "videoCount": 134,
           "latestVideo": {
             "title": "《卡厄思夢境》「銀河系災害」第3季宣傳影片",
             "publishedAt": "2026-04-18T04:01:53Z",
             "videoId": "ETWQ3rgpFgw"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          }
         },
         {
           "platform": "x",
@@ -264,13 +242,11 @@
           "handle": "discord.gg/chaoszeronightmare",
           "url": "https://discord.gg/chaoszeronightmare",
           "invite_code": "chaoszeronightmare",
-          "followers": 61240,
-          "onlineCount": 15228,
+          "followers": 61257,
+          "onlineCount": 16515,
           "guildName": "Chaos Zero Nightmare Official",
           "guildId": "1199065921365475470",
-          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64",
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64"
         }
       ]
     },
@@ -288,15 +264,13 @@
           "title": "로드나인",
           "thumbnail": "https://yt3.ggpht.com/D1nWjc4h1lP25Mxa0Y8mfmyE5OUszgEgeqqd_xxSwtE37TZv2CvD-VhuiXUsZAopSTTFmnwgmw=s88-c-k-c0x00ffffff-no-rj",
           "followers": 22600,
-          "viewCount": 19743862,
-          "videoCount": 155,
+          "viewCount": 19744036,
+          "videoCount": 156,
           "latestVideo": {
-            "title": "[로드나인] 신규 서버 디나페리로 어쎔블!",
-            "publishedAt": "2026-04-09T04:18:12Z",
-            "videoId": "mOIY8Dwxm_o"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+            "title": "[로드나인] 4월 2차 업데이트 프리뷰",
+            "publishedAt": "2026-04-21T09:00:05Z",
+            "videoId": "3UZm37FuAlA"
+          }
         },
         {
           "platform": "youtube",
@@ -308,15 +282,13 @@
           "title": "LORDNINE",
           "thumbnail": "https://yt3.ggpht.com/LKzFrpdAh1tMs6wz041MBXl9ilRI5BylvHtjdWnO5i6Ink7qF5bekTlE507Cq4xZMyTc7V7UAA=s88-c-k-c0x00ffffff-no-rj",
           "followers": 27300,
-          "viewCount": 966451,
+          "viewCount": 966486,
           "videoCount": 51,
           "latestVideo": {
             "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
             "publishedAt": "2026-03-17T07:42:51Z",
             "videoId": "2NzuUYIlhH0"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          }
         },
         {
           "platform": "youtube",
@@ -328,15 +300,13 @@
           "title": "ロードナイン (LORDNINE)",
           "thumbnail": "https://yt3.ggpht.com/PVunCLfzztaj6_3GRgYVrSXw0tGuHv96kNieLyzaR79umyTbct7yftLrPmmx7jIDkFUVsc0WUQ=s88-c-k-c0x00ffffff-no-rj",
           "followers": 2350,
-          "viewCount": 107214,
+          "viewCount": 107223,
           "videoCount": 44,
           "latestVideo": {
             "title": "3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加",
             "publishedAt": "2026-03-17T07:43:28Z",
             "videoId": "98MtSQjXdEU"
-          },
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          }
         },
         {
           "platform": "x",
@@ -372,35 +342,19 @@
           "handle": "discord.gg/lordninesea",
           "url": "https://discord.gg/lordninesea",
           "invite_code": "lordninesea",
-          "followers": 32876,
-          "onlineCount": 6722,
+          "followers": 32859,
+          "onlineCount": 5264,
           "guildName": "LORDNINE SEA",
           "guildId": "1361496239501217963",
-          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64",
-          "stale": true,
-          "lastSuccessfulFetch": "2026-04-21"
+          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64"
         }
       ]
     }
   },
-  "apiErrors": [
-    {
-      "platform": "youtube",
-      "endpoint": "youtube.v3/channels",
-      "error": "EGRESS_BLOCKED www.googleapis.com",
-      "time": "2026-04-22T08:05:00+09:00"
-    },
-    {
-      "platform": "discord",
-      "endpoint": "discord.com/api/guilds/{id}/widget.json",
-      "error": "EGRESS_BLOCKED discord.com",
-      "time": "2026-04-22T08:05:00+09:00"
-    }
-  ],
+  "apiErrors": [],
   "platformsPendingCredentials": [
     "x",
     "facebook",
     "instagram"
-  ],
-  "fetchFailureNote": "Dashboard host blocked from reaching googleapis.com and discord.com during this run; values carried forward from the last successful fetch on 2026-04-21."
+  ]
 }

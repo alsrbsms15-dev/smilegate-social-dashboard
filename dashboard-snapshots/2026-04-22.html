@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Smilegate Games — Social Dashboard</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
-<style>:root { color-scheme: light; --bg:#F7F8FA; --surface:#FFFFFF; --border:#ECEEF1; --text:#0E1013; --text-2:#3A3F47; --muted:#6B7280; --muted-2:#9CA3AF; --pos:#12A150; --neg:#E11D48; --yt:#FF0033; --x:#000; --ig-a:#F58529; --ig-b:#DD2A7B; --ig-c:#8134AF; --fb:#1877F2; --dc:#5865F2; --shadow-sm:0 1px 2px rgba(15,17,22,.04), 0 0 0 1px rgba(15,17,22,.04); }
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js"></script>
+<style>
+:root { color-scheme: light; --bg:#F7F8FA; --surface:#FFFFFF; --border:#ECEEF1; --text:#0E1013; --text-2:#3A3F47; --muted:#6B7280; --muted-2:#9CA3AF; --pos:#12A150; --neg:#E11D48; --yt:#FF0033; --x:#000; --ig-a:#F58529; --ig-b:#DD2A7B; --ig-c:#8134AF; --fb:#1877F2; --dc:#5865F2; --shadow-sm:0 1px 2px rgba(15,17,22,.04), 0 0 0 1px rgba(15,17,22,.04); }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, "Noto Sans KR", sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; line-height: 1.4; }
 a { color: inherit; text-decoration: none; }
@@ -16,12 +17,9 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .meta-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 12px; color: var(--text-2); font-weight: 500; }
 .meta-chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--pos); }
 .meta-chip.part .dot { background: #F59E0B; }
-.meta-chip.stale .dot { background: var(--neg); }
-.banner { padding: 14px 16px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px; font-size: 13px; color: #166534; margin-bottom: 16px; line-height: 1.55; }
+.banner { padding: 14px 16px; background: #F0FDF4; border: 1px solid #BBF7D0; border-radius: 12px; font-size: 13px; color: #166534; margin-bottom: 24px; line-height: 1.55; }
 .banner.warn { background: #FFF8E1; border-color: #F7D774; color: #6B4A05; }
-.banner.stale { background: #FEF2F2; border-color: #FCA5A5; color: #9B1C1C; }
-.banner + .banner { margin-top: -4px; }
-.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 16px 0 28px; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 28px; }
 .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; box-shadow: var(--shadow-sm); }
 .stat .label { font-size: 12px; color: var(--muted); font-weight: 500; margin-bottom: 8px; }
 .stat .value { font-size: 24px; font-weight: 700; letter-spacing: -0.015em; }
@@ -66,7 +64,6 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .delta-chip.down { color: var(--neg); background: #FDE7ED; }
 .delta-chip.flat { color: var(--muted); background: #F1F2F4; }
 .delta-chip.nil { color: var(--muted); background: transparent; border: 1px dashed var(--border); font-weight: 500; }
-.stale-mark { font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 999px; background: #FEF3C7; color: #92400E; border: 1px solid #FDE68A; letter-spacing: .02em; text-transform: uppercase; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -76,100 +73,387 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .missing-label { font-size: 12px; color: var(--muted); text-align: center; padding: 16px 4px; border: 1px dashed #DDE0E5; border-radius: 8px; background: #fff; }
 .missing-label b { color: #92400E; }
 .pending-label { font-size: 12px; color: var(--muted); text-align: center; padding: 8px 4px; }
-footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }</style>
+footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--muted); border-top: 1px solid var(--border); display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+</style>
 </head>
 <body>
 <div class="page">
-<header class="top"><div class="brand"><span class="eyebrow">Smilegate Content Marketing</span><h1>Game Social Dashboard</h1><p class="sub">Epic Seven · Chaos Zero Nightmare · Lord Nine — official channels across YouTube, X, Instagram, Facebook, Discord.</p></div><div><span class="meta-chip stale"><span class="dot"></span> Data as of 2026-04-21</span><span class="meta-chip" style="margin-left:8px;">Updated 2026-04-22</span></div></header>
-<div class="banner stale">⚠ Live fetch unavailable today — numbers carried forward from last successful fetch (2026-04-21). Cause: dashboard host cannot reach <code>googleapis.com</code> / <code>discord.com</code> from today's run. Engineering notified via run log; next scheduled run retries automatically.</div>
-<div class="banner warn">✓ 2 platform(s) live (YouTube, Discord). 10 channel(s) across X, Facebook, Instagram still awaiting API credentials — see <b>API_setup_guide.md</b> for each platform's setup.</div>
-<section class="summary"><div class="stat"><div class="label">Total followers (live)</div><div class="value">611K</div><div class="sub">14 of 26 channels reporting</div></div><div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">Discord, Youtube</div><div class="sub">3 platform(s) pending credentials</div></div><div class="stat"><div class="label">Channels tracked</div><div class="value">26</div><div class="sub">2 unconfirmed · 10 awaiting keys</div></div><div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-22</div><div class="sub">data as of 2026-04-21</div></div></section>
-<section class="game-block"><div class="game-header"><div class="game-title"><span class="swatch" style="background:#6B5FD4"></span><h2>Epic Seven</h2><span class="ko">에픽세븐</span></div><div class="game-meta"><span><b>10</b> channels</span><span><b>354K</b> followers</span></div></div><div class="trend-card"><div class="trend-head"><h3>Channel mix — Epic Seven</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7" data-points='[{"platform": "youtube", "region": "Global", "value": 180000}, {"platform": "youtube", "region": "Korea", "value": 39700}, {"platform": "youtube", "region": "Japan", "value": 18000}, {"platform": "youtube", "region": "Taiwan", "value": 19200}, {"platform": "discord", "region": "Official", "value": 96632}]'></canvas></div></div><div class="grid">
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span><a class="ext" href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener">@EpicSeven</a></div><div class="metric-row"><div class="follower-num">180K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[180000]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="Lascivious Setsuka, Caught Red-Handed #epicseven"><b>Latest:</b><span class="title">Lascivious Setsuka, Caught Red-Handed #epicseven</span><span class="ago">22h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.80K videos · 126.8M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span><a class="ext" href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener">@EpicSevenKR</a></div><div class="metric-row"><div class="follower-num">39.7K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[39700]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="풍기문란 설화 현장 검거 #에픽세븐"><b>Latest:</b><span class="title">풍기문란 설화 현장 검거 #에픽세븐</span><span class="ago">22h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.26K videos · 40.6M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span><a class="ext" href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener">@EpicSevenJP</a></div><div class="metric-row"><div class="follower-num">18.0K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[18000]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="風紀を乱すセツカ現行犯確保 #エピックセブン"><b>Latest:</b><span class="title">風紀を乱すセツカ現行犯確保 #エピックセブン</span><span class="ago">22h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">756 videos · 23.9M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span><a class="ext" href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener">@EpicSevenTW</a></div><div class="metric-row"><div class="follower-num">19.2K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[19200]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="不檢點的雪花，現場逮捕 #第七史詩"><b>Latest:</b><span class="title">不檢點的雪花，現場逮捕 #第七史詩</span><span class="ago">22h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">997 videos · 14.9M total views</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span><a class="ext" href="https://x.com/Epic7_Global" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://x.com/Epic7_Global" target="_blank" rel="noopener">@Epic7_Global</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Korea</span><a class="ext" href="https://x.com/Epic7Twt" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://x.com/Epic7Twt" target="_blank" rel="noopener">@Epic7Twt</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span><a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">@epicseven_global</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Global</span><a class="ext" href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener">EpicSevenGlobal</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Korea</span><a class="ext" href="https://www.facebook.com/EpicSevenKR/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.facebook.com/EpicSevenKR/" target="_blank" rel="noopener">EpicSevenKR</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span><a class="ext" href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener">discord.gg/vUUQvUQPZC</a></div><div class="metric-row"><div class="follower-num">96.6K<small>members</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[96632]' data-color="#5865F2"></canvas></div><div class="subnote"><b>Online:</b> 16.1K<span style="float:right;color:var(--muted);">Epic 7 Official Discord</span></div></div></div></section>
-<section class="game-block"><div class="game-header"><div class="game-title"><span class="swatch" style="background:#D4495F"></span><h2>Chaos Zero Nightmare</h2><span class="ko">카오스 제로 나이트메어</span></div><div class="game-meta"><span><b>8</b> channels</span><span><b>172K</b> followers</span></div></div><div class="trend-card"><div class="trend-head"><h3>Channel mix — Chaos Zero Nightmare</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn" data-points='[{"platform": "youtube", "region": "Korea", "value": 10300}, {"platform": "youtube", "region": "Global", "value": 73100}, {"platform": "youtube", "region": "Japan", "value": 19300}, {"platform": "youtube", "region": "Taiwan", "value": 8220}, {"platform": "discord", "region": "Official", "value": 61240}]'></canvas></div></div><div class="grid">
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span><a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener">@ChaosZeroNightmare_KR</a></div><div class="metric-row"><div class="follower-num">10.3K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[10300]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="[카오스 제로 나이트메어] 은하계 재해 시즌3 PV"><b>Latest:</b><span class="title">[카오스 제로 나이트메어] 은하계 재해 시즌3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">136 videos · 14.3M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span><a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">@ChaosZeroNightmare_EN</a></div><div class="metric-row"><div class="follower-num">73.1K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[73100]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="[Chaos Zero Nightmare] Galactic Disaster Season 3 PV"><b>Latest:</b><span class="title">[Chaos Zero Nightmare] Galactic Disaster Season 3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">132 videos · 18.7M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span><a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener">@ChaosZeroNightmare_JP</a></div><div class="metric-row"><div class="follower-num">19.3K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[19300]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="【カオスゼロナイトメア】銀河系災害シーズン3：銀河に響く歌声PV"><b>Latest:</b><span class="title">【カオスゼロナイトメア】銀河系災害シーズン3：銀河に響く歌声PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">152 videos · 28.3M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span><a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener">@ChaosZeroNightmare_TW</a></div><div class="metric-row"><div class="follower-num">8.22K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[8220]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="《卡厄思夢境》「銀河系災害」第3季宣傳影片"><b>Latest:</b><span class="title">《卡厄思夢境》「銀河系災害」第3季宣傳影片</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">134 videos · 4.3M total views</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span><a class="ext" href="https://x.com/CZN_Official_EN" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://x.com/CZN_Official_EN" target="_blank" rel="noopener">@CZN_Official_EN</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span><a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">@czn.official.en</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Official</span><a class="ext" href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener">ChaosZeroNightmare</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span><a class="ext" href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener">discord.gg/chaoszeronightmare</a></div><div class="metric-row"><div class="follower-num">61.2K<small>members</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[61240]' data-color="#5865F2"></canvas></div><div class="subnote"><b>Online:</b> 15.2K<span style="float:right;color:var(--muted);">Chaos Zero Nightmare Official</span></div></div></div></section>
-<section class="game-block"><div class="game-header"><div class="game-title"><span class="swatch" style="background:#2B8A73"></span><h2>Lord Nine</h2><span class="ko">로드나인</span></div><div class="game-meta"><span><b>8</b> channels</span><span><b>85.1K</b> followers</span></div></div><div class="trend-card"><div class="trend-head"><h3>Channel mix — Lord Nine</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-l9" data-points='[{"platform": "youtube", "region": "Korea", "value": 22600}, {"platform": "youtube", "region": "Global", "value": 27300}, {"platform": "youtube", "region": "Japan", "value": 2350}, {"platform": "discord", "region": "SEA", "value": 32876}]'></canvas></div></div><div class="grid">
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span><a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">@LORDNINE_KR</a></div><div class="metric-row"><div class="follower-num">22.6K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[22600]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="[로드나인] 신규 서버 디나페리로 어쎔블!"><b>Latest:</b><span class="title">[로드나인] 신규 서버 디나페리로 어쎔블!</span><span class="ago">12d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">155 videos · 19.7M total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span><a class="ext" href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener">@LORDNINE_GLOBAL</a></div><div class="metric-row"><div class="follower-num">27.3K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[27300]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes"><b>Latest:</b><span class="title">March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes</span><span class="ago">35d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">51 videos · 966.5K total views</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span><a class="ext" href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener">@LORDNINE_JP</a></div><div class="metric-row"><div class="follower-num">2.35K<small>subscribers</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[2350]' data-color="#FF0033"></canvas></div><div class="subnote subnote-latest" title="3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加"><b>Latest:</b><span class="title">3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加</span><span class="ago">35d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">44 videos · 107.2K total views</div></div>
-      <div class="channel missing"><div class="channel-head"><span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span></div><div class="handle">TBD</div><div class="missing-label"><b>Not located</b><br/>Please confirm URL with operations</div></div>
-      <div class="channel missing"><div class="channel-head"><span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span></div><div class="handle">TBD</div><div class="missing-label"><b>Not located</b><br/>Please confirm URL with operations</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Korea</span><a class="ext" href="https://www.facebook.com/LordnineKR/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.facebook.com/LordnineKR/" target="_blank" rel="noopener">LordnineKR</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel pending"><div class="channel-head"><span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · SEA</span><a class="ext" href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener">LordnineSEA</a></div><div class="pending-label">⋯ Awaiting API credentials</div></div>
-      <div class="channel"><div class="channel-head"><span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · SEA</span><a class="ext" href="https://discord.gg/lordninesea" target="_blank" rel="noopener" aria-label="Open">↗</a></div><div class="handle"><a href="https://discord.gg/lordninesea" target="_blank" rel="noopener">discord.gg/lordninesea</a></div><div class="metric-row"><div class="follower-num">32.9K<small>members</small></div><span class="stale-mark" title="Value carried from last successful fetch on 2026-04-21">stale</span></div><div class="spark-wrap"><canvas data-series='[32876]' data-color="#5865F2"></canvas></div><div class="subnote"><b>Online:</b> 6.72K<span style="float:right;color:var(--muted);">LORDNINE SEA</span></div></div></div></section>
-<footer class="note"><span>Snapshot 2026-04-22 · generated 2026-04-22T08:05:00+09:00</span><span>Data carried forward from 2026-04-21. See run log for retry status.</span></footer>
+  <header class="top">
+    <div class="brand">
+      <span class="eyebrow">Smilegate Content Marketing</span>
+      <h1>Game Social Dashboard</h1>
+      <p class="sub">Epic Seven · Chaos Zero Nightmare · Lord Nine — official channels across YouTube, X, Instagram, Facebook, Discord.</p>
+    </div>
+    <div>
+      <span class="meta-chip part">
+        <span class="dot"></span> 2 of 5 platforms live
+      </span>
+      <span class="meta-chip" style="margin-left:8px;">Updated 2026-04-22</span>
+    </div>
+  </header>
+
+  <div class="banner warn">✓ 2 platform(s) live. 10 channel(s) across Facebook / Instagram / X still awaiting API credentials — see <b>API_setup_guide.md</b> for each platform's setup.</div>
+  
+      <section class="summary">
+        <div class="stat"><div class="label">Total followers (live)</div><div class="value">610.9K</div><div class="sub">14 of 26 channels reporting</div></div>
+        <div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">Discord, Youtube</div><div class="sub">3 platform(s) pending credentials</div></div>
+        <div class="stat"><div class="label">Channels tracked</div><div class="value">26</div><div class="sub">2 unconfirmed · 10 awaiting keys</div></div>
+        <div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-22</div><div class="sub">00:57 local</div></div>
+      </section>
+  
+      <section class="game-block">
+        <div class="game-header">
+          <div class="game-title"><span class="swatch" style="background:#6B5FD4"></span><h2>Epic Seven</h2><span class="ko">에픽세븐</span></div>
+          <div class="game-meta"><span><b>10</b> channels</span><span><b>353.6K</b> followers</span></div>
+        </div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7"></canvas></div></div>
+        <div class="grid">
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
+          <a class="ext" href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener">@EpicSeven</a></div>
+        <div class="metric-row">
+          <div class="follower-num">180.0K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[180000, 180000]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="270 Remaining! #epicseven"><b>Latest:</b><span class="title">270 Remaining! #epicseven</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.80K videos · 126.8M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
+          <a class="ext" href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener">@EpicSevenKR</a></div>
+        <div class="metric-row">
+          <div class="follower-num">39.7K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[39700, 39700]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="남았어요, 270!! #에픽세븐"><b>Latest:</b><span class="title">남았어요, 270!! #에픽세븐</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.27K videos · 40.6M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
+          <a class="ext" href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener">@EpicSevenJP</a></div>
+        <div class="metric-row">
+          <div class="follower-num">18.0K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[18000, 18000]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="残り、270!! #エピックセブン"><b>Latest:</b><span class="title">残り、270!! #エピックセブン</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">757 videos · 23.9M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span>
+          <a class="ext" href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener">@EpicSevenTW</a></div>
+        <div class="metric-row">
+          <div class="follower-num">19.2K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[19200, 19200]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="還剩下270！！ #第七史詩"><b>Latest:</b><span class="title">還剩下270！！ #第七史詩</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">998 videos · 14.9M total views</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span>
+          <a class="ext" href="https://x.com/Epic7_Global" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://x.com/Epic7_Global" target="_blank" rel="noopener">@Epic7_Global</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Korea</span>
+          <a class="ext" href="https://x.com/Epic7Twt" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://x.com/Epic7Twt" target="_blank" rel="noopener">@Epic7Twt</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
+          <a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">@epicseven_global</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Global</span>
+          <a class="ext" href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener">EpicSevenGlobal</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Korea</span>
+          <a class="ext" href="https://www.facebook.com/EpicSevenKR/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.facebook.com/EpicSevenKR/" target="_blank" rel="noopener">EpicSevenKR</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span>
+          <a class="ext" href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener">discord.gg/vUUQvUQPZC</a></div>
+        <div class="metric-row">
+          <div class="follower-num">96.7K<small>members</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[96632, 96652]' data-color="#5865F2"></canvas></div>
+        <div class="subnote"><b>Online:</b> 20.2K<span style="float:right;color:var(--muted);">Epic 7 Official Discord</span></div>
+      </div></div>
+      </section>
+      <section class="game-block">
+        <div class="game-header">
+          <div class="game-title"><span class="swatch" style="background:#D4495F"></span><h2>Chaos Zero Nightmare</h2><span class="ko">카오스 제로 나이트메어</span></div>
+          <div class="game-meta"><span><b>8</b> channels</span><span><b>172.3K</b> followers</span></div>
+        </div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn"></canvas></div></div>
+        <div class="grid">
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener">@ChaosZeroNightmare_KR</a></div>
+        <div class="metric-row">
+          <div class="follower-num">10.3K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[10300, 10300]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="[카오스 제로 나이트메어] 은하계 재해 시즌3 PV"><b>Latest:</b><span class="title">[카오스 제로 나이트메어] 은하계 재해 시즌3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">136 videos · 14.3M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">@ChaosZeroNightmare_EN</a></div>
+        <div class="metric-row">
+          <div class="follower-num">73.2K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[73100, 73200]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="[Chaos Zero Nightmare] Galactic Disaster Season 3 PV"><b>Latest:</b><span class="title">[Chaos Zero Nightmare] Galactic Disaster Season 3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">132 videos · 18.7M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener">@ChaosZeroNightmare_JP</a></div>
+        <div class="metric-row">
+          <div class="follower-num">19.3K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[19300, 19300]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】"><b>Latest:</b><span class="title">『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】</span><span class="ago">19h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">152 videos · 28.3M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener">@ChaosZeroNightmare_TW</a></div>
+        <div class="metric-row">
+          <div class="follower-num">8.21K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[8220, 8210]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="《卡厄思夢境》「銀河系災害」第3季宣傳影片"><b>Latest:</b><span class="title">《卡厄思夢境》「銀河系災害」第3季宣傳影片</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">134 videos · 4.34M total views</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span>
+          <a class="ext" href="https://x.com/CZN_Official_EN" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://x.com/CZN_Official_EN" target="_blank" rel="noopener">@CZN_Official_EN</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
+          <a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">@czn.official.en</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Official</span>
+          <a class="ext" href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener">ChaosZeroNightmare</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span>
+          <a class="ext" href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener">discord.gg/chaoszeronightmare</a></div>
+        <div class="metric-row">
+          <div class="follower-num">61.3K<small>members</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[61240, 61257]' data-color="#5865F2"></canvas></div>
+        <div class="subnote"><b>Online:</b> 16.5K<span style="float:right;color:var(--muted);">Chaos Zero Nightmare Official</span></div>
+      </div></div>
+      </section>
+      <section class="game-block">
+        <div class="game-header">
+          <div class="game-title"><span class="swatch" style="background:#C79848"></span><h2>Lord Nine</h2><span class="ko">로드나인</span></div>
+          <div class="game-meta"><span><b>8</b> channels</span><span><b>85.1K</b> followers</span></div>
+        </div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-l9"></canvas></div></div>
+        <div class="grid">
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">@LORDNINE_KR</a></div>
+        <div class="metric-row">
+          <div class="follower-num">22.6K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[22600, 22600]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="[로드나인] 4월 2차 업데이트 프리뷰"><b>Latest:</b><span class="title">[로드나인] 4월 2차 업데이트 프리뷰</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">156 videos · 19.7M total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener">@LORDNINE_GLOBAL</a></div>
+        <div class="metric-row">
+          <div class="follower-num">27.3K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[27300, 27300]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes"><b>Latest:</b><span class="title">March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes</span><span class="ago">35d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">51 videos · 966.5K total views</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener">@LORDNINE_JP</a></div>
+        <div class="metric-row">
+          <div class="follower-num">2.35K<small>subscribers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[2350, 2350]' data-color="#FF0033"></canvas></div>
+        <div class="subnote subnote-latest" title="3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加"><b>Latest:</b><span class="title">3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加</span><span class="ago">35d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">44 videos · 107.2K total views</div>
+      </div>
+      <div class="channel missing">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X · Global</span>
+        </div>
+        <div class="missing-label"><b>Not located</b><br><span style="font-size:11px;">Unconfirmed — please provide URL</span></div>
+      </div>
+      <div class="channel missing">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
+        </div>
+        <div class="missing-label"><b>Not located</b><br><span style="font-size:11px;">Unconfirmed — please provide URL</span></div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Korea</span>
+          <a class="ext" href="https://www.facebook.com/LordnineKR/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.facebook.com/LordnineKR/" target="_blank" rel="noopener">LordnineKR</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel pending">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · SEA</span>
+          <a class="ext" href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener">↗</a>
+        </div>
+        <div class="handle"><a href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener">LordnineSEA</a></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
+      </div>
+      <div class="channel">
+        <div class="channel-head">
+          <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · SEA</span>
+          <a class="ext" href="https://discord.gg/lordninesea" target="_blank" rel="noopener" aria-label="Open">↗</a>
+        </div>
+        <div class="handle"><a href="https://discord.gg/lordninesea" target="_blank" rel="noopener">discord.gg/lordninesea</a></div>
+        <div class="metric-row">
+          <div class="follower-num">32.9K<small>members</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[32876, 32859]' data-color="#5865F2"></canvas></div>
+        <div class="subnote"><b>Online:</b> 5.26K<span style="float:right;color:var(--muted);">LORDNINE SEA</span></div>
+      </div></div>
+      </section>
+
+  <footer class="note">
+    <span>© Smilegate Content Marketing Team · Pulled by fetch_social_stats.py</span>
+    <span>Data source: Discord API, Youtube API</span>
+  </footer>
 </div>
+
 <script>
-(function(){
-  function sparkline(canvas){
-    try {
-      var series = JSON.parse(canvas.dataset.series || "[]");
-      if (!series.length) return;
-      var color = canvas.dataset.color || "#6B5FD4";
-      // Pad to 2 points so Chart.js draws a flat line instead of empty
-      var data = series.length === 1 ? [series[0], series[0]] : series;
-      new Chart(canvas.getContext("2d"), {
-        type: "line",
-        data: { labels: data.map(function(_,i){return i;}), datasets: [{
-          data: data, borderColor: color, backgroundColor: color + "22",
-          borderWidth: 1.6, tension: 0.3, pointRadius: 0, fill: true
-        }] },
-        options: {
-          responsive: true, maintainAspectRatio: false, animation: false,
-          plugins: { legend: { display: false }, tooltip: { enabled: false } },
-          scales: { x: { display: false }, y: { display: false } }
-        }
-      });
-    } catch(e) { /* noop */ }
-  }
+const DATA = {"trendCharts": [{"canvasId": "trend-epic7", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [256900, 256900]}, {"label": "Discord", "color": "#5865F2", "data": [96632, 96652]}]}, {"canvasId": "trend-czn", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [110920, 111010]}, {"label": "Discord", "color": "#5865F2", "data": [61240, 61257]}]}, {"canvasId": "trend-l9", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [52250, 52250]}, {"label": "Discord", "color": "#5865F2", "data": [32876, 32859]}]}]};
 
-  function trendChart(canvas){
-    try {
-      var pts = JSON.parse(canvas.dataset.points || "[]");
-      if (!pts.length) return;
-      var ctx = canvas.getContext("2d");
-      var PLATFORM_COLORS = {youtube:"#FF0033", x:"#000", instagram:"#DD2A7B", facebook:"#1877F2", discord:"#5865F2"};
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: pts.map(function(p){ return (p.platform[0].toUpperCase()+p.platform.slice(1)) + (p.region ? " · " + p.region : ""); }),
-          datasets: [{
-            data: pts.map(function(p){return p.value;}),
-            backgroundColor: pts.map(function(p){return PLATFORM_COLORS[p.platform] || "#888";}),
-            borderRadius: 4, borderSkipped: false
-          }]
-        },
-        options: {
-          responsive: true, maintainAspectRatio: false, animation: false,
-          plugins: { legend: { display: false }, tooltip: { callbacks: { label: function(ctx){ return Intl.NumberFormat("en-US").format(ctx.parsed.y); } } } },
-          scales: {
-            x: { ticks: { font: { size: 10 }, color: "#6B7280" }, grid: { display: false } },
-            y: { ticks: { font: { size: 10 }, color: "#6B7280", callback: function(v){ return v >= 1000 ? (v/1000) + "K" : v; } }, grid: { color: "#F1F2F4" }, border: { display: false } }
-          }
-        }
-      });
-    } catch(e) { /* noop */ }
-  }
+function fmtNum(n) {
+  if (n === null || n === undefined) return '—';
+  if (n >= 1e6) return (n / 1e6).toFixed(n >= 1e7 ? 1 : 2) + 'M';
+  if (n >= 1e3) return (n / 1e3).toFixed(n >= 1e4 ? 1 : 2) + 'K';
+  return String(n);
+}
 
-  document.querySelectorAll(".spark-wrap canvas").forEach(sparkline);
-  document.querySelectorAll(".trend-canvas-wrap canvas").forEach(trendChart);
-})();
+const PLATFORM_COLORS = { youtube:'#FF0033', x:'#111111', instagram:'#DD2A7B', facebook:'#1877F2', discord:'#5865F2' };
+
+function drawSparklines() {
+  document.querySelectorAll('canvas[data-series]').forEach(el => {
+    let pts = [];
+    try { pts = JSON.parse(el.dataset.series); } catch(e){}
+    if (pts.length < 2) { el.style.display = 'none'; return; }
+    const color = el.dataset.color || '#111';
+    new Chart(el, {
+      type: 'line',
+      data: { labels: pts.map((_,i)=>i), datasets: [{ data: pts, borderColor: color, backgroundColor:'transparent', borderWidth:1.75, pointRadius:0, tension:0.35 }] },
+      options: { responsive:true, maintainAspectRatio:false, plugins:{legend:{display:false},tooltip:{enabled:false}}, scales:{x:{display:false},y:{display:false}}, animation:false }
+    });
+  });
+}
+
+function drawTrendCharts() {
+  (DATA.trendCharts || []).forEach(tc => {
+    const el = document.getElementById(tc.canvasId);
+    if (!el) return;
+    const datasets = tc.datasets.map(ds => ({ label: ds.label, data: ds.data, borderColor: ds.color, backgroundColor:'transparent', borderWidth:2, pointRadius:0, pointHoverRadius:4, tension:0.3 }));
+    new Chart(el, {
+      type: 'line',
+      data: { labels: tc.labels, datasets },
+      options: {
+        responsive:true, maintainAspectRatio:false,
+        plugins: { legend:{display:false}, tooltip: { mode:'index', intersect:false, backgroundColor:'#111', padding:10, cornerRadius:8, callbacks: { label: ctx => `${ctx.dataset.label}: ${fmtNum(ctx.parsed.y)}` } } },
+        interaction: { mode:'index', intersect:false },
+        scales: {
+          x: { grid:{display:false}, ticks:{color:'#9CA3AF',font:{size:10}} },
+          y: { grid:{color:'#F1F2F4',drawBorder:false}, ticks:{color:'#9CA3AF',font:{size:10}, callback:v=>fmtNum(v)} }
+        }
+      }
+    });
+  });
+}
+
+document.addEventListener('DOMContentLoaded', () => { drawSparklines(); drawTrendCharts(); });
 </script>
 </body>
 </html>
