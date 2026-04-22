@@ -22,18 +22,18 @@
     {
       "date": "2026-04-22",
       "channels": {
-        "epic7:youtube:Global": 180000,
-        "epic7:instagram:Global": 85311,
-        "epic7:facebook:Korea/Global/Taiwan": 223106,
-        "epic7:discord:Official": 96653,
+        "epic7:youtube:Korea": 39700,
+        "epic7:instagram:Global": 85310,
+        "epic7:facebook:Korea/Global/Taiwan": 223103,
+        "epic7:discord:Official": 96652,
         "czn:instagram:Global": 13442,
-        "czn:facebook:Global": 98029,
+        "czn:facebook:Global": 98031,
         "czn:facebook:China": 16662,
-        "czn:discord:Official": 61316,
+        "czn:discord:Official": 61315,
         "l9:facebook:SEA": 112036,
         "l9:facebook:Thailand": 33729,
         "l9:facebook:China": 12813,
-        "l9:discord:SEA": 32859
+        "l9:discord:SEA": 32860
       }
     }
   ]
