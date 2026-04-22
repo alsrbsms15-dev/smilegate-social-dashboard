@@ -12,6 +12,10 @@ a { color: inherit; text-decoration: none; }
 .page { max-width: 1240px; margin: 0 auto; padding: 28px 24px 72px; }
 header.top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .brand .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.owner-tag { font-size: 11px; color: var(--muted); letter-spacing: 0.01em; }
+.owner-tag b { color: var(--text-2); font-weight: 600; }
+.chip-row { display: flex; align-items: center; }
 .brand h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
 .brand p.sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
 .meta-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 12px; color: var(--text-2); font-weight: 500; }
@@ -80,33 +84,35 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
 <div class="page">
   <header class="top">
     <div class="brand">
-      <span class="eyebrow">Smilegate Content Marketing</span>
       <h1>Game Social Dashboard</h1>
       <p class="sub">Epic Seven · Chaos Zero Nightmare · Lord Nine — official channels across YouTube, X, Instagram, Facebook, Discord.</p>
     </div>
-    <div>
-      <span class="meta-chip part">
-        <span class="dot"></span> 2 of 5 platforms live
-      </span>
-      <span class="meta-chip" style="margin-left:8px;">Updated 2026-04-22</span>
+    <div class="header-right">
+      <div class="owner-tag">Managed by <b>SGP Contents Marketing Team</b></div>
+      <div class="chip-row">
+        <span class="meta-chip part">
+          <span class="dot"></span> 3 of 5 platforms live
+        </span>
+        <span class="meta-chip" style="margin-left:8px;">Updated 2026-04-22</span>
+      </div>
     </div>
   </header>
 
-  <div class="banner warn">✓ 2 platform(s) live. 10 channel(s) across Facebook / Instagram / X still awaiting API credentials — see <b>API_setup_guide.md</b> for each platform's setup.</div>
+  <div class="banner warn">✓ 3 platform(s) live. 10 channel(s) across Facebook / X / Youtube still awaiting API credentials — see <b>API_setup_guide.md</b> for each platform's setup.</div>
   
       <section class="summary">
-        <div class="stat"><div class="label">Total followers (live)</div><div class="value">610.9K</div><div class="sub">14 of 26 channels reporting</div></div>
-        <div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">Discord, Youtube</div><div class="sub">3 platform(s) pending credentials</div></div>
+        <div class="stat"><div class="label">Total followers (live)</div><div class="value">613.9K</div><div class="sub">14 of 26 channels reporting</div></div>
+        <div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">Discord, Instagram, Youtube</div><div class="sub">2 platform(s) pending credentials</div></div>
         <div class="stat"><div class="label">Channels tracked</div><div class="value">26</div><div class="sub">2 unconfirmed · 10 awaiting keys</div></div>
-        <div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-22</div><div class="sub">00:57 local</div></div>
+        <div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-22</div><div class="sub">02:50 local</div></div>
       </section>
   
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#6B5FD4"></span><h2>Epic Seven</h2><span class="ko">에픽세븐</span></div>
-          <div class="game-meta"><span><b>10</b> channels</span><span><b>353.6K</b> followers</span></div>
+          <div class="game-meta"><span><b>10</b> channels</span><span><b>438.9K</b> followers</span></div>
         </div>
-        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7"></canvas></div></div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#DD2A7B"></span>Instagram</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7"></canvas></div></div>
         <div class="grid">
       <div class="channel">
         <div class="channel-head">
@@ -119,7 +125,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[180000, 180000]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="270 Remaining! #epicseven"><b>Latest:</b><span class="title">270 Remaining! #epicseven</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.80K videos · 126.8M total views</div>
+        <div class="subnote subnote-latest" title="270 Remaining! #epicseven"><b>Latest:</b><span class="title">270 Remaining! #epicseven</span><span class="ago">17h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.80K videos · 126.8M total views</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -132,7 +138,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[39700, 39700]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="남았어요, 270!! #에픽세븐"><b>Latest:</b><span class="title">남았어요, 270!! #에픽세븐</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.27K videos · 40.6M total views</div>
+        <div class="subnote subnote-latest" title="남았어요, 270!! #에픽세븐"><b>Latest:</b><span class="title">남았어요, 270!! #에픽세븐</span><span class="ago">17h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1.27K videos · 40.6M total views</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -145,7 +151,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[18000, 18000]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="残り、270!! #エピックセブン"><b>Latest:</b><span class="title">残り、270!! #エピックセブン</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">757 videos · 23.9M total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">757 videos · 23.9M total views</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -158,7 +164,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[19200, 19200]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="還剩下270！！ #第七史詩"><b>Latest:</b><span class="title">還剩下270！！ #第七史詩</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">998 videos · 14.9M total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">998 videos · 14.9M total views</div>
       </div>
       <div class="channel pending">
         <div class="channel-head">
@@ -176,13 +182,18 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
         <div class="handle"><a href="https://x.com/Epic7Twt" target="_blank" rel="noopener">@Epic7Twt</a></div>
         <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel pending">
+      <div class="channel">
         <div class="channel-head">
           <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
-          <a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">↗</a>
+          <a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener" aria-label="Open">↗</a>
         </div>
         <div class="handle"><a href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">@epicseven_global</a></div>
-        <div class="pending-label">⋯ Awaiting API credentials</div>
+        <div class="metric-row">
+          <div class="follower-num">85.3K<small>followers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[85313]' data-color="#DD2A7B"></canvas></div>
+        <div class="subnote subnote-latest" title="📣 Coming soon… !!! "><b>Latest:</b><span class="title">📣 Coming soon… !!! </span><span class="ago">16h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">♥ 517 · 💬 6 · avg ♥ 492/post (last 10)</div>
       </div>
       <div class="channel pending">
         <div class="channel-head">
@@ -210,16 +221,16 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <div class="follower-num">96.7K<small>members</small></div>
           <span class="delta-chip nil">no history</span>
         </div>
-        <div class="spark-wrap"><canvas data-series='[96632, 96652]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 20.2K<span style="float:right;color:var(--muted);">Epic 7 Official Discord</span></div>
+        <div class="spark-wrap"><canvas data-series='[96632, 96658]' data-color="#5865F2"></canvas></div>
+        <div class="subnote"><b>Online:</b> 21.0K<span style="float:right;color:var(--muted);">Epic 7 Official Discord</span></div>
       </div></div>
       </section>
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#D4495F"></span><h2>Chaos Zero Nightmare</h2><span class="ko">카오스 제로 나이트메어</span></div>
-          <div class="game-meta"><span><b>8</b> channels</span><span><b>172.3K</b> followers</span></div>
+          <div class="game-meta"><span><b>8</b> channels</span><span><b>112.5K</b> followers</span></div>
         </div>
-        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn"></canvas></div></div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#DD2A7B"></span>Instagram</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn"></canvas></div></div>
         <div class="grid">
       <div class="channel">
         <div class="channel-head">
@@ -232,20 +243,15 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[10300, 10300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[카오스 제로 나이트메어] 은하계 재해 시즌3 PV"><b>Latest:</b><span class="title">[카오스 제로 나이트메어] 은하계 재해 시즌3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">136 videos · 14.3M total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">136 videos · 14.3M total views</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
-          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">@ChaosZeroNightmare_EN</a></div>
-        <div class="metric-row">
-          <div class="follower-num">73.2K<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[73100, 73200]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[Chaos Zero Nightmare] Galactic Disaster Season 3 PV"><b>Latest:</b><span class="title">[Chaos Zero Nightmare] Galactic Disaster Season 3 PV</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">132 videos · 18.7M total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -258,7 +264,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[19300, 19300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】"><b>Latest:</b><span class="title">『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】</span><span class="ago">19h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">152 videos · 28.3M total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">152 videos · 28.3M total views</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -271,7 +277,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[8220, 8210]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="《卡厄思夢境》「銀河系災害」第3季宣傳影片"><b>Latest:</b><span class="title">《卡厄思夢境》「銀河系災害」第3季宣傳影片</span><span class="ago">3d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">134 videos · 4.34M total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">134 videos · 4.34M total views</div>
       </div>
       <div class="channel pending">
         <div class="channel-head">
@@ -281,13 +287,18 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
         <div class="handle"><a href="https://x.com/CZN_Official_EN" target="_blank" rel="noopener">@CZN_Official_EN</a></div>
         <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel pending">
+      <div class="channel">
         <div class="channel-head">
           <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
-          <a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">↗</a>
+          <a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener" aria-label="Open">↗</a>
         </div>
         <div class="handle"><a href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">@czn.official.en</a></div>
-        <div class="pending-label">⋯ Awaiting API credentials</div>
+        <div class="metric-row">
+          <div class="follower-num">13.4K<small>followers</small></div>
+          <span class="delta-chip nil">no history</span>
+        </div>
+        <div class="spark-wrap"><canvas data-series='[13442]' data-color="#DD2A7B"></canvas></div>
+        <div class="subnote subnote-latest" title="◤#ChaosZeroNightmare Spring Illustration Contest Winners◢"><b>Latest:</b><span class="title">◤#ChaosZeroNightmare Spring Illustration Contest Winners◢</span><span class="ago">18h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">♥ 400 · 💬 3 · avg ♥ 663/post (last 10)</div>
       </div>
       <div class="channel pending">
         <div class="channel-head">
@@ -307,29 +318,24 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <div class="follower-num">61.3K<small>members</small></div>
           <span class="delta-chip nil">no history</span>
         </div>
-        <div class="spark-wrap"><canvas data-series='[61240, 61257]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 16.5K<span style="float:right;color:var(--muted);">Chaos Zero Nightmare Official</span></div>
+        <div class="spark-wrap"><canvas data-series='[61240, 61291]' data-color="#5865F2"></canvas></div>
+        <div class="subnote"><b>Online:</b> 17.8K<span style="float:right;color:var(--muted);">Chaos Zero Nightmare Official</span></div>
       </div></div>
       </section>
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#C79848"></span><h2>Lord Nine</h2><span class="ko">로드나인</span></div>
-          <div class="game-meta"><span><b>8</b> channels</span><span><b>85.1K</b> followers</span></div>
+          <div class="game-meta"><span><b>8</b> channels</span><span><b>62.5K</b> followers</span></div>
         </div>
         <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-l9"></canvas></div></div>
         <div class="grid">
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
-          <a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">@LORDNINE_KR</a></div>
-        <div class="metric-row">
-          <div class="follower-num">22.6K<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[22600, 22600]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[로드나인] 4월 2차 업데이트 프리뷰"><b>Latest:</b><span class="title">[로드나인] 4월 2차 업데이트 프리뷰</span><span class="ago">15h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">156 videos · 19.7M total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -342,7 +348,7 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[27300, 27300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes"><b>Latest:</b><span class="title">March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes</span><span class="ago">35d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">51 videos · 966.5K total views</div>
+        <div class="subnote" style="border-top:none;padding-top:4px;">51 videos · 966.5K total views</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -396,18 +402,18 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
           <span class="delta-chip nil">no history</span>
         </div>
         <div class="spark-wrap"><canvas data-series='[32876, 32859]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 5.26K<span style="float:right;color:var(--muted);">LORDNINE SEA</span></div>
+        <div class="subnote"><b>Online:</b> 5.85K<span style="float:right;color:var(--muted);">LORDNINE SEA</span></div>
       </div></div>
       </section>
 
   <footer class="note">
     <span>© Smilegate Content Marketing Team · Pulled by fetch_social_stats.py</span>
-    <span>Data source: Discord API, Youtube API</span>
+    <span>Data source: Discord API, Instagram API, Youtube API</span>
   </footer>
 </div>
 
 <script>
-const DATA = {"trendCharts": [{"canvasId": "trend-epic7", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [256900, 256900]}, {"label": "Discord", "color": "#5865F2", "data": [96632, 96652]}]}, {"canvasId": "trend-czn", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [110920, 111010]}, {"label": "Discord", "color": "#5865F2", "data": [61240, 61257]}]}, {"canvasId": "trend-l9", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [52250, 52250]}, {"label": "Discord", "color": "#5865F2", "data": [32876, 32859]}]}]};
+const DATA = {"trendCharts": [{"canvasId": "trend-epic7", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [256900, 256900]}, {"label": "Instagram", "color": "#DD2A7B", "data": [0, 85313]}, {"label": "Discord", "color": "#5865F2", "data": [96632, 96658]}]}, {"canvasId": "trend-czn", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [37820, 37810]}, {"label": "Instagram", "color": "#DD2A7B", "data": [0, 13442]}, {"label": "Discord", "color": "#5865F2", "data": [61240, 61291]}]}, {"canvasId": "trend-l9", "labels": ["2026-04-21", "2026-04-22"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [29650, 29650]}, {"label": "Discord", "color": "#5865F2", "data": [32876, 32859]}]}]};
 
 function fmtNum(n) {
   if (n === null || n === undefined) return '—';

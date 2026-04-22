@@ -1,6 +1,6 @@
 {
   "snapshotDate": "2026-04-22",
-  "runTimestamp": "2026-04-22T00:57:41+00:00",
+  "runTimestamp": "2026-04-22T02:50:04+00:00",
   "credentialStatus": {
     "youtube": {
       "configured": true
@@ -9,13 +9,13 @@
       "configured": false,
       "note": "bearer_token not provisioned"
     },
+    "instagram": {
+      "configured": true,
+      "method": "IG Graph API"
+    },
     "facebook": {
       "configured": false,
-      "note": "meta.system_token not provisioned"
-    },
-    "instagram": {
-      "configured": false,
-      "note": "meta.system_token not provisioned"
+      "note": "FB fetcher not yet wired; token available"
     },
     "discord": {
       "configured": true,
@@ -54,7 +54,7 @@
           "title": "에픽세븐",
           "thumbnail": "https://yt3.ggpht.com/Gaph9t5FDWmEXxvzgD6IpLTr39jYK2UKD3VpKv73Ok3IB3p7-WOO1WMyoOPQrenpUnuwd8Xb=s88-c-k-c0x00ffffff-no-rj",
           "followers": 39700,
-          "viewCount": 40566261,
+          "viewCount": 40588773,
           "videoCount": 1266,
           "latestVideo": {
             "title": "남았어요, 270!! #에픽세븐",
@@ -72,13 +72,9 @@
           "title": "エピックセブン",
           "thumbnail": "https://yt3.ggpht.com/668yi2CxCyAGDJKYtyttzEwAoFugIgX94-w8VaOF_xzd_BA3XO25-3Ru-of7epVMEb8dQcrFpjg=s88-c-k-c0x00ffffff-no-rj",
           "followers": 18000,
-          "viewCount": 23889101,
+          "viewCount": 23890771,
           "videoCount": 757,
-          "latestVideo": {
-            "title": "残り、270!! #エピックセブン",
-            "publishedAt": "2026-04-21T09:00:11Z",
-            "videoId": "95ILyUQdVMg"
-          }
+          "latestVideo": null
         },
         {
           "platform": "youtube",
@@ -90,13 +86,9 @@
           "title": "第七史詩",
           "thumbnail": "https://yt3.ggpht.com/8YXwkylUt_iY5LCyprn88ATyzE0g0052GKTK3jOjVKL4ABfEfmLWAI5kLPbpfQwOfWT6ISSx=s88-c-k-c0x00ffffff-no-rj",
           "followers": 19200,
-          "viewCount": 14899541,
+          "viewCount": 14902517,
           "videoCount": 998,
-          "latestVideo": {
-            "title": "還剩下270！！ #第七史詩",
-            "publishedAt": "2026-04-21T09:01:17Z",
-            "videoId": "vL3dDc44iRw"
-          }
+          "latestVideo": null
         },
         {
           "platform": "x",
@@ -114,7 +106,25 @@
           "platform": "instagram",
           "region": "Global",
           "handle": "@epicseven_global",
-          "url": "https://www.instagram.com/epicseven_global/"
+          "url": "https://www.instagram.com/epicseven_global/",
+          "ig_business_id": "17841407368977464",
+          "followers": 85313,
+          "mediaCount": 1276,
+          "igUsername": "epicseven_global",
+          "thumbnail": "https://scontent-mxp1-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=DeHRBql1CiEQ7kNvwFrfZCS&_nc_oc=Adr4OeuorEVvDYSPl9X0FSbNVuz51Sv2SeAEN-bGgGTWFAT0R8hmPLZN43Cv48-goBs&_nc_zt=23&_nc_ht=scontent-mxp1-1.xx&edm=AL-3X8kEAAAA&_nc_gid=O1kbg5-l8UJksu7IUwriBg&oh=00_Af25UeFH6KxxYD_Lgc9drr_eYPv9E5eiBrzXoROuQaNRaw&oe=69EE1621",
+          "title": "Epic Seven Global",
+          "latestPost": {
+            "caption": "📣 Coming soon… !!! ",
+            "timestamp": "2026-04-21T10:00:13+0000",
+            "likeCount": 517,
+            "commentCount": 6,
+            "permalink": "https://www.instagram.com/p/DXY7s2aAQOG/",
+            "mediaType": "IMAGE",
+            "thumbnailUrl": "https://scontent-mxp1-1.cdninstagram.com/v/t39.30808-6/676908424_990865690288546_4812691359986011790_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=ZnV4qSUFI_IQ7kNvwHj0mH5&_nc_oc=AdqB7UEGK3lMQD7ILo7Gir9BMJ3YU4ssLtLFW-m2vXi3Zpkh5rXj1C7Vhc5vdzVyJUU&_nc_zt=23&_nc_ht=scontent-mxp1-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=2-9aeFnpinW1CzwViz62XA&oh=00_Af0sRF8T_GOvO417qA0yBNd_Gp27IrhDDz781Fvz-OYb9A&oe=69EDF6DE"
+          },
+          "recentAvgLikes": 492,
+          "recentAvgComments": 6,
+          "recentSampleSize": 10
         },
         {
           "platform": "facebook",
@@ -134,8 +144,8 @@
           "handle": "discord.gg/vUUQvUQPZC",
           "url": "https://discord.com/invite/vUUQvUQPZC",
           "invite_code": "vUUQvUQPZC",
-          "followers": 96652,
-          "onlineCount": 20217,
+          "followers": 96658,
+          "onlineCount": 20975,
           "guildName": "Epic 7 Official Discord",
           "guildId": "595385354908073984",
           "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64"
@@ -156,31 +166,16 @@
           "title": "카오스 제로 나이트메어",
           "thumbnail": "https://yt3.ggpht.com/WlJL05SvBAOPNvQmhxzXUyu-N1U3iyJxYmjExdLT8u3cLiIjxdITln3FkLhwcMU2wgjzOP4W=s88-c-k-c0x00ffffff-no-rj",
           "followers": 10300,
-          "viewCount": 14256471,
+          "viewCount": 14258349,
           "videoCount": 136,
-          "latestVideo": {
-            "title": "[카오스 제로 나이트메어] 은하계 재해 시즌3 PV",
-            "publishedAt": "2026-04-18T04:01:51Z",
-            "videoId": "QFJ6TcH6aNs"
-          }
+          "latestVideo": null
         },
         {
           "platform": "youtube",
           "region": "Global",
           "handle": "@ChaosZeroNightmare_EN",
           "url": "https://www.youtube.com/@ChaosZeroNightmare_EN",
-          "yt_handle": "@ChaosZeroNightmare_EN",
-          "yt_id": "UCQ7YAXPdiccbFBmwuGvO3Jg",
-          "title": "Chaos Zero Nightmare",
-          "thumbnail": "https://yt3.ggpht.com/3sEN_e891wF-zugwts48nU4qnPVetpO7rDesiZrNeMrDODhBrYbejKQfnQaLadH6wtAZ2qliwA=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 73200,
-          "viewCount": 18662861,
-          "videoCount": 132,
-          "latestVideo": {
-            "title": "[Chaos Zero Nightmare] Galactic Disaster Season 3 PV",
-            "publishedAt": "2026-04-18T04:01:47Z",
-            "videoId": "MwLxnHu2_bo"
-          }
+          "yt_handle": "@ChaosZeroNightmare_EN"
         },
         {
           "platform": "youtube",
@@ -194,11 +189,7 @@
           "followers": 19300,
           "viewCount": 28255041,
           "videoCount": 152,
-          "latestVideo": {
-            "title": "『カオゼロ』ハーフアニバーサリー公式生放送！ 4/29アップデート情報を一挙紹介！【カオスゼロナイトメア】",
-            "publishedAt": "2026-04-21T05:13:20Z",
-            "videoId": "Dm2GIEkrhMc"
-          }
+          "latestVideo": null
         },
         {
           "platform": "youtube",
@@ -210,13 +201,9 @@
           "title": "卡厄思夢境【TW】",
           "thumbnail": "https://yt3.ggpht.com/GUhKE34EdPN3blkS7fBtRktSbTityNqerFsf3DYrebdwCoCCFgSM8TogSVy7RAVx1LPC5bALtA=s88-c-k-c0x00ffffff-no-rj",
           "followers": 8210,
-          "viewCount": 4343505,
+          "viewCount": 4344736,
           "videoCount": 134,
-          "latestVideo": {
-            "title": "《卡厄思夢境》「銀河系災害」第3季宣傳影片",
-            "publishedAt": "2026-04-18T04:01:53Z",
-            "videoId": "ETWQ3rgpFgw"
-          }
+          "latestVideo": null
         },
         {
           "platform": "x",
@@ -228,7 +215,25 @@
           "platform": "instagram",
           "region": "Global",
           "handle": "@czn.official.en",
-          "url": "https://www.instagram.com/czn.official.en/"
+          "url": "https://www.instagram.com/czn.official.en/",
+          "ig_business_id": "17841465051500490",
+          "followers": 13442,
+          "mediaCount": 194,
+          "igUsername": "czn.official.en",
+          "thumbnail": "https://scontent-mxp2-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=zz2y8c_u8xoQ7kNvwEFTimn&_nc_oc=Adq4qwzz-Vq7kTb15GBIPkXarnVsNaRc650l5dOla5tT_sQot5ACMu62xvAQJGLxz68&_nc_zt=23&_nc_ht=scontent-mxp2-1.xx&edm=AL-3X8kEAAAA&_nc_gid=Eu41v7cbZCAa-s-xpmtKWQ&oh=00_Af2IeGtFodFxeREJEP1rHzqR57tIY09ItzsYXn9JZs-0XQ&oe=69EE03EC",
+          "title": "Chaos Zero Nightmare",
+          "latestPost": {
+            "caption": "◤#ChaosZeroNightmare Spring Illustration Contest Winners◢",
+            "timestamp": "2026-04-21T08:02:27+0000",
+            "likeCount": 400,
+            "commentCount": 3,
+            "permalink": "https://www.instagram.com/reel/DXYuKxRDTO0/",
+            "mediaType": "VIDEO",
+            "thumbnailUrl": "https://scontent-mxp2-1.cdninstagram.com/v/t51.82787-15/674435394_17946478386168384_5285778111888869411_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=111&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=N_Ugijcmu88Q7kNvwFRga5K&_nc_oc=AdpJFnwDKGYXFjr6qNBJgsDVhEWTqN8UZbhTVPJnn0obC4y_GYqWRf2FCMeBDDvY6H8&_nc_zt=23&_nc_ht=scontent-mxp2-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=uxpo7JPWleTnItAz8AD_Zg&_nc_tpa=Q5bMBQGV-5PxwPHuZGKJ40AKgy5vWzQs5wiCcWogf--DhJT6H5h_h21pNT6lxQV3JDz72BgSIE5PyWTP&oh=00_Af11GozQQf6gX6WkIei6k1DpJLDqH6wlN788RTvnx2CQLQ&oe=69EE210D"
+          },
+          "recentAvgLikes": 663,
+          "recentAvgComments": 14,
+          "recentSampleSize": 10
         },
         {
           "platform": "facebook",
@@ -242,8 +247,8 @@
           "handle": "discord.gg/chaoszeronightmare",
           "url": "https://discord.gg/chaoszeronightmare",
           "invite_code": "chaoszeronightmare",
-          "followers": 61257,
-          "onlineCount": 16515,
+          "followers": 61291,
+          "onlineCount": 17816,
           "guildName": "Chaos Zero Nightmare Official",
           "guildId": "1199065921365475470",
           "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64"
@@ -259,18 +264,7 @@
           "region": "Korea",
           "handle": "@LORDNINE_KR",
           "url": "https://www.youtube.com/@LORDNINE_KR",
-          "yt_handle": "@LORDNINE_KR",
-          "yt_id": "UCDDqUR66YKDqkJFdBD-eBiQ",
-          "title": "로드나인",
-          "thumbnail": "https://yt3.ggpht.com/D1nWjc4h1lP25Mxa0Y8mfmyE5OUszgEgeqqd_xxSwtE37TZv2CvD-VhuiXUsZAopSTTFmnwgmw=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 22600,
-          "viewCount": 19744036,
-          "videoCount": 156,
-          "latestVideo": {
-            "title": "[로드나인] 4월 2차 업데이트 프리뷰",
-            "publishedAt": "2026-04-21T09:00:05Z",
-            "videoId": "3UZm37FuAlA"
-          }
+          "yt_handle": "@LORDNINE_KR"
         },
         {
           "platform": "youtube",
@@ -284,11 +278,7 @@
           "followers": 27300,
           "viewCount": 966486,
           "videoCount": 51,
-          "latestVideo": {
-            "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
-            "publishedAt": "2026-03-17T07:42:51Z",
-            "videoId": "2NzuUYIlhH0"
-          }
+          "latestVideo": null
         },
         {
           "platform": "youtube",
@@ -300,7 +290,7 @@
           "title": "ロードナイン (LORDNINE)",
           "thumbnail": "https://yt3.ggpht.com/PVunCLfzztaj6_3GRgYVrSXw0tGuHv96kNieLyzaR79umyTbct7yftLrPmmx7jIDkFUVsc0WUQ=s88-c-k-c0x00ffffff-no-rj",
           "followers": 2350,
-          "viewCount": 107223,
+          "viewCount": 107234,
           "videoCount": 44,
           "latestVideo": {
             "title": "3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加",
@@ -343,7 +333,7 @@
           "url": "https://discord.gg/lordninesea",
           "invite_code": "lordninesea",
           "followers": 32859,
-          "onlineCount": 5264,
+          "onlineCount": 5848,
           "guildName": "LORDNINE SEA",
           "guildId": "1361496239501217963",
           "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64"
@@ -351,10 +341,18 @@
       ]
     }
   },
-  "apiErrors": [],
+  "apiErrors": [
+    {
+      "channel": "czn/@ChaosZeroNightmare_EN",
+      "error": "HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u0"
+    },
+    {
+      "channel": "l9/@LORDNINE_KR",
+      "error": "HTTP 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The request cannot be completed because you have exceeded your \\u003ca href=\\\"/youtube/v3/getting-started#quota\\\"\\u003equota\\u003c/a\\u003e.\",\n    \"errors\": [\n      {\n        \"message\": \"The request cannot be completed because you have exceeded your \\u0"
+    }
+  ],
   "platformsPendingCredentials": [
     "x",
-    "facebook",
-    "instagram"
+    "facebook"
   ]
 }
