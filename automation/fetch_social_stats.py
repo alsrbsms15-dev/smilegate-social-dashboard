@@ -862,11 +862,14 @@ def channel_card_html(game, ch, hist):
 
     # Manual entries get a distinct badge instead of delta/history chip
     if ch.get("followersSource") == "manual":
-        as_of = ch.get("manualAsOf") or ""
-        as_of_suffix = (" · " + as_of) if as_of else ""
+        as_of_full = ch.get("manualAsOf") or ""
+        # Shorten "2026-04-22" -> "26-04-22" so the badge stays on one line
+        as_of_short = as_of_full[2:] if len(as_of_full) >= 10 and as_of_full[:2] == "20" else as_of_full
+        title_suffix = (" · " + as_of_full) if as_of_full else ""
+        badge_suffix = (" · " + as_of_short) if as_of_short else ""
         badge_html = (
-            f'<span class="delta-chip manual" title="Manually entered{as_of_suffix}">'
-            f'수동 기록{as_of_suffix}</span>'
+            f'<span class="delta-chip manual" title="Manually entered{title_suffix}">'
+            f'수동 기록{badge_suffix}</span>'
         )
     else:
         badge_html = delta_chip_html(delta_week)
