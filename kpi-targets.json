@@ -1,0 +1,27 @@
+{
+  "_readme": [
+    "Per-game per-platform follower targets (sum across all regions).",
+    "Keys under each game are platform names exactly as used in GAMES ('youtube','x','instagram','facebook','discord').",
+    "Game keys match the 'id' field in GAMES: 'epic7', 'czn', 'l9'.",
+    "Set a number to enable the KPI progress bar. Remove a key or set 0 to hide it.",
+    "To edit without cloning: open this file on GitHub.com and click the pencil icon.",
+    "The fetch script reads this file on every run; no code changes needed to update targets."
+  ],
+  "epic7": {
+    "youtube":   275000,
+    "facebook":  240000,
+    "x":         200000,
+    "instagram":  90000,
+    "discord":   100000
+  },
+  "czn": {
+    "youtube":   130000,
+    "x":         252000,
+    "discord":    68000
+  },
+  "l9": {
+    "youtube":    64000,
+    "facebook":  183000,
+    "x":          55000
+  }
+}

@@ -60,6 +60,7 @@ SCRIPT_DIR   = Path(__file__).resolve().parent
 WORKSPACE    = SCRIPT_DIR.parent                       # "Claude Tasks" folder
 CRED_FILE    = WORKSPACE / "smilegate-sns-credentials.yaml"
 MANUAL_FILE  = WORKSPACE / "manual-followers.json"     # user-editable overrides
+KPI_FILE     = WORKSPACE / "kpi-targets.json"          # user-editable follower targets
 SNAPSHOTS    = WORKSPACE / "dashboard-snapshots"
 HISTORY_FILE = SNAPSHOTS / "history.json"
 LATEST_HTML  = WORKSPACE / "latest-dashboard.html"
@@ -188,6 +189,39 @@ def load_manual_followers():
         log(f"WARN: failed to read manual-followers.json: {e}")
         return {}
     return {k: v for k, v in raw.items() if not k.startswith("_") and isinstance(v, dict)}
+
+
+def load_kpi_targets():
+    """
+    Load per-game per-platform follower targets from kpi-targets.json.
+    Shape: { "epic7": { "youtube": 275000, "x": 200000, ... }, ... }
+    Keys beginning with '_' (e.g. '_readme') are ignored.
+    Values <= 0 are treated as 'no target'.
+    Returns {} on any error.
+    """
+    if not KPI_FILE.exists():
+        return {}
+    try:
+        with open(KPI_FILE, "r", encoding="utf-8") as f:
+            raw = json.load(f) or {}
+    except Exception as e:
+        log(f"WARN: failed to read kpi-targets.json: {e}")
+        return {}
+    out = {}
+    for game_id, platforms in raw.items():
+        if game_id.startswith("_") or not isinstance(platforms, dict):
+            continue
+        cleaned = {}
+        for p, target in platforms.items():
+            try:
+                t = int(target)
+                if t > 0:
+                    cleaned[p] = t
+            except (TypeError, ValueError):
+                continue
+        if cleaned:
+            out[game_id] = cleaned
+    return out
 
 
 # ==================================================================
@@ -620,6 +654,23 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .delta-chip.manual { color: #7A5B00; background: #FFF4D6; border: 1px solid #F0D98A; font-weight: 500; }
 .badge-group { display: inline-flex; align-items: center; gap: 6px; flex-wrap: nowrap; white-space: nowrap; }
 .manual-tag { font-size: 10px; font-weight: 500; color: #7A5B00; background: #FFF4D6; border: 1px solid #F0D98A; padding: 1px 6px; border-radius: 999px; white-space: nowrap; }
+.kpi-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+.kpi-title { font-size: 13px; font-weight: 600; color: var(--text-1); margin-bottom: 12px; display: flex; align-items: baseline; gap: 8px; }
+.kpi-title .kpi-sub { font-size: 11px; font-weight: 400; color: var(--muted); }
+.kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; }
+.kpi-item { display: flex; flex-direction: column; gap: 6px; }
+.kpi-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; }
+.kpi-platform { display: inline-flex; align-items: center; gap: 5px; font-weight: 600; color: var(--text-1); }
+.kpi-pct { font-weight: 700; font-size: 13px; color: var(--text-1); }
+.kpi-bar { height: 6px; background: #EEF0F3; border-radius: 999px; overflow: hidden; }
+.kpi-fill { height: 100%; border-radius: 999px; transition: width 0.3s ease; }
+.kpi-item.low  .kpi-fill { background: #E5554D; }
+.kpi-item.mid  .kpi-fill { background: #F0A32E; }
+.kpi-item.high .kpi-fill { background: #4F8EF7; }
+.kpi-item.done .kpi-fill { background: #2CA45A; }
+.kpi-item.done .kpi-pct  { color: #2CA45A; }
+.kpi-nums { font-size: 11px; color: var(--muted); }
+.kpi-nums b { color: var(--text-1); font-weight: 600; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -892,6 +943,56 @@ def channel_card_html(game, ch, hist):
       </div>"""
 
 
+def kpi_row_html(game, targets_for_game):
+    """
+    Render a row of KPI progress bars for this game.
+    targets_for_game: {"youtube": 275000, "x": 200000, ...}
+    Shows: platform icon + current (sum across regions) / target + percentage + bar.
+    Returns "" when the game has no configured targets.
+    """
+    if not targets_for_game:
+        return ""
+    # Sum follower counts per platform across all regions (skip missing)
+    totals = {}
+    for c in game["channels"]:
+        if c.get("followers") is None:
+            continue
+        p = c["platform"]
+        totals[p] = totals.get(p, 0) + int(c["followers"])
+
+    cards = []
+    # Render in the order platforms appear in targets (preserve JSON order)
+    for platform, target in targets_for_game.items():
+        current = totals.get(platform, 0)
+        pct = (current / target * 100.0) if target > 0 else 0.0
+        pct_capped = min(pct, 100.0)
+        # Status tier for bar color
+        if pct >= 100:
+            tier = "done"
+        elif pct >= 75:
+            tier = "high"
+        elif pct >= 40:
+            tier = "mid"
+        else:
+            tier = "low"
+        cards.append(
+            f'<div class="kpi-item {tier}">'
+            f'  <div class="kpi-head">'
+            f'    <span class="kpi-platform"><span class="plogo {PLATFORM_CSS[platform]}">{platform_icon_svg(platform)}</span>{platform.title()}</span>'
+            f'    <span class="kpi-pct">{pct:.1f}%</span>'
+            f'  </div>'
+            f'  <div class="kpi-bar"><div class="kpi-fill" style="width:{pct_capped:.2f}%"></div></div>'
+            f'  <div class="kpi-nums"><b>{fmt_num(current)}</b> / {fmt_num(target)}</div>'
+            f'</div>'
+        )
+    return (
+        '<div class="kpi-card">'
+        '  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>'
+        f'  <div class="kpi-grid">{"".join(cards)}</div>'
+        '</div>'
+    )
+
+
 def build_html(snapshot, hist):
     # Summary numbers
     live_channels = [(g, c) for g in snapshot["games_list"] for c in g["channels"] if c.get("followers") is not None]
@@ -903,10 +1004,12 @@ def build_html(snapshot, hist):
     connected_platforms = sorted({c["platform"] for _, c in live_channels})
 
     # Game sections
+    kpi_targets_all = snapshot.get("kpiTargets", {}) or {}
     game_blocks = []
     trend_charts = []
     for g in snapshot["games_list"]:
         game_total = sum(c["followers"] for c in g["channels"] if c.get("followers") is not None)
+        kpi_html = kpi_row_html(g, kpi_targets_all.get(g["id"], {}))
 
         # trend chart data (sum per platform across this game)
         # find all dates present in history
@@ -950,6 +1053,7 @@ def build_html(snapshot, hist):
           <div class="game-title"><span class="swatch" style="background:{g['color']}"></span><h2>{g['name']}</h2><span class="ko">{g['ko']}</span></div>
           <div class="game-meta"><span><b>{len(g['channels'])}</b> channels</span><span><b>{fmt_num(game_total)}</b> followers</span></div>
         </div>
+        {kpi_html}
         {trend_card}
         <div class="grid">{cards_html}</div>
       </section>""")
@@ -1124,6 +1228,11 @@ def main():
         credential_status["discord"] = {"configured": False, "note": "no invite_code set on any discord channel"}
         platforms_pending.append("discord")
 
+    # -------- KPI targets --------
+    kpi_targets = load_kpi_targets()
+    if kpi_targets:
+        log(f"KPI targets loaded for {len(kpi_targets)} game(s)")
+
     # -------- Snapshot assembly --------
     snapshot = {
         "snapshotDate": TODAY,
@@ -1133,6 +1242,7 @@ def main():
         "games_list": GAMES,
         "apiErrors": errors,
         "platformsPendingCredentials": platforms_pending,
+        "kpiTargets": kpi_targets,
     }
 
     # Save JSON snapshot (strip games_list to avoid duplicate)
