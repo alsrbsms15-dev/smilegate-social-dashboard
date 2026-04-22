@@ -83,7 +83,7 @@ GAMES = [
             {"platform": "youtube",   "region": "Taiwan", "handle": "@EpicSevenTW",       "url": "https://www.youtube.com/@EpicSevenTW",                      "yt_handle": "@EpicSevenTW"},
             {"platform": "x",         "region": "Global", "handle": "@Epic7_Global",      "url": "https://x.com/Epic7_Global"},
             {"platform": "x",         "region": "Korea",  "handle": "@Epic7Twt",          "url": "https://x.com/Epic7Twt"},
-            {"platform": "instagram", "region": "Global", "handle": "@epicseven_global",  "url": "https://www.instagram.com/epicseven_global/"},
+            {"platform": "instagram", "region": "Global", "handle": "@epicseven_global",  "url": "https://www.instagram.com/epicseven_global/", "ig_business_id": "17841407368977464"},
             {"platform": "facebook",  "region": "Global", "handle": "EpicSevenGlobal",    "url": "https://www.facebook.com/EpicSevenGlobal/"},
             {"platform": "facebook",  "region": "Korea",  "handle": "EpicSevenKR",        "url": "https://www.facebook.com/EpicSevenKR/"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/vUUQvUQPZC", "url": "https://discord.com/invite/vUUQvUQPZC", "invite_code": "vUUQvUQPZC"},
@@ -100,7 +100,7 @@ GAMES = [
             {"platform": "youtube",   "region": "Japan",   "handle": "@ChaosZeroNightmare_JP", "url": "https://www.youtube.com/@ChaosZeroNightmare_JP", "yt_handle": "@ChaosZeroNightmare_JP"},
             {"platform": "youtube",   "region": "Taiwan",  "handle": "@ChaosZeroNightmare_TW", "url": "https://www.youtube.com/@ChaosZeroNightmare_TW", "yt_handle": "@ChaosZeroNightmare_TW"},
             {"platform": "x",         "region": "Global",  "handle": "@CZN_Official_EN",      "url": "https://x.com/CZN_Official_EN"},
-            {"platform": "instagram", "region": "Global",  "handle": "@czn.official.en",       "url": "https://www.instagram.com/czn.official.en/"},
+            {"platform": "instagram", "region": "Global",  "handle": "@czn.official.en",       "url": "https://www.instagram.com/czn.official.en/", "ig_business_id": "17841465051500490"},
             {"platform": "facebook",  "region": "Official","handle": "ChaosZeroNightmare",     "url": "https://www.facebook.com/ChaosZeroNightmare/"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/chaoszeronightmare", "url": "https://discord.gg/chaoszeronightmare", "invite_code": "chaoszeronightmare"},
         ],
@@ -256,6 +256,85 @@ def fetch_youtube_for_channel(ch, api_key):
 
 
 # ==================================================================
+# Instagram Graph API (via Meta system-user token)
+#   Docs: https://developers.facebook.com/docs/instagram-platform/instagram-graph-api
+#   Endpoints used:
+#     GET /{ig-user-id}?fields=followers_count,media_count,username,profile_picture_url
+#     GET /{ig-user-id}/media?fields=id,caption,media_type,thumbnail_url,media_url,
+#                                    permalink,timestamp,like_count,comments_count&limit=10
+# ==================================================================
+IG_API_VERSION = "v21.0"
+
+def fetch_instagram_for_channel(ch, token):
+    """Populate ch from Instagram Graph API. Returns (ok, error|None)."""
+    ig_id = ch.get("ig_business_id")
+    if not ig_id:
+        return False, "ig_business_id missing"
+    try:
+        # --- 1. Account-level stats ---
+        acct_url = (
+            f"https://graph.facebook.com/{IG_API_VERSION}/{ig_id}?"
+            + urllib.parse.urlencode({
+                "fields": "followers_count,media_count,username,profile_picture_url,name,biography",
+                "access_token": token,
+            })
+        )
+        acct = http_get_json(acct_url)
+        followers = acct.get("followers_count")
+        if followers is None:
+            return False, "no followers_count in response (check insights permission)"
+        ch["followers"]   = int(followers)
+        ch["mediaCount"]  = int(acct.get("media_count") or 0)
+        ch["igUsername"]  = acct.get("username")
+        ch["thumbnail"]   = acct.get("profile_picture_url")
+        ch["title"]       = acct.get("name") or acct.get("username")
+
+        # --- 2. Recent 10 media ---
+        media_url = (
+            f"https://graph.facebook.com/{IG_API_VERSION}/{ig_id}/media?"
+            + urllib.parse.urlencode({
+                "fields": "id,caption,media_type,media_url,thumbnail_url,permalink,timestamp,like_count,comments_count",
+                "limit": 10,
+                "access_token": token,
+            })
+        )
+        try:
+            media = http_get_json(media_url)
+            items = media.get("data") or []
+        except Exception as e:
+            log(f"    WARN: IG media list failed for {ig_id}: {e}")
+            items = []
+
+        if items:
+            latest = items[0]
+            caption = (latest.get("caption") or "").strip()
+            # Trim long captions; keep first line or 150 chars
+            first_line = caption.split("\n", 1)[0]
+            ch["latestPost"] = {
+                "caption":     first_line[:150],
+                "timestamp":   latest.get("timestamp"),
+                "likeCount":   latest.get("like_count"),
+                "commentCount": latest.get("comments_count"),
+                "permalink":   latest.get("permalink"),
+                "mediaType":   latest.get("media_type"),
+                # Images use media_url, videos use thumbnail_url
+                "thumbnailUrl": latest.get("thumbnail_url") or latest.get("media_url"),
+            }
+            # Average engagement across last 10 posts
+            likes_sum    = sum(int(m.get("like_count") or 0)     for m in items)
+            comments_sum = sum(int(m.get("comments_count") or 0) for m in items)
+            ch["recentAvgLikes"]    = likes_sum // len(items)
+            ch["recentAvgComments"] = comments_sum // len(items)
+            ch["recentSampleSize"]  = len(items)
+        return True, None
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")[:300]
+        return False, f"HTTP {e.code}: {body}"
+    except Exception as e:
+        return False, str(e)
+
+
+# ==================================================================
 # Discord — public Invite API (no auth required, no bot token needed)
 #   https://discord.com/developers/docs/resources/invite#get-invite
 #   GET /invites/{code}?with_counts=true
@@ -346,6 +425,10 @@ a { color: inherit; text-decoration: none; }
 .page { max-width: 1240px; margin: 0 auto; padding: 28px 24px 72px; }
 header.top { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; margin-bottom: 20px; padding-bottom: 16px; border-bottom: 1px solid var(--border); flex-wrap: wrap; }
 .brand .eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.owner-tag { font-size: 11px; color: var(--muted); letter-spacing: 0.01em; }
+.owner-tag b { color: var(--text-2); font-weight: 600; }
+.chip-row { display: flex; align-items: center; }
 .brand h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.02em; margin-top: 6px; }
 .brand p.sub { font-size: 13px; color: var(--muted); margin-top: 4px; }
 .meta-chip { display: inline-flex; align-items: center; gap: 6px; padding: 6px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); font-size: 12px; color: var(--text-2); font-weight: 500; }
@@ -414,15 +497,17 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
 <div class="page">
   <header class="top">
     <div class="brand">
-      <span class="eyebrow">Smilegate Content Marketing</span>
       <h1>Game Social Dashboard</h1>
       <p class="sub">Epic Seven · Chaos Zero Nightmare · Lord Nine — official channels across YouTube, X, Instagram, Facebook, Discord.</p>
     </div>
-    <div>
-      <span class="meta-chip __ALLLIVE_CLASS__">
-        <span class="dot"></span> __HEADER_STATUS__
-      </span>
-      <span class="meta-chip" style="margin-left:8px;">Updated __TODAY__</span>
+    <div class="header-right">
+      <div class="owner-tag">Managed by <b>SGP Contents Marketing Team</b></div>
+      <div class="chip-row">
+        <span class="meta-chip __ALLLIVE_CLASS__">
+          <span class="dot"></span> __HEADER_STATUS__
+        </span>
+        <span class="meta-chip" style="margin-left:8px;">Updated __TODAY__</span>
+      </div>
     </div>
   </header>
 
@@ -599,6 +684,36 @@ def channel_card_html(game, ch, hist):
         )
     if platform == "youtube" and ch.get("videoCount"):
         sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{fmt_num(ch["videoCount"])} videos · {fmt_num(ch.get("viewCount"))} total views</div>'
+    if platform == "instagram" and ch.get("latestPost"):
+        lp = ch["latestPost"]
+        try:
+            pub = datetime.fromisoformat(lp["timestamp"].replace("Z","+00:00"))
+            hours = (datetime.now(pub.tzinfo) - pub).total_seconds() / 3600
+            ago = f"{int(hours)}h ago" if hours < 24 else f"{int(hours/24)}d ago"
+        except Exception:
+            ago = ""
+        cap_safe = (lp.get("caption") or "").replace("<","&lt;").replace(">","&gt;") or "(no caption)"
+        sub_note = (
+            f'<div class="subnote subnote-latest" title="{cap_safe}">'
+            f'<b>Latest:</b>'
+            f'<span class="title">{cap_safe}</span>'
+            f'<span class="ago">{ago}</span>'
+            f'</div>'
+        )
+        likes = lp.get("likeCount")
+        comments = lp.get("commentCount")
+        avg_likes = ch.get("recentAvgLikes")
+        if likes is not None or avg_likes is not None:
+            parts = []
+            if likes is not None:
+                parts.append(f"♥ {fmt_num(likes)}")
+            if comments is not None:
+                parts.append(f"💬 {fmt_num(comments)}")
+            if avg_likes is not None and ch.get("recentSampleSize"):
+                parts.append(f"avg ♥ {fmt_num(avg_likes)}/post (last {ch['recentSampleSize']})")
+            sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{" · ".join(parts)}</div>'
+    if platform == "instagram" and ch.get("mediaCount") and not ch.get("latestPost"):
+        sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{fmt_num(ch["mediaCount"])} posts</div>'
     if platform == "discord" and ch.get("onlineCount") is not None:
         guild_name = ch.get("guildName") or ""
         sub_note = f'<div class="subnote"><b>Online:</b> {fmt_num(ch["onlineCount"])}<span style="float:right;color:var(--muted);">{guild_name[:30]}</span></div>'
@@ -749,14 +864,40 @@ def main():
         credential_status["youtube"] = {"configured": False, "note": "api_key not provisioned"}
         platforms_pending.append("youtube")
 
-    # -------- X / Meta / Discord — stubs for future wiring --------
+    # -------- X --------
     if not (creds.get("x") or {}).get("bearer_token"):
         credential_status["x"] = {"configured": False, "note": "bearer_token not provisioned"}
         platforms_pending.append("x")
-    if not (creds.get("meta") or {}).get("system_token"):
-        credential_status["facebook"]  = {"configured": False, "note": "meta.system_token not provisioned"}
-        credential_status["instagram"] = {"configured": False, "note": "meta.system_token not provisioned"}
-        platforms_pending.extend(["facebook", "instagram"])
+
+    # -------- Instagram (via Meta Graph API system-user token) --------
+    meta_token = (creds.get("meta") or {}).get("system_token")
+    if meta_token:
+        credential_status["instagram"] = {"configured": True, "method": "IG Graph API"}
+        ig_channels = [(g, c) for g in GAMES for c in g["channels"]
+                       if c["platform"] == "instagram" and c.get("ig_business_id")]
+        if ig_channels:
+            log(f"Instagram: fetching {len(ig_channels)} channel(s) via Graph API")
+            for g, c in ig_channels:
+                ok, err = fetch_instagram_for_channel(c, meta_token)
+                if ok:
+                    log(f"  ✓ {g['id']}/{c['handle']} → {c.get('followers'):,} followers "
+                        f"({c.get('mediaCount', 0)} posts)")
+                else:
+                    errors.append({"channel": f"{g['id']}/{c['handle']}", "error": err})
+                    log(f"  ✗ {g['id']}/{c['handle']}: {err}")
+                time.sleep(0.3)  # be polite to Graph API
+    else:
+        credential_status["instagram"] = {"configured": False, "note": "META_SYSTEM_TOKEN not provisioned"}
+        platforms_pending.append("instagram")
+
+    # -------- Facebook — stub for future wiring (pages listed in credentials) --------
+    if not meta_token:
+        credential_status["facebook"] = {"configured": False, "note": "META_SYSTEM_TOKEN not provisioned"}
+        platforms_pending.append("facebook")
+    else:
+        # Token is available but FB page fetching not yet wired (roadmap).
+        credential_status["facebook"] = {"configured": False, "note": "FB fetcher not yet wired; token available"}
+        platforms_pending.append("facebook")
     # -------- Discord (public invite API — no credentials needed) --------
     discord_channels = [(g, c) for g in GAMES for c in g["channels"]
                         if c["platform"] == "discord" and c.get("invite_code")]
