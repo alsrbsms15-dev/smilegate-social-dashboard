@@ -9,12 +9,12 @@
     "After editing, GitHub Actions will pick up the new values on the next workflow run."
   ],
   "x": {
-    "@Epic7_Global":    { "followers": 32372, "asOf": "2026-04-22" },
-    "@Epic7Twt":        { "followers": null, "asOf": null },
-    "@Epic7_jp":        { "followers": null, "asOf": null },
-    "@CZN_Official_EN": { "followers": null, "asOf": null },
-    "@CZN_Official_KR": { "followers": null, "asOf": null },
-    "@CZN_Official_jp": { "followers": null, "asOf": null },
-    "@LORD9_jp":        { "followers": null, "asOf": null }
+    "@Epic7_Global":    { "followers": 32372,  "asOf": "2026-04-22" },
+    "@Epic7Twt":        { "followers": 18642,  "asOf": "2026-04-22" },
+    "@Epic7_jp":        { "followers": 129969, "asOf": "2026-04-22" },
+    "@CZN_Official_EN": { "followers": 72765,  "asOf": "2026-04-22" },
+    "@CZN_Official_KR": { "followers": 7256,   "asOf": "2026-04-22" },
+    "@CZN_Official_jp": { "followers": 119767, "asOf": "2026-04-22" },
+    "@LORD9_jp":        { "followers": 49653,  "asOf": "2026-04-22" }
   }
 }
