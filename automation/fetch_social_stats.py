@@ -84,8 +84,9 @@ GAMES = [
             {"platform": "x",         "region": "Global", "handle": "@Epic7_Global",      "url": "https://x.com/Epic7_Global"},
             {"platform": "x",         "region": "Korea",  "handle": "@Epic7Twt",          "url": "https://x.com/Epic7Twt"},
             {"platform": "instagram", "region": "Global", "handle": "@epicseven_global",  "url": "https://www.instagram.com/epicseven_global/", "ig_business_id": "17841407368977464"},
-            {"platform": "facebook",  "region": "Global", "handle": "EpicSevenGlobal",    "url": "https://www.facebook.com/EpicSevenGlobal/"},
-            {"platform": "facebook",  "region": "Korea",  "handle": "EpicSevenKR",        "url": "https://www.facebook.com/EpicSevenKR/"},
+            {"platform": "facebook",  "region": "Global", "handle": "EpicSevenGlobal",    "url": "https://www.facebook.com/EpicSevenGlobal/",          "fb_page_id": "583835325289924"},
+            {"platform": "facebook",  "region": "Korea",  "handle": "EpicSevenKR",        "url": "https://www.facebook.com/EpicSevenKR/",              "fb_page_id": "487725344745343"},
+            {"platform": "facebook",  "region": "Taiwan", "handle": "第七史詩 (TW)",       "url": "https://www.facebook.com/680591358967035",           "fb_page_id": "680591358967035"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/vUUQvUQPZC", "url": "https://discord.com/invite/vUUQvUQPZC", "invite_code": "vUUQvUQPZC"},
         ],
     },
@@ -101,7 +102,9 @@ GAMES = [
             {"platform": "youtube",   "region": "Taiwan",  "handle": "@ChaosZeroNightmare_TW", "url": "https://www.youtube.com/@ChaosZeroNightmare_TW", "yt_handle": "@ChaosZeroNightmare_TW"},
             {"platform": "x",         "region": "Global",  "handle": "@CZN_Official_EN",      "url": "https://x.com/CZN_Official_EN"},
             {"platform": "instagram", "region": "Global",  "handle": "@czn.official.en",       "url": "https://www.instagram.com/czn.official.en/", "ig_business_id": "17841465051500490"},
-            {"platform": "facebook",  "region": "Official","handle": "ChaosZeroNightmare",     "url": "https://www.facebook.com/ChaosZeroNightmare/"},
+            {"platform": "facebook",  "region": "Global",  "handle": "ChaosZeroNightmare",    "url": "https://www.facebook.com/ChaosZeroNightmare/",       "fb_page_id": "101588973009044"},
+            {"platform": "facebook",  "region": "Japan",   "handle": "カオスゼロナイトメア公式",  "url": "https://www.facebook.com/790177604183352",            "fb_page_id": "790177604183352"},
+            {"platform": "facebook",  "region": "China",   "handle": "卡厄思夢境",              "url": "https://www.facebook.com/107964449030742",            "fb_page_id": "107964449030742"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/chaoszeronightmare", "url": "https://discord.gg/chaoszeronightmare", "invite_code": "chaoszeronightmare"},
         ],
     },
@@ -116,8 +119,11 @@ GAMES = [
             {"platform": "youtube",   "region": "Japan",  "handle": "@LORDNINE_JP",     "url": "https://www.youtube.com/@LORDNINE_JP",     "yt_handle": "@LORDNINE_JP"},
             {"platform": "x",         "region": "Global", "handle": "TBD", "url": "", "missing": True, "note": "Unconfirmed — please provide URL"},
             {"platform": "instagram", "region": "Global", "handle": "TBD", "url": "", "missing": True, "note": "Unconfirmed — please provide URL"},
-            {"platform": "facebook",  "region": "Korea",  "handle": "LordnineKR",  "url": "https://www.facebook.com/LordnineKR/"},
-            {"platform": "facebook",  "region": "SEA",    "handle": "LordnineSEA", "url": "https://www.facebook.com/LordnineSEA/"},
+            {"platform": "facebook",  "region": "Korea",   "handle": "LordnineKR",        "url": "https://www.facebook.com/LordnineKR/",          "fb_page_id": "337644159430761"},
+            {"platform": "facebook",  "region": "SEA",     "handle": "LordnineSEA",       "url": "https://www.facebook.com/LordnineSEA/",         "fb_page_id": "646314575225540"},
+            {"platform": "facebook",  "region": "Japan",   "handle": "ロードナイン",        "url": "https://www.facebook.com/630342166838803",      "fb_page_id": "630342166838803"},
+            {"platform": "facebook",  "region": "Thailand","handle": "LORDNINE Thailand", "url": "https://www.facebook.com/561566950382982",      "fb_page_id": "561566950382982"},
+            {"platform": "facebook",  "region": "China",   "handle": "權力之望 LORDNINE",    "url": "https://www.facebook.com/293217650546931",      "fb_page_id": "293217650546931"},
             {"platform": "discord",   "region": "SEA",    "handle": "discord.gg/lordninesea", "url": "https://discord.gg/lordninesea", "invite_code": "lordninesea"},
         ],
     },
@@ -323,6 +329,92 @@ def fetch_instagram_for_channel(ch, token):
             # Average engagement across last 10 posts
             likes_sum    = sum(int(m.get("like_count") or 0)     for m in items)
             comments_sum = sum(int(m.get("comments_count") or 0) for m in items)
+            ch["recentAvgLikes"]    = likes_sum // len(items)
+            ch["recentAvgComments"] = comments_sum // len(items)
+            ch["recentSampleSize"]  = len(items)
+        return True, None
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")[:300]
+        return False, f"HTTP {e.code}: {body}"
+    except Exception as e:
+        return False, str(e)
+
+
+# ==================================================================
+# Facebook Graph API (via Meta system-user token — same token as Instagram)
+#   Docs: https://developers.facebook.com/docs/graph-api/reference/page/
+#   Endpoints used:
+#     GET /{page-id}?fields=name,followers_count,fan_count,picture{data{url}}
+#     GET /{page-id}/posts?fields=id,message,created_time,permalink_url,
+#                                 full_picture,reactions.summary(total_count),
+#                                 comments.summary(total_count),shares&limit=10
+#   Notes:
+#     - followers_count is preferred; fan_count (Page Likes) is legacy fallback.
+#     - /posts endpoint returns posts by the Page itself (no user tagging).
+# ==================================================================
+def fetch_facebook_for_channel(ch, token):
+    """Populate ch from Facebook Graph API. Returns (ok, error|None)."""
+    page_id = ch.get("fb_page_id")
+    if not page_id:
+        return False, "fb_page_id missing"
+    try:
+        # --- 1. Page-level stats ---
+        page_url = (
+            f"https://graph.facebook.com/{IG_API_VERSION}/{page_id}?"
+            + urllib.parse.urlencode({
+                "fields": "name,followers_count,fan_count,picture.width(120).height(120){url}",
+                "access_token": token,
+            })
+        )
+        page = http_get_json(page_url)
+        followers = page.get("followers_count")
+        if followers is None:
+            followers = page.get("fan_count")  # legacy fallback
+        if followers is None:
+            return False, "no followers_count/fan_count in response (check page permissions)"
+        ch["followers"] = int(followers)
+        ch["title"]     = page.get("name")
+        pic = (page.get("picture") or {}).get("data") or {}
+        ch["thumbnail"] = pic.get("url")
+
+        # --- 2. Recent 10 posts ---
+        posts_url = (
+            f"https://graph.facebook.com/{IG_API_VERSION}/{page_id}/posts?"
+            + urllib.parse.urlencode({
+                "fields": "id,message,created_time,permalink_url,full_picture,"
+                          "reactions.summary(total_count),comments.summary(total_count),shares",
+                "limit": 10,
+                "access_token": token,
+            })
+        )
+        try:
+            posts = http_get_json(posts_url)
+            items = posts.get("data") or []
+        except Exception as e:
+            log(f"    WARN: FB posts list failed for {page_id}: {e}")
+            items = []
+
+        if items:
+            latest = items[0]
+            msg = (latest.get("message") or "").strip()
+            first_line = msg.split("\n", 1)[0] if msg else ""
+            reactions_total = ((latest.get("reactions") or {}).get("summary") or {}).get("total_count")
+            comments_total  = ((latest.get("comments")  or {}).get("summary") or {}).get("total_count")
+            shares_total    = (latest.get("shares") or {}).get("count") if latest.get("shares") else 0
+            ch["latestPost"] = {
+                "caption":      first_line[:150],
+                "timestamp":    latest.get("created_time"),
+                "likeCount":    reactions_total,
+                "commentCount": comments_total,
+                "shareCount":   shares_total,
+                "permalink":    latest.get("permalink_url"),
+                "thumbnailUrl": latest.get("full_picture"),
+            }
+            # Average across recent posts
+            likes_sum = sum(((p.get("reactions") or {}).get("summary") or {}).get("total_count") or 0
+                            for p in items)
+            comments_sum = sum(((p.get("comments") or {}).get("summary") or {}).get("total_count") or 0
+                               for p in items)
             ch["recentAvgLikes"]    = likes_sum // len(items)
             ch["recentAvgComments"] = comments_sum // len(items)
             ch["recentSampleSize"]  = len(items)
@@ -684,7 +776,7 @@ def channel_card_html(game, ch, hist):
         )
     if platform == "youtube" and ch.get("videoCount"):
         sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{fmt_num(ch["videoCount"])} videos · {fmt_num(ch.get("viewCount"))} total views</div>'
-    if platform == "instagram" and ch.get("latestPost"):
+    if platform in ("instagram", "facebook") and ch.get("latestPost"):
         lp = ch["latestPost"]
         try:
             pub = datetime.fromisoformat(lp["timestamp"].replace("Z","+00:00"))
@@ -700,17 +792,21 @@ def channel_card_html(game, ch, hist):
             f'<span class="ago">{ago}</span>'
             f'</div>'
         )
-        likes = lp.get("likeCount")
-        comments = lp.get("commentCount")
+        like_emoji = "♥" if platform == "instagram" else "👍"
+        likes     = lp.get("likeCount")
+        comments  = lp.get("commentCount")
+        shares    = lp.get("shareCount")  # FB only
         avg_likes = ch.get("recentAvgLikes")
-        if likes is not None or avg_likes is not None:
-            parts = []
-            if likes is not None:
-                parts.append(f"♥ {fmt_num(likes)}")
-            if comments is not None:
-                parts.append(f"💬 {fmt_num(comments)}")
-            if avg_likes is not None and ch.get("recentSampleSize"):
-                parts.append(f"avg ♥ {fmt_num(avg_likes)}/post (last {ch['recentSampleSize']})")
+        parts = []
+        if likes is not None:
+            parts.append(f"{like_emoji} {fmt_num(likes)}")
+        if comments is not None:
+            parts.append(f"💬 {fmt_num(comments)}")
+        if shares is not None and shares > 0:
+            parts.append(f"↗ {fmt_num(shares)}")
+        if avg_likes is not None and ch.get("recentSampleSize"):
+            parts.append(f"avg {like_emoji} {fmt_num(avg_likes)}/post")
+        if parts:
             sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{" · ".join(parts)}</div>'
     if platform == "instagram" and ch.get("mediaCount") and not ch.get("latestPost"):
         sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{fmt_num(ch["mediaCount"])} posts</div>'
@@ -890,13 +986,23 @@ def main():
         credential_status["instagram"] = {"configured": False, "note": "META_SYSTEM_TOKEN not provisioned"}
         platforms_pending.append("instagram")
 
-    # -------- Facebook — stub for future wiring (pages listed in credentials) --------
-    if not meta_token:
-        credential_status["facebook"] = {"configured": False, "note": "META_SYSTEM_TOKEN not provisioned"}
-        platforms_pending.append("facebook")
+    # -------- Facebook (shares the Meta system-user token with Instagram) --------
+    if meta_token:
+        credential_status["facebook"] = {"configured": True, "method": "FB Graph API"}
+        fb_channels = [(g, c) for g in GAMES for c in g["channels"]
+                       if c["platform"] == "facebook" and c.get("fb_page_id")]
+        if fb_channels:
+            log(f"Facebook: fetching {len(fb_channels)} page(s) via Graph API")
+            for g, c in fb_channels:
+                ok, err = fetch_facebook_for_channel(c, meta_token)
+                if ok:
+                    log(f"  ✓ {g['id']}/{c['handle']} → {c.get('followers'):,} followers")
+                else:
+                    errors.append({"channel": f"{g['id']}/{c['handle']}", "error": err})
+                    log(f"  ✗ {g['id']}/{c['handle']}: {err}")
+                time.sleep(0.3)
     else:
-        # Token is available but FB page fetching not yet wired (roadmap).
-        credential_status["facebook"] = {"configured": False, "note": "FB fetcher not yet wired; token available"}
+        credential_status["facebook"] = {"configured": False, "note": "META_SYSTEM_TOKEN not provisioned"}
         platforms_pending.append("facebook")
     # -------- Discord (public invite API — no credentials needed) --------
     discord_channels = [(g, c) for g in GAMES for c in g["channels"]
@@ -938,26 +1044,4 @@ def main():
     save_history(hist, snapshot)
     hist = load_history()  # reload so today's entry is included
 
-    html_out = build_html(snapshot, hist)
-    with open(LATEST_HTML, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    # Also write index.html at repo root — GitHub Pages serves this as the default.
-    with open(INDEX_HTML, "w", encoding="utf-8") as f:
-        f.write(html_out)
-    dated_html = SNAPSHOTS / f"{TODAY}.html"
-    with open(dated_html, "w", encoding="utf-8") as f:
-        f.write(html_out)
-
-    # -------- Report --------
-    live_cnt = sum(1 for g in GAMES for c in g["channels"] if c.get("followers") is not None)
-    total    = sum(c["followers"] for g in GAMES for c in g["channels"] if c.get("followers") is not None)
-    log("")
-    log(f"Done. {live_cnt} live channels, {len(errors)} errors, {len(platforms_pending)} platforms pending.")
-    log(f"Total combined live followers: {total:,}")
-    log(f"JSON: {json_path}")
-    log(f"HTML: {LATEST_HTML}")
-    return 0
-
-
-if __name__ == "__main__":
-    sys.exit(main())
+    html_o
