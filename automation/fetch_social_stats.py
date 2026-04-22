@@ -84,9 +84,10 @@ GAMES = [
             {"platform": "x",         "region": "Global", "handle": "@Epic7_Global",      "url": "https://x.com/Epic7_Global"},
             {"platform": "x",         "region": "Korea",  "handle": "@Epic7Twt",          "url": "https://x.com/Epic7Twt"},
             {"platform": "instagram", "region": "Global", "handle": "@epicseven_global",  "url": "https://www.instagram.com/epicseven_global/", "ig_business_id": "17841407368977464"},
-            {"platform": "facebook",  "region": "Global", "handle": "EpicSevenGlobal",    "url": "https://www.facebook.com/EpicSevenGlobal/",          "fb_page_id": "583835325289924"},
-            {"platform": "facebook",  "region": "Korea",  "handle": "EpicSevenKR",        "url": "https://www.facebook.com/EpicSevenKR/",              "fb_page_id": "487725344745343"},
-            {"platform": "facebook",  "region": "Taiwan", "handle": "第七史詩 (TW)",       "url": "https://www.facebook.com/680591358967035",           "fb_page_id": "680591358967035"},
+            # Epic Seven FB: KR/Global/TW pages are linked at the Meta Business
+            # level and return identical follower counts, so we track them as
+            # a single combined entry.
+            {"platform": "facebook",  "region": "Korea/Global/Taiwan", "handle": "EpicSevenGlobal", "url": "https://www.facebook.com/EpicSevenGlobal/", "fb_page_id": "583835325289924"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/vUUQvUQPZC", "url": "https://discord.com/invite/vUUQvUQPZC", "invite_code": "vUUQvUQPZC"},
         ],
     },
@@ -103,7 +104,6 @@ GAMES = [
             {"platform": "x",         "region": "Global",  "handle": "@CZN_Official_EN",      "url": "https://x.com/CZN_Official_EN"},
             {"platform": "instagram", "region": "Global",  "handle": "@czn.official.en",       "url": "https://www.instagram.com/czn.official.en/", "ig_business_id": "17841465051500490"},
             {"platform": "facebook",  "region": "Global",  "handle": "ChaosZeroNightmare",    "url": "https://www.facebook.com/ChaosZeroNightmare/",       "fb_page_id": "101588973009044"},
-            {"platform": "facebook",  "region": "Japan",   "handle": "カオスゼロナイトメア公式",  "url": "https://www.facebook.com/790177604183352",            "fb_page_id": "790177604183352"},
             {"platform": "facebook",  "region": "China",   "handle": "卡厄思夢境",              "url": "https://www.facebook.com/107964449030742",            "fb_page_id": "107964449030742"},
             {"platform": "discord",   "region": "Official","handle": "discord.gg/chaoszeronightmare", "url": "https://discord.gg/chaoszeronightmare", "invite_code": "chaoszeronightmare"},
         ],
