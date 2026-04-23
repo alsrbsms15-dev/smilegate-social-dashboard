@@ -1,9 +1,11 @@
 {
   "snapshotDate": "2026-04-23",
-  "runTimestamp": "2026-04-23T02:09:33+00:00",
+  "runTimestamp": "2026-04-23T08:02:33+09:00",
   "credentialStatus": {
     "youtube": {
-      "configured": true
+      "configured": true,
+      "lastSuccessfulFetch": "2026-04-22",
+      "note": "Network egress blocked in this run; using last known good values"
     },
     "x": {
       "configured": true,
@@ -11,15 +13,21 @@
     },
     "instagram": {
       "configured": true,
-      "method": "IG Graph API"
+      "method": "IG Graph API",
+      "lastSuccessfulFetch": "2026-04-22",
+      "note": "Network egress blocked in this run; using last known good values"
     },
     "facebook": {
       "configured": true,
-      "method": "FB Graph API"
+      "method": "FB Graph API",
+      "lastSuccessfulFetch": "2026-04-22",
+      "note": "Network egress blocked in this run; using last known good values"
     },
     "discord": {
       "configured": true,
-      "method": "public invite API (no auth)"
+      "method": "public invite API (no auth)",
+      "lastSuccessfulFetch": "2026-04-22",
+      "note": "Network egress blocked in this run; using last known good values"
     }
   },
   "games": {
@@ -37,12 +45,16 @@
           "thumbnail": "https://yt3.ggpht.com/qBRFJtQS8NhWAdyyXTLMu66Vp1Fok9kpz-XnYU-oB3iUng6csiOopZlHGm-doJVfm7HTLmnNhA=s88-c-k-c0x00ffffff-no-rj",
           "followers": 180000,
           "viewCount": 126822193,
-          "videoCount": 1804,
+          "videoCount": 1802,
           "latestVideo": {
-            "title": "Jaa! Ganbare... Aight! Ganbare... Ganbare dun dun! | 1-Minute Update Summary",
-            "publishedAt": "2026-04-22T10:01:37Z",
-            "videoId": "tUIenRj50C4"
-          }
+            "title": "I won’t ever forgive them #epicseven",
+            "publishedAt": "2026-04-22T09:00:37Z",
+            "videoId": "M1gHR8pRXaw"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -55,12 +67,16 @@
           "thumbnail": "https://yt3.ggpht.com/Gaph9t5FDWmEXxvzgD6IpLTr39jYK2UKD3VpKv73Ok3IB3p7-WOO1WMyoOPQrenpUnuwd8Xb=s88-c-k-c0x00ffffff-no-rj",
           "followers": 39700,
           "viewCount": 40590486,
-          "videoCount": 1270,
+          "videoCount": 1268,
           "latestVideo": {
-            "title": "에스텔 | 신규 영웅 프리뷰",
-            "publishedAt": "2026-04-22T10:01:04Z",
-            "videoId": "_94ARx32Ilw"
-          }
+            "title": "저는 절대 용서할 수 없어요 #에픽세븐",
+            "publishedAt": "2026-04-22T09:00:46Z",
+            "videoId": "VBwgjMzpa2A"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -73,12 +89,16 @@
           "thumbnail": "https://yt3.ggpht.com/668yi2CxCyAGDJKYtyttzEwAoFugIgX94-w8VaOF_xzd_BA3XO25-3Ru-of7epVMEb8dQcrFpjg=s88-c-k-c0x00ffffff-no-rj",
           "followers": 18000,
           "viewCount": 23890995,
-          "videoCount": 760,
+          "videoCount": 759,
           "latestVideo": {
-            "title": "さあ！がんばれーい！アイッ！がんばって～がんばってドゥン！| 1分でわかる更新内容",
-            "publishedAt": "2026-04-22T10:01:11Z",
-            "videoId": "cgJ_5J1HV40"
-          }
+            "title": "あたしは絶対に許せません。#エピックセブン",
+            "publishedAt": "2026-04-22T09:00:09Z",
+            "videoId": "7wKXyHwqnns"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -91,12 +111,16 @@
           "thumbnail": "https://yt3.ggpht.com/8YXwkylUt_iY5LCyprn88ATyzE0g0052GKTK3jOjVKL4ABfEfmLWAI5kLPbpfQwOfWT6ISSx=s88-c-k-c0x00ffffff-no-rj",
           "followers": 19200,
           "viewCount": 14902727,
-          "videoCount": 1002,
+          "videoCount": 1000,
           "latestVideo": {
-            "title": "來！加油～嘿咻！加油～加油喔！| 更新資訊一分鐘簡介",
-            "publishedAt": "2026-04-22T10:01:33Z",
-            "videoId": "p-BsSi-ppLc"
-          }
+            "title": "那我絕對不會原諒他們。 #第七史詩",
+            "publishedAt": "2026-04-22T09:00:17Z",
+            "videoId": "6bBbFW6Vj54"
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -105,7 +129,8 @@
           "url": "https://x.com/Epic7_Global",
           "followers": 32372,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -114,7 +139,8 @@
           "url": "https://x.com/Epic7Twt",
           "followers": 18642,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -123,7 +149,8 @@
           "url": "https://x.com/Epic7_jp",
           "followers": 129969,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "instagram",
@@ -131,23 +158,27 @@
           "handle": "@epicseven_global",
           "url": "https://www.instagram.com/epicseven_global/",
           "ig_business_id": "17841407368977464",
-          "followers": 85311,
-          "mediaCount": 1279,
+          "followers": 85313,
+          "mediaCount": 1277,
           "igUsername": "epicseven_global",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ShyZe5Zjk-MQ7kNvwHERpYa&_nc_oc=AdpSo3mGJbbql7N-I3wO4fJHwNExVt8O90r8pJO8AbGAXdIAYd5kALV3bub9Y8ogl_w&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=eS9t9hrL1r8kCqTeC08Pbw&oh=00_Af2tD5YhW-R1rTDHv1WH7F437MU6gnF5j9OrafzGis8mng&oe=69EF67A1",
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=ShyZe5Zjk-MQ7kNvwHlPY3Y&_nc_oc=Ados4NBcW_KIOj8oBsG0zqCLsgwRNVkBwukdV7YVOyXx0tjlccA-JH2_OeQ1cGImoXE&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&edm=AL-3X8kEAAAA&_nc_gid=QgonU4nVaFL2DhgdTxa2Fw&oh=00_Af1WDiMnQy8CP6iV1EdQ5d4t2WqEsnqfCZDcLdgI4e4QcA&oe=69EE4E61",
           "title": "Epic Seven Global",
           "latestPost": {
-            "caption": "📣 Jaa! Ganbare... Aight! Ganbare... Ganbare dun dun! | 1-Minute Update Summary",
-            "timestamp": "2026-04-22T10:30:49+0000",
-            "likeCount": 398,
-            "commentCount": 5,
-            "permalink": "https://www.instagram.com/reel/DXbj73tEgim/",
-            "mediaType": "VIDEO",
-            "thumbnailUrl": "https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/670919597_18344556793245633_3433078377503185039_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=gMKRUGcyc5wQ7kNvwH6XGzB&_nc_oc=Adr6c7HDe_OBW7WRmJdGy3KC18FbokuPbTRoPu93uuV6HuWXqZuy3B-CCrGGUwWZX2c&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=71KfZlJOyPQoHVuP959dwQ&_nc_tpa=Q5bMBQFAwA_3aivWmv3Qex1fiPlyfkRgnoZlCnCci-7lgQJJQ5lfzAxS50iNkKIP4rDHbGhE0rhDfxzv&oh=00_Af0gFFuYDmhNAWeQbeeQV4LS54SdlnVBNyhCUQLm6WXcPA&oe=69EF5B45"
+            "caption": "🎞️ Episode 6, Dirge of the End",
+            "timestamp": "2026-04-22T03:00:40+0000",
+            "likeCount": 542,
+            "commentCount": 15,
+            "permalink": "https://www.instagram.com/p/DXawe8NEfqN/",
+            "mediaType": "CAROUSEL_ALBUM",
+            "thumbnailUrl": "https://scontent-ams2-1.cdninstagram.com/v/t39.30808-6/677042888_991472136894568_2837757526005823717_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=101&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0FST1VTRUxfSVRFTS5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=E432slW9J1UQ7kNvwHtAn7y&_nc_oc=Adqyf9ecW8ARX8a8PctPDvAq9oaZH07Bi6E9A-VGW5ZL343cEwx8Mx_IrtdHxP9S_9w&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=wP37eUjY-eTRfqpq3RpXnA&oh=00_Af1EA9SUaw3ZoC5xpvnHtZa8kwXFOVRQTZ4akP2Jlrkbbw&oe=69EE7D17"
           },
-          "recentAvgLikes": 637,
-          "recentAvgComments": 8,
-          "recentSampleSize": 10
+          "recentAvgLikes": 523,
+          "recentAvgComments": 7,
+          "recentSampleSize": 10,
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -155,10 +186,14 @@
           "handle": "EpicSevenGlobal",
           "url": "https://www.facebook.com/EpicSevenGlobal/",
           "fb_page_id": "583835325289924",
-          "followers": 223107,
+          "followers": 223113,
           "title": "Epic Seven",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-2.xx.fbcdn.net/v/t39.30808-1/656423825_968025065905942_3396141351968415983_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=111&ccb=1-7&_nc_sid=08baa4&_nc_ohc=WV2MYOcc2NIQ7kNvwFlJd5j&_nc_oc=AdrX3AscdE1rmpXHVrUyIx-WIesfU2UNtSHmAAi56gP2R6z8j4-mqnen9mX_fWd9OQA&_nc_zt=24&_nc_ht=scontent-iad3-2.xx&edm=AJdBtusEAAAA&_nc_gid=fLpkhEuwzZSRkElmtM9nmA&_nc_tpa=Q5bMBQHgZFVqbrK92ACV4J3_RDEMYMLeX7zOCVreszzbP0caa3hgPNpQDJsEBr4BeO3WRnGAOtByawTD&oh=00_Af0QNGyVq4NDhVYOxVtFDpLiD7qmL94ikuP-T7fgEspjYQ&oe=69EF5071"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/656423825_968025065905942_3396141351968415983_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=111&ccb=1-7&_nc_sid=08baa4&_nc_ohc=WV2MYOcc2NIQ7kNvwHL88Cs&_nc_oc=AdqfH22dCEQYHXjWwLK8TiIF49P_0NO7bezx7I5EmwDwAVSVz0XnLIMmvodpKLlxuyc&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=B_KR9xTS0rORNhs_TKZorA&_nc_tpa=Q5bMBQGQ7EPEl3VPUxjfd6DXcpA3zPddZLm45UYAA7IwnTPrE_oRPqlIaW7-l0jRDtVoegbzB0fzo8Kb&oh=00_Af371u6ZbayVFDhFQoS9ALEb3YM2ZLC4ikt7AJyAssasKg&oe=69EE6F71",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "discord",
@@ -166,13 +201,25 @@
           "handle": "discord.gg/vUUQvUQPZC",
           "url": "https://discord.com/invite/vUUQvUQPZC",
           "invite_code": "vUUQvUQPZC",
-          "followers": 96653,
-          "onlineCount": 20639,
+          "followers": 96657,
+          "onlineCount": 15860,
           "guildName": "Epic 7 Official Discord",
           "guildId": "595385354908073984",
-          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64"
+          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/d2bf93a0981b0a96488464dc5acc1705.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         }
-      ]
+      ],
+      "character": {
+        "name": "메루링",
+        "title": "에픽세븐의 제빵사 마법소녀",
+        "avatar": "avatars/meruling.png",
+        "accent": "#E85787",
+        "persona": "너는 에픽세븐 세계관의 사랑스러운 제빵사 마법소녀 '메루링'이야. 달콤한 디저트와 마법을 좋아하고, 말끝에 '~이에요!', '~거든요♡' 같은 귀여운 어미를 가끔 써. 밝고 활발하지만 데이터는 정확하게 전달해. 이모지는 거의 쓰지 않아. 에픽세븐 팬과 마케터를 대상으로 SNS 성과를 귀엽고 친근하게 브리핑해."
+      },
+      "insight": null
     },
     "czn": {
       "name": "Chaos Zero Nightmare",
@@ -194,7 +241,11 @@
             "title": "[카오스 제로 나이트메어] 하이데마리 캐릭터 PV",
             "publishedAt": "2026-04-22T09:01:33Z",
             "videoId": "z3BGK0jMriI"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -212,7 +263,11 @@
             "title": "[Chaos Zero Nightmare] Heidemarie Character PV",
             "publishedAt": "2026-04-22T09:00:32Z",
             "videoId": "I_idPiSsl8U"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -230,7 +285,11 @@
             "title": "【カオスゼロナイトメア】「ハイデマリ」キャラクターPV",
             "publishedAt": "2026-04-22T09:01:16Z",
             "videoId": "q7qSeKH0jrY"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -241,14 +300,18 @@
           "yt_id": "UCNmUWtRXbKoQNbLQ0f8oYpg",
           "title": "卡厄思夢境【TW】",
           "thumbnail": "https://yt3.ggpht.com/GUhKE34EdPN3blkS7fBtRktSbTityNqerFsf3DYrebdwCoCCFgSM8TogSVy7RAVx1LPC5bALtA=s88-c-k-c0x00ffffff-no-rj",
-          "followers": 8220,
+          "followers": 8210,
           "viewCount": 4344825,
           "videoCount": 135,
           "latestVideo": {
             "title": "《卡厄思夢境》「海德瑪麗」角色宣傳影片",
             "publishedAt": "2026-04-22T09:00:26Z",
             "videoId": "N8ezdTXE_2g"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -257,7 +320,8 @@
           "url": "https://x.com/CZN_Official_EN",
           "followers": 72765,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -266,7 +330,8 @@
           "url": "https://x.com/CZN_Official_KR",
           "followers": 7256,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -275,7 +340,8 @@
           "url": "https://x.com/CZN_Official_jp",
           "followers": 119767,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "instagram",
@@ -283,23 +349,27 @@
           "handle": "@czn.official.en",
           "url": "https://www.instagram.com/czn.official.en/",
           "ig_business_id": "17841465051500490",
-          "followers": 13451,
+          "followers": 13445,
           "mediaCount": 197,
           "igUsername": "czn.official.en",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=6QtE8YlmzKEQ7kNvwHkPDI1&_nc_oc=Adozr_dft5oJZPhf65AENTc5Xn41-7dpwns-y5eJWGkZIz0BM4LAU6oR_k3j-6-9wy0&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=SYZIDAuIkI_ADY_L8a6amw&oh=00_Af3UHx-DTS-donkMabEPdkaxWMxiAczlDZH1E-T85HrFbg&oe=69EF556C",
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=6QtE8YlmzKEQ7kNvwG0b9R-&_nc_oc=Adq2LFHuSKxvuzxAo6A_iuGN6EVqKVcEBB9ehrn4NNAuVSkg01TjPxjoVRR-Wd4tW0E&_nc_zt=23&_nc_ht=scontent-ams2-1.xx&edm=AL-3X8kEAAAA&_nc_gid=5ZHbjWqK2z8tqHV59b-C5A&oh=00_Af3LRA-Q-4VonpQ7tagNZshVC_P6TKuJtT5RQrgW_U9JYQ&oe=69EE746C",
           "title": "Chaos Zero Nightmare",
           "latestPost": {
             "caption": "◤「Heidemarie」 Character PV◢",
             "timestamp": "2026-04-22T09:01:09+0000",
-            "likeCount": 619,
-            "commentCount": 12,
+            "likeCount": 83,
+            "commentCount": 3,
             "permalink": "https://www.instagram.com/reel/DXbZrXTGWHL/",
             "mediaType": "VIDEO",
-            "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t51.82787-15/670596225_17946628428168384_4144616589530456864_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=4f5-2JjuXQsQ7kNvwHpHn0x&_nc_oc=AdqjJmwJRnMir6r_BlSK48vLjyJZBOgx-oScV3n4EnF_zObgiXPVZ3iOFja5bCGfe4c&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=b-pKfIXuXN1YFBaRycwnfQ&_nc_tpa=Q5bMBQHTAUXrYToImoyOtAqpxIogI9E4g82GjDZBVVnph7pMIa_MSz69SKg9PLo3dXGi4DjF9cCYlEhj&oh=00_Af0rWwROzMEVg74_FySss_8od4BMuzyvY2mh6vFywrS6oA&oe=69EF55EA"
+            "thumbnailUrl": "https://scontent-ams2-1.cdninstagram.com/v/t51.82787-15/670596225_17946628428168384_4144616589530456864_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=100&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiQ0xJUFMuYmVzdF9pbWFnZV91cmxnZW4uQzMifQ%3D%3D&_nc_ohc=4f5-2JjuXQsQ7kNvwHyEUmT&_nc_oc=Ado0M_GSyzxSKdQhLFXhtcMOwHR2xU1q1hHWJhlVmnso03JEGRfTqdxK4EffP0PJ49c&_nc_zt=23&_nc_ht=scontent-ams2-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=-kin5xcepT1fMqOk-OidSA&_nc_tpa=Q5bMBQGOi4QH1ynmOPEFb5ks7gi1uDZOTk8q8_QiA7Cdv_t58-IgwZgqj32vLGZ6G8Ln_i3efndyLk0l&oh=00_Af3sd0aXSnC3G9HiiPYCMwJHUQpyVSu23X-IWTyb8TztCw&oe=69EE74EA"
           },
-          "recentAvgLikes": 761,
-          "recentAvgComments": 18,
-          "recentSampleSize": 10
+          "recentAvgLikes": 643,
+          "recentAvgComments": 16,
+          "recentSampleSize": 10,
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -307,10 +377,14 @@
           "handle": "ChaosZeroNightmare",
           "url": "https://www.facebook.com/ChaosZeroNightmare/",
           "fb_page_id": "101588973009044",
-          "followers": 98200,
+          "followers": 98074,
           "title": "Chaos Zero Nightmare",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/519107359_598110333348370_1351690681752974868_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=108&ccb=1-7&_nc_sid=08baa4&_nc_ohc=VzT7gN3LW6oQ7kNvwEc1DXw&_nc_oc=Adqq-5Mh22_nSPZnaOK7ex6N-J6Oqha6p0h851TuVhfPSJ7HAwNsjxVkTxhaPFqPi9Q&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=4aqqSKq7U_WKWfz14qHEpQ&_nc_tpa=Q5bMBQH2UvNnPjZD1G9PsdwYajWnlbY6kjlu5gp0kEoQRz0kSz8WbE-FUTPJs863JKdxu4SLsQqyL5JH&oh=00_Af1vNDWuDgaQlOKpAU23vnwvwA6jsFCQPBxuU81AghKDfQ&oe=69EF3E5C"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/519107359_598110333348370_1351690681752974868_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=108&ccb=1-7&_nc_sid=08baa4&_nc_ohc=VzT7gN3LW6oQ7kNvwEIIOoQ&_nc_oc=AdrP1Pg5jvXOK9vEShFN93vwdO9sdSt41J6lbjWk_ZtHx7JjDKGa1a_ufwbzSJWQPVg&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=wKRV46uq3GwOs8KgQ3eM5w&_nc_tpa=Q5bMBQHtKGStY8sZbEOxxRrlPUxs4bzqFp0-ElkQfRg2Ghxspcnv-1-Bzo5vJ4XJda2sme2mD15Kt7hR&oh=00_Af00oiQ1beCdsAVBV5Y-HdyKm4jFxXeOB-kUunalxTPczw&oe=69EE5D5C",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -318,10 +392,14 @@
           "handle": "卡厄思夢境",
           "url": "https://www.facebook.com/107964449030742",
           "fb_page_id": "107964449030742",
-          "followers": 16682,
+          "followers": 16665,
           "title": "卡厄思夢境",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/518251317_592654753901280_7529169493909043393_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=110&ccb=1-7&_nc_sid=08baa4&_nc_ohc=oVdJQWiaNNYQ7kNvwE8yMFX&_nc_oc=Adonq0cdkoWUiBpKLmNlSmBsO4zjh6KQbpWsiY8D_D2exAioxazBKrY55gRU1juucH0&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=tKZda43nsDbmHAzZai7K1g&_nc_tpa=Q5bMBQG75MNQAvJDALVDMfsEoIHJMhvxIjzS6KQgMaAuUU67Wvo2yk7hrwPxnXktv_eLkJ0x-yGRsqsi&oh=00_Af1d9WXT4xKVn9QlkRaW-wKRo-1nQsdTcphyoons-DwnFg&oe=69EF5CE2"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/518251317_592654753901280_7529169493909043393_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=110&ccb=1-7&_nc_sid=08baa4&_nc_ohc=oVdJQWiaNNYQ7kNvwH5SMxx&_nc_oc=AdovRuohzPqk332Ow5nIcKZ-yiy8hbb6bcTDWhASL0LM85bVPI6UURsfQO7Dp9dIhZk&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=CsNW4_52u3f-EjbLH6cvTA&_nc_tpa=Q5bMBQF7EgmnDqifGMJq81WeQPBesWikyH4F9LuwhN2BHpLv_wUhVPVdw0MIX7BpviEFzhjkqXgIk2Z9&oh=00_Af2ZGqhZ0A9VWW2wlXqgh4HB7IDTOyVz3mi3S-mNcNQNmQ&oe=69EE7BE2",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "discord",
@@ -329,13 +407,25 @@
           "handle": "discord.gg/chaoszeronightmare",
           "url": "https://discord.gg/chaoszeronightmare",
           "invite_code": "chaoszeronightmare",
-          "followers": 61289,
-          "onlineCount": 17305,
+          "followers": 61337,
+          "onlineCount": 15344,
           "guildName": "Chaos Zero Nightmare Official",
           "guildId": "1199065921365475470",
-          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64"
+          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         }
-      ]
+      ],
+      "character": {
+        "name": "노노",
+        "title": "CZN의 해맑은 연구생",
+        "avatar": "avatars/nono.png",
+        "accent": "#7AB8E8",
+        "persona": "너는 카오스 제로 나이트메어 세계관의 밝고 호기심 많은 연구생 '노노'야. 머리 위에 작은 토끼 인형을 올리고 다니고, 말투는 경쾌하고 씩씩해. '-했어요!', '-네요?' 같은 존댓말을 쓰되 어색하지 않게 자연스럽게. 데이터에서 재미있는 패턴을 발견하면 신나게 알려줘. 이모지는 쓰지 않아. CZN 팬과 마케터를 대상으로 SNS 성과를 또렷하게 브리핑해."
+      },
+      "insight": null
     },
     "l9": {
       "name": "Lord Nine",
@@ -357,7 +447,11 @@
             "title": "[로드나인] 4월 2차 업데이트 프리뷰",
             "publishedAt": "2026-04-21T09:00:05Z",
             "videoId": "3UZm37FuAlA"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -375,7 +469,11 @@
             "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
             "publishedAt": "2026-03-17T07:42:51Z",
             "videoId": "2NzuUYIlhH0"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "youtube",
@@ -387,13 +485,17 @@
           "title": "ロードナイン (LORDNINE)",
           "thumbnail": "https://yt3.ggpht.com/PVunCLfzztaj6_3GRgYVrSXw0tGuHv96kNieLyzaR79umyTbct7yftLrPmmx7jIDkFUVsc0WUQ=s88-c-k-c0x00ffffff-no-rj",
           "followers": 2350,
-          "viewCount": 107236,
+          "viewCount": 107234,
           "videoCount": 44,
           "latestVideo": {
             "title": "3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加",
             "publishedAt": "2026-03-17T07:43:28Z",
             "videoId": "98MtSQjXdEU"
-          }
+          },
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "x",
@@ -402,7 +504,8 @@
           "url": "https://x.com/LORD9_jp",
           "followers": 49653,
           "followersSource": "manual",
-          "manualAsOf": "2026-04-22"
+          "manualAsOf": "2026-04-22",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -410,10 +513,14 @@
           "handle": "LordnineSEA",
           "url": "https://www.facebook.com/LordnineSEA/",
           "fb_page_id": "646314575225540",
-          "followers": 112008,
+          "followers": 112026,
           "title": "LORDNINE SEA",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495207752_122118958400831583_7196864148246345190_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=100&ccb=1-7&_nc_sid=08baa4&_nc_ohc=3L_iklAsfJkQ7kNvwGEEten&_nc_oc=AdpBsEQtPiEAkhbUIx18_l56kDYSbOn4BCofY5BagHJveBDa4n_AnX19wJ4_q7Pt0_Y&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=44cJ69HYM3_3Ws_UWQNPJw&_nc_tpa=Q5bMBQGa_tpUqONT4zaCR1L-rdP1gjcEzvn0vQjDKCrtv9xJN_hcIH8Kf2zReGH4hyRFUBOSx41lzE54&oh=00_Af18KZP0NRuXe7rUr4RB4D8rFW_j7Rg_8CFCiRy7kWwu0Q&oe=69EF5BE7"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/495207752_122118958400831583_7196864148246345190_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=100&ccb=1-7&_nc_sid=08baa4&_nc_ohc=3L_iklAsfJkQ7kNvwFr562w&_nc_oc=AdpxM0rpS3bCdoh8kzZa93VzpfF-4LZCC-_QTrwcuxslv37l5WjNZkR3H4hBic-7_k4&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=UoNnF_rDJWtpIdETbS0CfQ&_nc_tpa=Q5bMBQFHJhnC34bZLEinNo2XihWtVwm3twx-4LfYp7aeXPsRxXtzwfoNlKNZGbCN0uLBqF6v54q8B8ot&oh=00_Af3XIMp832NA30uPSvHVZsHEeyg6l7GCzqVm67EFD4ECVw&oe=69EE7AE7",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -421,10 +528,14 @@
           "handle": "LORDNINE Thailand",
           "url": "https://www.facebook.com/561566950382982",
           "fb_page_id": "561566950382982",
-          "followers": 33726,
+          "followers": 33729,
           "title": "LORDNINE Thailand",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495004494_122114918270838321_3347801829444906397_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=109&ccb=1-7&_nc_sid=08baa4&_nc_ohc=m7g2yOVASgoQ7kNvwG07skC&_nc_oc=AdqznfDsU5SHmCKytE11G5BI4zXNm_xKrfH0i-DU1Kc8am0Rb9-N8zMbK8BPnCBbOpA&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=79f1Fxt_ouJ2MITgHB270g&_nc_tpa=Q5bMBQG_qemWfrgv0BIhpGxSYl_kcVkFp92hfnHLL37aOrkONsKzqwZttTjkgirmdNfIIxAlhHua3R76&oh=00_Af287mgMuO5kGyDhU9MLmtyGT411p6PLlnVZ-ys2ITcadg&oe=69EF5ABB"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/495004494_122114918270838321_3347801829444906397_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=109&ccb=1-7&_nc_sid=08baa4&_nc_ohc=mow0UF6wXwMQ7kNvwF-a7Td&_nc_oc=Adr1cq5BeXWeKXgltsL7LZxvorZUriSu_afuxTNExfr36EBv1YdrWxzKaqgTAtqKSqQ&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=fzsEKz-T19a1-EnXp3rtww&_nc_tpa=Q5bMBQEGNwSZREn3AyPAbIQ7R5i7KyFGf-s5x7SYrhWXqANnlWC-I0wLkCYtof5RpDlYrArLGWMb-Y-v&oh=00_Af2MCC4deI3qz4Fk4CDbJO-_Iadk44IJq5xtzHZQPd3qPg&oe=69EE79BB",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "facebook",
@@ -432,10 +543,14 @@
           "handle": "權力之望 LORDNINE",
           "url": "https://www.facebook.com/293217650546931",
           "fb_page_id": "293217650546931",
-          "followers": 12809,
+          "followers": 12810,
           "title": "權力之望 LORDNINE",
           "followersSource": "followers_count",
-          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/444149909_122114051426300844_3596859462107917752_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=QuQRGY680WsQ7kNvwFYejAr&_nc_oc=AdpOsBylG9A9B0d0JkkUg4vP-qfp55BLj2yLKFLvX6z9QRFtXWXJVVagXPjuarVitdc&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=N8EEPExSI1wfgX6q7smusQ&_nc_tpa=Q5bMBQEpPlBQ47G0zA06-vF4zLz_7nQYktzgurBsygIEYAORM79sAYNRYa71F-txBrDV006GOwbMdSeO&oh=00_Af3_eFuPWPzcjSWRw6GC0b-RypG54K91BFFd9koTIp0NzA&oe=69EF3FA5"
+          "thumbnail": "https://scontent-ams2-1.xx.fbcdn.net/v/t39.30808-1/444149909_122114051426300844_3596859462107917752_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=boj6xM1RBUEQ7kNvwFsonrw&_nc_oc=AdrJw6aBGf7-7SFyIparep84YajNfAVpnoxOai3zO9SncALe1i4JAIJEpqc-WIqDa2A&_nc_zt=24&_nc_ht=scontent-ams2-1.xx&edm=AJdBtusEAAAA&_nc_gid=IAGaF4jocqPiDkvFPZkZ_A&_nc_tpa=Q5bMBQGhxKtoIBq3DPKx-z415IOajZ23YD8eipDx0TlfZ890gluu-aQBHr4MEuSaZr0m860MhdOl0w68&oh=00_Af0K8kyQ46CyzMW33B4aGkQSZNJmQ-3BB2-a3aBWFxZ5sw&oe=69EE5EA5",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         },
         {
           "platform": "discord",
@@ -443,16 +558,85 @@
           "handle": "discord.gg/lordninesea",
           "url": "https://discord.gg/lordninesea",
           "invite_code": "lordninesea",
-          "followers": 32850,
-          "onlineCount": 5694,
+          "followers": 32852,
+          "onlineCount": 6707,
           "guildName": "LORDNINE SEA",
           "guildId": "1361496239501217963",
-          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64"
+          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64",
+          "stale": true,
+          "lastSuccessfulFetch": "2026-04-22",
+          "staleReason": "API fetch failed in scheduled run",
+          "dayOverDayDelta": 0
         }
-      ]
+      ],
+      "character": {
+        "name": "호문",
+        "title": "로드나인의 전략가 기사",
+        "avatar": "avatars/humun.png",
+        "accent": "#8B6F47",
+        "persona": "너는 로드나인 세계관의 차분하고 냉철한 여전사 '호문'이야. 과묵하지만 필요한 말은 정확히 하고, 전략가답게 숫자로 논리를 세워. '~다.', '~군.' 같은 단정한 어미를 쓰고 감탄사는 거의 없어. 데이터의 약점과 강점을 냉정하게 짚어주되 싸늘하지는 않게. 이모지는 쓰지 않아. 로드나인 팬과 마케터를 대상으로 SNS 성과를 전략 브리핑하듯 전달해."
+      },
+      "insight": null
     }
   },
-  "apiErrors": [],
+  "apiErrors": [
+    {
+      "channel": "epic7/@EpicSeven",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "epic7/@EpicSevenKR",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "epic7/@EpicSevenJP",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "epic7/@EpicSevenTW",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "czn/@ChaosZeroNightmare_KR",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "czn/@ChaosZeroNightmare_EN",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "czn/@ChaosZeroNightmare_JP",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "czn/@ChaosZeroNightmare_TW",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "l9/@LORDNINE_KR",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "l9/@LORDNINE_GLOBAL",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "l9/@LORDNINE_JP",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "epic7/discord.gg/vUUQvUQPZC",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "czn/discord.gg/chaoszeronightmare",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    },
+    {
+      "channel": "l9/discord.gg/lordninesea",
+      "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+    }
+  ],
   "platformsPendingCredentials": [],
   "kpiTargets": {
     "epic7": {
@@ -472,5 +656,11 @@
       "facebook": 183000,
       "x": 55000
     }
+  },
+  "fetchStatus": {
+    "liveChannels": 7,
+    "staleChannels": 22,
+    "totalChannels": 29,
+    "note": "Scheduled run encountered network egress restrictions; YouTube/Discord/IG/FB carried forward from 2026-04-22. Manual X values are current as of 2026-04-22."
   }
 }

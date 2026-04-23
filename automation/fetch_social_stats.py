@@ -78,6 +78,18 @@ GAMES = [
         "name": "Epic Seven",
         "ko": "에픽세븐",
         "color": "#6B5FD4",
+        "character": {
+            "name": "메루링",
+            "title": "에픽세븐의 제빵사 마법소녀",
+            "avatar": "avatars/meruling.png",
+            "accent": "#E85787",
+            "persona": (
+                "너는 에픽세븐 세계관의 사랑스러운 제빵사 마법소녀 '메루링'이야. "
+                "달콤한 디저트와 마법을 좋아하고, 말끝에 '~이에요!', '~거든요♡' 같은 귀여운 어미를 가끔 써. "
+                "밝고 활발하지만 데이터는 정확하게 전달해. 이모지는 거의 쓰지 않아. "
+                "에픽세븐 팬과 마케터를 대상으로 SNS 성과를 귀엽고 친근하게 브리핑해."
+            ),
+        },
         "channels": [
             {"platform": "youtube",   "region": "Global", "handle": "@EpicSeven",         "url": "https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w",   "yt_id": "UCa1C3tWzsn4FFRR7t3LqU5w"},
             {"platform": "youtube",   "region": "Korea",  "handle": "@EpicSevenKR",       "url": "https://www.youtube.com/c/EpicSevenKR",                     "yt_handle": "@EpicSevenKR"},
@@ -99,6 +111,19 @@ GAMES = [
         "name": "Chaos Zero Nightmare",
         "ko": "카오스 제로 나이트메어",
         "color": "#D4495F",
+        "character": {
+            "name": "노노",
+            "title": "CZN의 해맑은 연구생",
+            "avatar": "avatars/nono.png",
+            "accent": "#7AB8E8",
+            "persona": (
+                "너는 카오스 제로 나이트메어 세계관의 밝고 호기심 많은 연구생 '노노'야. "
+                "머리 위에 작은 토끼 인형을 올리고 다니고, 말투는 경쾌하고 씩씩해. "
+                "'-했어요!', '-네요?' 같은 존댓말을 쓰되 어색하지 않게 자연스럽게. "
+                "데이터에서 재미있는 패턴을 발견하면 신나게 알려줘. 이모지는 쓰지 않아. "
+                "CZN 팬과 마케터를 대상으로 SNS 성과를 또렷하게 브리핑해."
+            ),
+        },
         "channels": [
             {"platform": "youtube",   "region": "Korea",   "handle": "@ChaosZeroNightmare_KR", "url": "https://www.youtube.com/@ChaosZeroNightmare_KR", "yt_handle": "@ChaosZeroNightmare_KR"},
             {"platform": "youtube",   "region": "Global",  "handle": "@ChaosZeroNightmare_EN", "url": "https://www.youtube.com/@ChaosZeroNightmare_EN", "yt_handle": "@ChaosZeroNightmare_EN"},
@@ -118,6 +143,19 @@ GAMES = [
         "name": "Lord Nine",
         "ko": "로드나인",
         "color": "#C79848",
+        "character": {
+            "name": "호문",
+            "title": "로드나인의 전략가 기사",
+            "avatar": "avatars/humun.png",
+            "accent": "#8B6F47",
+            "persona": (
+                "너는 로드나인 세계관의 차분하고 냉철한 여전사 '호문'이야. "
+                "과묵하지만 필요한 말은 정확히 하고, 전략가답게 숫자로 논리를 세워. "
+                "'~다.', '~군.' 같은 단정한 어미를 쓰고 감탄사는 거의 없어. "
+                "데이터의 약점과 강점을 냉정하게 짚어주되 싸늘하지는 않게. 이모지는 쓰지 않아. "
+                "로드나인 팬과 마케터를 대상으로 SNS 성과를 전략 브리핑하듯 전달해."
+            ),
+        },
         "channels": [
             {"platform": "youtube",   "region": "Korea",  "handle": "@LORDNINE_KR",     "url": "https://www.youtube.com/@LORDNINE_KR",     "yt_handle": "@LORDNINE_KR"},
             {"platform": "youtube",   "region": "Global", "handle": "@LORDNINE_GLOBAL", "url": "https://www.youtube.com/@LORDNINE_GLOBAL", "yt_handle": "@LORDNINE_GLOBAL"},
@@ -162,6 +200,7 @@ def load_credentials():
         ("X_BEARER_TOKEN",     "x",        "bearer_token"),
         ("META_SYSTEM_TOKEN",  "meta",     "system_token"),
         ("DISCORD_BOT_TOKEN",  "discord",  "bot_token"),
+        ("ANTHROPIC_API_KEY",  "anthropic", "api_key"),
     }
     for env_name, section, key in env_map:
         val = os.environ.get(env_name)
@@ -225,6 +264,148 @@ def load_kpi_targets():
 
 
 # ==================================================================
+# Anthropic Claude Haiku — AI character insights
+#   Docs: https://docs.anthropic.com/en/api/messages
+#   Model: claude-haiku-4-5-20251001 (cheapest, fast, good at persona)
+# ==================================================================
+ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
+ANTHROPIC_MODEL   = "claude-haiku-4-5-20251001"
+
+
+def http_post_json(url, payload, headers, timeout=30):
+    """POST a JSON payload. Returns parsed JSON; raises on non-2xx."""
+    data = json.dumps(payload).encode("utf-8")
+    req_headers = {"Content-Type": "application/json", "User-Agent": "smilegate-sns-dashboard/1.0"}
+    req_headers.update(headers or {})
+    req = urllib.request.Request(url, data=data, headers=req_headers, method="POST")
+    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def build_character_prompt(game, channels):
+    """Produce a compact text briefing that Claude can analyze per game.
+    Covers: YouTube recent videos (top by views), IG/FB top posts, follower trends.
+    """
+    lines = []
+    lines.append(f"## {game['name']} ({game['ko']}) — 오늘 날짜: {TODAY}")
+    lines.append("")
+
+    # -- YouTube per-channel recent video summary
+    yt_chs = [c for c in channels if c["platform"] == "youtube" and c.get("recentVideos")]
+    if yt_chs:
+        lines.append("### YouTube 최근 영상 (조회수 상위)")
+        for ch in yt_chs:
+            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 구독자 {fmt_num(ch.get('followers'))}")
+            vids = sorted(ch.get("recentVideos", []), key=lambda v: v.get("viewCount", 0), reverse=True)[:3]
+            for v in vids:
+                title = (v.get("title") or "")[:80]
+                lines.append(
+                    f"  · [{v.get('publishedAt','')[:10]}] {title} "
+                    f"— {fmt_num(v.get('viewCount'))} views, "
+                    f"{fmt_num(v.get('likeCount'))} likes, "
+                    f"{fmt_num(v.get('commentCount'))} comments"
+                )
+        lines.append("")
+
+    # -- Instagram top posts
+    ig_chs = [c for c in channels if c["platform"] == "instagram" and c.get("topPosts")]
+    if ig_chs:
+        lines.append("### Instagram 인게이지먼트 상위 게시물")
+        for ch in ig_chs:
+            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 팔로워 {fmt_num(ch.get('followers'))}")
+            for p in (ch.get("topPosts") or [])[:3]:
+                cap = p.get("caption") or "(캡션 없음)"
+                lines.append(
+                    f"  · [{(p.get('timestamp') or '')[:10]}] {cap[:80]} "
+                    f"— ♥ {fmt_num(p.get('likeCount'))} / 💬 {fmt_num(p.get('commentCount'))}"
+                )
+        lines.append("")
+
+    # -- Facebook top posts
+    fb_chs = [c for c in channels if c["platform"] == "facebook" and c.get("topPosts")]
+    if fb_chs:
+        lines.append("### Facebook 인게이지먼트 상위 게시물")
+        for ch in fb_chs:
+            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 팬 {fmt_num(ch.get('followers'))}")
+            for p in (ch.get("topPosts") or [])[:3]:
+                cap = p.get("caption") or "(본문 없음)"
+                lines.append(
+                    f"  · [{(p.get('timestamp') or '')[:10]}] {cap[:80]} "
+                    f"— 👍 {fmt_num(p.get('likeCount'))} / 💬 {fmt_num(p.get('commentCount'))} / ↻ {fmt_num(p.get('shareCount'))}"
+                )
+        lines.append("")
+
+    # -- X manual follower totals (no content-level data)
+    x_chs = [c for c in channels if c["platform"] == "x" and c.get("followers") is not None]
+    if x_chs:
+        lines.append("### X 팔로워 현황 (수동 집계)")
+        for ch in x_chs:
+            lines.append(f"- {ch['region']} ({ch['handle']}): {fmt_num(ch.get('followers'))}")
+        lines.append("")
+
+    return "\n".join(lines)
+
+
+def generate_character_insight(game, api_key):
+    """Call Claude Haiku with the game's character persona and return an insight string.
+
+    Returns dict: {"text": str, "generatedAt": iso_str} or None on error/missing key.
+    """
+    if not api_key:
+        return None
+    character = game.get("character") or {}
+    if not character.get("persona"):
+        return None
+
+    briefing = build_character_prompt(game, game.get("channels", []))
+
+    system_prompt = (
+        character["persona"]
+        + "\n\n아래 규칙을 반드시 따라:\n"
+        + "1. 3~5문장의 짧은 브리핑으로 작성.\n"
+        + "2. 가장 주목할 콘텐츠 1~2개를 구체적으로 언급 (제목 또는 첫 문장).\n"
+        + "3. 플랫폼별 성과 차이가 있으면 한 문장으로 짚어줘.\n"
+        + "4. 다음 액션을 1개 제안.\n"
+        + "5. 캐릭터 어미를 자연스럽게 유지하되 과하지 않게.\n"
+        + "6. 이모지는 쓰지 말 것.\n"
+    )
+
+    user_message = (
+        "오늘의 SNS 데이터야. 이걸 보고 팬과 마케터에게 브리핑해줘:\n\n"
+        + briefing
+    )
+
+    payload = {
+        "model": ANTHROPIC_MODEL,
+        "max_tokens": 400,
+        "system": system_prompt,
+        "messages": [{"role": "user", "content": user_message}],
+    }
+    headers = {
+        "x-api-key":          api_key,
+        "anthropic-version":  "2023-06-01",
+    }
+    try:
+        resp = http_post_json(ANTHROPIC_API_URL, payload, headers, timeout=30)
+        blocks = resp.get("content") or []
+        text = "".join(b.get("text", "") for b in blocks if b.get("type") == "text").strip()
+        if not text:
+            return None
+        return {
+            "text":        text,
+            "generatedAt": NOW_ISO,
+            "model":       ANTHROPIC_MODEL,
+        }
+    except urllib.error.HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")[:300]
+        log(f"  ✖ Claude API error for {game['id']}: HTTP {e.code}: {body}")
+        return None
+    except Exception as e:
+        log(f"  ✖ Claude API error for {game['id']}: {e}")
+        return None
+
+
+# ==================================================================
 # YouTube Data API v3
 # ==================================================================
 def yt_resolve_handle(handle, api_key):
@@ -262,6 +443,69 @@ def yt_fetch_by_id(channel_id, api_key):
     if not items:
         raise RuntimeError(f"channel id '{channel_id}' not found")
     return items[0]
+
+
+def yt_recent_videos(channel_id, api_key, count=7):
+    """Fetch recent videos with view/like/comment counts.
+
+    Two-step process:
+      1. playlistItems.list on UU{id} → video IDs + titles (1 unit)
+      2. videos.list with ids=... → statistics per video (1 unit)
+    Total quota cost: 2 units per channel regardless of count (up to 50).
+
+    Returns list of {videoId, title, publishedAt, viewCount, likeCount, commentCount}
+    sorted by publishedAt desc. Returns [] on error.
+    """
+    if not channel_id or not channel_id.startswith("UC") or count <= 0:
+        return []
+    uploads_playlist_id = "UU" + channel_id[2:]
+    try:
+        # Step 1 — recent video IDs
+        pl_url = (
+            "https://www.googleapis.com/youtube/v3/playlistItems?"
+            + urllib.parse.urlencode({
+                "part": "snippet",
+                "playlistId": uploads_playlist_id,
+                "maxResults": min(count, 50),
+                "key": api_key,
+            })
+        )
+        pl_data = http_get_json(pl_url)
+        items = pl_data.get("items") or []
+        vids = []
+        for it in items:
+            snip = it.get("snippet") or {}
+            res_id = snip.get("resourceId") or {}
+            vid = res_id.get("videoId")
+            if vid:
+                vids.append({
+                    "videoId":     vid,
+                    "title":       snip.get("title") or "",
+                    "publishedAt": snip.get("publishedAt") or "",
+                })
+        if not vids:
+            return []
+
+        # Step 2 — batch stats lookup
+        stats_url = (
+            "https://www.googleapis.com/youtube/v3/videos?"
+            + urllib.parse.urlencode({
+                "part": "statistics",
+                "id":   ",".join(v["videoId"] for v in vids),
+                "key":  api_key,
+            })
+        )
+        stats_data = http_get_json(stats_url)
+        stats_by_id = {s["id"]: (s.get("statistics") or {}) for s in stats_data.get("items", [])}
+        for v in vids:
+            s = stats_by_id.get(v["videoId"], {})
+            v["viewCount"]    = int(s.get("viewCount", 0))    if s.get("viewCount")    else 0
+            v["likeCount"]    = int(s.get("likeCount", 0))    if s.get("likeCount")    else 0
+            v["commentCount"] = int(s.get("commentCount", 0)) if s.get("commentCount") else 0
+        return vids
+    except Exception as e:
+        log(f"    WARN: recent videos lookup failed for {channel_id}: {e}")
+        return []
 
 
 def yt_latest_video(channel_id, api_key):
@@ -315,6 +559,8 @@ def fetch_youtube_for_channel(ch, api_key):
         ch["viewCount"]     = int(stats.get("viewCount", 0))       if stats.get("viewCount")       else None
         ch["videoCount"]    = int(stats.get("videoCount", 0))      if stats.get("videoCount")      else None
         ch["latestVideo"]   = yt_latest_video(item["id"], api_key)
+        # Recent videos with per-video stats (for AI character analysis)
+        ch["recentVideos"]  = yt_recent_videos(item["id"], api_key, count=7)
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -394,6 +640,24 @@ def fetch_instagram_for_channel(ch, token):
             ch["recentAvgLikes"]    = likes_sum // len(items)
             ch["recentAvgComments"] = comments_sum // len(items)
             ch["recentSampleSize"]  = len(items)
+
+            # Top 3 posts by engagement (likes + comments) for AI analysis
+            scored = []
+            for m in items:
+                likes = int(m.get("like_count") or 0)
+                comms = int(m.get("comments_count") or 0)
+                cap = (m.get("caption") or "").strip().split("\n", 1)[0][:120]
+                scored.append({
+                    "caption":      cap,
+                    "likeCount":    likes,
+                    "commentCount": comms,
+                    "engagement":   likes + comms,
+                    "timestamp":    m.get("timestamp"),
+                    "mediaType":    m.get("media_type"),
+                    "permalink":    m.get("permalink"),
+                })
+            scored.sort(key=lambda x: x["engagement"], reverse=True)
+            ch["topPosts"] = scored[:3]
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -496,6 +760,26 @@ def fetch_facebook_for_channel(ch, token):
             ch["recentAvgLikes"]    = likes_sum // len(items)
             ch["recentAvgComments"] = comments_sum // len(items)
             ch["recentSampleSize"]  = len(items)
+
+            # Top 3 posts by engagement (reactions + comments + shares) for AI analysis
+            scored = []
+            for p in items:
+                reacts = ((p.get("reactions") or {}).get("summary") or {}).get("total_count") or 0
+                comms  = ((p.get("comments") or {}).get("summary") or {}).get("total_count") or 0
+                shrs   = (p.get("shares") or {}).get("count") if p.get("shares") else 0
+                m_raw = (p.get("message") or "").strip()
+                cap = m_raw.split("\n", 1)[0][:120] if m_raw else ""
+                scored.append({
+                    "caption":      cap,
+                    "likeCount":    int(reacts),
+                    "commentCount": int(comms),
+                    "shareCount":   int(shrs or 0),
+                    "engagement":   int(reacts) + int(comms) + int(shrs or 0),
+                    "timestamp":    p.get("created_time"),
+                    "permalink":    p.get("permalink_url"),
+                })
+            scored.sort(key=lambda x: x["engagement"], reverse=True)
+            ch["topPosts"] = scored[:3]
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -673,6 +957,25 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .kpi-item.done .kpi-pct  { color: #2CA45A; }
 .kpi-nums { font-size: 11px; color: var(--muted); }
 .kpi-nums b { color: var(--text-1); font-weight: 600; }
+.insight-card { display: flex; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
+.insight-avatar { position: relative; width: 64px; height: 64px; border-radius: 14px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--accent, #6B5FD4) 0%, rgba(0,0,0,0.15) 100%); display: flex; align-items: center; justify-content: center; }
+.insight-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.insight-avatar .avatar-fallback { display: none; color: #fff; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; }
+.insight-avatar.no-avatar .avatar-fallback { display: block; }
+.insight-body { flex: 1; min-width: 0; }
+.insight-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
+.insight-name { font-size: 14px; font-weight: 700; color: var(--text-1); }
+.insight-title { font-size: 11px; color: var(--muted); }
+.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+.insight-status.live    { color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
+.insight-status.pending { color: var(--muted); background: #F1F2F4; }
+.insight-text { font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.insight-text p { margin: 0 0 8px; }
+.insight-text p:last-child { margin-bottom: 0; }
+@media (max-width: 520px) {
+  .insight-card { flex-direction: column; gap: 10px; }
+  .insight-avatar { width: 56px; height: 56px; }
+}
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -947,6 +1250,51 @@ def channel_card_html(game, ch, hist):
       </div>"""
 
 
+def character_card_html(game):
+    """
+    Render a character avatar + speech bubble card for this game.
+    Shows placeholder fallback if insight is missing or API key not configured.
+    """
+    character = game.get("character")
+    if not character:
+        return ""
+    insight = game.get("insight") or {}
+    text = (insight.get("text") or "").strip()
+    generated_at = insight.get("generatedAt") or ""
+    gen_short = generated_at[:10] if generated_at else ""
+
+    # Fallback content when insight is missing
+    if not text:
+        text = "오늘의 브리핑은 아직 준비 중입니다. 잠시 후 다시 확인해 주세요."
+        tag = '<span class="insight-status pending">준비 중</span>'
+    else:
+        tag = f'<span class="insight-status live">{gen_short} 브리핑</span>'
+
+    # Escape angle brackets but preserve newlines via <br>
+    safe = (text.replace("&", "&amp;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;"))
+    safe_html = safe.replace("\n\n", "</p><p>").replace("\n", "<br>")
+
+    accent = character.get("accent") or game.get("color") or "#6B5FD4"
+    avatar = character.get("avatar") or ""
+    return f"""
+    <div class="insight-card" style="--accent:{accent}">
+      <div class="insight-avatar">
+        <img src="{avatar}" alt="{character.get('name','')}" onerror="this.style.display='none';this.parentElement.classList.add('no-avatar');">
+        <span class="avatar-fallback">{(character.get('name') or '?')[:1]}</span>
+      </div>
+      <div class="insight-body">
+        <div class="insight-head">
+          <span class="insight-name">{character.get('name','')}</span>
+          <span class="insight-title">{character.get('title','')}</span>
+          {tag}
+        </div>
+        <div class="insight-text"><p>{safe_html}</p></div>
+      </div>
+    </div>"""
+
+
 def kpi_row_html(game, targets_for_game):
     """
     Render a row of KPI progress bars for this game.
@@ -1057,6 +1405,7 @@ def build_html(snapshot, hist):
           <div class="game-title"><span class="swatch" style="background:{g['color']}"></span><h2>{g['name']}</h2><span class="ko">{g['ko']}</span></div>
           <div class="game-meta"><span><b>{len(g['channels'])}</b> channels</span><span><b>{fmt_num(game_total)}</b> followers</span></div>
         </div>
+        {character_card_html(g)}
         {kpi_html}
         {trend_card}
         <div class="grid">{cards_html}</div>
@@ -1237,12 +1586,30 @@ def main():
     if kpi_targets:
         log(f"KPI targets loaded for {len(kpi_targets)} game(s)")
 
+    # -------- AI character insights (Claude Haiku) --------
+    anthropic_key = (creds.get("anthropic") or {}).get("api_key")
+    if anthropic_key:
+        log("Generating character insights via Claude Haiku…")
+        for g in GAMES:
+            if not g.get("character"):
+                continue
+            insight = generate_character_insight(g, anthropic_key)
+            if insight:
+                g["insight"] = insight
+                log(f"  ✓ {g['id']} / {g['character']['name']}: "
+                    f"{len(insight['text'])} chars")
+            else:
+                log(f"  ✖ {g['id']}: insight generation failed or empty")
+    else:
+        log("Claude API key not set — skipping character insights (set ANTHROPIC_API_KEY secret to enable)")
+
     # -------- Snapshot assembly --------
     snapshot = {
         "snapshotDate": TODAY,
         "runTimestamp": NOW_ISO,
         "credentialStatus": credential_status,
-        "games": {g["id"]: {"name": g["name"], "ko": g["ko"], "channels": g["channels"]} for g in GAMES},
+        "games": {g["id"]: {"name": g["name"], "ko": g["ko"], "channels": g["channels"],
+                             "character": g.get("character"), "insight": g.get("insight")} for g in GAMES},
         "games_list": GAMES,
         "apiErrors": errors,
         "platformsPendingCredentials": platforms_pending,

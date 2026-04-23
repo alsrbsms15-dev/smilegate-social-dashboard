@@ -30,6 +30,7 @@ jobs:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           META_SYSTEM_TOKEN: ${{ secrets.META_SYSTEM_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python automation/fetch_social_stats.py
 
       - name: Commit refreshed dashboard
