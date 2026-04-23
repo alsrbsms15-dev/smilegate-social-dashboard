@@ -90,25 +90,14 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .kpi-item.done .kpi-pct  { color: #2CA45A; }
 .kpi-nums { font-size: 11px; color: var(--muted); }
 .kpi-nums b { color: var(--text-1); font-weight: 600; }
-.insight-card { display: flex; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
-.insight-avatar { position: relative; width: 64px; height: 64px; border-radius: 14px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--accent, #6B5FD4) 0%, rgba(0,0,0,0.15) 100%); display: flex; align-items: center; justify-content: center; }
-.insight-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.insight-avatar .avatar-fallback { display: none; color: #fff; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; }
-.insight-avatar.no-avatar .avatar-fallback { display: block; }
-.insight-body { flex: 1; min-width: 0; }
-.insight-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
-.insight-name { font-size: 14px; font-weight: 700; color: var(--text-1); }
-.insight-title { font-size: 11px; color: var(--muted); }
-.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-.insight-status.live    { color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
-.insight-status.pending { color: var(--muted); background: #F1F2F4; }
-.insight-text { font-size: 13px; line-height: 1.55; color: var(--text-2); }
-.insight-text p { margin: 0 0 8px; }
-.insight-text p:last-child { margin-bottom: 0; }
-@media (max-width: 520px) {
-  .insight-card { flex-direction: column; gap: 10px; }
-  .insight-avatar { width: 56px; height: 56px; }
-}
+.insight-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
+.insight-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.insight-name { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.01em; }
+.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
+.insight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.insight-bullets li { position: relative; padding-left: 14px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.insight-bullets li::before { content: "•"; position: absolute; left: 2px; color: var(--accent, #6B5FD4); font-weight: 700; }
+.insight-bullets li b { color: var(--text-1); font-weight: 600; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -131,97 +120,70 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
     <div class="header-right">
       <div class="owner-tag">Managed by <b>SGP Contents Marketing Team</b></div>
       <div class="chip-row">
-        <span class="meta-chip ">
-          <span class="dot"></span> All platforms live
+        <span class="meta-chip part">
+          <span class="dot"></span> 1 of 5 platforms live
         </span>
         <span class="meta-chip" style="margin-left:8px;">Updated 2026-04-23</span>
       </div>
     </div>
   </header>
 
-  <div class="banner">✓ All 29 channels reporting live data.</div>
+  <div class="banner warn">✓ 1 platform(s) live. 22 channel(s) across Discord / Facebook / Instagram / Youtube still awaiting API credentials — see <b>API_setup_guide.md</b> for each platform's setup.</div>
   
       <section class="summary">
-        <div class="stat"><div class="label">Total followers (live)</div><div class="value">1,636,605</div><div class="sub">29 of 29 channels reporting</div></div>
-        <div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">Discord, Facebook, Instagram, X, Youtube</div><div class="sub">0 platform(s) pending credentials</div></div>
-        <div class="stat"><div class="label">Channels tracked</div><div class="value">29</div><div class="sub">0 unconfirmed · 0 awaiting keys</div></div>
-        <div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-23</div><div class="sub">08:04 local</div></div>
+        <div class="stat"><div class="label">Total followers (live)</div><div class="value">430,424</div><div class="sub">7 of 29 channels reporting</div></div>
+        <div class="stat"><div class="label">Connected platforms</div><div class="value" style="font-size:17px;">X</div><div class="sub">4 platform(s) pending credentials</div></div>
+        <div class="stat"><div class="label">Channels tracked</div><div class="value">29</div><div class="sub">0 unconfirmed · 22 awaiting keys</div></div>
+        <div class="stat"><div class="label">Last refresh</div><div class="value" style="font-size:17px;">2026-04-23</div><div class="sub">11:19 local</div></div>
       </section>
   
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#6B5FD4"></span><h2>Epic Seven</h2><span class="ko">에픽세븐</span></div>
-          <div class="game-meta"><span><b>10</b> channels</span><span><b>842,966</b> followers</span></div>
+          <div class="game-meta"><span><b>10</b> channels</span><span><b>180,983</b> followers</span></div>
         </div>
         
-    <div class="insight-card" style="--accent:#E85787">
-      <div class="insight-avatar">
-        <img src="avatars/meruling.png" alt="메루링" onerror="this.style.display='none';this.parentElement.classList.add('no-avatar');">
-        <span class="avatar-fallback">메</span>
+    <div class="insight-card" style="--accent:#6B5FD4">
+      <div class="insight-head">
+        <span class="insight-name">오늘의 브리핑</span>
+        <span class="insight-status live">2026-04-23 자동 분석</span>
       </div>
-      <div class="insight-body">
-        <div class="insight-head">
-          <span class="insight-name">메루링</span>
-          <span class="insight-title">에픽세븐의 제빵사 마법소녀</span>
-          <span class="insight-status pending">준비 중</span>
-        </div>
-        <div class="insight-text"><p>오늘의 브리핑은 아직 준비 중입니다. 잠시 후 다시 확인해 주세요.</p></div>
-      </div>
+      <ul class="insight-bullets"><li>전체 팔로워 <b>180,983</b>명 · 전일 동일</li><li>KPI 평균 <b>18.1%</b> · 최저 <b>Youtube 0.0%</b></li></ul>
     </div>
-        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">93.4%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:93.42%"></div></div>  <div class="kpi-nums"><b>256,900</b> / 275,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook</span>    <span class="kpi-pct">93.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:92.96%"></div></div>  <div class="kpi-nums"><b>223,113</b> / 240,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">90.5%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:90.49%"></div></div>  <div class="kpi-nums"><b>180,983</b> / 200,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram</span>    <span class="kpi-pct">94.8%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:94.79%"></div></div>  <div class="kpi-nums"><b>85,313</b> / 90,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord</span>    <span class="kpi-pct">96.7%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:96.66%"></div></div>  <div class="kpi-nums"><b>96,657</b> / 100,000</div></div></div></div>
-        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#111"></span>X</span><span class="legend-item"><span class="sw" style="background:#DD2A7B"></span>Instagram</span><span class="legend-item"><span class="sw" style="background:#1877F2"></span>Facebook</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7"></canvas></div></div>
+        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 275,000</div></div><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 240,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">90.5%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:90.49%"></div></div>  <div class="kpi-nums"><b>180,983</b> / 200,000</div></div><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 90,000</div></div><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 100,000</div></div></div></div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#111"></span>X</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-epic7"></canvas></div></div>
         <div class="grid">
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
-          <a class="ext" href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w" target="_blank" rel="noopener">@EpicSeven</a></div>
-        <div class="metric-row">
-          <div class="follower-num">180,000<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[180000, 180000, 180000]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="I won’t ever forgive them #epicseven"><b>Latest:</b><span class="title">I won’t ever forgive them #epicseven</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1,802 videos · 126,822,193 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
-          <a class="ext" href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/c/EpicSevenKR" target="_blank" rel="noopener">@EpicSevenKR</a></div>
-        <div class="metric-row">
-          <div class="follower-num">39,700<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[39700, 39700, 39700]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="저는 절대 용서할 수 없어요 #에픽세븐"><b>Latest:</b><span class="title">저는 절대 용서할 수 없어요 #에픽세븐</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1,268 videos · 40,590,486 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
-          <a class="ext" href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@EpicSevenJP" target="_blank" rel="noopener">@EpicSevenJP</a></div>
-        <div class="metric-row">
-          <div class="follower-num">18,000<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[18000, 18000, 18000]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="あたしは絶対に許せません。#エピックセブン"><b>Latest:</b><span class="title">あたしは絶対に許せません。#エピックセブン</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">759 videos · 23,890,995 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span>
-          <a class="ext" href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@EpicSevenTW" target="_blank" rel="noopener">@EpicSevenTW</a></div>
-        <div class="metric-row">
-          <div class="follower-num">19,200<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[19200, 19200, 19200]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="那我絕對不會原諒他們。 #第七史詩"><b>Latest:</b><span class="title">那我絕對不會原諒他們。 #第七史詩</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">1,000 videos · 14,902,727 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -262,120 +224,78 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
         <div class="spark-wrap"><canvas data-series='[129969, 129969]' data-color="#111"></canvas></div>
         
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
-          <a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.instagram.com/epicseven_global/" target="_blank" rel="noopener">@epicseven_global</a></div>
-        <div class="metric-row">
-          <div class="follower-num">85,313<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[85313, 85313]' data-color="#DD2A7B"></canvas></div>
-        <div class="subnote subnote-latest" title="🎞️ Episode 6, Dirge of the End"><b>Latest:</b><span class="title">🎞️ Episode 6, Dirge of the End</span><span class="ago"></span></div><div class="subnote" style="border-top:none;padding-top:4px;">♥ 542 · 💬 15 · avg ♥ 523/post</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Korea/Global/Taiwan</span>
-          <a class="ext" href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/EpicSevenGlobal/" target="_blank" rel="noopener">EpicSevenGlobal</a></div>
-        <div class="metric-row">
-          <div class="follower-num">223,113<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[223113, 223113]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span>
-          <a class="ext" href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://discord.com/invite/vUUQvUQPZC" target="_blank" rel="noopener">discord.gg/vUUQvUQPZC</a></div>
-        <div class="metric-row">
-          <div class="follower-num">96,657<small>members</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[96632, 96657, 96657]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 15,860<span style="float:right;color:var(--muted);">Epic 7 Official Discord</span></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div></div>
       </section>
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#D4495F"></span><h2>Chaos Zero Nightmare</h2><span class="ko">카오스 제로 나이트메어</span></div>
-          <div class="game-meta"><span><b>11</b> channels</span><span><b>500,319</b> followers</span></div>
+          <div class="game-meta"><span><b>11</b> channels</span><span><b>199,788</b> followers</span></div>
         </div>
         
-    <div class="insight-card" style="--accent:#7AB8E8">
-      <div class="insight-avatar">
-        <img src="avatars/nono.png" alt="노노" onerror="this.style.display='none';this.parentElement.classList.add('no-avatar');">
-        <span class="avatar-fallback">노</span>
+    <div class="insight-card" style="--accent:#D4495F">
+      <div class="insight-head">
+        <span class="insight-name">오늘의 브리핑</span>
+        <span class="insight-status live">2026-04-23 자동 분석</span>
       </div>
-      <div class="insight-body">
-        <div class="insight-head">
-          <span class="insight-name">노노</span>
-          <span class="insight-title">CZN의 해맑은 연구생</span>
-          <span class="insight-status pending">준비 중</span>
-        </div>
-        <div class="insight-text"><p>오늘의 브리핑은 아직 준비 중입니다. 잠시 후 다시 확인해 주세요.</p></div>
-      </div>
+      <ul class="insight-bullets"><li>전체 팔로워 <b>199,788</b>명 · 전일 동일</li><li>KPI 평균 <b>26.4%</b> · 최저 <b>Youtube 0.0%</b></li></ul>
     </div>
-        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">85.4%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:85.39%"></div></div>  <div class="kpi-nums"><b>111,010</b> / 130,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">79.3%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:79.28%"></div></div>  <div class="kpi-nums"><b>199,788</b> / 252,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord</span>    <span class="kpi-pct">90.2%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:90.20%"></div></div>  <div class="kpi-nums"><b>61,337</b> / 68,000</div></div></div></div>
-        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#111"></span>X</span><span class="legend-item"><span class="sw" style="background:#DD2A7B"></span>Instagram</span><span class="legend-item"><span class="sw" style="background:#1877F2"></span>Facebook</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn"></canvas></div></div>
+        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 130,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">79.3%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:79.28%"></div></div>  <div class="kpi-nums"><b>199,788</b> / 252,000</div></div><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 68,000</div></div></div></div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#111"></span>X</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-czn"></canvas></div></div>
         <div class="grid">
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
-          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_KR" target="_blank" rel="noopener">@ChaosZeroNightmare_KR</a></div>
-        <div class="metric-row">
-          <div class="follower-num">10,300<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[10300, 10300, 10300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[카오스 제로 나이트메어] 하이데마리 캐릭터 PV"><b>Latest:</b><span class="title">[카오스 제로 나이트메어] 하이데마리 캐릭터 PV</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">137 videos · 14,258,548 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
-          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_EN" target="_blank" rel="noopener">@ChaosZeroNightmare_EN</a></div>
-        <div class="metric-row">
-          <div class="follower-num">73,200<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[73100, 73200, 73200]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[Chaos Zero Nightmare] Heidemarie Character PV"><b>Latest:</b><span class="title">[Chaos Zero Nightmare] Heidemarie Character PV</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">133 videos · 18,674,020 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
-          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_JP" target="_blank" rel="noopener">@ChaosZeroNightmare_JP</a></div>
-        <div class="metric-row">
-          <div class="follower-num">19,300<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[19300, 19300, 19300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="【カオスゼロナイトメア】「ハイデマリ」キャラクターPV"><b>Latest:</b><span class="title">【カオスゼロナイトメア】「ハイデマリ」キャラクターPV</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">153 videos · 28,257,080 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Taiwan</span>
-          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@ChaosZeroNightmare_TW" target="_blank" rel="noopener">@ChaosZeroNightmare_TW</a></div>
-        <div class="metric-row">
-          <div class="follower-num">8,210<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[8220, 8210, 8210]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="《卡厄思夢境》「海德瑪麗」角色宣傳影片"><b>Latest:</b><span class="title">《卡厄思夢境》「海德瑪麗」角色宣傳影片</span><span class="ago">14h ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">135 videos · 4,344,825 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -416,120 +336,78 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
         <div class="spark-wrap"><canvas data-series='[119767, 119767]' data-color="#111"></canvas></div>
         
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo ig"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></span>Instagram · Global</span>
-          <a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.instagram.com/czn.official.en/" target="_blank" rel="noopener">@czn.official.en</a></div>
-        <div class="metric-row">
-          <div class="follower-num">13,445<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[13445, 13445]' data-color="#DD2A7B"></canvas></div>
-        <div class="subnote subnote-latest" title="◤「Heidemarie」 Character PV◢"><b>Latest:</b><span class="title">◤「Heidemarie」 Character PV◢</span><span class="ago"></span></div><div class="subnote" style="border-top:none;padding-top:4px;">♥ 83 · 💬 3 · avg ♥ 643/post</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Global</span>
-          <a class="ext" href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/ChaosZeroNightmare/" target="_blank" rel="noopener">ChaosZeroNightmare</a></div>
-        <div class="metric-row">
-          <div class="follower-num">98,074<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[98074, 98074]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · China</span>
-          <a class="ext" href="https://www.facebook.com/107964449030742" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/107964449030742" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/107964449030742" target="_blank" rel="noopener">卡厄思夢境</a></div>
-        <div class="metric-row">
-          <div class="follower-num">16,665<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[16665, 16665]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · Official</span>
-          <a class="ext" href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://discord.gg/chaoszeronightmare" target="_blank" rel="noopener">discord.gg/chaoszeronightmare</a></div>
-        <div class="metric-row">
-          <div class="follower-num">61,337<small>members</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[61240, 61337, 61337]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 15,344<span style="float:right;color:var(--muted);">Chaos Zero Nightmare Official</span></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div></div>
       </section>
       <section class="game-block">
         <div class="game-header">
           <div class="game-title"><span class="swatch" style="background:#C79848"></span><h2>Lord Nine</h2><span class="ko">로드나인</span></div>
-          <div class="game-meta"><span><b>8</b> channels</span><span><b>293,320</b> followers</span></div>
+          <div class="game-meta"><span><b>8</b> channels</span><span><b>49,653</b> followers</span></div>
         </div>
         
-    <div class="insight-card" style="--accent:#8B6F47">
-      <div class="insight-avatar">
-        <img src="avatars/humun.png" alt="호문" onerror="this.style.display='none';this.parentElement.classList.add('no-avatar');">
-        <span class="avatar-fallback">호</span>
+    <div class="insight-card" style="--accent:#C79848">
+      <div class="insight-head">
+        <span class="insight-name">오늘의 브리핑</span>
+        <span class="insight-status live">2026-04-23 자동 분석</span>
       </div>
-      <div class="insight-body">
-        <div class="insight-head">
-          <span class="insight-name">호문</span>
-          <span class="insight-title">로드나인의 전략가 기사</span>
-          <span class="insight-status pending">준비 중</span>
-        </div>
-        <div class="insight-text"><p>오늘의 브리핑은 아직 준비 중입니다. 잠시 후 다시 확인해 주세요.</p></div>
-      </div>
+      <ul class="insight-bullets"><li>전체 팔로워 <b>49,653</b>명 · 전일 동일</li><li>KPI 평균 <b>30.1%</b> · 최저 <b>Youtube 0.0%</b></li></ul>
     </div>
-        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">81.6%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:81.64%"></div></div>  <div class="kpi-nums"><b>52,250</b> / 64,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook</span>    <span class="kpi-pct">86.6%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:86.65%"></div></div>  <div class="kpi-nums"><b>158,565</b> / 183,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">90.3%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:90.28%"></div></div>  <div class="kpi-nums"><b>49,653</b> / 55,000</div></div></div></div>
-        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#FF0033"></span>Youtube</span><span class="legend-item"><span class="sw" style="background:#111"></span>X</span><span class="legend-item"><span class="sw" style="background:#1877F2"></span>Facebook</span><span class="legend-item"><span class="sw" style="background:#5865F2"></span>Discord</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-l9"></canvas></div></div>
+        <div class="kpi-card">  <div class="kpi-title">KPI 달성 현황 <span class="kpi-sub">전 권역 합산</span></div>  <div class="kpi-grid"><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 64,000</div></div><div class="kpi-item low">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook</span>    <span class="kpi-pct">0.0%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:0.00%"></div></div>  <div class="kpi-nums"><b>0</b> / 183,000</div></div><div class="kpi-item high">  <div class="kpi-head">    <span class="kpi-platform"><span class="plogo x"><svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2H21.5l-7.5 8.56L22.5 22h-6.875l-5.375-7.03L3.75 22H.5l8-9.13L0 2h7l4.875 6.43L18.244 2zm-1.2 18h1.9L7.05 4H5.05l11.994 16z"/></svg></span>X</span>    <span class="kpi-pct">90.3%</span>  </div>  <div class="kpi-bar"><div class="kpi-fill" style="width:90.28%"></div></div>  <div class="kpi-nums"><b>49,653</b> / 55,000</div></div></div></div>
+        <div class="trend-card"><div class="trend-head"><h3>Follower trend</h3><div class="legend"><span class="legend-item"><span class="sw" style="background:#111"></span>X</span></div></div><div class="trend-canvas-wrap"><canvas id="trend-l9"></canvas></div></div>
         <div class="grid">
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Korea</span>
-          <a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@LORDNINE_KR" target="_blank" rel="noopener">@LORDNINE_KR</a></div>
-        <div class="metric-row">
-          <div class="follower-num">22,600<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[22600, 22600, 22600]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="[로드나인] 4월 2차 업데이트 프리뷰"><b>Latest:</b><span class="title">[로드나인] 4월 2차 업데이트 프리뷰</span><span class="ago">1d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">156 videos · 19,749,474 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Global</span>
-          <a class="ext" href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@LORDNINE_GLOBAL" target="_blank" rel="noopener">@LORDNINE_GLOBAL</a></div>
-        <div class="metric-row">
-          <div class="follower-num">27,300<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[27300, 27300, 27300]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes"><b>Latest:</b><span class="title">March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes</span><span class="ago">36d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">51 videos · 966,513 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo yt"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.4 4 12 4 12 4s-4.4 0-7.9.2c-.5.1-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.7c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.7.2 7.7.2s4.4 0 7.9-.2c.5-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.7c0-1.9-.2-3.8-.2-3.8zM9.7 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg></span>Youtube · Japan</span>
-          <a class="ext" href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.youtube.com/@LORDNINE_JP" target="_blank" rel="noopener">@LORDNINE_JP</a></div>
-        <div class="metric-row">
-          <div class="follower-num">2,350<small>subscribers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[2350, 2350, 2350]' data-color="#FF0033"></canvas></div>
-        <div class="subnote subnote-latest" title="3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加"><b>Latest:</b><span class="title">3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加</span><span class="ago">36d ago</span></div><div class="subnote" style="border-top:none;padding-top:4px;">44 videos · 107,234 total views</div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
       <div class="channel">
         <div class="channel-head">
@@ -544,68 +422,48 @@ footer.note { margin-top: 32px; padding: 14px 0; font-size: 12px; color: var(--m
         <div class="spark-wrap"><canvas data-series='[49653, 49653]' data-color="#111"></canvas></div>
         
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · SEA</span>
-          <a class="ext" href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/LordnineSEA/" target="_blank" rel="noopener">LordnineSEA</a></div>
-        <div class="metric-row">
-          <div class="follower-num">112,026<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[112026, 112026]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · Thailand</span>
-          <a class="ext" href="https://www.facebook.com/561566950382982" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/561566950382982" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/561566950382982" target="_blank" rel="noopener">LORDNINE Thailand</a></div>
-        <div class="metric-row">
-          <div class="follower-num">33,729<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[33729, 33729]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo fb"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h3l1-4h-4V7.5C13 6.1 13.5 5 15.5 5H17V1.2c-.5-.1-1.7-.2-3-.2-3.1 0-5 1.9-5 5.2V10H6v4h3v8h4z"/></svg></span>Facebook · China</span>
-          <a class="ext" href="https://www.facebook.com/293217650546931" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://www.facebook.com/293217650546931" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://www.facebook.com/293217650546931" target="_blank" rel="noopener">權力之望 LORDNINE</a></div>
-        <div class="metric-row">
-          <div class="follower-num">12,810<small>followers</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[12810, 12810]' data-color="#1877F2"></canvas></div>
-        
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div>
-      <div class="channel">
+      <div class="channel pending">
         <div class="channel-head">
           <span class="platform"><span class="plogo dc"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20.3 4.5A18 18 0 0 0 15.7 3l-.2.4a14 14 0 0 0-7 0L8.3 3a18 18 0 0 0-4.6 1.5A19 19 0 0 0 1 16.3a18 18 0 0 0 5.4 2.7l1-1.5a12 12 0 0 1-1.7-.8l.4-.3a13 13 0 0 0 11.8 0l.4.3a12 12 0 0 1-1.8.8l1 1.5a18 18 0 0 0 5.5-2.7 19 19 0 0 0-2.7-11.8zM8.5 14c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2zm7 0c-1 0-1.8-1-1.8-2.2s.8-2.2 1.8-2.2 1.8 1 1.8 2.2-.8 2.2-1.8 2.2z"/></svg></span>Discord · SEA</span>
-          <a class="ext" href="https://discord.gg/lordninesea" target="_blank" rel="noopener" aria-label="Open">↗</a>
+          <a class="ext" href="https://discord.gg/lordninesea" target="_blank" rel="noopener">↗</a>
         </div>
         <div class="handle"><a href="https://discord.gg/lordninesea" target="_blank" rel="noopener">discord.gg/lordninesea</a></div>
-        <div class="metric-row">
-          <div class="follower-num">32,852<small>members</small></div>
-          <span class="delta-chip nil">no history</span>
-        </div>
-        <div class="spark-wrap"><canvas data-series='[32876, 32852, 32852]' data-color="#5865F2"></canvas></div>
-        <div class="subnote"><b>Online:</b> 6,707<span style="float:right;color:var(--muted);">LORDNINE SEA</span></div>
+        <div class="pending-label">⋯ Awaiting API credentials</div>
       </div></div>
       </section>
 
   <footer class="note">
     <span>© Smilegate Content Marketing Team · Pulled by fetch_social_stats.py</span>
-    <span>Data source: Discord API, Facebook API, Instagram API, X API, Youtube API</span>
+    <span>Data source: X API</span>
   </footer>
 </div>
 
 <script>
-const DATA = {"trendCharts": [{"canvasId": "trend-epic7", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [256900, 256900, 256900]}, {"label": "X", "color": "#111", "data": [0, 180983, 180983]}, {"label": "Instagram", "color": "#DD2A7B", "data": [0, 85313, 85313]}, {"label": "Facebook", "color": "#1877F2", "data": [0, 223113, 223113]}, {"label": "Discord", "color": "#5865F2", "data": [96632, 96657, 96657]}]}, {"canvasId": "trend-czn", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [110920, 111010, 111010]}, {"label": "X", "color": "#111", "data": [0, 199788, 199788]}, {"label": "Instagram", "color": "#DD2A7B", "data": [0, 13445, 13445]}, {"label": "Facebook", "color": "#1877F2", "data": [0, 114739, 114739]}, {"label": "Discord", "color": "#5865F2", "data": [61240, 61337, 61337]}]}, {"canvasId": "trend-l9", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "Youtube", "color": "#FF0033", "data": [52250, 52250, 52250]}, {"label": "X", "color": "#111", "data": [0, 49653, 49653]}, {"label": "Facebook", "color": "#1877F2", "data": [0, 158565, 158565]}, {"label": "Discord", "color": "#5865F2", "data": [32876, 32852, 32852]}]}]};
+const DATA = {"trendCharts": [{"canvasId": "trend-epic7", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "X", "color": "#111", "data": [0, 180983, 180983]}]}, {"canvasId": "trend-czn", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "X", "color": "#111", "data": [0, 199788, 199788]}]}, {"canvasId": "trend-l9", "labels": ["2026-04-21", "2026-04-22", "2026-04-23"], "datasets": [{"label": "X", "color": "#111", "data": [0, 49653, 49653]}]}]};
 
 function fmtNum(n) {
   if (n === null || n === undefined) return '—';

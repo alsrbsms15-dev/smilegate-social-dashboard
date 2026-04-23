@@ -200,7 +200,6 @@ def load_credentials():
         ("X_BEARER_TOKEN",     "x",        "bearer_token"),
         ("META_SYSTEM_TOKEN",  "meta",     "system_token"),
         ("DISCORD_BOT_TOKEN",  "discord",  "bot_token"),
-        ("ANTHROPIC_API_KEY",  "anthropic", "api_key"),
     }
     for env_name, section, key in env_map:
         val = os.environ.get(env_name)
@@ -264,145 +263,230 @@ def load_kpi_targets():
 
 
 # ==================================================================
-# Anthropic Claude Haiku — AI character insights
-#   Docs: https://docs.anthropic.com/en/api/messages
-#   Model: claude-haiku-4-5-20251001 (cheapest, fast, good at persona)
+# Rule-based daily insights (no LLM, no API key required)
+#   Produces 2–5 short Korean bullets per game from:
+#     - Follower totals + day-over-day / 7-day delta (from history.json)
+#     - Biggest % mover across channels
+#     - Highest-performing YouTube video / IG post / FB post
+#     - KPI achievement avg + lowest platform
 # ==================================================================
-ANTHROPIC_API_URL = "https://api.anthropic.com/v1/messages"
-ANTHROPIC_MODEL   = "claude-haiku-4-5-20251001"
-
-
-def http_post_json(url, payload, headers, timeout=30):
-    """POST a JSON payload. Returns parsed JSON; raises on non-2xx."""
-    data = json.dumps(payload).encode("utf-8")
-    req_headers = {"Content-Type": "application/json", "User-Agent": "smilegate-sns-dashboard/1.0"}
-    req_headers.update(headers or {})
-    req = urllib.request.Request(url, data=data, headers=req_headers, method="POST")
-    with urllib.request.urlopen(req, timeout=timeout, context=SSL_CTX) as r:
-        return json.loads(r.read().decode("utf-8"))
-
-
-def build_character_prompt(game, channels):
-    """Produce a compact text briefing that Claude can analyze per game.
-    Covers: YouTube recent videos (top by views), IG/FB top posts, follower trends.
-    """
-    lines = []
-    lines.append(f"## {game['name']} ({game['ko']}) — 오늘 날짜: {TODAY}")
-    lines.append("")
-
-    # -- YouTube per-channel recent video summary
-    yt_chs = [c for c in channels if c["platform"] == "youtube" and c.get("recentVideos")]
-    if yt_chs:
-        lines.append("### YouTube 최근 영상 (조회수 상위)")
-        for ch in yt_chs:
-            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 구독자 {fmt_num(ch.get('followers'))}")
-            vids = sorted(ch.get("recentVideos", []), key=lambda v: v.get("viewCount", 0), reverse=True)[:3]
-            for v in vids:
-                title = (v.get("title") or "")[:80]
-                lines.append(
-                    f"  · [{v.get('publishedAt','')[:10]}] {title} "
-                    f"— {fmt_num(v.get('viewCount'))} views, "
-                    f"{fmt_num(v.get('likeCount'))} likes, "
-                    f"{fmt_num(v.get('commentCount'))} comments"
-                )
-        lines.append("")
-
-    # -- Instagram top posts
-    ig_chs = [c for c in channels if c["platform"] == "instagram" and c.get("topPosts")]
-    if ig_chs:
-        lines.append("### Instagram 인게이지먼트 상위 게시물")
-        for ch in ig_chs:
-            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 팔로워 {fmt_num(ch.get('followers'))}")
-            for p in (ch.get("topPosts") or [])[:3]:
-                cap = p.get("caption") or "(캡션 없음)"
-                lines.append(
-                    f"  · [{(p.get('timestamp') or '')[:10]}] {cap[:80]} "
-                    f"— ♥ {fmt_num(p.get('likeCount'))} / 💬 {fmt_num(p.get('commentCount'))}"
-                )
-        lines.append("")
-
-    # -- Facebook top posts
-    fb_chs = [c for c in channels if c["platform"] == "facebook" and c.get("topPosts")]
-    if fb_chs:
-        lines.append("### Facebook 인게이지먼트 상위 게시물")
-        for ch in fb_chs:
-            lines.append(f"- **{ch['region']}** ({ch['handle']}) · 팬 {fmt_num(ch.get('followers'))}")
-            for p in (ch.get("topPosts") or [])[:3]:
-                cap = p.get("caption") or "(본문 없음)"
-                lines.append(
-                    f"  · [{(p.get('timestamp') or '')[:10]}] {cap[:80]} "
-                    f"— 👍 {fmt_num(p.get('likeCount'))} / 💬 {fmt_num(p.get('commentCount'))} / ↻ {fmt_num(p.get('shareCount'))}"
-                )
-        lines.append("")
-
-    # -- X manual follower totals (no content-level data)
-    x_chs = [c for c in channels if c["platform"] == "x" and c.get("followers") is not None]
-    if x_chs:
-        lines.append("### X 팔로워 현황 (수동 집계)")
-        for ch in x_chs:
-            lines.append(f"- {ch['region']} ({ch['handle']}): {fmt_num(ch.get('followers'))}")
-        lines.append("")
-
-    return "\n".join(lines)
-
-
-def generate_character_insight(game, api_key):
-    """Call Claude Haiku with the game's character persona and return an insight string.
-
-    Returns dict: {"text": str, "generatedAt": iso_str} or None on error/missing key.
-    """
-    if not api_key:
-        return None
-    character = game.get("character") or {}
-    if not character.get("persona"):
-        return None
-
-    briefing = build_character_prompt(game, game.get("channels", []))
-
-    system_prompt = (
-        character["persona"]
-        + "\n\n아래 규칙을 반드시 따라:\n"
-        + "1. 3~5문장의 짧은 브리핑으로 작성.\n"
-        + "2. 가장 주목할 콘텐츠 1~2개를 구체적으로 언급 (제목 또는 첫 문장).\n"
-        + "3. 플랫폼별 성과 차이가 있으면 한 문장으로 짚어줘.\n"
-        + "4. 다음 액션을 1개 제안.\n"
-        + "5. 캐릭터 어미를 자연스럽게 유지하되 과하지 않게.\n"
-        + "6. 이모지는 쓰지 말 것.\n"
-    )
-
-    user_message = (
-        "오늘의 SNS 데이터야. 이걸 보고 팬과 마케터에게 브리핑해줘:\n\n"
-        + briefing
-    )
-
-    payload = {
-        "model": ANTHROPIC_MODEL,
-        "max_tokens": 400,
-        "system": system_prompt,
-        "messages": [{"role": "user", "content": user_message}],
-    }
-    headers = {
-        "x-api-key":          api_key,
-        "anthropic-version":  "2023-06-01",
-    }
+def _pct(new, old):
+    """Percent change; returns None when old is missing or zero."""
     try:
-        resp = http_post_json(ANTHROPIC_API_URL, payload, headers, timeout=30)
-        blocks = resp.get("content") or []
-        text = "".join(b.get("text", "") for b in blocks if b.get("type") == "text").strip()
-        if not text:
+        if not old:
             return None
-        return {
-            "text":        text,
-            "generatedAt": NOW_ISO,
-            "model":       ANTHROPIC_MODEL,
-        }
-    except urllib.error.HTTPError as e:
-        body = e.read().decode("utf-8", errors="replace")[:300]
-        log(f"  ✖ Claude API error for {game['id']}: HTTP {e.code}: {body}")
+        return (new - old) / old * 100.0
+    except (TypeError, ZeroDivisionError):
         return None
-    except Exception as e:
-        log(f"  ✖ Claude API error for {game['id']}: {e}")
+
+
+def _lookup_prior(hist, game_id, platform, region, days_back):
+    """
+    Return the follower count from approximately `days_back` days ago for this
+    channel, pulled from history.json. Excludes today's entry entirely so
+    deltas are always computed against a true prior snapshot.
+    Returns (prior_followers, prior_date) or (None, None).
+    """
+    ser = series_for(hist, game_id, platform, region)
+    # Exclude today's snapshot if present
+    ser = [(d, v) for d, v in ser if d < TODAY]
+    if not ser:
+        return None, None
+    target_date = (date.today() - timedelta(days=days_back)).isoformat()
+    # Prefer the newest entry whose date <= target_date; fall back to the oldest we have.
+    pick = None
+    for d, v in ser:
+        if d <= target_date:
+            pick = (d, v)
+    if pick is None:
+        pick = ser[0]
+    return pick[1], pick[0]
+
+
+def _best_youtube_video(channels):
+    best = None
+    for ch in channels:
+        if ch.get("platform") != "youtube":
+            continue
+        for v in ch.get("recentVideos") or []:
+            views = v.get("viewCount") or 0
+            if best is None or views > best["viewCount"]:
+                best = {
+                    "platform":  "youtube",
+                    "channel":   ch,
+                    "title":     (v.get("title") or "").strip(),
+                    "viewCount": views,
+                    "metric":    f"{fmt_num(views)} 조회",
+                }
+    return best
+
+
+def _best_ig_post(channels):
+    best = None
+    for ch in channels:
+        if ch.get("platform") != "instagram":
+            continue
+        for p in ch.get("topPosts") or []:
+            eng = (p.get("likeCount") or 0) + (p.get("commentCount") or 0)
+            if best is None or eng > best["engagement"]:
+                cap = (p.get("caption") or "").strip().split("\n")[0]
+                best = {
+                    "platform":   "instagram",
+                    "channel":    ch,
+                    "title":      cap[:50] or "(캡션 없음)",
+                    "engagement": eng,
+                    "metric":     f"♥ {fmt_num(p.get('likeCount') or 0)} / 💬 {fmt_num(p.get('commentCount') or 0)}",
+                }
+    return best
+
+
+def _best_fb_post(channels):
+    best = None
+    for ch in channels:
+        if ch.get("platform") != "facebook":
+            continue
+        for p in ch.get("topPosts") or []:
+            eng = (p.get("likeCount") or 0) + (p.get("commentCount") or 0) + (p.get("shareCount") or 0)
+            if best is None or eng > best["engagement"]:
+                cap = (p.get("caption") or "").strip().split("\n")[0]
+                best = {
+                    "platform":   "facebook",
+                    "channel":    ch,
+                    "title":      cap[:50] or "(본문 없음)",
+                    "engagement": eng,
+                    "metric":     f"👍 {fmt_num(p.get('likeCount') or 0)} / 💬 {fmt_num(p.get('commentCount') or 0)}",
+                }
+    return best
+
+
+def _pick_top_content(channels):
+    """Pick the single most notable piece of content across YT/IG/FB.
+    YT ranks by views, IG/FB rank by engagement — so we compare by platform-normalized priority:
+      1) YT video with most views (absolute)
+      2) IG post with top engagement
+      3) FB post with top engagement
+    Return whichever has the highest 'score' (views for YT, eng×10 for IG/FB since
+    follower scales are smaller on IG/FB than YT views).
+    """
+    y = _best_youtube_video(channels)
+    ig = _best_ig_post(channels)
+    fb = _best_fb_post(channels)
+    candidates = []
+    if y:  candidates.append(("youtube",   y.get("viewCount", 0),     y))
+    if ig: candidates.append(("instagram", ig.get("engagement", 0)*10, ig))
+    if fb: candidates.append(("facebook",  fb.get("engagement", 0)*10, fb))
+    if not candidates:
         return None
+    candidates.sort(key=lambda t: t[1], reverse=True)
+    return candidates[0][2]
+
+
+def generate_rule_based_insight(game, hist, kpi_targets_for_game):
+    """Produce a short daily briefing for a single game, as a list of Korean bullets.
+
+    Returns dict: {"bullets": [str, ...], "generatedAt": iso_str} or None if nothing to show.
+    """
+    channels = game.get("channels") or []
+    bullets = []
+
+    # --- Follower total + day-over-day change -----------------------
+    today_total  = 0
+    yday_total   = 0
+    yday_present = False
+    for c in channels:
+        if c.get("missing") or c.get("followers") is None:
+            continue
+        today_total += int(c["followers"])
+        prior, _ = _lookup_prior(hist, game["id"], c["platform"], c["region"], days_back=1)
+        if prior is not None:
+            yday_total += int(prior)
+            yday_present = True
+
+    if today_total:
+        if yday_present and yday_total:
+            delta = today_total - yday_total
+            pct = _pct(today_total, yday_total)
+            if delta == 0:
+                bullets.append(f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 전일 동일")
+            else:
+                sign = "+" if delta >= 0 else "−"
+                pct_str = f"{abs(pct):.2f}%" if pct is not None else ""
+                bullets.append(
+                    f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 전일 대비 "
+                    f"{sign}{fmt_num(abs(delta))} ({sign}{pct_str})"
+                )
+        else:
+            bullets.append(f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 추세 데이터 축적 중")
+
+    # --- Biggest mover (7-day, live vs prior snapshot) ---------------
+    movers = []
+    for c in channels:
+        if c.get("missing") or c.get("followers") is None:
+            continue
+        cur = int(c["followers"])
+        prior, prior_date = _lookup_prior(hist, game["id"], c["platform"], c["region"], days_back=7)
+        if prior is None:
+            continue
+        pct = _pct(cur, prior)
+        if pct is None:
+            continue
+        movers.append((pct, cur - prior, c, prior_date))
+    if movers:
+        movers.sort(key=lambda t: t[0], reverse=True)
+        top_pct, top_abs, top_ch, top_date = movers[0]
+        if top_pct >= 0.3:
+            bullets.append(
+                f"성장 1위: <b>{top_ch['platform'].title()} {top_ch['region']}</b> "
+                f"(+{top_pct:.2f}%, +{fmt_num(int(top_abs))})"
+            )
+        # Worst (only when meaningfully negative)
+        worst_pct, worst_abs, worst_ch, _ = movers[-1]
+        if worst_pct <= -1.0:
+            bullets.append(
+                f"주의: <b>{worst_ch['platform'].title()} {worst_ch['region']}</b> "
+                f"{worst_pct:.2f}% 하락 ({fmt_num(int(worst_abs))})"
+            )
+
+    # --- Top content ------------------------------------------------
+    top = _pick_top_content(channels)
+    if top:
+        region = top["channel"]["region"]
+        platform_label = {"youtube": "YT", "instagram": "IG", "facebook": "FB"}[top["platform"]]
+        title_clean = top["title"].replace("<", "&lt;").replace(">", "&gt;")
+        bullets.append(
+            f"최고 참여 콘텐츠: <b>{platform_label} {region}</b> "
+            f"\"{title_clean[:40]}{'…' if len(title_clean) > 40 else ''}\" · {top['metric']}"
+        )
+
+    # --- KPI avg + lowest platform ----------------------------------
+    if kpi_targets_for_game:
+        totals = {}
+        for c in channels:
+            if c.get("followers") is None:
+                continue
+            p = c["platform"]
+            totals[p] = totals.get(p, 0) + int(c["followers"])
+        pcts = []
+        for platform, target in kpi_targets_for_game.items():
+            if target <= 0:
+                continue
+            cur = totals.get(platform, 0)
+            pcts.append((platform, cur / target * 100.0))
+        if pcts:
+            avg = sum(p for _, p in pcts) / len(pcts)
+            pcts.sort(key=lambda t: t[1])
+            low_platform, low_pct = pcts[0]
+            bullets.append(
+                f"KPI 평균 <b>{avg:.1f}%</b> · 최저 "
+                f"<b>{low_platform.title()} {low_pct:.1f}%</b>"
+            )
+
+    if not bullets:
+        return None
+    return {
+        "bullets":     bullets,
+        "generatedAt": NOW_ISO,
+    }
 
 
 # ==================================================================
@@ -957,25 +1041,14 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .kpi-item.done .kpi-pct  { color: #2CA45A; }
 .kpi-nums { font-size: 11px; color: var(--muted); }
 .kpi-nums b { color: var(--text-1); font-weight: 600; }
-.insight-card { display: flex; gap: 14px; background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
-.insight-avatar { position: relative; width: 64px; height: 64px; border-radius: 14px; overflow: hidden; flex-shrink: 0; background: linear-gradient(135deg, var(--accent, #6B5FD4) 0%, rgba(0,0,0,0.15) 100%); display: flex; align-items: center; justify-content: center; }
-.insight-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
-.insight-avatar .avatar-fallback { display: none; color: #fff; font-weight: 700; font-size: 26px; letter-spacing: -0.02em; }
-.insight-avatar.no-avatar .avatar-fallback { display: block; }
-.insight-body { flex: 1; min-width: 0; }
-.insight-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 6px; }
-.insight-name { font-size: 14px; font-weight: 700; color: var(--text-1); }
-.insight-title { font-size: 11px; color: var(--muted); }
-.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
-.insight-status.live    { color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
-.insight-status.pending { color: var(--muted); background: #F1F2F4; }
-.insight-text { font-size: 13px; line-height: 1.55; color: var(--text-2); }
-.insight-text p { margin: 0 0 8px; }
-.insight-text p:last-child { margin-bottom: 0; }
-@media (max-width: 520px) {
-  .insight-card { flex-direction: column; gap: 10px; }
-  .insight-avatar { width: 56px; height: 56px; }
-}
+.insight-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
+.insight-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.insight-name { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.01em; }
+.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
+.insight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
+.insight-bullets li { position: relative; padding-left: 14px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
+.insight-bullets li::before { content: "•"; position: absolute; left: 2px; color: var(--accent, #6B5FD4); font-weight: 700; }
+.insight-bullets li b { color: var(--text-1); font-weight: 600; }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -1250,48 +1323,30 @@ def channel_card_html(game, ch, hist):
       </div>"""
 
 
-def character_card_html(game):
+def insight_card_html(game):
     """
-    Render a character avatar + speech bubble card for this game.
-    Shows placeholder fallback if insight is missing or API key not configured.
+    Render a simple daily-briefing card (no avatar, no LLM text).
+    Bullets come from the rule-based generator. Hidden entirely when no bullets.
     """
-    character = game.get("character")
-    if not character:
-        return ""
     insight = game.get("insight") or {}
-    text = (insight.get("text") or "").strip()
+    bullets = insight.get("bullets") or []
+    if not bullets:
+        return ""
     generated_at = insight.get("generatedAt") or ""
     gen_short = generated_at[:10] if generated_at else ""
+    accent = game.get("color") or "#6B5FD4"
 
-    # Fallback content when insight is missing
-    if not text:
-        text = "오늘의 브리핑은 아직 준비 중입니다. 잠시 후 다시 확인해 주세요."
-        tag = '<span class="insight-status pending">준비 중</span>'
-    else:
-        tag = f'<span class="insight-status live">{gen_short} 브리핑</span>'
+    # bullets already contain safe HTML (<b> tags); do not re-escape
+    items_html = "".join(f"<li>{b}</li>" for b in bullets)
+    tag = f'<span class="insight-status live">{gen_short} 자동 분석</span>' if gen_short else ""
 
-    # Escape angle brackets but preserve newlines via <br>
-    safe = (text.replace("&", "&amp;")
-                .replace("<", "&lt;")
-                .replace(">", "&gt;"))
-    safe_html = safe.replace("\n\n", "</p><p>").replace("\n", "<br>")
-
-    accent = character.get("accent") or game.get("color") or "#6B5FD4"
-    avatar = character.get("avatar") or ""
     return f"""
     <div class="insight-card" style="--accent:{accent}">
-      <div class="insight-avatar">
-        <img src="{avatar}" alt="{character.get('name','')}" onerror="this.style.display='none';this.parentElement.classList.add('no-avatar');">
-        <span class="avatar-fallback">{(character.get('name') or '?')[:1]}</span>
+      <div class="insight-head">
+        <span class="insight-name">오늘의 브리핑</span>
+        {tag}
       </div>
-      <div class="insight-body">
-        <div class="insight-head">
-          <span class="insight-name">{character.get('name','')}</span>
-          <span class="insight-title">{character.get('title','')}</span>
-          {tag}
-        </div>
-        <div class="insight-text"><p>{safe_html}</p></div>
-      </div>
+      <ul class="insight-bullets">{items_html}</ul>
     </div>"""
 
 
@@ -1405,7 +1460,7 @@ def build_html(snapshot, hist):
           <div class="game-title"><span class="swatch" style="background:{g['color']}"></span><h2>{g['name']}</h2><span class="ko">{g['ko']}</span></div>
           <div class="game-meta"><span><b>{len(g['channels'])}</b> channels</span><span><b>{fmt_num(game_total)}</b> followers</span></div>
         </div>
-        {character_card_html(g)}
+        {insight_card_html(g)}
         {kpi_html}
         {trend_card}
         <div class="grid">{cards_html}</div>
@@ -1586,22 +1641,18 @@ def main():
     if kpi_targets:
         log(f"KPI targets loaded for {len(kpi_targets)} game(s)")
 
-    # -------- AI character insights (Claude Haiku) --------
-    anthropic_key = (creds.get("anthropic") or {}).get("api_key")
-    if anthropic_key:
-        log("Generating character insights via Claude Haiku…")
-        for g in GAMES:
-            if not g.get("character"):
-                continue
-            insight = generate_character_insight(g, anthropic_key)
-            if insight:
-                g["insight"] = insight
-                log(f"  ✓ {g['id']} / {g['character']['name']}: "
-                    f"{len(insight['text'])} chars")
-            else:
-                log(f"  ✖ {g['id']}: insight generation failed or empty")
-    else:
-        log("Claude API key not set — skipping character insights (set ANTHROPIC_API_KEY secret to enable)")
+    # -------- Rule-based daily insights --------
+    # Note: load current history (today's entry not yet appended) so deltas
+    # compare to the prior snapshots, not to today itself.
+    log("Generating rule-based daily insights…")
+    _hist_for_insights = load_history()
+    for g in GAMES:
+        insight = generate_rule_based_insight(g, _hist_for_insights, kpi_targets.get(g["id"], {}))
+        if insight:
+            g["insight"] = insight
+            log(f"  ✓ {g['id']}: {len(insight['bullets'])} bullet(s)")
+        else:
+            log(f"  · {g['id']}: no insight bullets available yet")
 
     # -------- Snapshot assembly --------
     snapshot = {
@@ -1609,7 +1660,7 @@ def main():
         "runTimestamp": NOW_ISO,
         "credentialStatus": credential_status,
         "games": {g["id"]: {"name": g["name"], "ko": g["ko"], "channels": g["channels"],
-                             "character": g.get("character"), "insight": g.get("insight")} for g in GAMES},
+                             "insight": g.get("insight")} for g in GAMES},
         "games_list": GAMES,
         "apiErrors": errors,
         "platformsPendingCredentials": platforms_pending,
