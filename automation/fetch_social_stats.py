@@ -381,44 +381,292 @@ def _pick_top_content(channels):
     return candidates[0][2]
 
 
-def generate_rule_based_insight(game, hist, kpi_targets_for_game):
-    """Produce a short daily briefing for a single game, as a list of Korean bullets.
-
-    Returns dict: {"bullets": [str, ...], "generatedAt": iso_str} or None if nothing to show.
+def _platform_follower_delta(game_id, platform, channels, hist):
+    """Aggregate follower total + day-over-day delta across all regions of one platform.
+    Returns (today_total, yday_total_or_None).
     """
-    channels = game.get("channels") or []
-    bullets = []
-
-    # --- Follower total + day-over-day change -----------------------
-    today_total  = 0
-    yday_total   = 0
-    yday_present = False
+    today_total = 0
+    yday_total  = 0
+    yday_found  = False
     for c in channels:
+        if c.get("platform") != platform:
+            continue
         if c.get("missing") or c.get("followers") is None:
             continue
         today_total += int(c["followers"])
-        prior, _ = _lookup_prior(hist, game["id"], c["platform"], c["region"], days_back=1)
+        prior, _ = _lookup_prior(hist, game_id, platform, c["region"], days_back=1)
         if prior is not None:
             yday_total += int(prior)
-            yday_present = True
+            yday_found = True
+    return today_total, (yday_total if yday_found else None)
 
-    if today_total:
-        if yday_present and yday_total:
-            delta = today_total - yday_total
-            pct = _pct(today_total, yday_total)
-            if delta == 0:
-                bullets.append(f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 전일 동일")
-            else:
-                sign = "+" if delta >= 0 else "−"
-                pct_str = f"{abs(pct):.2f}%" if pct is not None else ""
+
+def _fmt_follower_line(total, yday_total):
+    """Build the '전체 팔로워 X명 · 전일 ...' bullet line."""
+    if not total:
+        return None
+    if yday_total is None:
+        return f"팔로워 <b>{fmt_num(total)}</b>명 · 전일 데이터 축적 중"
+    delta = total - yday_total
+    if delta == 0:
+        return f"팔로워 <b>{fmt_num(total)}</b>명 · 전일 동일"
+    pct = _pct(total, yday_total)
+    sign = "+" if delta >= 0 else "−"
+    pct_str = f"{abs(pct):.2f}%" if pct is not None else ""
+    return (
+        f"팔로워 <b>{fmt_num(total)}</b>명 · 전일 대비 "
+        f"{sign}{fmt_num(abs(delta))} ({sign}{pct_str})"
+    )
+
+
+def _yt_latest_video_across(channels):
+    """Return (video, channel) for the most recently published video across all
+    YT channels of a game, or (None, None) if nothing found."""
+    best = None
+    for ch in channels:
+        if ch.get("platform") != "youtube":
+            continue
+        vids = ch.get("recentVideos") or []
+        for v in vids:
+            ts = v.get("publishedAt") or ""
+            if best is None or ts > best[0].get("publishedAt", ""):
+                best = (v, ch)
+    return (best[0], best[1]) if best else (None, None)
+
+
+def _yt_avg_of_recent(ch, n=5, skip_latest=False):
+    """Return {views, likes, comments} averaged over recent n videos of one channel.
+    Returns None when not enough data."""
+    vids = ch.get("recentVideos") or []
+    if skip_latest:
+        vids = vids[1:]
+    vids = vids[:n]
+    if not vids:
+        return None
+    views = [int(v.get("viewCount") or 0) for v in vids]
+    likes = [int(v.get("likeCount") or 0) for v in vids]
+    comms = [int(v.get("commentCount") or 0) for v in vids]
+    return {
+        "views":    sum(views) // len(views),
+        "likes":    sum(likes) // len(likes),
+        "comments": sum(comms) // len(comms),
+        "n":        len(vids),
+    }
+
+
+def _insight_youtube(game, channels, hist):
+    """YouTube-specific briefing bullets."""
+    bullets = []
+    yt_ch = [c for c in channels if c.get("platform") == "youtube"]
+    if not yt_ch:
+        return None
+
+    # 1) Total subs + 1-day delta
+    today_total, yday_total = _platform_follower_delta(game["id"], "youtube", channels, hist)
+    line = _fmt_follower_line(today_total, yday_total)
+    if line:
+        bullets.append(line)
+
+    # 2) Latest video metrics
+    latest, ch_of_latest = _yt_latest_video_across(yt_ch)
+    if latest and ch_of_latest:
+        title = (latest.get("title") or "").replace("<", "&lt;").replace(">", "&gt;")[:42]
+        trim_ellipsis = "…" if latest.get("title") and len(latest["title"]) > 42 else ""
+        views = int(latest.get("viewCount") or 0)
+        likes = int(latest.get("likeCount") or 0)
+        comms = int(latest.get("commentCount") or 0)
+        ago = ""
+        try:
+            pub = datetime.fromisoformat((latest.get("publishedAt") or "").replace("Z", "+00:00"))
+            hours = (datetime.now(pub.tzinfo) - pub).total_seconds() / 3600
+            ago = f"{int(hours)}h 전" if hours < 24 else f"{int(hours/24)}일 전"
+        except Exception:
+            pass
+        bullets.append(
+            f"최신 영상 <b>{ch_of_latest['region']}</b>"
+            f"{(' · ' + ago) if ago else ''}: "
+            f"\"{title}{trim_ellipsis}\" · "
+            f"▶ {fmt_num(views)} · ♥ {fmt_num(likes)} · 💬 {fmt_num(comms)}"
+        )
+
+        # 3) Latest vs recent-5 avg (same channel, excluding latest)
+        avg = _yt_avg_of_recent(ch_of_latest, n=5, skip_latest=True)
+        if avg and avg["views"]:
+            diff_pct = _pct(views, avg["views"])
+            if diff_pct is not None:
+                sign = "+" if diff_pct >= 0 else ""
                 bullets.append(
-                    f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 전일 대비 "
-                    f"{sign}{fmt_num(abs(delta))} ({sign}{pct_str})"
+                    f"이전 5개 평균 조회수 <b>{fmt_num(avg['views'])}</b> 대비 "
+                    f"<b>{sign}{diff_pct:.1f}%</b>"
                 )
-        else:
-            bullets.append(f"전체 팔로워 <b>{fmt_num(today_total)}</b>명 · 추세 데이터 축적 중")
 
-    # --- Biggest mover (7-day, live vs prior snapshot) ---------------
+    # 4) Content history — day-1 view count when we have it
+    #    Uses content_entries: find the earliest snapshot after publishedAt for the latest video.
+    if latest and ch_of_latest:
+        vid_id = latest.get("videoId")
+        series = content_history_for(hist, game["id"], "youtube", ch_of_latest["region"], vid_id) if vid_id else []
+        # Find snapshots at "day 1" (first snapshot after publish date)
+        day1_views = None
+        try:
+            pub_date = (latest.get("publishedAt") or "")[:10]
+            if pub_date and series:
+                # earliest snapshot whose date is strictly AFTER pub_date
+                for s in series:
+                    if s.get("date") > pub_date and s.get("views") is not None:
+                        day1_views = int(s["views"])
+                        break
+        except Exception:
+            pass
+        if day1_views is not None and day1_views > 0:
+            bullets.append(f"업로드 1일차 조회수 <b>{fmt_num(day1_views)}</b>")
+
+    return {"bullets": bullets, "generatedAt": NOW_ISO} if bullets else None
+
+
+def _insight_meta_platform(game, channels, hist, platform, like_emoji, label_ko):
+    """Shared generator for Instagram & Facebook."""
+    bullets = []
+    plat_ch = [c for c in channels if c.get("platform") == platform]
+    if not plat_ch:
+        return None
+
+    # 1) Total followers + 1-day delta
+    today_total, yday_total = _platform_follower_delta(game["id"], platform, channels, hist)
+    line = _fmt_follower_line(today_total, yday_total)
+    if line:
+        bullets.append(line)
+
+    # 2) Most-recent post with engagement across all regions
+    latest = None
+    latest_ch = None
+    for ch in plat_ch:
+        posts = ch.get("recentPosts") or []
+        if not posts:
+            continue
+        p = posts[0]  # recentPosts is newest-first
+        ts = p.get("timestamp") or ""
+        if latest is None or ts > (latest.get("timestamp") or ""):
+            latest = p
+            latest_ch = ch
+
+    if latest and latest_ch:
+        likes = int(latest.get("likeCount") or 0)
+        comms = int(latest.get("commentCount") or 0)
+        shares = int(latest.get("shareCount") or 0) if platform == "facebook" else None
+        ago = ""
+        try:
+            ts = datetime.fromisoformat((latest.get("timestamp") or "").replace("Z", "+00:00"))
+            hours = (datetime.now(ts.tzinfo) - ts).total_seconds() / 3600
+            ago = f"{int(hours)}h 전" if hours < 24 else f"{int(hours/24)}일 전"
+        except Exception:
+            pass
+        cap = (latest.get("caption") or "").replace("<", "&lt;").replace(">", "&gt;")[:38]
+        trim_ellipsis = "…" if latest.get("caption") and len(latest["caption"]) > 38 else ""
+        metric_parts = [f"{like_emoji} {fmt_num(likes)}", f"💬 {fmt_num(comms)}"]
+        if shares is not None and shares > 0:
+            metric_parts.append(f"↗ {fmt_num(shares)}")
+        bullets.append(
+            f"최신 포스트 <b>{latest_ch['region']}</b>"
+            f"{(' · ' + ago) if ago else ''}: "
+            f"\"{cap}{trim_ellipsis}\" · " + " · ".join(metric_parts)
+        )
+
+        # 3) Latest vs avg of prior 9 posts (same channel)
+        prior_posts = (latest_ch.get("recentPosts") or [])[1:10]
+        if prior_posts:
+            avg_likes = sum(int(p.get("likeCount") or 0) for p in prior_posts) // len(prior_posts)
+            avg_comms = sum(int(p.get("commentCount") or 0) for p in prior_posts) // len(prior_posts)
+            latest_eng = likes + comms
+            avg_eng    = avg_likes + avg_comms
+            if avg_eng:
+                diff_pct = _pct(latest_eng, avg_eng)
+                if diff_pct is not None:
+                    sign = "+" if diff_pct >= 0 else ""
+                    bullets.append(
+                        f"이전 포스트 평균 참여 대비 <b>{sign}{diff_pct:.1f}%</b> "
+                        f"(평균 {like_emoji} {fmt_num(avg_likes)} · 💬 {fmt_num(avg_comms)})"
+                    )
+
+    # 4) Top-engagement post highlight (when different from latest)
+    best_post = None
+    best_ch = None
+    for ch in plat_ch:
+        for p in ch.get("topPosts") or []:
+            if best_post is None or p.get("engagement", 0) > best_post.get("engagement", 0):
+                best_post = p
+                best_ch = ch
+    if best_post and best_ch and best_post is not latest:
+        cap = (best_post.get("caption") or "").replace("<", "&lt;").replace(">", "&gt;")[:38]
+        trim_ellipsis = "…" if best_post.get("caption") and len(best_post["caption"]) > 38 else ""
+        likes = int(best_post.get("likeCount") or 0)
+        comms = int(best_post.get("commentCount") or 0)
+        shares = int(best_post.get("shareCount") or 0) if platform == "facebook" else None
+        metric_parts = [f"{like_emoji} {fmt_num(likes)}", f"💬 {fmt_num(comms)}"]
+        if shares is not None and shares > 0:
+            metric_parts.append(f"↗ {fmt_num(shares)}")
+        bullets.append(
+            f"참여 TOP <b>{best_ch['region']}</b>: "
+            f"\"{cap}{trim_ellipsis}\" · " + " · ".join(metric_parts)
+        )
+
+    return {"bullets": bullets, "generatedAt": NOW_ISO} if bullets else None
+
+
+def _insight_instagram(game, channels, hist):
+    return _insight_meta_platform(game, channels, hist, "instagram", "♥", "Instagram")
+
+
+def _insight_facebook(game, channels, hist):
+    return _insight_meta_platform(game, channels, hist, "facebook", "👍", "Facebook")
+
+
+def _insight_x(game, channels, hist):
+    """X briefing — follower delta only until API integration ships."""
+    bullets = []
+    x_ch = [c for c in channels if c.get("platform") == "x"]
+    if not x_ch:
+        return None
+    today_total, yday_total = _platform_follower_delta(game["id"], "x", channels, hist)
+    line = _fmt_follower_line(today_total, yday_total)
+    if line:
+        bullets.append(line)
+    # Note the manual-input limitation so readers know why content-level metrics are absent
+    manual_count = sum(1 for c in x_ch if c.get("followersSource") == "manual")
+    if manual_count and manual_count == len(x_ch):
+        bullets.append("콘텐츠 분석은 API 연동 후 제공 예정 · 현재 수동 입력")
+    return {"bullets": bullets, "generatedAt": NOW_ISO} if bullets else None
+
+
+def _insight_discord(game, channels, hist):
+    """Discord briefing — member delta + online ratio."""
+    bullets = []
+    dc_ch = [c for c in channels if c.get("platform") == "discord"]
+    if not dc_ch:
+        return None
+    today_total, yday_total = _platform_follower_delta(game["id"], "discord", channels, hist)
+    line = _fmt_follower_line(today_total, yday_total)
+    if line:
+        # Custom wording: Discord uses 멤버 instead of 팔로워
+        line = line.replace("팔로워", "멤버")
+        bullets.append(line)
+
+    # Online ratio (sum of online / sum of members)
+    total_online  = sum(int(c.get("onlineCount") or 0) for c in dc_ch if c.get("onlineCount") is not None)
+    total_members = sum(int(c.get("followers") or 0) for c in dc_ch if c.get("followers") is not None)
+    if total_members:
+        ratio = total_online / total_members * 100
+        bullets.append(
+            f"온라인 <b>{fmt_num(total_online)}</b>명 / 전체 {fmt_num(total_members)}명 "
+            f"(활성도 {ratio:.1f}%)"
+        )
+    return {"bullets": bullets, "generatedAt": NOW_ISO} if bullets else None
+
+
+def _insight_overview(game, channels, hist, kpi_targets_for_game):
+    """Cross-platform overview — biggest mover + KPI snapshot."""
+    bullets = []
+
+    # Biggest 7-day mover
     movers = []
     for c in channels:
         if c.get("missing") or c.get("followers") is None:
@@ -430,35 +678,23 @@ def generate_rule_based_insight(game, hist, kpi_targets_for_game):
         pct = _pct(cur, prior)
         if pct is None:
             continue
-        movers.append((pct, cur - prior, c, prior_date))
+        movers.append((pct, cur - prior, c))
     if movers:
         movers.sort(key=lambda t: t[0], reverse=True)
-        top_pct, top_abs, top_ch, top_date = movers[0]
+        top_pct, top_abs, top_ch = movers[0]
         if top_pct >= 0.3:
             bullets.append(
-                f"성장 1위: <b>{top_ch['platform'].title()} {top_ch['region']}</b> "
+                f"7일 성장 1위: <b>{top_ch['platform'].title()} {top_ch['region']}</b> "
                 f"(+{top_pct:.2f}%, +{fmt_num(int(top_abs))})"
             )
-        # Worst (only when meaningfully negative)
-        worst_pct, worst_abs, worst_ch, _ = movers[-1]
+        worst_pct, worst_abs, worst_ch = movers[-1]
         if worst_pct <= -1.0:
             bullets.append(
                 f"주의: <b>{worst_ch['platform'].title()} {worst_ch['region']}</b> "
                 f"{worst_pct:.2f}% 하락 ({fmt_num(int(worst_abs))})"
             )
 
-    # --- Top content ------------------------------------------------
-    top = _pick_top_content(channels)
-    if top:
-        region = top["channel"]["region"]
-        platform_label = {"youtube": "YT", "instagram": "IG", "facebook": "FB"}[top["platform"]]
-        title_clean = top["title"].replace("<", "&lt;").replace(">", "&gt;")
-        bullets.append(
-            f"최고 참여 콘텐츠: <b>{platform_label} {region}</b> "
-            f"\"{title_clean[:40]}{'…' if len(title_clean) > 40 else ''}\" · {top['metric']}"
-        )
-
-    # --- KPI avg + lowest platform ----------------------------------
+    # KPI avg
     if kpi_targets_for_game:
         totals = {}
         for c in channels:
@@ -480,13 +716,31 @@ def generate_rule_based_insight(game, hist, kpi_targets_for_game):
                 f"KPI 평균 <b>{avg:.1f}%</b> · 최저 "
                 f"<b>{low_platform.title()} {low_pct:.1f}%</b>"
             )
+    return {"bullets": bullets, "generatedAt": NOW_ISO} if bullets else None
 
-    if not bullets:
-        return None
-    return {
-        "bullets":     bullets,
-        "generatedAt": NOW_ISO,
-    }
+
+def generate_per_platform_insights(game, hist, kpi_targets_for_game):
+    """Produce per-platform briefings for a single game.
+
+    Returns dict keyed by platform + "overview":
+       {"overview": {...} | None, "youtube": {...}, "x": {...}, ...}
+    Any platform without data is omitted. Returns empty dict if game has no usable data.
+    """
+    channels = game.get("channels") or []
+    out = {}
+    ov = _insight_overview(game, channels, hist, kpi_targets_for_game)
+    if ov: out["overview"] = ov
+    for key, fn in (
+        ("youtube",   _insight_youtube),
+        ("x",         _insight_x),
+        ("instagram", _insight_instagram),
+        ("facebook",  _insight_facebook),
+        ("discord",   _insight_discord),
+    ):
+        result = fn(game, channels, hist)
+        if result:
+            out[key] = result
+    return out
 
 
 # ==================================================================
@@ -643,8 +897,8 @@ def fetch_youtube_for_channel(ch, api_key):
         ch["viewCount"]     = int(stats.get("viewCount", 0))       if stats.get("viewCount")       else None
         ch["videoCount"]    = int(stats.get("videoCount", 0))      if stats.get("videoCount")      else None
         ch["latestVideo"]   = yt_latest_video(item["id"], api_key)
-        # Recent videos with per-video stats (for AI character analysis)
-        ch["recentVideos"]  = yt_recent_videos(item["id"], api_key, count=7)
+        # Recent videos with per-video stats — 10 items for insight + content history
+        ch["recentVideos"]  = yt_recent_videos(item["id"], api_key, count=10)
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -725,13 +979,14 @@ def fetch_instagram_for_channel(ch, token):
             ch["recentAvgComments"] = comments_sum // len(items)
             ch["recentSampleSize"]  = len(items)
 
-            # Top 3 posts by engagement (likes + comments) for AI analysis
-            scored = []
+            # Normalized recent-post records (chronological, newest first — same order as items)
+            recent_posts = []
             for m in items:
                 likes = int(m.get("like_count") or 0)
                 comms = int(m.get("comments_count") or 0)
-                cap = (m.get("caption") or "").strip().split("\n", 1)[0][:120]
-                scored.append({
+                cap   = (m.get("caption") or "").strip().split("\n", 1)[0][:120]
+                recent_posts.append({
+                    "id":           m.get("id"),
                     "caption":      cap,
                     "likeCount":    likes,
                     "commentCount": comms,
@@ -740,8 +995,10 @@ def fetch_instagram_for_channel(ch, token):
                     "mediaType":    m.get("media_type"),
                     "permalink":    m.get("permalink"),
                 })
-            scored.sort(key=lambda x: x["engagement"], reverse=True)
-            ch["topPosts"] = scored[:3]
+            ch["recentPosts"] = recent_posts
+
+            # Top 3 posts by engagement (for highlights)
+            ch["topPosts"] = sorted(recent_posts, key=lambda x: x["engagement"], reverse=True)[:3]
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -845,15 +1102,16 @@ def fetch_facebook_for_channel(ch, token):
             ch["recentAvgComments"] = comments_sum // len(items)
             ch["recentSampleSize"]  = len(items)
 
-            # Top 3 posts by engagement (reactions + comments + shares) for AI analysis
-            scored = []
+            # Normalized recent-post records (chronological, newest first)
+            recent_posts = []
             for p in items:
                 reacts = ((p.get("reactions") or {}).get("summary") or {}).get("total_count") or 0
                 comms  = ((p.get("comments") or {}).get("summary") or {}).get("total_count") or 0
                 shrs   = (p.get("shares") or {}).get("count") if p.get("shares") else 0
                 m_raw = (p.get("message") or "").strip()
-                cap = m_raw.split("\n", 1)[0][:120] if m_raw else ""
-                scored.append({
+                cap   = m_raw.split("\n", 1)[0][:120] if m_raw else ""
+                recent_posts.append({
+                    "id":           p.get("id"),
                     "caption":      cap,
                     "likeCount":    int(reacts),
                     "commentCount": int(comms),
@@ -862,8 +1120,8 @@ def fetch_facebook_for_channel(ch, token):
                     "timestamp":    p.get("created_time"),
                     "permalink":    p.get("permalink_url"),
                 })
-            scored.sort(key=lambda x: x["engagement"], reverse=True)
-            ch["topPosts"] = scored[:3]
+            ch["recentPosts"] = recent_posts
+            ch["topPosts"]    = sorted(recent_posts, key=lambda x: x["engagement"], reverse=True)[:3]
         return True, None
     except urllib.error.HTTPError as e:
         body = e.read().decode("utf-8", errors="replace")[:300]
@@ -912,14 +1170,21 @@ def load_history():
     if HISTORY_FILE.exists():
         try:
             with open(HISTORY_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                data = json.load(f)
+                # Back-compat: ensure content_entries exists for schema v2
+                if "content_entries" not in data:
+                    data["content_entries"] = []
+                return data
         except Exception:
             pass
-    return {"entries": []}  # each entry: {date, channels: {game:platform:region: followers}}
+    return {"entries": [], "content_entries": []}
+    # entries:         [{date, channels: {game:platform:region: followers}}]
+    # content_entries: [{date, game, platform, region, content_id, publishedAt, views, likes, comments, shares?}]
 
 
 def save_history(hist, today_data):
-    """Append today's entry and trim to last 90 days."""
+    """Append today's entry (followers + content snapshots) and trim retention."""
+    # ----- 1) Channel follower snapshot (90-day retention, legacy) -----
     channels_flat = {}
     for g in today_data["games_list"]:
         for c in g["channels"]:
@@ -935,9 +1200,86 @@ def save_history(hist, today_data):
     cutoff = (date.today() - timedelta(days=90)).isoformat()
     hist["entries"] = [e for e in hist["entries"] if e["date"] >= cutoff]
 
+    # ----- 2) Per-content snapshots (60-day retention) -----
+    today = today_data["snapshotDate"]
+    content = [e for e in hist.get("content_entries", []) if e.get("date") != today]
+    for g in today_data["games_list"]:
+        for c in g["channels"]:
+            plat = c.get("platform")
+            region = c.get("region")
+            # YouTube — track recent 10 videos
+            if plat == "youtube":
+                for v in (c.get("recentVideos") or [])[:10]:
+                    vid = v.get("videoId")
+                    if not vid:
+                        continue
+                    content.append({
+                        "date":        today,
+                        "game":        g["id"],
+                        "platform":    "youtube",
+                        "region":      region,
+                        "content_id":  vid,
+                        "publishedAt": v.get("publishedAt"),
+                        "title":       (v.get("title") or "")[:120],
+                        "views":       v.get("viewCount"),
+                        "likes":       v.get("likeCount"),
+                        "comments":    v.get("commentCount"),
+                    })
+            # Instagram — track recent 10 posts (stored on channel as recentPosts)
+            elif plat == "instagram":
+                for p in (c.get("recentPosts") or [])[:10]:
+                    pid = p.get("permalink") or p.get("id") or ""
+                    if not pid:
+                        continue
+                    content.append({
+                        "date":        today,
+                        "game":        g["id"],
+                        "platform":    "instagram",
+                        "region":      region,
+                        "content_id":  pid,
+                        "publishedAt": p.get("timestamp"),
+                        "title":       (p.get("caption") or "")[:120],
+                        "views":       None,  # IG Graph API doesn't expose post play count for plain images
+                        "likes":       p.get("likeCount"),
+                        "comments":    p.get("commentCount"),
+                    })
+            # Facebook — track recent 10 posts
+            elif plat == "facebook":
+                for p in (c.get("recentPosts") or [])[:10]:
+                    pid = p.get("permalink") or p.get("id") or ""
+                    if not pid:
+                        continue
+                    content.append({
+                        "date":        today,
+                        "game":        g["id"],
+                        "platform":    "facebook",
+                        "region":      region,
+                        "content_id":  pid,
+                        "publishedAt": p.get("timestamp"),
+                        "title":       (p.get("caption") or "")[:120],
+                        "views":       None,
+                        "likes":       p.get("likeCount"),
+                        "comments":    p.get("commentCount"),
+                        "shares":      p.get("shareCount"),
+                    })
+
+    content_cutoff = (date.today() - timedelta(days=60)).isoformat()
+    content = [e for e in content if e.get("date", "0") >= content_cutoff]
+    hist["content_entries"] = content
+
     HISTORY_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(hist, f, ensure_ascii=False, indent=2)
+
+
+def content_history_for(hist, game_id, platform, region, content_id):
+    """Return chronologically sorted list of daily snapshots for a single content item."""
+    return sorted(
+        (e for e in hist.get("content_entries", [])
+         if e.get("game") == game_id and e.get("platform") == platform
+         and e.get("region") == region and e.get("content_id") == content_id),
+        key=lambda e: e.get("date") or "",
+    )
 
 
 def series_for(hist, game_id, platform, region):
@@ -1041,6 +1383,7 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .kpi-item.done .kpi-pct  { color: #2CA45A; }
 .kpi-nums { font-size: 11px; color: var(--muted); }
 .kpi-nums b { color: var(--text-1); font-weight: 600; }
+/* Legacy single-card styles (kept for any fallback) */
 .insight-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
 .insight-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
 .insight-name { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.01em; }
@@ -1049,6 +1392,26 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .insight-bullets li { position: relative; padding-left: 14px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
 .insight-bullets li::before { content: "•"; position: absolute; left: 2px; color: var(--accent, #6B5FD4); font-weight: 700; }
 .insight-bullets li b { color: var(--text-1); font-weight: 600; }
+
+/* Per-platform briefing cards (new) */
+.pinsight-wrap { margin: 14px 0 18px; }
+.pinsight-section-head { display: flex; align-items: center; margin-bottom: 8px; }
+.pinsight-date { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+.pinsight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
+.pinsight-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); display: flex; flex-direction: column; min-height: 0; }
+.pinsight-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding-bottom: 7px; border-bottom: 1px solid var(--border); }
+.pinsight-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--accent, #6B5FD4); color: #fff; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; }
+.pinsight-name { font-size: 12.5px; font-weight: 700; color: var(--text-1); letter-spacing: -0.005em; }
+.pinsight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
+.pinsight-bullets li { position: relative; padding-left: 12px; font-size: 11.5px; line-height: 1.55; color: var(--text-2); }
+.pinsight-bullets li::before { content: "·"; position: absolute; left: 2px; top: -2px; color: var(--accent, #6B5FD4); font-weight: 900; font-size: 18px; }
+.pinsight-bullets li b { color: var(--text-1); font-weight: 600; }
+@media (max-width: 820px) { .pinsight-grid { grid-template-columns: 1fr; } }
+
+/* YouTube stats subnote (latest-vs-avg chip) */
+.yt-stats .vs-avg { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; }
+.yt-stats .vs-avg.up   { background: rgba(18,161,80,0.10);  color: var(--pos); }
+.yt-stats .vs-avg.down { background: rgba(225,29,72,0.08); color: var(--neg); }
 .spark-wrap { height: 36px; position: relative; }
 .subnote { font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px dashed var(--border); }
 .subnote b { color: var(--text-2); }
@@ -1251,8 +1614,40 @@ def channel_card_html(game, ch, hist):
             f'<span class="ago">{ago}</span>'
             f'</div>'
         )
-    if platform == "youtube" and ch.get("videoCount"):
-        sub_note += f'<div class="subnote" style="border-top:none;padding-top:4px;">{fmt_num(ch["videoCount"])} videos · {fmt_num(ch.get("viewCount"))} total views</div>'
+    if platform == "youtube" and ch.get("recentVideos"):
+        vids = ch["recentVideos"][:5]
+        if vids:
+            avg_views = sum(int(v.get("viewCount") or 0)    for v in vids) // len(vids)
+            avg_likes = sum(int(v.get("likeCount") or 0)    for v in vids) // len(vids)
+            avg_comms = sum(int(v.get("commentCount") or 0) for v in vids) // len(vids)
+            total_views = sum(int(v.get("viewCount") or 0)  for v in vids)
+            total_eng   = sum(int(v.get("likeCount") or 0) + int(v.get("commentCount") or 0)
+                              for v in vids)
+            eng_rate = (total_eng / total_views * 100) if total_views else 0.0
+
+            # Latest vs prior-4 comparison (skip latest, avg over next 4)
+            compare_html = ""
+            all_vids = ch["recentVideos"]
+            if len(all_vids) >= 2 and int(all_vids[0].get("viewCount") or 0) > 0:
+                latest_views = int(all_vids[0].get("viewCount") or 0)
+                prior_4 = all_vids[1:5]
+                if prior_4:
+                    prior_avg = sum(int(v.get("viewCount") or 0) for v in prior_4) // len(prior_4)
+                    if prior_avg:
+                        diff = (latest_views - prior_avg) / prior_avg * 100
+                        sign = "+" if diff >= 0 else ""
+                        tone = "up" if diff >= 0 else "down"
+                        compare_html = (
+                            f' <span class="vs-avg {tone}">최신 vs 평균 {sign}{diff:.0f}%</span>'
+                        )
+
+            sub_note += (
+                f'<div class="subnote yt-stats" style="border-top:none;padding-top:4px;">'
+                f'<b>최근 5개 평균</b> · ▶ {fmt_num(avg_views)} · ♥ {fmt_num(avg_likes)} · '
+                f'💬 {fmt_num(avg_comms)} · 참여율 {eng_rate:.2f}%'
+                f'{compare_html}'
+                f'</div>'
+            )
     if platform in ("instagram", "facebook") and ch.get("latestPost"):
         lp = ch["latestPost"]
         try:
@@ -1323,31 +1718,56 @@ def channel_card_html(game, ch, hist):
       </div>"""
 
 
+PLATFORM_INSIGHT_META = {
+    # key: (display name, accent color, icon glyph)
+    "overview":  ("전체 요약",  "#6B5FD4", "✦"),
+    "youtube":   ("YouTube",    "#FF0033", "▶"),
+    "x":         ("X",          "#111111", "𝕏"),
+    "instagram": ("Instagram",  "#DD2A7B", "◉"),
+    "facebook":  ("Facebook",   "#1877F2", "f"),
+    "discord":   ("Discord",    "#5865F2", "◈"),
+}
+
+
 def insight_card_html(game):
     """
-    Render a simple daily-briefing card (no avatar, no LLM text).
-    Bullets come from the rule-based generator. Hidden entirely when no bullets.
+    Render a row of per-platform briefing cards. Each platform gets its own
+    compact card with accent color. Hidden entirely when no platform has data.
     """
-    insight = game.get("insight") or {}
-    bullets = insight.get("bullets") or []
-    if not bullets:
+    insights = game.get("insights") or {}
+    if not insights:
         return ""
-    generated_at = insight.get("generatedAt") or ""
-    gen_short = generated_at[:10] if generated_at else ""
-    accent = game.get("color") or "#6B5FD4"
 
-    # bullets already contain safe HTML (<b> tags); do not re-escape
-    items_html = "".join(f"<li>{b}</li>" for b in bullets)
-    tag = f'<span class="insight-status live">{gen_short} 자동 분석</span>' if gen_short else ""
+    order = ["overview", "youtube", "x", "instagram", "facebook", "discord"]
+    cards = []
+    gen_short = ""
+    for key in order:
+        ins = insights.get(key)
+        if not ins or not ins.get("bullets"):
+            continue
+        if not gen_short:
+            gen_short = (ins.get("generatedAt") or "")[:10]
+        name, color, icon = PLATFORM_INSIGHT_META.get(key, (key.title(), "#6B5FD4", "•"))
+        items_html = "".join(f"<li>{b}</li>" for b in ins["bullets"])
+        cards.append(
+            f'''<div class="pinsight-card" style="--accent:{color}">
+                <div class="pinsight-head">
+                  <span class="pinsight-icon">{icon}</span>
+                  <span class="pinsight-name">{name}</span>
+                </div>
+                <ul class="pinsight-bullets">{items_html}</ul>
+              </div>'''
+        )
 
-    return f"""
-    <div class="insight-card" style="--accent:{accent}">
-      <div class="insight-head">
-        <span class="insight-name">오늘의 브리핑</span>
-        {tag}
-      </div>
-      <ul class="insight-bullets">{items_html}</ul>
-    </div>"""
+    if not cards:
+        return ""
+
+    date_tag = f'<span class="pinsight-date">{gen_short} · 오늘의 브리핑</span>' if gen_short else '<span class="pinsight-date">오늘의 브리핑</span>'
+    return f'''
+    <div class="pinsight-wrap">
+      <div class="pinsight-section-head">{date_tag}</div>
+      <div class="pinsight-grid">{"".join(cards)}</div>
+    </div>'''
 
 
 def kpi_row_html(game, targets_for_game):
@@ -1641,16 +2061,17 @@ def main():
     if kpi_targets:
         log(f"KPI targets loaded for {len(kpi_targets)} game(s)")
 
-    # -------- Rule-based daily insights --------
+    # -------- Rule-based daily insights (per-platform) --------
     # Note: load current history (today's entry not yet appended) so deltas
     # compare to the prior snapshots, not to today itself.
-    log("Generating rule-based daily insights…")
+    log("Generating per-platform daily insights…")
     _hist_for_insights = load_history()
     for g in GAMES:
-        insight = generate_rule_based_insight(g, _hist_for_insights, kpi_targets.get(g["id"], {}))
-        if insight:
-            g["insight"] = insight
-            log(f"  ✓ {g['id']}: {len(insight['bullets'])} bullet(s)")
+        insights = generate_per_platform_insights(g, _hist_for_insights, kpi_targets.get(g["id"], {}))
+        if insights:
+            g["insights"] = insights
+            summary = ", ".join(f"{k}:{len(v['bullets'])}" for k, v in insights.items())
+            log(f"  ✓ {g['id']}: {summary}")
         else:
             log(f"  · {g['id']}: no insight bullets available yet")
 
@@ -1660,7 +2081,7 @@ def main():
         "runTimestamp": NOW_ISO,
         "credentialStatus": credential_status,
         "games": {g["id"]: {"name": g["name"], "ko": g["ko"], "channels": g["channels"],
-                             "insight": g.get("insight")} for g in GAMES},
+                             "insights": g.get("insights")} for g in GAMES},
         "games_list": GAMES,
         "apiErrors": errors,
         "platformsPendingCredentials": platforms_pending,
