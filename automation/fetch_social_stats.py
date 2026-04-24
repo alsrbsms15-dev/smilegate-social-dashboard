@@ -1383,30 +1383,17 @@ header.top { display: flex; align-items: flex-end; justify-content: space-betwee
 .kpi-item.done .kpi-pct  { color: #2CA45A; }
 .kpi-nums { font-size: 11px; color: var(--muted); }
 .kpi-nums b { color: var(--text-1); font-weight: 600; }
-/* Legacy single-card styles (kept for any fallback) */
-.insight-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 14px 18px; margin: 14px 0; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); }
-.insight-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
-.insight-name { font-size: 13px; font-weight: 700; color: var(--text-1); letter-spacing: -0.01em; }
-.insight-status { margin-left: auto; font-size: 10px; font-weight: 600; padding: 2px 8px; border-radius: 999px; white-space: nowrap; color: var(--accent, #6B5FD4); background: rgba(107,95,212,0.08); }
-.insight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 6px; }
-.insight-bullets li { position: relative; padding-left: 14px; font-size: 13px; line-height: 1.55; color: var(--text-2); }
-.insight-bullets li::before { content: "•"; position: absolute; left: 2px; color: var(--accent, #6B5FD4); font-weight: 700; }
+/* Unified briefing card with per-platform sections */
+.insight-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 16px 20px; margin: 14px 0 18px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); }
+.insight-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+.insight-head-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+.insight-sections { display: flex; flex-direction: column; gap: 14px; }
+.insight-tag { display: inline-flex; align-items: center; gap: 6px; padding: 3px 10px; border-radius: 999px; background: var(--accent-bg, rgba(107,95,212,0.10)); color: var(--accent, #6B5FD4); font-size: 11.5px; font-weight: 700; margin-bottom: 8px; letter-spacing: -0.005em; }
+.insight-tag-glyph { font-size: 11px; line-height: 1; }
+.insight-bullets { list-style: none; padding: 0 0 0 2px; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.insight-bullets li { position: relative; padding-left: 14px; font-size: 12.5px; line-height: 1.6; color: var(--text-2); }
+.insight-bullets li::before { content: "·"; position: absolute; left: 3px; top: -3px; color: var(--accent, #6B5FD4); font-weight: 900; font-size: 18px; }
 .insight-bullets li b { color: var(--text-1); font-weight: 600; }
-
-/* Per-platform briefing cards (new) */
-.pinsight-wrap { margin: 14px 0 18px; }
-.pinsight-section-head { display: flex; align-items: center; margin-bottom: 8px; }
-.pinsight-date { font-size: 11px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
-.pinsight-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 10px; }
-.pinsight-card { background: #fff; border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; box-shadow: 0 1px 2px rgba(0,0,0,0.03); border-left: 3px solid var(--accent, #6B5FD4); display: flex; flex-direction: column; min-height: 0; }
-.pinsight-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; padding-bottom: 7px; border-bottom: 1px solid var(--border); }
-.pinsight-icon { width: 22px; height: 22px; border-radius: 6px; background: var(--accent, #6B5FD4); color: #fff; font-size: 12px; font-weight: 700; display: inline-flex; align-items: center; justify-content: center; line-height: 1; flex-shrink: 0; }
-.pinsight-name { font-size: 12.5px; font-weight: 700; color: var(--text-1); letter-spacing: -0.005em; }
-.pinsight-bullets { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 5px; }
-.pinsight-bullets li { position: relative; padding-left: 12px; font-size: 11.5px; line-height: 1.55; color: var(--text-2); }
-.pinsight-bullets li::before { content: "·"; position: absolute; left: 2px; top: -2px; color: var(--accent, #6B5FD4); font-weight: 900; font-size: 18px; }
-.pinsight-bullets li b { color: var(--text-1); font-weight: 600; }
-@media (max-width: 820px) { .pinsight-grid { grid-template-columns: 1fr; } }
 
 /* YouTube stats subnote (latest-vs-avg chip) */
 .yt-stats .vs-avg { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; }
@@ -1719,27 +1706,28 @@ def channel_card_html(game, ch, hist):
 
 
 PLATFORM_INSIGHT_META = {
-    # key: (display name, accent color, icon glyph)
-    "overview":  ("전체 요약",  "#6B5FD4", "✦"),
-    "youtube":   ("YouTube",    "#FF0033", "▶"),
-    "x":         ("X",          "#111111", "𝕏"),
-    "instagram": ("Instagram",  "#DD2A7B", "◉"),
-    "facebook":  ("Facebook",   "#1877F2", "f"),
-    "discord":   ("Discord",    "#5865F2", "◈"),
+    # key: (display name, accent hex, accent-bg rgba, icon glyph)
+    "overview":  ("전체 요약",  "#6B5FD4", "rgba(107,95,212,0.10)", "✦"),
+    "youtube":   ("YouTube",    "#FF0033", "rgba(255,0,51,0.08)",   "▶"),
+    "x":         ("X",          "#111111", "rgba(17,17,17,0.07)",   "𝕏"),
+    "instagram": ("Instagram",  "#DD2A7B", "rgba(221,42,123,0.09)", "◉"),
+    "facebook":  ("Facebook",   "#1877F2", "rgba(24,119,242,0.09)", "f"),
+    "discord":   ("Discord",    "#5865F2", "rgba(88,101,242,0.10)", "◈"),
 }
 
 
 def insight_card_html(game):
     """
-    Render a row of per-platform briefing cards. Each platform gets its own
-    compact card with accent color. Hidden entirely when no platform has data.
+    Render a single unified briefing card with one section per platform.
+    Each platform appears as a small colored tag (소제목) followed by its
+    bullets. Returns empty string when no platform has insights.
     """
     insights = game.get("insights") or {}
     if not insights:
         return ""
 
     order = ["overview", "youtube", "x", "instagram", "facebook", "discord"]
-    cards = []
+    sections = []
     gen_short = ""
     for key in order:
         ins = insights.get(key)
@@ -1747,26 +1735,25 @@ def insight_card_html(game):
             continue
         if not gen_short:
             gen_short = (ins.get("generatedAt") or "")[:10]
-        name, color, icon = PLATFORM_INSIGHT_META.get(key, (key.title(), "#6B5FD4", "•"))
+        name, color, bg, icon = PLATFORM_INSIGHT_META.get(
+            key, (key.title(), "#6B5FD4", "rgba(107,95,212,0.10)", "•")
+        )
         items_html = "".join(f"<li>{b}</li>" for b in ins["bullets"])
-        cards.append(
-            f'''<div class="pinsight-card" style="--accent:{color}">
-                <div class="pinsight-head">
-                  <span class="pinsight-icon">{icon}</span>
-                  <span class="pinsight-name">{name}</span>
-                </div>
-                <ul class="pinsight-bullets">{items_html}</ul>
-              </div>'''
+        sections.append(
+            f'''<div class="insight-section" style="--accent:{color};--accent-bg:{bg}">
+                  <span class="insight-tag"><span class="insight-tag-glyph">{icon}</span>{name}</span>
+                  <ul class="insight-bullets">{items_html}</ul>
+                </div>'''
         )
 
-    if not cards:
+    if not sections:
         return ""
 
-    date_tag = f'<span class="pinsight-date">{gen_short} · 오늘의 브리핑</span>' if gen_short else '<span class="pinsight-date">오늘의 브리핑</span>'
+    date_tag = f'{gen_short} · 오늘의 브리핑' if gen_short else '오늘의 브리핑'
     return f'''
-    <div class="pinsight-wrap">
-      <div class="pinsight-section-head">{date_tag}</div>
-      <div class="pinsight-grid">{"".join(cards)}</div>
+    <div class="insight-card">
+      <div class="insight-head"><span class="insight-head-label">{date_tag}</span></div>
+      <div class="insight-sections">{"".join(sections)}</div>
     </div>'''
 
 
