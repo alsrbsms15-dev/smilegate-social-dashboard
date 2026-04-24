@@ -97,9 +97,9 @@
         "epic7:x:Global": 32372,
         "epic7:x:Korea": 18642,
         "epic7:x:Japan": 129969,
-        "epic7:instagram:Global": 85307,
-        "epic7:facebook:Korea/Global/Taiwan": 223102,
-        "epic7:discord:Official": 96667,
+        "epic7:instagram:Global": 85311,
+        "epic7:facebook:Korea/Global/Taiwan": 223107,
+        "epic7:discord:Official": 96669,
         "czn:youtube:Korea": 10300,
         "czn:youtube:Global": 73300,
         "czn:youtube:Japan": 19300,
@@ -108,17 +108,17 @@
         "czn:x:Korea": 7256,
         "czn:x:Japan": 119767,
         "czn:instagram:Global": 13472,
-        "czn:facebook:Global": 98212,
-        "czn:facebook:China": 16687,
-        "czn:discord:Official": 61303,
+        "czn:facebook:Global": 98214,
+        "czn:facebook:China": 16688,
+        "czn:discord:Official": 61358,
         "l9:youtube:Korea": 22600,
         "l9:youtube:Global": 27300,
         "l9:youtube:Japan": 2350,
         "l9:x:Japan": 49653,
-        "l9:facebook:SEA": 111978,
+        "l9:facebook:SEA": 111979,
         "l9:facebook:Thailand": 33722,
-        "l9:facebook:China": 12819,
-        "l9:discord:SEA": 32815
+        "l9:facebook:China": 12818,
+        "l9:discord:SEA": 32807
       }
     }
   ],
@@ -128,11 +128,35 @@
       "game": "epic7",
       "platform": "youtube",
       "region": "Global",
+      "content_id": "MqN9frWmJI0",
+      "publishedAt": "2026-04-24T05:01:03Z",
+      "title": "Corrupted Divinity | Salome #EpicSeven",
+      "views": 402,
+      "likes": 32,
+      "comments": 0
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Global",
+      "content_id": "RUzq0r4I2MA",
+      "publishedAt": "2026-04-24T04:10:12Z",
+      "title": "Dirge of the End | Epic Seven PV",
+      "views": 1432,
+      "likes": 223,
+      "comments": 10
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Global",
       "content_id": "Ln7n6fV-oSg",
       "publishedAt": "2026-04-23T09:00:35Z",
       "title": "I am an Executor of the Black Grail. #epicseven",
-      "views": 2138,
-      "likes": 143,
+      "views": 2269,
+      "likes": 152,
       "comments": 17
     },
     {
@@ -143,8 +167,8 @@
       "content_id": "Biggwn6PPr8",
       "publishedAt": "2026-04-23T02:59:59Z",
       "title": "O moonlight that shatters despair... Shine bright. #epicseven",
-      "views": 16765,
-      "likes": 938,
+      "views": 17243,
+      "likes": 957,
       "comments": 85
     },
     {
@@ -155,8 +179,8 @@
       "content_id": "tUIenRj50C4",
       "publishedAt": "2026-04-22T10:01:37Z",
       "title": "Jaa! Ganbare... Aight! Ganbare... Ganbare dun dun! | 1-Minute Update Summary",
-      "views": 31868,
-      "likes": 860,
+      "views": 31925,
+      "likes": 861,
       "comments": 73
     },
     {
@@ -167,9 +191,9 @@
       "content_id": "8HUeAS81yCY",
       "publishedAt": "2026-04-22T10:00:13Z",
       "title": "Estelle | New Hero Preview",
-      "views": 43281,
-      "likes": 1735,
-      "comments": 308
+      "views": 43459,
+      "likes": 1736,
+      "comments": 307
     },
     {
       "date": "2026-04-24",
@@ -179,9 +203,21 @@
       "content_id": "M1gHR8pRXaw",
       "publishedAt": "2026-04-22T09:00:37Z",
       "title": "I won’t ever forgive them #epicseven",
-      "views": 3761,
+      "views": 3765,
       "likes": 231,
       "comments": 11
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Global",
+      "content_id": "C_jIQx4cXvY",
+      "publishedAt": "2026-04-22T06:00:57Z",
+      "title": "[Epic Seven] E7 Masters 2026 Group Stage - Week 3",
+      "views": 0,
+      "likes": 1,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -191,8 +227,8 @@
       "content_id": "3VSvVF5T-hs",
       "publishedAt": "2026-04-22T03:00:08Z",
       "title": "The light shall guide you there. #epicseven",
-      "views": 12069,
-      "likes": 713,
+      "views": 12196,
+      "likes": 717,
       "comments": 41
     },
     {
@@ -203,45 +239,33 @@
       "content_id": "YDnN1Y90HQ4",
       "publishedAt": "2026-04-21T09:00:44Z",
       "title": "270 Remaining! #epicseven",
-      "views": 24899,
-      "likes": 731,
+      "views": 25939,
+      "likes": 755,
       "comments": 22
     },
     {
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Global",
-      "content_id": "TC6V1nqcXjI",
-      "publishedAt": "2026-04-21T04:00:26Z",
-      "title": "Lascivious Setsuka, Caught Red-Handed #epicseven",
-      "views": 30119,
-      "likes": 726,
-      "comments": 25
+      "region": "Korea",
+      "content_id": "yy3TusnLRso",
+      "publishedAt": "2026-04-24T05:00:56Z",
+      "title": "타락한 신성 | 살로메 #에픽세븐",
+      "views": 473,
+      "likes": 3,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Global",
-      "content_id": "FESAyayIY6M",
-      "publishedAt": "2026-04-20T09:08:38Z",
-      "title": "Just a Heads Up, I'm Quite Strong #epicseven",
-      "views": 32027,
-      "likes": 629,
-      "comments": 17
-    },
-    {
-      "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "youtube",
-      "region": "Global",
-      "content_id": "ot28pJobWJk",
-      "publishedAt": "2026-04-18T07:44:50Z",
-      "title": "[Epic Seven] E7 Masters 2026 Group Stage - Week2",
-      "views": 30514,
-      "likes": 593,
-      "comments": 9
+      "region": "Korea",
+      "content_id": "Vnsj9haFBHU",
+      "publishedAt": "2026-04-24T04:12:42Z",
+      "title": "종언의 만가 | 에픽세븐 PV",
+      "views": 459,
+      "likes": 24,
+      "comments": 5
     },
     {
       "date": "2026-04-24",
@@ -251,8 +275,8 @@
       "content_id": "LV8UgJkEbg8",
       "publishedAt": "2026-04-23T09:00:27Z",
       "title": "나는 [검은 성배]의 집행관. #에픽세븐",
-      "views": 1046,
-      "likes": 16,
+      "views": 1096,
+      "likes": 18,
       "comments": 8
     },
     {
@@ -263,9 +287,9 @@
       "content_id": "gIyLVLdbmI8",
       "publishedAt": "2026-04-23T02:59:55Z",
       "title": "절망을 부수는 달빛이여 밝게 비춰라. #에픽세븐",
-      "views": 5348,
+      "views": 5425,
       "likes": 72,
-      "comments": 20
+      "comments": 22
     },
     {
       "date": "2026-04-24",
@@ -275,7 +299,7 @@
       "content_id": "_94ARx32Ilw",
       "publishedAt": "2026-04-22T10:01:04Z",
       "title": "에스텔 | 신규 영웅 프리뷰",
-      "views": 7334,
+      "views": 7366,
       "likes": 96,
       "comments": 42
     },
@@ -287,7 +311,7 @@
       "content_id": "HDkfqwhpaUg",
       "publishedAt": "2026-04-22T10:00:27Z",
       "title": "쟈! 간바레~ 아잇! 간바레~ 간바레 뚠뚠! ㅣ 패치노트 1분 요약",
-      "views": 8185,
+      "views": 8245,
       "likes": 64,
       "comments": 26
     },
@@ -299,9 +323,21 @@
       "content_id": "VBwgjMzpa2A",
       "publishedAt": "2026-04-22T09:00:46Z",
       "title": "저는 절대 용서할 수 없어요 #에픽세븐",
-      "views": 3822,
+      "views": 3889,
       "likes": 53,
       "comments": 6
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Korea",
+      "content_id": "2u7-RXOsbOo",
+      "publishedAt": "2026-04-22T05:59:22Z",
+      "title": "[에픽세븐] E7 Masters 2026 그룹 스테이지 3주차",
+      "views": 0,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -311,7 +347,7 @@
       "content_id": "BMxtuB_Ta1A",
       "publishedAt": "2026-04-22T04:06:59Z",
       "title": "빛이 너희들을 인도할 테니. #에픽세븐",
-      "views": 6767,
+      "views": 6796,
       "likes": 95,
       "comments": 11
     },
@@ -323,7 +359,7 @@
       "content_id": "jvVwOOZqrd8",
       "publishedAt": "2026-04-21T09:01:06Z",
       "title": "남았어요, 270!! #에픽세븐",
-      "views": 12026,
+      "views": 12049,
       "likes": 76,
       "comments": 12
     },
@@ -331,37 +367,25 @@
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Korea",
-      "content_id": "9ybvhDJIvag",
-      "publishedAt": "2026-04-21T04:00:10Z",
-      "title": "풍기문란 설화 현장 검거 #에픽세븐",
-      "views": 15050,
-      "likes": 108,
-      "comments": 14
+      "region": "Japan",
+      "content_id": "EVjLZxTHsRY",
+      "publishedAt": "2026-04-24T05:01:16Z",
+      "title": "堕ちた神聖 | サロメ #エピックセブン",
+      "views": 411,
+      "likes": 6,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Korea",
-      "content_id": "o0j1UsQZhqA",
-      "publishedAt": "2026-04-20T09:08:34Z",
-      "title": "말해 두는데 나 강하다? #에픽세븐",
-      "views": 13883,
-      "likes": 75,
-      "comments": 12
-    },
-    {
-      "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "youtube",
-      "region": "Korea",
-      "content_id": "Pie6CHXkGuc",
-      "publishedAt": "2026-04-18T07:47:20Z",
-      "title": "[에픽세븐] E7 Masters 2026 그룹 스테이지 2주차",
-      "views": 13956,
-      "likes": 104,
-      "comments": 8
+      "region": "Japan",
+      "content_id": "urp31xUPGbY",
+      "publishedAt": "2026-04-24T04:10:22Z",
+      "title": "終焉の挽歌 ｜エピックセブンPV",
+      "views": 123,
+      "likes": 16,
+      "comments": 1
     },
     {
       "date": "2026-04-24",
@@ -371,8 +395,20 @@
       "content_id": "d6hwdhfBslQ",
       "publishedAt": "2026-04-23T09:00:54Z",
       "title": "私は【黒い聖杯】の執行官。 #エピックセブン",
-      "views": 1051,
-      "likes": 11,
+      "views": 1062,
+      "likes": 13,
+      "comments": 0
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Japan",
+      "content_id": "E0pSkhWD-So",
+      "publishedAt": "2026-04-23T05:08:25Z",
+      "title": "【エピックセブン】E7 Masters 2026 グループステージ 第3週",
+      "views": 0,
+      "likes": 0,
       "comments": 0
     },
     {
@@ -383,8 +419,8 @@
       "content_id": "xoe6HkcAQjI",
       "publishedAt": "2026-04-23T03:00:05Z",
       "title": "絶望を砕く月光よ。明るく照らせ。 #エピックセブン",
-      "views": 824,
-      "likes": 28,
+      "views": 832,
+      "likes": 29,
       "comments": 0
     },
     {
@@ -395,7 +431,7 @@
       "content_id": "cgJ_5J1HV40",
       "publishedAt": "2026-04-22T10:01:11Z",
       "title": "さあ！がんばれーい！アイッ！がんばって～がんばってドゥン！| 1分でわかる更新内容",
-      "views": 2775,
+      "views": 2771,
       "likes": 54,
       "comments": 4
     },
@@ -407,8 +443,8 @@
       "content_id": "_WlD2yjskiU",
       "publishedAt": "2026-04-22T10:01:06Z",
       "title": "エステル｜英雄プレビュー",
-      "views": 3165,
-      "likes": 85,
+      "views": 3166,
+      "likes": 87,
       "comments": 7
     },
     {
@@ -443,7 +479,7 @@
       "content_id": "95ILyUQdVMg",
       "publishedAt": "2026-04-21T09:00:11Z",
       "title": "残り、270!! #エピックセブン",
-      "views": 1112,
+      "views": 1110,
       "likes": 35,
       "comments": 0
     },
@@ -451,37 +487,25 @@
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Japan",
-      "content_id": "bXBsGVPK0pA",
-      "publishedAt": "2026-04-21T04:00:39Z",
-      "title": "風紀を乱すセツカ現行犯確保 #エピックセブン",
-      "views": 795,
-      "likes": 12,
+      "region": "Taiwan",
+      "content_id": "OpF3O0PScYs",
+      "publishedAt": "2026-04-24T05:01:10Z",
+      "title": "墮落的神聖 | 薩洛美 #第七史詩",
+      "views": 144,
+      "likes": 1,
       "comments": 0
     },
     {
       "date": "2026-04-24",
       "game": "epic7",
       "platform": "youtube",
-      "region": "Japan",
-      "content_id": "ovDwb-dMHO4",
-      "publishedAt": "2026-04-20T09:08:46Z",
-      "title": "言っておくけど私、強いわよ？#エピックセブン",
-      "views": 700,
-      "likes": 8,
-      "comments": 0
-    },
-    {
-      "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "youtube",
-      "region": "Japan",
-      "content_id": "oKRFdjK5AAU",
-      "publishedAt": "2026-04-18T07:51:02Z",
-      "title": "【エピックセブン】E7 Masters 2026 グループステージ 第2週",
-      "views": 3274,
-      "likes": 52,
-      "comments": 0
+      "region": "Taiwan",
+      "content_id": "lEN0UjcAa9k",
+      "publishedAt": "2026-04-24T04:10:18Z",
+      "title": "終結的輓歌 《第七史詩》宣傳影片",
+      "views": 174,
+      "likes": 14,
+      "comments": 3
     },
     {
       "date": "2026-04-24",
@@ -491,8 +515,20 @@
       "content_id": "6cuqZjLST0M",
       "publishedAt": "2026-04-23T09:00:12Z",
       "title": "我是【黑暗聖杯】的執行官。 #第七史詩",
-      "views": 623,
-      "likes": 7,
+      "views": 626,
+      "likes": 9,
+      "comments": 0
+    },
+    {
+      "date": "2026-04-24",
+      "game": "epic7",
+      "platform": "youtube",
+      "region": "Taiwan",
+      "content_id": "stiUwhLaYA8",
+      "publishedAt": "2026-04-23T05:09:12Z",
+      "title": "【第七史詩】E7 Masters 2026 小組賽階段第3週",
+      "views": 0,
+      "likes": 0,
       "comments": 0
     },
     {
@@ -539,7 +575,7 @@
       "content_id": "6bBbFW6Vj54",
       "publishedAt": "2026-04-22T09:00:17Z",
       "title": "那我絕對不會原諒他們。 #第七史詩",
-      "views": 1062,
+      "views": 1075,
       "likes": 27,
       "comments": 2
     },
@@ -551,8 +587,8 @@
       "content_id": "T6m1Ll237BI",
       "publishedAt": "2026-04-22T03:00:35Z",
       "title": "光芒會引導你們。#第七史詩",
-      "views": 1240,
-      "likes": 39,
+      "views": 1250,
+      "likes": 40,
       "comments": 0
     },
     {
@@ -563,45 +599,21 @@
       "content_id": "vL3dDc44iRw",
       "publishedAt": "2026-04-21T09:01:17Z",
       "title": "還剩下270！！ #第七史詩",
-      "views": 1717,
+      "views": 1745,
       "likes": 35,
       "comments": 2
     },
     {
       "date": "2026-04-24",
       "game": "epic7",
-      "platform": "youtube",
-      "region": "Taiwan",
-      "content_id": "98ZA_3yaQZ4",
-      "publishedAt": "2026-04-21T04:00:07Z",
-      "title": "不檢點的雪花，現場逮捕 #第七史詩",
-      "views": 1495,
-      "likes": 19,
+      "platform": "instagram",
+      "region": "Global",
+      "content_id": "https://www.instagram.com/p/DXgOr8kj4xc/",
+      "publishedAt": "2026-04-24T06:00:47+0000",
+      "title": "✨Epic Seven Masters 2026 Week 2 Match Highlights",
+      "views": null,
+      "likes": 28,
       "comments": 0
-    },
-    {
-      "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "youtube",
-      "region": "Taiwan",
-      "content_id": "IELkUvdaluA",
-      "publishedAt": "2026-04-20T09:08:41Z",
-      "title": "先說好，我很強的喔？#第七史詩",
-      "views": 1945,
-      "likes": 29,
-      "comments": 0
-    },
-    {
-      "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "youtube",
-      "region": "Taiwan",
-      "content_id": "VP5Dq0oX8Ao",
-      "publishedAt": "2026-04-18T07:50:54Z",
-      "title": "【第七史詩】E7 Masters 2026 小組賽階段第2週",
-      "views": 2780,
-      "likes": 20,
-      "comments": 1
     },
     {
       "date": "2026-04-24",
@@ -612,7 +624,7 @@
       "publishedAt": "2026-04-24T03:01:05+0000",
       "title": "[Hero Compendium] Salome",
       "views": null,
-      "likes": 51,
+      "likes": 117,
       "comments": 0
     },
     {
@@ -624,7 +636,7 @@
       "publishedAt": "2026-04-23T09:58:28+0000",
       "title": "🔔 Episode 6 Emoji Contest 🔔",
       "views": null,
-      "likes": 152,
+      "likes": 155,
       "comments": 0
     },
     {
@@ -636,7 +648,7 @@
       "publishedAt": "2026-04-23T03:00:34+0000",
       "title": "🎞️ Episode 6, Dirge of the End",
       "views": null,
-      "likes": 806,
+      "likes": 823,
       "comments": 8
     },
     {
@@ -660,7 +672,7 @@
       "publishedAt": "2026-04-22T10:02:42+0000",
       "title": "📣 Estelle | New Hero Preview",
       "views": null,
-      "likes": 1352,
+      "likes": 1354,
       "comments": 12
     },
     {
@@ -672,7 +684,7 @@
       "publishedAt": "2026-04-22T03:00:40+0000",
       "title": "🎞️ Episode 6, Dirge of the End",
       "views": null,
-      "likes": 853,
+      "likes": 855,
       "comments": 20
     },
     {
@@ -696,7 +708,7 @@
       "publishedAt": "2026-04-20T09:01:22+0000",
       "title": "📢 E7 Masters 2026 GROUP E&F Result Prediction Event",
       "views": null,
-      "likes": 136,
+      "likes": 138,
       "comments": 1
     },
     {
@@ -713,27 +725,15 @@
     },
     {
       "date": "2026-04-24",
-      "game": "epic7",
-      "platform": "instagram",
-      "region": "Global",
-      "content_id": "https://www.instagram.com/reel/DXJmFPHCP_5/",
-      "publishedAt": "2026-04-15T11:03:08+0000",
-      "title": "📣 Salome | New Hero Preview",
-      "views": null,
-      "likes": 1659,
-      "comments": 13
-    },
-    {
-      "date": "2026-04-24",
       "game": "czn",
       "platform": "youtube",
       "region": "Korea",
       "content_id": "Z_hFwQhtfBo",
       "publishedAt": "2026-04-24T03:00:30Z",
       "title": "[카오스 제로 나이트메어] 남겨진 자의 노래: Rain of Memory MV",
-      "views": 321,
-      "likes": 39,
-      "comments": 15
+      "views": 946,
+      "likes": 79,
+      "comments": 31
     },
     {
       "date": "2026-04-24",
@@ -743,9 +743,9 @@
       "content_id": "z3BGK0jMriI",
       "publishedAt": "2026-04-22T09:01:33Z",
       "title": "[카오스 제로 나이트메어] 하이데마리 캐릭터 PV",
-      "views": 4454,
+      "views": 4544,
       "likes": 135,
-      "comments": 43
+      "comments": 44
     },
     {
       "date": "2026-04-24",
@@ -755,7 +755,7 @@
       "content_id": "QFJ6TcH6aNs",
       "publishedAt": "2026-04-18T04:01:51Z",
       "title": "[카오스 제로 나이트메어] 은하계 재해 시즌3 PV",
-      "views": 2923,
+      "views": 2928,
       "likes": 69,
       "comments": 26
     },
@@ -779,8 +779,8 @@
       "content_id": "KZzDgc-4jZs",
       "publishedAt": "2026-04-18T03:33:31Z",
       "title": "하이데마리의 Half-Anniversary 축하 인사!",
-      "views": 5144,
-      "likes": 161,
+      "views": 5157,
+      "likes": 162,
       "comments": 34
     },
     {
@@ -791,7 +791,7 @@
       "content_id": "GAgeroSTGR4",
       "publishedAt": "2026-04-18T03:30:57Z",
       "title": "[카오스 제로 나이트메어]하이데마리의 전투",
-      "views": 5863,
+      "views": 5907,
       "likes": 109,
       "comments": 35
     },
@@ -803,7 +803,7 @@
       "content_id": "1v9xlRhSexs",
       "publishedAt": "2026-04-18T03:26:04Z",
       "title": "[카오스 제로 나이트메어] 출격 진행 방식",
-      "views": 1680,
+      "views": 1690,
       "likes": 44,
       "comments": 9
     },
@@ -815,7 +815,7 @@
       "content_id": "xMkphxZ8UPQ",
       "publishedAt": "2026-04-18T03:23:24Z",
       "title": "카오스 제로 나이트메어 Half-Anniversary를 축하합니다!",
-      "views": 621,
+      "views": 622,
       "likes": 24,
       "comments": 1
     },
@@ -827,7 +827,7 @@
       "content_id": "34Tx62N7Xnk",
       "publishedAt": "2026-04-18T03:07:32Z",
       "title": "[카오스 제로 나이트메어] 2026 봄 일러스트 콘테스트 수상작 소개",
-      "views": 405,
+      "views": 406,
       "likes": 13,
       "comments": 3
     },
@@ -839,8 +839,8 @@
       "content_id": "fDYan5vi3l0",
       "publishedAt": "2026-04-18T03:04:57Z",
       "title": "Half Anniversary 정례 보고 나이트메어호 출정 180일",
-      "views": 639,
-      "likes": 30,
+      "views": 641,
+      "likes": 31,
       "comments": 5
     },
     {
@@ -851,9 +851,9 @@
       "content_id": "SZpc0TiIpes",
       "publishedAt": "2026-04-24T03:00:29Z",
       "title": "[Chaos Zero Nightmare] For Those Departed: Rain of Memory MV",
-      "views": 1178,
-      "likes": 309,
-      "comments": 29
+      "views": 3623,
+      "likes": 764,
+      "comments": 61
     },
     {
       "date": "2026-04-24",
@@ -863,9 +863,9 @@
       "content_id": "I_idPiSsl8U",
       "publishedAt": "2026-04-22T09:00:32Z",
       "title": "[Chaos Zero Nightmare] Heidemarie Character PV",
-      "views": 24146,
-      "likes": 1995,
-      "comments": 147
+      "views": 24520,
+      "likes": 2012,
+      "comments": 149
     },
     {
       "date": "2026-04-24",
@@ -875,8 +875,8 @@
       "content_id": "MwLxnHu2_bo",
       "publishedAt": "2026-04-18T04:01:47Z",
       "title": "[Chaos Zero Nightmare] Galactic Disaster Season 3 PV",
-      "views": 21127,
-      "likes": 1397,
+      "views": 21219,
+      "likes": 1399,
       "comments": 99
     },
     {
@@ -887,8 +887,8 @@
       "content_id": "6jMqkN3am7k",
       "publishedAt": "2026-04-18T03:30:50Z",
       "title": "[Chaos Zero Nightmare] Heidemarie’s Combat",
-      "views": 73859,
-      "likes": 3215,
+      "views": 74107,
+      "likes": 3219,
       "comments": 327
     },
     {
@@ -899,7 +899,7 @@
       "content_id": "7eYLJLQgi5Q",
       "publishedAt": "2026-04-18T03:25:50Z",
       "title": "[Chaos Zero Nightmare] Sortie Progression Method",
-      "views": 8629,
+      "views": 8650,
       "likes": 533,
       "comments": 69
     },
@@ -911,7 +911,7 @@
       "content_id": "pv_c3dUE84U",
       "publishedAt": "2026-04-18T03:23:18Z",
       "title": "Congratulations on the Half-Anniversary of Chaos Zero Nightmare!",
-      "views": 3926,
+      "views": 3936,
       "likes": 333,
       "comments": 25
     },
@@ -923,8 +923,8 @@
       "content_id": "XF00Gpb0sms",
       "publishedAt": "2026-04-18T03:07:23Z",
       "title": "[Chaos Zero Nightmare] 2026 Spring Illustration Contest Winners Showcase",
-      "views": 3271,
-      "likes": 387,
+      "views": 3283,
+      "likes": 388,
       "comments": 17
     },
     {
@@ -935,7 +935,7 @@
       "content_id": "68EVCwGWBjw",
       "publishedAt": "2026-04-18T03:03:39Z",
       "title": "Half-Anniversary Report 180 Days Aboard the SS Nightmare!",
-      "views": 7509,
+      "views": 7511,
       "likes": 614,
       "comments": 49
     },
@@ -947,7 +947,7 @@
       "content_id": "V7GliPQkNAI",
       "publishedAt": "2026-04-18T02:52:06Z",
       "title": "[Chaos Zero Nightmare] Half-Anniversary Showcase: ARISE",
-      "views": 93610,
+      "views": 93901,
       "likes": 3497,
       "comments": 389
     },
@@ -959,7 +959,7 @@
       "content_id": "cJdvsK-c6_w",
       "publishedAt": "2026-04-10T09:00:51Z",
       "title": "[Chaos Zero Nightmare] A new message has arrived. (From. Heidemarie)",
-      "views": 28573,
+      "views": 28578,
       "likes": 1304,
       "comments": 164
     },
@@ -971,9 +971,9 @@
       "content_id": "vjiGSvgPEXk",
       "publishedAt": "2026-04-24T03:01:02Z",
       "title": "【カオスゼロナイトメア】 この声が届くなら: Rain of Memory MV",
-      "views": 330,
-      "likes": 57,
-      "comments": 5
+      "views": 934,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -983,9 +983,9 @@
       "content_id": "q7qSeKH0jrY",
       "publishedAt": "2026-04-22T09:01:16Z",
       "title": "【カオスゼロナイトメア】「ハイデマリ」キャラクターPV",
-      "views": 6300,
-      "likes": 239,
-      "comments": 19
+      "views": 6394,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1007,9 +1007,9 @@
       "content_id": "s4supATDunQ",
       "publishedAt": "2026-04-18T04:01:50Z",
       "title": "【カオスゼロナイトメア】銀河系災害シーズン3：銀河に響く歌声PV",
-      "views": 4857,
-      "likes": 179,
-      "comments": 12
+      "views": 4884,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1019,9 +1019,9 @@
       "content_id": "BbpREFL64Gg",
       "publishedAt": "2026-04-18T03:30:55Z",
       "title": "【カオスゼロナイトメア】ハイデマリの戦闘",
-      "views": 15135,
-      "likes": 252,
-      "comments": 31
+      "views": 15166,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1031,9 +1031,9 @@
       "content_id": "WDfEQgdNXAM",
       "publishedAt": "2026-04-18T03:25:56Z",
       "title": "【カオスゼロナイトメア】出撃の進行方式",
-      "views": 2738,
-      "likes": 69,
-      "comments": 4
+      "views": 2740,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1043,9 +1043,9 @@
       "content_id": "jltYvSXEMWk",
       "publishedAt": "2026-04-18T03:23:21Z",
       "title": "『カオスゼロナイトメア』Half-Anniversaryおめでとうございます！",
-      "views": 1410,
-      "likes": 77,
-      "comments": 4
+      "views": 1413,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1055,9 +1055,9 @@
       "content_id": "zQoVa3CxPJg",
       "publishedAt": "2026-04-18T03:07:28Z",
       "title": "【カオスゼロナイトメア】2026春のイラストコンテスト受賞作品のご紹介",
-      "views": 590,
-      "likes": 34,
-      "comments": 1
+      "views": 591,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1067,9 +1067,9 @@
       "content_id": "1mFs9ZSmue4",
       "publishedAt": "2026-04-18T03:04:44Z",
       "title": "ハーフアニバーサリー定期報告ナイトメア号の出航から180日",
-      "views": 2154,
-      "likes": 89,
-      "comments": 7
+      "views": 2156,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1079,9 +1079,9 @@
       "content_id": "7mFlQcl3Kgc",
       "publishedAt": "2026-04-18T02:52:22Z",
       "title": "【カオスゼロナイトメア】ハーフアニバーサリーショーケース",
-      "views": 36450,
-      "likes": 594,
-      "comments": 64
+      "views": 36492,
+      "likes": 0,
+      "comments": 0
     },
     {
       "date": "2026-04-24",
@@ -1091,9 +1091,9 @@
       "content_id": "vbjaWL03QFU",
       "publishedAt": "2026-04-24T03:01:05Z",
       "title": "【卡厄思夢境】 遺留之人的歌：Rain of Memory MV",
-      "views": 96,
-      "likes": 17,
-      "comments": 3
+      "views": 375,
+      "likes": 40,
+      "comments": 5
     },
     {
       "date": "2026-04-24",
@@ -1103,8 +1103,8 @@
       "content_id": "N8ezdTXE_2g",
       "publishedAt": "2026-04-22T09:00:26Z",
       "title": "《卡厄思夢境》「海德瑪麗」角色宣傳影片",
-      "views": 2748,
-      "likes": 102,
+      "views": 2798,
+      "likes": 103,
       "comments": 11
     },
     {
@@ -1115,7 +1115,7 @@
       "content_id": "ETWQ3rgpFgw",
       "publishedAt": "2026-04-18T04:01:53Z",
       "title": "《卡厄思夢境》「銀河系災害」第3季宣傳影片",
-      "views": 2215,
+      "views": 2216,
       "likes": 68,
       "comments": 4
     },
@@ -1127,7 +1127,7 @@
       "content_id": "DgHUiEICzws",
       "publishedAt": "2026-04-18T03:31:00Z",
       "title": "《卡厄思夢境》海德瑪麗的戰鬥",
-      "views": 6858,
+      "views": 6877,
       "likes": 146,
       "comments": 26
     },
@@ -1139,7 +1139,7 @@
       "content_id": "faUgi7JmtEc",
       "publishedAt": "2026-04-18T03:26:08Z",
       "title": "《卡厄思夢境》出擊進行方式",
-      "views": 1165,
+      "views": 1167,
       "likes": 35,
       "comments": 4
     },
@@ -1151,7 +1151,7 @@
       "content_id": "ysGQP7E1JQE",
       "publishedAt": "2026-04-18T03:23:28Z",
       "title": "《卡厄思夢境》Half-Anniversary快樂！",
-      "views": 577,
+      "views": 581,
       "likes": 33,
       "comments": 0
     },
@@ -1163,7 +1163,7 @@
       "content_id": "mdJ9GBU8BCw",
       "publishedAt": "2026-04-18T03:07:36Z",
       "title": "《卡厄思夢境》2026春季插畫比賽得獎作品介紹",
-      "views": 245,
+      "views": 246,
       "likes": 17,
       "comments": 0
     },
@@ -1175,7 +1175,7 @@
       "content_id": "tEtRsyHW7g8",
       "publishedAt": "2026-04-18T03:05:48Z",
       "title": "半週年例行報告夢境號出征180天",
-      "views": 555,
+      "views": 557,
       "likes": 29,
       "comments": 1
     },
@@ -1187,7 +1187,7 @@
       "content_id": "rAKmrEHplSI",
       "publishedAt": "2026-04-18T02:52:06Z",
       "title": "《卡厄思夢境》半週年Showcase：ARISE",
-      "views": 16927,
+      "views": 16757,
       "likes": 180,
       "comments": 18
     },
@@ -1212,8 +1212,8 @@
       "publishedAt": "2026-04-24T03:02:06+0000",
       "title": "◤Heidemarie Release Commemorative OST",
       "views": null,
-      "likes": 105,
-      "comments": 3
+      "likes": 316,
+      "comments": 7
     },
     {
       "date": "2026-04-24",
@@ -1224,7 +1224,7 @@
       "publishedAt": "2026-04-23T08:03:52+0000",
       "title": "◤#ChaosZeroNightmare Half-Anniversary Voice Actor Messages◢",
       "views": null,
-      "likes": 528,
+      "likes": 538,
       "comments": 5
     },
     {
@@ -1248,7 +1248,7 @@
       "publishedAt": "2026-04-22T08:02:42+0000",
       "title": "⚔️ [Sortie] – Content Introduction ⚔️",
       "views": null,
-      "likes": 614,
+      "likes": 617,
       "comments": 8
     },
     {
@@ -1260,7 +1260,7 @@
       "publishedAt": "2026-04-22T03:00:51+0000",
       "title": "◤Half-Anniversary Coupon Reveal◢",
       "views": null,
-      "likes": 837,
+      "likes": 839,
       "comments": 20
     },
     {
@@ -1272,7 +1272,7 @@
       "publishedAt": "2026-04-21T08:02:27+0000",
       "title": "◤#ChaosZeroNightmare Spring Illustration Contest Winners◢",
       "views": null,
-      "likes": 466,
+      "likes": 467,
       "comments": 4
     },
     {
@@ -1284,7 +1284,7 @@
       "publishedAt": "2026-04-20T08:02:50+0000",
       "title": "◤Half-Anniversary Infographic◢",
       "views": null,
-      "likes": 857,
+      "likes": 856,
       "comments": 10
     },
     {
@@ -1308,7 +1308,7 @@
       "publishedAt": "2026-04-18T05:31:12+0000",
       "title": "◤Heidemarie’s Combat◢",
       "views": null,
-      "likes": 1381,
+      "likes": 1383,
       "comments": 44
     },
     {
@@ -1320,7 +1320,7 @@
       "publishedAt": "2026-04-16T03:00:22+0000",
       "title": "◤04.29.2026",
       "views": null,
-      "likes": 655,
+      "likes": 656,
       "comments": 14
     },
     {
@@ -1331,7 +1331,7 @@
       "content_id": "3UZm37FuAlA",
       "publishedAt": "2026-04-21T09:00:05Z",
       "title": "[로드나인] 4월 2차 업데이트 프리뷰",
-      "views": 6548,
+      "views": 6554,
       "likes": 34,
       "comments": 41
     },
@@ -1355,7 +1355,7 @@
       "content_id": "kIPtfDVo-wM",
       "publishedAt": "2026-04-09T03:02:11Z",
       "title": "[로드나인] 육퇴 완료 로드 어쎔블! #lordnine #로드나인",
-      "views": 3088755,
+      "views": 3088757,
       "likes": 827,
       "comments": 47
     },
@@ -1403,7 +1403,7 @@
       "content_id": "a7cUc88H-5E",
       "publishedAt": "2026-03-26T09:00:00Z",
       "title": "[로드나인] 신규 서버에 화운사신 아바타가? ㅣ 신규 서버 '디나페리' 3월 27일 19시 오픈! #로드나인 #lordnine",
-      "views": 485968,
+      "views": 485969,
       "likes": 191,
       "comments": 25
     },
@@ -1427,7 +1427,7 @@
       "content_id": "upDbfdWt78E",
       "publishedAt": "2026-03-26T07:00:27Z",
       "title": "[로드나인] 신규 서버에 이문주 아바타가? ㅣ 신규 서버 '디나페리' 3월 27일 19시 오픈! #lordnine #로드나인",
-      "views": 27380,
+      "views": 27383,
       "likes": 66,
       "comments": 43
     },
@@ -1439,7 +1439,7 @@
       "content_id": "FkQkjEpKnKU",
       "publishedAt": "2026-03-26T07:00:24Z",
       "title": "[로드나인] 신규 서버에 똘끼 아바타가? ㅣ 신규 서버 '디나페리' 3월 27일 19시 오픈!",
-      "views": 522788,
+      "views": 522790,
       "likes": 186,
       "comments": 15
     },
@@ -1451,7 +1451,7 @@
       "content_id": "2NzuUYIlhH0",
       "publishedAt": "2026-03-17T07:42:51Z",
       "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
-      "views": 4981,
+      "views": 4983,
       "likes": 42,
       "comments": 15
     },
@@ -1535,7 +1535,7 @@
       "content_id": "w9YxunHuhX0",
       "publishedAt": "2025-12-03T05:01:17Z",
       "title": "[LORDNINE] New Server MEDEA : Pre-register Now!",
-      "views": 478461,
+      "views": 478463,
       "likes": 65,
       "comments": 32
     },
