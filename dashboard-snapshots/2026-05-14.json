@@ -1,0 +1,1776 @@
+{
+  "snapshotDate": "2026-05-14",
+  "runTimestamp": "2026-05-14T09:17:57+00:00",
+  "credentialStatus": {
+    "youtube": {
+      "configured": true
+    },
+    "x": {
+      "configured": true,
+      "method": "manual entry"
+    },
+    "instagram": {
+      "configured": true,
+      "method": "IG Graph API"
+    },
+    "facebook": {
+      "configured": true,
+      "method": "FB Graph API"
+    },
+    "discord": {
+      "configured": true,
+      "method": "public invite API (no auth)"
+    }
+  },
+  "games": {
+    "epic7": {
+      "name": "Epic Seven",
+      "ko": "에픽세븐",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@EpicSeven",
+          "url": "https://www.youtube.com/channel/UCa1C3tWzsn4FFRR7t3LqU5w",
+          "yt_id": "UCa1C3tWzsn4FFRR7t3LqU5w",
+          "title": "EpicSeven",
+          "thumbnail": "https://yt3.ggpht.com/c6fq6zZuAVEjcnmw9vBTEg8Li1QG9zc7Gv_qGzcsB3g3XZyWt0NY05lDZcxQJLnsbwubfkH9FQ=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 180000,
+          "viewCount": 127590501,
+          "videoCount": 1819,
+          "latestVideo": {
+            "title": "Rhianna and Luciella | One Butterfly's Afterdream",
+            "publishedAt": "2026-05-13T10:20:51Z",
+            "videoId": "t7yuQauLw6g"
+          },
+          "recentVideos": [
+            {
+              "videoId": "t7yuQauLw6g",
+              "title": "Rhianna and Luciella | One Butterfly's Afterdream",
+              "publishedAt": "2026-05-13T10:20:51Z",
+              "viewCount": 20384,
+              "likeCount": 1211,
+              "commentCount": 165
+            },
+            {
+              "videoId": "hZvaeWeQmVY",
+              "title": "Ivana | New Hero Preview",
+              "publishedAt": "2026-05-13T10:18:34Z",
+              "viewCount": 30002,
+              "likeCount": 1310,
+              "commentCount": 254
+            },
+            {
+              "videoId": "7iwmC9Ik_7s",
+              "title": "Lidica: Alluring Wings | New Skin",
+              "publishedAt": "2026-05-13T10:12:02Z",
+              "viewCount": 16627,
+              "likeCount": 823,
+              "commentCount": 88
+            },
+            {
+              "videoId": "7_1iyR3Edm8",
+              "title": "Epic Seven May-Jun Update Content l Developer's Express Mail",
+              "publishedAt": "2026-05-13T10:00:07Z",
+              "viewCount": 37287,
+              "likeCount": 1322,
+              "commentCount": 165
+            },
+            {
+              "videoId": "NUyTS1fbExI",
+              "title": "Everyone has a plan... #epicseven",
+              "publishedAt": "2026-05-05T09:00:26Z",
+              "viewCount": 17507,
+              "likeCount": 408,
+              "commentCount": 15
+            },
+            {
+              "videoId": "rPktBU-U2TE",
+              "title": "EZ Dodge #epicseven",
+              "publishedAt": "2026-05-05T03:01:04Z",
+              "viewCount": 17029,
+              "likeCount": 465,
+              "commentCount": 33
+            },
+            {
+              "videoId": "KQ4cQUH2bMk",
+              "title": "True Class of the Speed Stamp #epicseven",
+              "publishedAt": "2026-05-04T09:00:23Z",
+              "viewCount": 29163,
+              "likeCount": 759,
+              "commentCount": 30
+            },
+            {
+              "videoId": "2AqIF4yXm3o",
+              "title": "[Epic Seven] E7 Masters 2026 Group Stage - Week 4",
+              "publishedAt": "2026-05-02T06:51:51Z",
+              "viewCount": 28362,
+              "likeCount": 513,
+              "commentCount": 12
+            },
+            {
+              "videoId": "YHo6HuhhFYk",
+              "title": "Estelle | Skill #epicseven",
+              "publishedAt": "2026-04-30T12:01:04Z",
+              "viewCount": 8644,
+              "likeCount": 732,
+              "commentCount": 12
+            },
+            {
+              "videoId": "Qtq_Om6HxNY",
+              "title": "Estelle #epicseven",
+              "publishedAt": "2026-04-30T10:00:49Z",
+              "viewCount": 2109,
+              "likeCount": 137,
+              "commentCount": 2
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@EpicSevenKR",
+          "url": "https://www.youtube.com/c/EpicSevenKR",
+          "yt_handle": "@EpicSevenKR",
+          "yt_id": "UC4dV8Fy1GiqjxU4OQ6ZoKWw",
+          "title": "에픽세븐",
+          "thumbnail": "https://yt3.ggpht.com/YdUpaD91MwV37bjMlq_-AqZcadl3gdd35SAQnXq6R4WltS745ReNzXLCtT4Z3Q4YF07kzjKzQA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 39700,
+          "viewCount": 40845210,
+          "videoCount": 1285,
+          "latestVideo": {
+            "title": "리안나 루시엘라 | 잔몽의 나비",
+            "publishedAt": "2026-05-13T10:21:05Z",
+            "videoId": "PHtOTpap-Rc"
+          },
+          "recentVideos": [
+            {
+              "videoId": "PHtOTpap-Rc",
+              "title": "리안나 루시엘라 | 잔몽의 나비",
+              "publishedAt": "2026-05-13T10:21:05Z",
+              "viewCount": 3444,
+              "likeCount": 65,
+              "commentCount": 25
+            },
+            {
+              "videoId": "ixXA-PQ26V4",
+              "title": "이바나 | 신규 영웅 프리뷰",
+              "publishedAt": "2026-05-13T10:18:49Z",
+              "viewCount": 3424,
+              "likeCount": 59,
+              "commentCount": 21
+            },
+            {
+              "videoId": "XBfavGf3DHI",
+              "title": "미혹의 날개 리디카 | 신규 스킨",
+              "publishedAt": "2026-05-13T10:12:24Z",
+              "viewCount": 2646,
+              "likeCount": 43,
+              "commentCount": 15
+            },
+            {
+              "videoId": "8o943mTx7P8",
+              "title": "에픽세븐 5-6월 업데이트 안내 l 개발자의 특급우편",
+              "publishedAt": "2026-05-13T10:00:06Z",
+              "viewCount": 9299,
+              "likeCount": 136,
+              "commentCount": 69
+            },
+            {
+              "videoId": "9mhYBRTl194",
+              "title": "누구나 계획은 있다 #에픽세븐",
+              "publishedAt": "2026-05-05T09:00:25Z",
+              "viewCount": 7721,
+              "likeCount": 70,
+              "commentCount": 8
+            },
+            {
+              "videoId": "_icPluSXs1E",
+              "title": "피했죠? #에픽세븐",
+              "publishedAt": "2026-05-05T03:00:41Z",
+              "viewCount": 8603,
+              "likeCount": 64,
+              "commentCount": 9
+            },
+            {
+              "videoId": "FKNx5lb8O_Q",
+              "title": "속뱃지의 품격 #에픽세븐",
+              "publishedAt": "2026-05-04T09:00:32Z",
+              "viewCount": 9962,
+              "likeCount": 71,
+              "commentCount": 14
+            },
+            {
+              "videoId": "fR50KYizyKQ",
+              "title": "[에픽세븐] E7 Masters 2026 그룹 스테이지 4주차",
+              "publishedAt": "2026-05-02T06:49:21Z",
+              "viewCount": 7582,
+              "likeCount": 57,
+              "commentCount": 1
+            },
+            {
+              "videoId": "A32aMy6v-Qc",
+              "title": "에스텔 | 스킬 #에픽세븐",
+              "publishedAt": "2026-04-30T12:00:19Z",
+              "viewCount": 2621,
+              "likeCount": 29,
+              "commentCount": 2
+            },
+            {
+              "videoId": "WkDJCJbzDlI",
+              "title": "에스텔 #에픽세븐",
+              "publishedAt": "2026-04-30T10:01:02Z",
+              "viewCount": 2399,
+              "likeCount": 38,
+              "commentCount": 5
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@EpicSevenJP",
+          "url": "https://www.youtube.com/@EpicSevenJP",
+          "yt_handle": "@EpicSevenJP",
+          "yt_id": "UC1F7_Zs35bNSrYerlGzzrVA",
+          "title": "エピックセブン",
+          "thumbnail": "https://yt3.ggpht.com/ElBUCB-sdhuxo4DHtx7ZGIGY_KsI5RgcutizJs0zuBUoeSWSso1d5ollsqKYT88U2jvYa7s5=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 18000,
+          "viewCount": 23937399,
+          "videoCount": 776,
+          "latestVideo": {
+            "title": "リアンナとルシエラ | 残夢の蝶",
+            "publishedAt": "2026-05-13T10:20:57Z",
+            "videoId": "HxbT3Zmf5VE"
+          },
+          "recentVideos": [
+            {
+              "videoId": "HxbT3Zmf5VE",
+              "title": "リアンナとルシエラ | 残夢の蝶",
+              "publishedAt": "2026-05-13T10:20:57Z",
+              "viewCount": 1422,
+              "likeCount": 77,
+              "commentCount": 1
+            },
+            {
+              "videoId": "EGz4qhfb_rQ",
+              "title": "イヴァナ｜英雄プレビュー",
+              "publishedAt": "2026-05-13T10:18:41Z",
+              "viewCount": 1908,
+              "likeCount": 53,
+              "commentCount": 6
+            },
+            {
+              "videoId": "j5QH8Fw0PNg",
+              "title": "幻惑の翼：リディカ | 新規スキン",
+              "publishedAt": "2026-05-13T10:12:10Z",
+              "viewCount": 1107,
+              "likeCount": 45,
+              "commentCount": 3
+            },
+            {
+              "videoId": "yqpIDfMTyqM",
+              "title": "『エピックセブン』5～6月更新内容のお知らせ | 開発者の特急郵便",
+              "publishedAt": "2026-05-13T10:00:06Z",
+              "viewCount": 3322,
+              "likeCount": 71,
+              "commentCount": 1
+            },
+            {
+              "videoId": "gTKz3hxpVhE",
+              "title": "誰にでも計画はある #エピックセブン",
+              "publishedAt": "2026-05-05T09:01:02Z",
+              "viewCount": 474,
+              "likeCount": 10,
+              "commentCount": 0
+            },
+            {
+              "videoId": "0HQmXytYt-w",
+              "title": "避けましたね？ #エピックセブン",
+              "publishedAt": "2026-05-05T03:00:01Z",
+              "viewCount": 1630,
+              "likeCount": 30,
+              "commentCount": 0
+            },
+            {
+              "videoId": "KsbqTaXVoGg",
+              "title": "速度バッジの品格 #エピックセブン",
+              "publishedAt": "2026-05-04T09:00:37Z",
+              "viewCount": 1540,
+              "likeCount": 31,
+              "commentCount": 1
+            },
+            {
+              "videoId": "p5iF9-NzLrE",
+              "title": "【エピックセブン】E7 Masters 2026 グループステージ 第4週",
+              "publishedAt": "2026-05-02T06:52:01Z",
+              "viewCount": 2309,
+              "likeCount": 28,
+              "commentCount": 0
+            },
+            {
+              "videoId": "BSfociFUdaA",
+              "title": "エステル | スキル #エピックセブン",
+              "publishedAt": "2026-04-30T12:00:31Z",
+              "viewCount": 1490,
+              "likeCount": 29,
+              "commentCount": 0
+            },
+            {
+              "videoId": "roTttL4ATBM",
+              "title": "エステル #エピックセブン",
+              "publishedAt": "2026-04-30T10:01:30Z",
+              "viewCount": 226,
+              "likeCount": 11,
+              "commentCount": 0
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Taiwan",
+          "handle": "@EpicSevenTW",
+          "url": "https://www.youtube.com/@EpicSevenTW",
+          "yt_handle": "@EpicSevenTW",
+          "yt_id": "UChm_apkrLewkgrdBuWXEW-Q",
+          "title": "第七史詩",
+          "thumbnail": "https://yt3.ggpht.com/rqJNsHWK4w5ZG5xwCigd8mLG4nrfv0Fg6hCOj6SlOShEo8Kw6doMr-fPUd1342aM9NLsR6HfCQ=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 19200,
+          "viewCount": 14952552,
+          "videoCount": 1017,
+          "latestVideo": {
+            "title": "里安娜路西艾拉 l 殘夢之蝶",
+            "publishedAt": "2026-05-13T10:21:11Z",
+            "videoId": "2BUsYp57rDY"
+          },
+          "recentVideos": [
+            {
+              "videoId": "2BUsYp57rDY",
+              "title": "里安娜路西艾拉 l 殘夢之蝶",
+              "publishedAt": "2026-05-13T10:21:11Z",
+              "viewCount": 1918,
+              "likeCount": 53,
+              "commentCount": 10
+            },
+            {
+              "videoId": "6S90fwPkYSs",
+              "title": "伊凡娜 | 全新英雄預告",
+              "publishedAt": "2026-05-13T10:19:02Z",
+              "viewCount": 3059,
+              "likeCount": 52,
+              "commentCount": 25
+            },
+            {
+              "videoId": "sZLzIZEo_oY",
+              "title": "誘惑羽翼麗迪卡 | 全新造型",
+              "publishedAt": "2026-05-13T10:12:35Z",
+              "viewCount": 1812,
+              "likeCount": 48,
+              "commentCount": 8
+            },
+            {
+              "videoId": "GLVHg7AxHIc",
+              "title": "《第七史詩》5-6月更新資訊 l 開發者的特級信件",
+              "publishedAt": "2026-05-13T10:00:06Z",
+              "viewCount": 4550,
+              "likeCount": 76,
+              "commentCount": 16
+            },
+            {
+              "videoId": "d0Pp8r-WzN0",
+              "title": "大家都有各自的計畫 #第七史詩",
+              "publishedAt": "2026-05-05T09:00:54Z",
+              "viewCount": 1164,
+              "likeCount": 14,
+              "commentCount": 0
+            },
+            {
+              "videoId": "e5DEmm8j9wk",
+              "title": "躲過了吧？ #第七史詩",
+              "publishedAt": "2026-05-05T03:00:46Z",
+              "viewCount": 1182,
+              "likeCount": 20,
+              "commentCount": 0
+            },
+            {
+              "videoId": "E7Z1toQNvU0",
+              "title": "速度神裝的品格 #第七史詩",
+              "publishedAt": "2026-05-04T09:00:16Z",
+              "viewCount": 1762,
+              "likeCount": 37,
+              "commentCount": 0
+            },
+            {
+              "videoId": "iFxEVEVjFUI",
+              "title": "【第七史詩】E7 Masters 2026 小組賽階段第4週",
+              "publishedAt": "2026-05-02T06:47:03Z",
+              "viewCount": 1452,
+              "likeCount": 19,
+              "commentCount": 0
+            },
+            {
+              "videoId": "vykvHdV6Pzo",
+              "title": "艾絲黛 | 技能 #第七史詩",
+              "publishedAt": "2026-04-30T12:01:45Z",
+              "viewCount": 348,
+              "likeCount": 7,
+              "commentCount": 0
+            },
+            {
+              "videoId": "B9E9ZEHc5zM",
+              "title": "艾絲黛 #第七史詩",
+              "publishedAt": "2026-04-30T10:00:18Z",
+              "viewCount": 195,
+              "likeCount": 3,
+              "commentCount": 0
+            }
+          ]
+        },
+        {
+          "platform": "x",
+          "region": "Global",
+          "handle": "@Epic7_Global",
+          "url": "https://x.com/Epic7_Global",
+          "followers": 32372,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "x",
+          "region": "Korea",
+          "handle": "@Epic7Twt",
+          "url": "https://x.com/Epic7Twt",
+          "followers": 18642,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "x",
+          "region": "Japan",
+          "handle": "@Epic7_jp",
+          "url": "https://x.com/Epic7_jp",
+          "followers": 129969,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "instagram",
+          "region": "Global",
+          "handle": "@epicseven_global",
+          "url": "https://www.instagram.com/epicseven_global/",
+          "ig_business_id": "17841407368977464",
+          "followers": 84590,
+          "mediaCount": 1285,
+          "igUsername": "epicseven_global",
+          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t51.82787-15/566380453_18320616937245633_6824655582994779825_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=7d201b&_nc_ohc=-o8C1ec-LR4Q7kNvwHzib6a&_nc_oc=Adr1wmXx9aHyqvqpDyq9B50w3_OUXcVcNCV0Vn4WwFB-RJeWRjhw0zyBcbGSerZTyXY&_nc_zt=23&_nc_ht=scontent-iad6-1.xx&edm=AL-3X8kEAAAA&_nc_gid=-VxHIigpFJuMkDNrDsPqtg&oh=00_Af4vuFdKW0qVFaq18-x63SIW2FvR3v6gsrpkas4nkV6DEA&oe=6A0B4F61",
+          "title": "Epic Seven Global",
+          "latestPost": {
+            "caption": "📢E7 Masters 2026 Knockout Stage Draw has been completed!",
+            "timestamp": "2026-05-04T09:18:07+0000",
+            "likeCount": 76,
+            "commentCount": 0,
+            "permalink": "https://www.instagram.com/p/DX6VN4cGEg_/",
+            "mediaType": "IMAGE",
+            "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/689861752_1001843195857462_8431151272796419226_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=109&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=E99s49GrpY8Q7kNvwF61fbB&_nc_oc=Ado2xBbB2_UiI1M-AwQFqvtHdMdEHHjhlkqlLciUgcmwGOxpapX08Smb6eIsvbncquE&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=xUmXLz7fa4hb44_Swdq0mw&oh=00_Af4VMgHzWyf-zXw-pCe2JNbeRg8mmL0RZBJ_9-1tSF1F0Q&oe=6A0B7DD0"
+          },
+          "recentAvgLikes": 550,
+          "recentAvgComments": 5,
+          "recentSampleSize": 10,
+          "recentPosts": [
+            {
+              "id": "18587211481035435",
+              "caption": "📢E7 Masters 2026 Knockout Stage Draw has been completed!",
+              "likeCount": 76,
+              "commentCount": 0,
+              "engagement": 76,
+              "timestamp": "2026-05-04T09:18:07+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DX6VN4cGEg_/"
+            },
+            {
+              "id": "18104140873941811",
+              "caption": "📢 E7 Masters 2026 GROUP G&H Result Prediction Event",
+              "likeCount": 211,
+              "commentCount": 0,
+              "engagement": 211,
+              "timestamp": "2026-04-27T09:00:42+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXoRqSzCVZ1/"
+            },
+            {
+              "id": "18150128485482659",
+              "caption": "✨Epic Seven Masters 2026 Week 2 Match Highlights",
+              "likeCount": 149,
+              "commentCount": 1,
+              "engagement": 150,
+              "timestamp": "2026-04-24T06:00:47+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXgOr8kj4xc/"
+            },
+            {
+              "id": "18101974961296619",
+              "caption": "[Hero Compendium] Salome",
+              "likeCount": 359,
+              "commentCount": 1,
+              "engagement": 360,
+              "timestamp": "2026-04-24T03:01:05+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXf6Ht7iLsF/"
+            },
+            {
+              "id": "18113004286800859",
+              "caption": "🔔 Episode 6 Emoji Contest 🔔",
+              "likeCount": 219,
+              "commentCount": 0,
+              "engagement": 219,
+              "timestamp": "2026-04-23T09:58:28+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DXeFF0HlKDK/"
+            },
+            {
+              "id": "18072806474264132",
+              "caption": "🎞️ Episode 6, Dirge of the End",
+              "likeCount": 992,
+              "commentCount": 10,
+              "engagement": 1002,
+              "timestamp": "2026-04-23T03:00:34+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXdVRHTjGJA/"
+            },
+            {
+              "id": "17970122994030762",
+              "caption": "📣 Jaa! Ganbare... Aight! Ganbare... Ganbare dun dun! | 1-Minute Update Summary",
+              "likeCount": 514,
+              "commentCount": 5,
+              "engagement": 519,
+              "timestamp": "2026-04-22T10:30:49+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbj73tEgim/"
+            },
+            {
+              "id": "18105683444497777",
+              "caption": "📣 Estelle | New Hero Preview",
+              "likeCount": 1465,
+              "commentCount": 13,
+              "engagement": 1478,
+              "timestamp": "2026-04-22T10:02:42+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbgvIegXP9/"
+            },
+            {
+              "id": "18074220725244534",
+              "caption": "🎞️ Episode 6, Dirge of the End",
+              "likeCount": 946,
+              "commentCount": 21,
+              "engagement": 967,
+              "timestamp": "2026-04-22T03:00:40+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXawe8NEfqN/"
+            },
+            {
+              "id": "18098965754000204",
+              "caption": "📣 Coming soon… !!! ",
+              "likeCount": 571,
+              "commentCount": 6,
+              "engagement": 577,
+              "timestamp": "2026-04-21T10:00:13+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DXY7s2aAQOG/"
+            }
+          ],
+          "topPosts": [
+            {
+              "id": "18105683444497777",
+              "caption": "📣 Estelle | New Hero Preview",
+              "likeCount": 1465,
+              "commentCount": 13,
+              "engagement": 1478,
+              "timestamp": "2026-04-22T10:02:42+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbgvIegXP9/"
+            },
+            {
+              "id": "18072806474264132",
+              "caption": "🎞️ Episode 6, Dirge of the End",
+              "likeCount": 992,
+              "commentCount": 10,
+              "engagement": 1002,
+              "timestamp": "2026-04-23T03:00:34+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXdVRHTjGJA/"
+            },
+            {
+              "id": "18074220725244534",
+              "caption": "🎞️ Episode 6, Dirge of the End",
+              "likeCount": 946,
+              "commentCount": 21,
+              "engagement": 967,
+              "timestamp": "2026-04-22T03:00:40+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXawe8NEfqN/"
+            }
+          ]
+        },
+        {
+          "platform": "facebook",
+          "region": "Korea/Global/Taiwan",
+          "handle": "EpicSevenGlobal",
+          "url": "https://www.facebook.com/EpicSevenGlobal/",
+          "fb_page_id": "583835325289924",
+          "followers": 223080,
+          "title": "Epic Seven",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/699186391_1009984341710014_5907973152729469186_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=102&ccb=1-7&_nc_sid=08baa4&_nc_ohc=JmtHsAe3-kkQ7kNvwEXZMBG&_nc_oc=AdpPXarUYcJil2GHyBJu8ChJ_HfiHf1IMEeB2-_at_aJSEXOplTJkknhWEMxuTTweCI&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=qDntErXPQ1BPB9Prbuxouw&_nc_tpa=Q5bMBQHHX9Nd9bmg_ZcGTbHU5ct26H8Gd8nCVpCjratG3KsFwniSRTtWglrPjqP9EMKYCFIjR5Pu6gBS&oh=00_Af60_dsbhTnxvHnz7JR2fg69_KHeg8H5PTv8Lbq-4GO8Ng&oe=6A0B8046"
+        },
+        {
+          "platform": "discord",
+          "region": "Official",
+          "handle": "discord.gg/vUUQvUQPZC",
+          "url": "https://discord.com/invite/vUUQvUQPZC",
+          "invite_code": "vUUQvUQPZC",
+          "followers": 96526,
+          "onlineCount": 15338,
+          "guildName": "Epic 7 Official Discord",
+          "guildId": "595385354908073984",
+          "guildIcon": "https://cdn.discordapp.com/icons/595385354908073984/79b11884159d67dc9c930d7422a293d0.png?size=64"
+        }
+      ],
+      "insights": {
+        "overview": {
+          "bullets": [
+            "KPI 평균 <b>93.5%</b> · 최저 <b>X 90.5%</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "youtube": {
+          "bullets": [
+            "팔로워 <b>256,900</b>명 · 전일 동일",
+            "최신 영상 <b>Taiwan</b> · 22h 전: \"里安娜路西艾拉 l 殘夢之蝶\" · ▶ 1,918 · ♥ 53 · 💬 10",
+            "이전 5개 평균 조회수 <b>2,353</b> 대비 <b>-18.5%</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "x": {
+          "bullets": [
+            "팔로워 <b>180,983</b>명 · 전일 동일",
+            "콘텐츠 분석은 API 연동 후 제공 예정 · 현재 수동 입력"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "instagram": {
+          "bullets": [
+            "팔로워 <b>84,590</b>명 · 전일 대비 +10 (+0.01%)",
+            "최신 포스트 <b>Global</b> · 10일 전: \"📢E7 Masters 2026 Knockout Stage Draw h…\" · ♥ 76 · 💬 0",
+            "이전 포스트 평균 참여 대비 <b>-87.5%</b> (평균 ♥ 602 · 💬 6)",
+            "참여 TOP <b>Global</b>: \"📣 Estelle | New Hero Preview\" · ♥ 1,465 · 💬 13"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "facebook": {
+          "bullets": [
+            "팔로워 <b>223,080</b>명 · 전일 대비 +55 (+0.02%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "discord": {
+          "bullets": [
+            "멤버 <b>96,526</b>명 · 전일 대비 +11 (+0.01%)",
+            "온라인 <b>15,338</b>명 / 전체 96,526명 (활성도 15.9%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        }
+      }
+    },
+    "czn": {
+      "name": "Chaos Zero Nightmare",
+      "ko": "카오스 제로 나이트메어",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@ChaosZeroNightmare_KR",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_KR",
+          "yt_handle": "@ChaosZeroNightmare_KR",
+          "yt_id": "UCniAsoSWiHsfeCJNJPZ0Jzg",
+          "title": "카오스 제로 나이트메어",
+          "thumbnail": "https://yt3.ggpht.com/WlJL05SvBAOPNvQmhxzXUyu-N1U3iyJxYmjExdLT8u3cLiIjxdITln3FkLhwcMU2wgjzOP4W=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 10800,
+          "viewCount": 16153832,
+          "videoCount": 151,
+          "latestVideo": {
+            "title": "웹코믹 | 아이언레인",
+            "publishedAt": "2026-05-11T05:13:57Z",
+            "videoId": "eCtgwnHHGzc"
+          },
+          "recentVideos": [
+            {
+              "videoId": "eCtgwnHHGzc",
+              "title": "웹코믹 | 아이언레인",
+              "publishedAt": "2026-05-11T05:13:57Z",
+              "viewCount": 1124,
+              "likeCount": 43,
+              "commentCount": 7
+            },
+            {
+              "videoId": "r-TRVOctRT4",
+              "title": "[카제나 깜짝 감사 LIVE] 승현아 밥줘 (햇반 반 공기 같은) 신의 눈물 5개 쿠폰!",
+              "publishedAt": "2026-05-04T09:19:09Z",
+              "viewCount": 7462,
+              "likeCount": 361,
+              "commentCount": 57
+            },
+            {
+              "videoId": "MtuZbIT9AeQ",
+              "title": "웹코믹 | 하이데마리",
+              "publishedAt": "2026-05-04T06:00:13Z",
+              "viewCount": 6891,
+              "likeCount": 332,
+              "commentCount": 32
+            },
+            {
+              "videoId": "kn7HUSYU-_o",
+              "title": "★5 선택권 시즌2 캐릭터까지 확대! 카제나 지금이 플레이하기 적기다!",
+              "publishedAt": "2026-04-30T05:47:42Z",
+              "viewCount": 505618,
+              "likeCount": 331,
+              "commentCount": 425
+            },
+            {
+              "videoId": "7mb1OHKRceo",
+              "title": "하이데마리&니아와 숏폼 챌린지에 참여해 보세요! @S2smd",
+              "publishedAt": "2026-04-30T05:00:11Z",
+              "viewCount": 2857,
+              "likeCount": 95,
+              "commentCount": 12
+            },
+            {
+              "videoId": "n_XiBkLv-8s",
+              "title": "웹코믹 | 축! 하프 애니버서리",
+              "publishedAt": "2026-04-29T05:00:43Z",
+              "viewCount": 2683,
+              "likeCount": 75,
+              "commentCount": 16
+            },
+            {
+              "videoId": "UocwVRjVSzw",
+              "title": "비공개 상담기록 | 하이데마리",
+              "publishedAt": "2026-04-29T04:31:39Z",
+              "viewCount": 2091,
+              "likeCount": 59,
+              "commentCount": 4
+            },
+            {
+              "videoId": "ceOJrU2q_Os",
+              "title": "저는 아직... 지키고 싶어요. ㅣ 하이데마리 붕괴",
+              "publishedAt": "2026-04-28T14:12:26Z",
+              "viewCount": 960031,
+              "likeCount": 1212,
+              "commentCount": 147
+            },
+            {
+              "videoId": "nAONzzTSENY",
+              "title": "[카오스 제로 나이트메어] 은하망 뉴스 라이브 : 은하에 울리는 노랫소리",
+              "publishedAt": "2026-04-28T13:26:10Z",
+              "viewCount": 23796,
+              "likeCount": 394,
+              "commentCount": 762
+            },
+            {
+              "videoId": "rdYdYAMj6LU",
+              "title": "[카오스 제로 나이트메어] 하이데마리 | 전투 모션",
+              "publishedAt": "2026-04-28T11:30:46Z",
+              "viewCount": 5742,
+              "likeCount": 61,
+              "commentCount": 43
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@ChaosZeroNightmare_EN",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_EN",
+          "yt_handle": "@ChaosZeroNightmare_EN",
+          "yt_id": "UCQ7YAXPdiccbFBmwuGvO3Jg",
+          "title": "Chaos Zero Nightmare",
+          "thumbnail": "https://yt3.ggpht.com/3sEN_e891wF-zugwts48nU4qnPVetpO7rDesiZrNeMrDODhBrYbejKQfnQaLadH6wtAZ2qliwA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 74500,
+          "viewCount": 19703539,
+          "videoCount": 144,
+          "latestVideo": {
+            "title": "Webcomic | Ironrain",
+            "publishedAt": "2026-05-11T05:14:09Z",
+            "videoId": "tlMdvBEGyBI"
+          },
+          "recentVideos": [
+            {
+              "videoId": "tlMdvBEGyBI",
+              "title": "Webcomic | Ironrain",
+              "publishedAt": "2026-05-11T05:14:09Z",
+              "viewCount": 3310,
+              "likeCount": 311,
+              "commentCount": 28
+            },
+            {
+              "videoId": "5ePyx1g2KVc",
+              "title": "Webcomic | HEIDEMARIE",
+              "publishedAt": "2026-05-04T06:00:05Z",
+              "viewCount": 9111,
+              "likeCount": 946,
+              "commentCount": 34
+            },
+            {
+              "videoId": "-NZ3-PSJVSY",
+              "title": "Join the Short-Form Challenge with Heidemarie & Nia! @S2smd",
+              "publishedAt": "2026-04-30T05:00:01Z",
+              "viewCount": 9156,
+              "likeCount": 816,
+              "commentCount": 29
+            },
+            {
+              "videoId": "Hw4UI-nYILU",
+              "title": "Webcomic | Congratulations on the Half-Anniversary!",
+              "publishedAt": "2026-04-29T05:00:17Z",
+              "viewCount": 7493,
+              "likeCount": 766,
+              "commentCount": 31
+            },
+            {
+              "videoId": "rQ0kSE5a1iI",
+              "title": "Private Counseling Records | Heidemarie",
+              "publishedAt": "2026-04-29T04:31:46Z",
+              "viewCount": 9268,
+              "likeCount": 689,
+              "commentCount": 44
+            },
+            {
+              "videoId": "rIFK_tPBYHs",
+              "title": "I still... want to protect it. ㅣ Heidemarie Mental Breakdown",
+              "publishedAt": "2026-04-28T14:13:06Z",
+              "viewCount": 336126,
+              "likeCount": 1496,
+              "commentCount": 20
+            },
+            {
+              "videoId": "xtAVvaVQfHg",
+              "title": "[Chaos Zero Nightmare] Galactic News Network Live: A Song Rippling Through the Stars",
+              "publishedAt": "2026-04-28T13:48:42Z",
+              "viewCount": 74245,
+              "likeCount": 2323,
+              "commentCount": 114
+            },
+            {
+              "videoId": "CKMTqX2Wgs8",
+              "title": "[Chaos Zero Nightmare] Heidemarie | Combat Motion",
+              "publishedAt": "2026-04-28T11:30:20Z",
+              "viewCount": 31835,
+              "likeCount": 1788,
+              "commentCount": 182
+            },
+            {
+              "videoId": "dwelaNPn1hw",
+              "title": "[Chaos Zero Nightmare] For Those Departed: Rain of Memory (Lyrics)",
+              "publishedAt": "2026-04-28T03:00:43Z",
+              "viewCount": 16999,
+              "likeCount": 1109,
+              "commentCount": 57
+            },
+            {
+              "videoId": "3YheVSJdcoU",
+              "title": "★5 Heidemarie | A hero of the past and an icon to the public!",
+              "publishedAt": "2026-04-24T09:00:11Z",
+              "viewCount": 290701,
+              "likeCount": 1776,
+              "commentCount": 41
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@ChaosZeroNightmare_JP",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_JP",
+          "yt_handle": "@ChaosZeroNightmare_JP",
+          "yt_id": "UCtVUqg-8ja1XCZfmGndMTog",
+          "title": "カオスゼロナイトメア公式 (カオゼロ)",
+          "thumbnail": "https://yt3.ggpht.com/ungcnxER6kNjeAE99z-aI1xidXyY-Yn2gm17F_Y7sVQfiYXg2lqz9-kLxDnwdfPGKHTqLDvUJw=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 19800,
+          "viewCount": 29603363,
+          "videoCount": 164,
+          "latestVideo": {
+            "title": "ウェブコミック | アイアンレイン",
+            "publishedAt": "2026-05-11T05:13:41Z",
+            "videoId": "5mVJZ7fCM_8"
+          },
+          "recentVideos": [
+            {
+              "videoId": "5mVJZ7fCM_8",
+              "title": "ウェブコミック | アイアンレイン",
+              "publishedAt": "2026-05-11T05:13:41Z",
+              "viewCount": 3337,
+              "likeCount": 259,
+              "commentCount": 6
+            },
+            {
+              "videoId": "ngVWydGM6UQ",
+              "title": "ウェブコミック | ハイデマリ",
+              "publishedAt": "2026-05-04T06:00:41Z",
+              "viewCount": 8984,
+              "likeCount": 709,
+              "commentCount": 12
+            },
+            {
+              "videoId": "9SXBfvQsmQg",
+              "title": "ハイデマリ＆ニアと一緒にショート投稿チャレンジに参加しよう！@S2smd ⁩",
+              "publishedAt": "2026-04-30T05:00:14Z",
+              "viewCount": 5189,
+              "likeCount": 304,
+              "commentCount": 5
+            },
+            {
+              "videoId": "SYFAVeikPs4",
+              "title": "ウェブコミック | 祝ハーフアニバーサリー",
+              "publishedAt": "2026-04-29T05:00:35Z",
+              "viewCount": 5134,
+              "likeCount": 250,
+              "commentCount": 11
+            },
+            {
+              "videoId": "UYtritJJdnc",
+              "title": "非公開カウンセリング記録 | ハイデマリ",
+              "publishedAt": "2026-04-29T04:31:53Z",
+              "viewCount": 4210,
+              "likeCount": 200,
+              "commentCount": 8
+            },
+            {
+              "videoId": "UXIy2Tt4uP4",
+              "title": "私はまだ…守りたいんです。 | ハイデマリ崩壊",
+              "publishedAt": "2026-04-28T13:33:36Z",
+              "viewCount": 8415,
+              "likeCount": 312,
+              "commentCount": 10
+            },
+            {
+              "videoId": "Dm2GIEkrhMc",
+              "title": "『カオゼロ』ハーフアニバーサリー公式生放送【カオスゼロナイトメア】",
+              "publishedAt": "2026-04-28T12:08:47Z",
+              "viewCount": 41043,
+              "likeCount": 728,
+              "commentCount": 11
+            },
+            {
+              "videoId": "n-UXDjirpAA",
+              "title": "【カオスゼロナイトメア】ハイデマリ | 戦闘モーション",
+              "publishedAt": "2026-04-28T11:30:41Z",
+              "viewCount": 9630,
+              "likeCount": 208,
+              "commentCount": 12
+            },
+            {
+              "videoId": "ye81n2Bn8Og",
+              "title": "【カオスゼロナイトメア】 この声が届くなら: Rain of Memory (Lyrics)",
+              "publishedAt": "2026-04-28T03:00:59Z",
+              "viewCount": 5246,
+              "likeCount": 221,
+              "commentCount": 5
+            },
+            {
+              "videoId": "JwLValPqaXU",
+              "title": "★5ハイデマリ | 過去の英雄、そして大衆の偶像",
+              "publishedAt": "2026-04-24T09:00:36Z",
+              "viewCount": 20179,
+              "likeCount": 605,
+              "commentCount": 17
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Taiwan",
+          "handle": "@ChaosZeroNightmare_TW",
+          "url": "https://www.youtube.com/@ChaosZeroNightmare_TW",
+          "yt_handle": "@ChaosZeroNightmare_TW",
+          "yt_id": "UCNmUWtRXbKoQNbLQ0f8oYpg",
+          "title": "卡厄思夢境【TW】",
+          "thumbnail": "https://yt3.ggpht.com/GUhKE34EdPN3blkS7fBtRktSbTityNqerFsf3DYrebdwCoCCFgSM8TogSVy7RAVx1LPC5bALtA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 8420,
+          "viewCount": 4575291,
+          "videoCount": 146,
+          "latestVideo": {
+            "title": "網路漫畫 | 鋼鐵之雨",
+            "publishedAt": "2026-05-11T05:14:20Z",
+            "videoId": "-QZgeUhcsF8"
+          },
+          "recentVideos": [
+            {
+              "videoId": "-QZgeUhcsF8",
+              "title": "網路漫畫 | 鋼鐵之雨",
+              "publishedAt": "2026-05-11T05:14:20Z",
+              "viewCount": 1199,
+              "likeCount": 39,
+              "commentCount": 1
+            },
+            {
+              "videoId": "cmKlT08s-Aw",
+              "title": "網路漫畫 | 海德瑪麗",
+              "publishedAt": "2026-05-04T06:00:35Z",
+              "viewCount": 951,
+              "likeCount": 60,
+              "commentCount": 6
+            },
+            {
+              "videoId": "lhGYnHZYUsI",
+              "title": "和海德瑪麗＆妮亚一起參加短影音挑戰開跑！@S2smd",
+              "publishedAt": "2026-04-30T05:00:47Z",
+              "viewCount": 1765,
+              "likeCount": 61,
+              "commentCount": 4
+            },
+            {
+              "videoId": "beOpc5g35Pw",
+              "title": "網路漫畫 | 恭賀！半週年",
+              "publishedAt": "2026-04-29T05:00:36Z",
+              "viewCount": 1514,
+              "likeCount": 52,
+              "commentCount": 2
+            },
+            {
+              "videoId": "OCuvNNOLNfE",
+              "title": "非公開諮商紀錄 | 海德瑪麗",
+              "publishedAt": "2026-04-29T04:32:06Z",
+              "viewCount": 1298,
+              "likeCount": 35,
+              "commentCount": 2
+            },
+            {
+              "videoId": "RsbYhG2P748",
+              "title": "我還是想要守護ㅣ海德瑪麗崩潰",
+              "publishedAt": "2026-04-28T13:33:44Z",
+              "viewCount": 7965,
+              "likeCount": 45,
+              "commentCount": 2
+            },
+            {
+              "videoId": "oiQmEgNwhuE",
+              "title": "《卡厄思夢境》銀河網新聞直播：「迴盪在銀河中的歌聲」",
+              "publishedAt": "2026-04-28T11:52:23Z",
+              "viewCount": 12958,
+              "likeCount": 132,
+              "commentCount": 17
+            },
+            {
+              "videoId": "kfIkHNnHqaY",
+              "title": "【卡厄思夢境】海德瑪麗 | 戰鬥動作",
+              "publishedAt": "2026-04-28T11:30:40Z",
+              "viewCount": 4297,
+              "likeCount": 87,
+              "commentCount": 13
+            },
+            {
+              "videoId": "5zl-nC5t34I",
+              "title": "【卡厄思夢境】 遺留之人的歌：Rain of Memory (Lyrics)",
+              "publishedAt": "2026-04-28T03:00:12Z",
+              "viewCount": 1376,
+              "likeCount": 62,
+              "commentCount": 4
+            },
+            {
+              "videoId": "OkpdmhqbqSM",
+              "title": "★5海德瑪麗 | 過去的英雄，以及大眾的偶像",
+              "publishedAt": "2026-04-24T09:00:38Z",
+              "viewCount": 123961,
+              "likeCount": 475,
+              "commentCount": 12
+            }
+          ]
+        },
+        {
+          "platform": "x",
+          "region": "Global",
+          "handle": "@CZN_Official_EN",
+          "url": "https://x.com/CZN_Official_EN",
+          "followers": 72765,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "x",
+          "region": "Korea",
+          "handle": "@CZN_Official_KR",
+          "url": "https://x.com/CZN_Official_KR",
+          "followers": 7256,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "x",
+          "region": "Japan",
+          "handle": "@CZN_Official_jp",
+          "url": "https://x.com/CZN_Official_jp",
+          "followers": 119767,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "instagram",
+          "region": "Global",
+          "handle": "@czn.official.en",
+          "url": "https://www.instagram.com/czn.official.en/",
+          "ig_business_id": "17841465051500490",
+          "followers": 14237,
+          "mediaCount": 205,
+          "igUsername": "czn.official.en",
+          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t51.82787-15/520227948_17912686761168384_6030834882233775186_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7d201b&_nc_ohc=e7Y3HqJut34Q7kNvwF9s7_t&_nc_oc=AdrwvsTkcRwBk0tAXHRXrbMiBluFUXeIAsH0VkyaGo9NV1lwWM-zFx1rE4Gqhh3NqlE&_nc_zt=23&_nc_ht=scontent-iad3-1.xx&edm=AL-3X8kEAAAA&_nc_gid=vjTH16x0B3jCR4usDGysfQ&oh=00_Af7JpOxEa6UtrliP_vFfZJSJZbwfJr2WuKPueTWd_L4tVA&oe=6A0B756C",
+          "title": "Chaos Zero Nightmare",
+          "latestPost": {
+            "caption": "◤May Bonus Thank You Coupon◢",
+            "timestamp": "2026-05-04T09:02:03+0000",
+            "likeCount": 708,
+            "commentCount": 23,
+            "permalink": "https://www.instagram.com/p/DX6TYRIlMCn/",
+            "mediaType": "IMAGE",
+            "thumbnailUrl": "https://scontent-iad6-1.cdninstagram.com/v/t39.30808-6/689095760_831726556653412_9189842909413919176_n.jpg?stp=dst-jpg_e35_tt6&_nc_cat=102&ccb=7-5&_nc_sid=18de74&efg=eyJlZmdfdGFnIjoiRkVFRC5iZXN0X2ltYWdlX3VybGdlbi5DMyJ9&_nc_ohc=Pn9O3tlytysQ7kNvwGzRRsF&_nc_oc=AdrFEK97Z4r8QdoJuOJwNUJ51loo3Kn21J7CJuAjLXhgoz12VR93dB2xHZU5Aja8PFQ&_nc_zt=23&_nc_ht=scontent-iad6-1.cdninstagram.com&edm=AM6HXa8EAAAA&_nc_gid=joP3CMx54wLW30dYC-h53Q&oh=00_Af4NJR14tt8zkjieD9KcC3nrikduFSJg5RZizTOIgELkiA&oe=6A0B7A3D"
+          },
+          "recentAvgLikes": 696,
+          "recentAvgComments": 15,
+          "recentSampleSize": 10,
+          "recentPosts": [
+            {
+              "id": "18161618266440876",
+              "caption": "◤May Bonus Thank You Coupon◢",
+              "likeCount": 708,
+              "commentCount": 23,
+              "engagement": 731,
+              "timestamp": "2026-05-04T09:02:03+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DX6TYRIlMCn/"
+            },
+            {
+              "id": "17858519238690135",
+              "caption": "◤Personal secretary to Mayor Heidemarie, 「Sylvia」 ◢",
+              "likeCount": 402,
+              "commentCount": 14,
+              "engagement": 416,
+              "timestamp": "2026-04-29T02:30:08+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DXsujUDidsy/"
+            },
+            {
+              "id": "17989273496952137",
+              "caption": "◤Heidemarie / Sylvia Rate Up Rescue◢",
+              "likeCount": 562,
+              "commentCount": 15,
+              "engagement": 577,
+              "timestamp": "2026-04-29T02:00:31+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DXsrKZwDmSf/"
+            },
+            {
+              "id": "18388243498093505",
+              "caption": "◤Character Preview 「Heidemarie」◢",
+              "likeCount": 932,
+              "commentCount": 27,
+              "engagement": 959,
+              "timestamp": "2026-04-28T11:31:24+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXrHoVjjOO4/"
+            },
+            {
+              "id": "18048289061754606",
+              "caption": "◤Introducing Heidemarie’s Mechanics◢",
+              "likeCount": 912,
+              "commentCount": 14,
+              "engagement": 926,
+              "timestamp": "2026-04-28T11:01:04+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXrEOskgTRr/"
+            },
+            {
+              "id": "18102687884001489",
+              "caption": "◤Heidemarie’s Concept Art Revealed◢",
+              "likeCount": 568,
+              "commentCount": 11,
+              "engagement": 579,
+              "timestamp": "2026-04-28T03:01:00+0000",
+              "mediaType": "IMAGE",
+              "permalink": "https://www.instagram.com/p/DXqNShzjA7v/"
+            },
+            {
+              "id": "17942313429190639",
+              "caption": "◤Heidemarie Release Commemorative OST",
+              "likeCount": 760,
+              "commentCount": 21,
+              "engagement": 781,
+              "timestamp": "2026-04-24T03:02:06+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXf6K5RjQwK/"
+            },
+            {
+              "id": "18060951176449520",
+              "caption": "◤#ChaosZeroNightmare Half-Anniversary Voice Actor Messages◢",
+              "likeCount": 655,
+              "commentCount": 8,
+              "engagement": 663,
+              "timestamp": "2026-04-23T08:03:52+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXd3xR0Deoo/"
+            },
+            {
+              "id": "18009353348897125",
+              "caption": "◤「Heidemarie」 Character PV◢",
+              "likeCount": 801,
+              "commentCount": 15,
+              "engagement": 816,
+              "timestamp": "2026-04-22T09:01:09+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbZrXTGWHL/"
+            },
+            {
+              "id": "17961432807082070",
+              "caption": "⚔️ [Sortie] – Content Introduction ⚔️",
+              "likeCount": 664,
+              "commentCount": 9,
+              "engagement": 673,
+              "timestamp": "2026-04-22T08:02:42+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbS6NjkYJO/"
+            }
+          ],
+          "topPosts": [
+            {
+              "id": "18388243498093505",
+              "caption": "◤Character Preview 「Heidemarie」◢",
+              "likeCount": 932,
+              "commentCount": 27,
+              "engagement": 959,
+              "timestamp": "2026-04-28T11:31:24+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXrHoVjjOO4/"
+            },
+            {
+              "id": "18048289061754606",
+              "caption": "◤Introducing Heidemarie’s Mechanics◢",
+              "likeCount": 912,
+              "commentCount": 14,
+              "engagement": 926,
+              "timestamp": "2026-04-28T11:01:04+0000",
+              "mediaType": "CAROUSEL_ALBUM",
+              "permalink": "https://www.instagram.com/p/DXrEOskgTRr/"
+            },
+            {
+              "id": "18009353348897125",
+              "caption": "◤「Heidemarie」 Character PV◢",
+              "likeCount": 801,
+              "commentCount": 15,
+              "engagement": 816,
+              "timestamp": "2026-04-22T09:01:09+0000",
+              "mediaType": "VIDEO",
+              "permalink": "https://www.instagram.com/reel/DXbZrXTGWHL/"
+            }
+          ]
+        },
+        {
+          "platform": "facebook",
+          "region": "Global",
+          "handle": "ChaosZeroNightmare",
+          "url": "https://www.facebook.com/ChaosZeroNightmare/",
+          "fb_page_id": "101588973009044",
+          "followers": 99111,
+          "title": "Chaos Zero Nightmare",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/683253991_827207353771999_4291588536672222134_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=YRj4MrI56A4Q7kNvwGL_CGO&_nc_oc=AdoxA0aECwjj3RbncRDZa6RxWYXLkF1XDVtoVlElugFsUDh9Dg134obg-85oQSwOK1Y&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=22qYVxfjiZ5uaAeJuYDVNw&_nc_tpa=Q5bMBQHEy1pjkE3JekY64n9BBETaova31bvbQpEFqWJo1MW2ObE3EI3cHTzA8q2vTK9F-3TjteEHIcNd&oh=00_Af53Iu3UKqdEWH7JFA2DqU9FkpnD1yJqzoGh1YKmRvh3EA&oe=6A0B79F9"
+        },
+        {
+          "platform": "facebook",
+          "region": "China",
+          "handle": "卡厄思夢境",
+          "url": "https://www.facebook.com/107964449030742",
+          "fb_page_id": "107964449030742",
+          "followers": 16930,
+          "title": "卡厄思夢境",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/690635459_831506006682819_6143030340750893826_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=110&ccb=1-7&_nc_sid=08baa4&_nc_ohc=EIsLWOi8_k8Q7kNvwEZ9TBc&_nc_oc=Adr14-7jCr5F9VTkWlLqbJNmTMqMUZViP8myJCnt7DfMFZw5OmLVgb0NsfdmJyiC16s&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=DioI4mU6NEgGOQWXKxlceg&_nc_tpa=Q5bMBQHmDkjjxBsgW2rfy_pbAaCLX_zmNJ25sabwr0qKmTnNrRwkjUbvs7gyCvxADF109NqhUQW8RkU8&oh=00_Af6wJkGmJbWzyEIl3vKsAcD3xj41ZHx5cSH9ug9m0krUVQ&oe=6A0B56BD"
+        },
+        {
+          "platform": "discord",
+          "region": "Official",
+          "handle": "discord.gg/chaoszeronightmare",
+          "url": "https://discord.gg/chaoszeronightmare",
+          "invite_code": "chaoszeronightmare",
+          "followers": 63285,
+          "onlineCount": 15421,
+          "guildName": "Chaos Zero Nightmare Official",
+          "guildId": "1199065921365475470",
+          "guildIcon": "https://cdn.discordapp.com/icons/1199065921365475470/3ee68f53852ffe8abbe6fd89e59fddc3.png?size=64"
+        }
+      ],
+      "insights": {
+        "overview": {
+          "bullets": [
+            "7일 성장 1위: <b>Instagram Global</b> (+1.14%, +160)",
+            "KPI 평균 <b>86.6%</b> · 최저 <b>X 79.3%</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "youtube": {
+          "bullets": [
+            "팔로워 <b>113,520</b>명 · 전일 대비 +10 (+0.01%)",
+            "최신 영상 <b>Taiwan</b> · 3일 전: \"網路漫畫 | 鋼鐵之雨\" · ▶ 1,199 · ♥ 39 · 💬 1",
+            "이전 5개 평균 조회수 <b>2,698</b> 대비 <b>-55.6%</b>",
+            "업로드 1일차 조회수 <b>355</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "x": {
+          "bullets": [
+            "팔로워 <b>199,788</b>명 · 전일 동일",
+            "콘텐츠 분석은 API 연동 후 제공 예정 · 현재 수동 입력"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "instagram": {
+          "bullets": [
+            "팔로워 <b>14,237</b>명 · 전일 대비 +10 (+0.07%)",
+            "최신 포스트 <b>Global</b> · 10일 전: \"◤May Bonus Thank You Coupon◢\" · ♥ 708 · 💬 23",
+            "이전 포스트 평균 참여 대비 <b>+3.1%</b> (평균 ♥ 695 · 💬 14)",
+            "참여 TOP <b>Global</b>: \"◤Character Preview 「Heidemarie」◢\" · ♥ 932 · 💬 27"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "facebook": {
+          "bullets": [
+            "팔로워 <b>116,041</b>명 · 전일 대비 +100 (+0.09%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "discord": {
+          "bullets": [
+            "멤버 <b>63,285</b>명 · 전일 대비 +45 (+0.07%)",
+            "온라인 <b>15,421</b>명 / 전체 63,285명 (활성도 24.4%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        }
+      }
+    },
+    "l9": {
+      "name": "Lord Nine",
+      "ko": "로드나인",
+      "channels": [
+        {
+          "platform": "youtube",
+          "region": "Korea",
+          "handle": "@LORDNINE_KR",
+          "url": "https://www.youtube.com/@LORDNINE_KR",
+          "yt_handle": "@LORDNINE_KR",
+          "yt_id": "UCDDqUR66YKDqkJFdBD-eBiQ",
+          "title": "로드나인",
+          "thumbnail": "https://yt3.ggpht.com/D1nWjc4h1lP25Mxa0Y8mfmyE5OUszgEgeqqd_xxSwtE37TZv2CvD-VhuiXUsZAopSTTFmnwgmw=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 22600,
+          "viewCount": 19803632,
+          "videoCount": 158,
+          "latestVideo": {
+            "title": "[로드나인] 5월 1차 업데이트 프리뷰",
+            "publishedAt": "2026-05-05T09:00:03Z",
+            "videoId": "1suDq3L8DNY"
+          },
+          "recentVideos": [
+            {
+              "videoId": "1suDq3L8DNY",
+              "title": "[로드나인] 5월 1차 업데이트 프리뷰",
+              "publishedAt": "2026-05-05T09:00:03Z",
+              "viewCount": 7898,
+              "likeCount": 36,
+              "commentCount": 20
+            },
+            {
+              "videoId": "RAn7nvZWGeQ",
+              "title": "[로드나인] 로드나잇 온에어 8화 (빈본, 김효재 PD)",
+              "publishedAt": "2026-04-30T14:01:48Z",
+              "viewCount": 16089,
+              "likeCount": 151,
+              "commentCount": 22
+            },
+            {
+              "videoId": "3UZm37FuAlA",
+              "title": "[로드나인] 4월 2차 업데이트 프리뷰",
+              "publishedAt": "2026-04-21T09:00:05Z",
+              "viewCount": 7571,
+              "likeCount": 34,
+              "commentCount": 42
+            },
+            {
+              "videoId": "mOIY8Dwxm_o",
+              "title": "[로드나인] 신규 서버 디나페리로 어쎔블!",
+              "publishedAt": "2026-04-09T04:18:12Z",
+              "viewCount": 1174,
+              "likeCount": 8,
+              "commentCount": 23
+            },
+            {
+              "videoId": "kIPtfDVo-wM",
+              "title": "[로드나인] 육퇴 완료 로드 어쎔블! #lordnine #로드나인",
+              "publishedAt": "2026-04-09T03:02:11Z",
+              "viewCount": 3088912,
+              "likeCount": 825,
+              "commentCount": 47
+            },
+            {
+              "videoId": "0f3PHquIuXQ",
+              "title": "[로드나인] 최초 성장 가속 서버 '디나페리' 3월 27일 19시 오픈!  #lordnine #로드나인",
+              "publishedAt": "2026-03-27T03:00:00Z",
+              "viewCount": 401982,
+              "likeCount": 87,
+              "commentCount": 6
+            },
+            {
+              "videoId": "HAu0TBPOfjY",
+              "title": "[로드나인] 신규 서버 '디나페리'에 화운사신 아바타가?? (우정출연)ㅣ 3월 27일 19시 오픈!",
+              "publishedAt": "2026-03-26T09:00:00Z",
+              "viewCount": 2289,
+              "likeCount": 18,
+              "commentCount": 18
+            },
+            {
+              "videoId": "XDl5gZ5WFeU",
+              "title": "[로드나인] 신규 서버 '디나페리'에 누리형 아바타가?? ㅣ 3월 27일 19시 오픈!",
+              "publishedAt": "2026-03-26T09:00:00Z",
+              "viewCount": 1044,
+              "likeCount": 6,
+              "commentCount": 2
+            },
+            {
+              "videoId": "a7cUc88H-5E",
+              "title": "[로드나인] 신규 서버에 화운사신 아바타가? ㅣ 신규 서버 '디나페리' 3월 27일 19시 오픈! #로드나인 #lordnine",
+              "publishedAt": "2026-03-26T09:00:00Z",
+              "viewCount": 486442,
+              "likeCount": 191,
+              "commentCount": 25
+            },
+            {
+              "videoId": "ym3lmZ8fHys",
+              "title": "[로드나인] 신규 서버에 누리형 아바타가? ㅣ 신규 서버 '디나페리' 3월 27일 19시 오픈!",
+              "publishedAt": "2026-03-26T09:00:00Z",
+              "viewCount": 1050914,
+              "likeCount": 340,
+              "commentCount": 14
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Global",
+          "handle": "@LORDNINE_GLOBAL",
+          "url": "https://www.youtube.com/@LORDNINE_GLOBAL",
+          "yt_handle": "@LORDNINE_GLOBAL",
+          "yt_id": "UCd0a0FVb7TEkxtFrH1YyohA",
+          "title": "LORDNINE",
+          "thumbnail": "https://yt3.ggpht.com/LKzFrpdAh1tMs6wz041MBXl9ilRI5BylvHtjdWnO5i6Ink7qF5bekTlE507Cq4xZMyTc7V7UAA=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 27300,
+          "viewCount": 972364,
+          "videoCount": 52,
+          "latestVideo": {
+            "title": "April Update Preview: Corrosion Rift, Heart of Volcanca, New Gadget, etc.",
+            "publishedAt": "2026-04-28T07:00:22Z",
+            "videoId": "GXDwS409NmU"
+          },
+          "recentVideos": [
+            {
+              "videoId": "GXDwS409NmU",
+              "title": "April Update Preview: Corrosion Rift, Heart of Volcanca, New Gadget, etc.",
+              "publishedAt": "2026-04-28T07:00:22Z",
+              "viewCount": 4408,
+              "likeCount": 44,
+              "commentCount": 13
+            },
+            {
+              "videoId": "2NzuUYIlhH0",
+              "title": "March Update Preview: Specialization System, Ancient Citadel, Artifacts, 4 New Hidden Classes",
+              "publishedAt": "2026-03-17T07:42:51Z",
+              "viewCount": 5145,
+              "likeCount": 42,
+              "commentCount": 15
+            },
+            {
+              "videoId": "mXXkk5Xvk9o",
+              "title": "February Update Preview:New Map, World Trading Post Integration, Lucky Draw, New Abilities, and more",
+              "publishedAt": "2026-02-21T04:34:35Z",
+              "viewCount": 5692,
+              "likeCount": 47,
+              "commentCount": 25
+            },
+            {
+              "videoId": "4Xt90R_5OsQ",
+              "title": "Half Anniversary Event and Coupon + 2026 First Half Update Roadmap Reveal",
+              "publishedAt": "2026-01-21T06:30:02Z",
+              "viewCount": 5393,
+              "likeCount": 79,
+              "commentCount": 19
+            },
+            {
+              "videoId": "g7Hiu8kw1n0",
+              "title": "January Update Preview: World Boss Raid, Ability Piece System, Spire of Trials 150F Expansion",
+              "publishedAt": "2026-01-20T07:30:21Z",
+              "viewCount": 5512,
+              "likeCount": 43,
+              "commentCount": 8
+            },
+            {
+              "videoId": "3rH95FYfnV4",
+              "title": "December Update Preview",
+              "publishedAt": "2025-12-22T03:07:20Z",
+              "viewCount": 3504,
+              "likeCount": 73,
+              "commentCount": 11
+            },
+            {
+              "videoId": "p6tx4aPsjCE",
+              "title": "New Unified Server Medea Has Arrived! Earn Exclusive Skins and Up to 330 Avatar Summon Tickets!",
+              "publishedAt": "2025-12-18T11:30:57Z",
+              "viewCount": 785,
+              "likeCount": 14,
+              "commentCount": 17
+            },
+            {
+              "videoId": "uBNIA7ZcS5w",
+              "title": "[LORDNINE] New Server MEDEA — Now Open!",
+              "publishedAt": "2025-12-18T11:01:44Z",
+              "viewCount": 391,
+              "likeCount": 11,
+              "commentCount": 4
+            },
+            {
+              "videoId": "w9YxunHuhX0",
+              "title": "[LORDNINE] New Server MEDEA : Pre-register Now!",
+              "publishedAt": "2025-12-03T05:01:17Z",
+              "viewCount": 478517,
+              "likeCount": 65,
+              "commentCount": 32
+            },
+            {
+              "videoId": "9lyFBlRenDI",
+              "title": "November Update Preview",
+              "publishedAt": "2025-11-25T07:30:08Z",
+              "viewCount": 5549,
+              "likeCount": 54,
+              "commentCount": 30
+            }
+          ]
+        },
+        {
+          "platform": "youtube",
+          "region": "Japan",
+          "handle": "@LORDNINE_JP",
+          "url": "https://www.youtube.com/@LORDNINE_JP",
+          "yt_handle": "@LORDNINE_JP",
+          "yt_id": "UCbwHMDhUhgFoMQVyPlNhPZg",
+          "title": "ロードナイン (LORDNINE)",
+          "thumbnail": "https://yt3.ggpht.com/PVunCLfzztaj6_3GRgYVrSXw0tGuHv96kNieLyzaR79umyTbct7yftLrPmmx7jIDkFUVsc0WUQ=s88-c-k-c0x00ffffff-no-rj",
+          "followers": 2320,
+          "viewCount": 108135,
+          "videoCount": 45,
+          "latestVideo": {
+            "title": "4月アップデートプレビュー：腐食の亀裂、ヴォルカンカの心臓、新規補助装備など",
+            "publishedAt": "2026-04-28T07:00:27Z",
+            "videoId": "_1rrIV-Fzbg"
+          },
+          "recentVideos": [
+            {
+              "videoId": "_1rrIV-Fzbg",
+              "title": "4月アップデートプレビュー：腐食の亀裂、ヴォルカンカの心臓、新規補助装備など",
+              "publishedAt": "2026-04-28T07:00:27Z",
+              "viewCount": 647,
+              "likeCount": 3,
+              "commentCount": 1
+            },
+            {
+              "videoId": "98MtSQjXdEU",
+              "title": "3月アップデートプレビュー：専門化システム、古代城砦、アーティファクト、隠し職業4種追加",
+              "publishedAt": "2026-03-17T07:43:28Z",
+              "viewCount": 617,
+              "likeCount": 6,
+              "commentCount": 0
+            },
+            {
+              "videoId": "uAUNCOGYLQQ",
+              "title": "2月アップデートプレビュー：ラッキードロー、新規マップ、ワールド取引所統合、新規アビリティなど",
+              "publishedAt": "2026-02-21T04:34:06Z",
+              "viewCount": 697,
+              "likeCount": 1,
+              "commentCount": 0
+            },
+            {
+              "videoId": "L0-iQJ3OYLg",
+              "title": "リリース0.5周年イベントおよびクーポン紹介+2026年上半期アップデートロードマップ公開",
+              "publishedAt": "2026-01-21T06:30:08Z",
+              "viewCount": 872,
+              "likeCount": 10,
+              "commentCount": 0
+            },
+            {
+              "videoId": "temJ2DP-7ec",
+              "title": "1月アップデートプレビュー：ワールドレイドボス、アビリティの欠片システム、試練の塔150階拡張など",
+              "publishedAt": "2026-01-20T07:30:35Z",
+              "viewCount": 667,
+              "likeCount": 3,
+              "commentCount": 0
+            },
+            {
+              "videoId": "1jN2V5tMaRE",
+              "title": "12月アップデートプレビュー",
+              "publishedAt": "2025-12-22T03:08:11Z",
+              "viewCount": 504,
+              "likeCount": 5,
+              "commentCount": 0
+            },
+            {
+              "videoId": "fxjVDhaNIhs",
+              "title": "新規統合サーバー【メディア】オープン！スペシャルスキンから最大330回アバター召喚券まで！",
+              "publishedAt": "2025-12-18T11:30:39Z",
+              "viewCount": 237,
+              "likeCount": 1,
+              "commentCount": 0
+            },
+            {
+              "videoId": "nL20NsReYvQ",
+              "title": "[ロードナイン] 新規サーバー「メディア」、今すぐプレイ！",
+              "publishedAt": "2025-12-18T11:01:20Z",
+              "viewCount": 118,
+              "likeCount": 1,
+              "commentCount": 0
+            },
+            {
+              "videoId": "TzLJPFfe1aE",
+              "title": "[ロードナイン] 新規サーバー「メディア」、今すぐ事前登録！",
+              "publishedAt": "2025-12-03T05:00:38Z",
+              "viewCount": 324,
+              "likeCount": 2,
+              "commentCount": 0
+            },
+            {
+              "videoId": "DDYcuLUOMAA",
+              "title": "11月アップデートプレビュー",
+              "publishedAt": "2025-11-25T07:30:07Z",
+              "viewCount": 844,
+              "likeCount": 4,
+              "commentCount": 0
+            }
+          ]
+        },
+        {
+          "platform": "x",
+          "region": "Japan",
+          "handle": "@LORD9_jp",
+          "url": "https://x.com/LORD9_jp",
+          "followers": 49653,
+          "followersSource": "manual",
+          "manualAsOf": "2026-04-22"
+        },
+        {
+          "platform": "facebook",
+          "region": "SEA",
+          "handle": "LordnineSEA",
+          "url": "https://www.facebook.com/LordnineSEA/",
+          "fb_page_id": "646314575225540",
+          "followers": 118757,
+          "title": "LORDNINE SEA",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495207752_122118958400831583_7196864148246345190_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=100&ccb=1-7&_nc_sid=08baa4&_nc_ohc=4lJe11UEV08Q7kNvwGBavY_&_nc_oc=Ado4PQ3XxEBD7m3bhiH82a_HJeeW4OoWKqW9UoT4mzZ7fAsYhZHlwWz1oZfNA1lDiTc&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=u9FTqqAdmpGH_5JcqW4kWg&_nc_tpa=Q5bMBQGZNP6lN4GKjxhaUMWjXJEUA1PXqqWkHBBsV3kCMcJqllzIzc5KeYFa6DVlBwAsFPGuBFObT7lp&oh=00_Af7vtzGsF9G_Kb35SYmdY8MNNiiQ3xshyqJx3lj1it_zNA&oe=6A0B7BE7"
+        },
+        {
+          "platform": "facebook",
+          "region": "Thailand",
+          "handle": "LORDNINE Thailand",
+          "url": "https://www.facebook.com/561566950382982",
+          "fb_page_id": "561566950382982",
+          "followers": 33685,
+          "title": "LORDNINE Thailand",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad6-1.xx.fbcdn.net/v/t39.30808-1/495004494_122114918270838321_3347801829444906397_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=109&ccb=1-7&_nc_sid=08baa4&_nc_ohc=ePVFcTCwH-4Q7kNvwHwRY9a&_nc_oc=AdqZ6YgCJorxXx3j6mCBXWOwSLDi0mzcqPFgxL9Ibw0TCYORTNcBRw1_wn7Y9Z46ojc&_nc_zt=24&_nc_ht=scontent-iad6-1.xx&edm=AJdBtusEAAAA&_nc_gid=F8UQX23hFBB05yYhCgH9pQ&_nc_tpa=Q5bMBQE_RRXKyqKh2Z2i46RJQDLj-VVnnZthlhRrRB6AncW1X6lUXT6RtBep637vXaLY9GKvbHDN0PlV&oh=00_Af4feLAxlD5_SN99_cV-5VbDy4nwnI88hf-ipmtHdHu62Q&oe=6A0B7ABB"
+        },
+        {
+          "platform": "facebook",
+          "region": "China",
+          "handle": "權力之望 LORDNINE",
+          "url": "https://www.facebook.com/293217650546931",
+          "fb_page_id": "293217650546931",
+          "followers": 12578,
+          "title": "權力之望 LORDNINE",
+          "followersSource": "followers_count",
+          "thumbnail": "https://scontent-iad3-1.xx.fbcdn.net/v/t39.30808-1/444149909_122114051426300844_3596859462107917752_n.jpg?stp=dst-jpg_s120x120_tt6&_nc_cat=104&ccb=1-7&_nc_sid=08baa4&_nc_ohc=oke5tEmG7DEQ7kNvwHBw5Iu&_nc_oc=AdqcJhP3tev02SUgZeCzPjpUcQxUQ8dsFl_macCshpG-Go-fmAZGfKvBBRbTiUOnOUM&_nc_zt=24&_nc_ht=scontent-iad3-1.xx&edm=AJdBtusEAAAA&_nc_gid=2Eg-gw-wOzWp6I-z-t8FDw&_nc_tpa=Q5bMBQEcMOBRbskqXTm6Awp8kJGR8UTf3j8fzS4QoimoNFY6gpz8bOax5ZS0ULrrfiOI-55tv07-xgxd&oh=00_Af4QhqCjAqpNOwaJZsYMlAABrSAl3Ul_9lbFsLh2OhdPqQ&oe=6A0B5FA5"
+        },
+        {
+          "platform": "discord",
+          "region": "SEA",
+          "handle": "discord.gg/lordninesea",
+          "url": "https://discord.gg/lordninesea",
+          "invite_code": "lordninesea",
+          "followers": 32403,
+          "onlineCount": 6153,
+          "guildName": "LORDNINE SEA",
+          "guildId": "1361496239501217963",
+          "guildIcon": "https://cdn.discordapp.com/icons/1361496239501217963/b31bdf816ed1756760f9848041a29006.png?size=64"
+        }
+      ],
+      "insights": {
+        "overview": {
+          "bullets": [
+            "주의: <b>Facebook China</b> -1.35% 하락 (-172)",
+            "KPI 평균 <b>87.3%</b> · 최저 <b>Youtube 81.6%</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "youtube": {
+          "bullets": [
+            "팔로워 <b>52,220</b>명 · 전일 동일",
+            "최신 영상 <b>Korea</b> · 9일 전: \"[로드나인] 5월 1차 업데이트 프리뷰\" · ▶ 7,898 · ♥ 36 · 💬 20",
+            "이전 5개 평균 조회수 <b>703,145</b> 대비 <b>-98.9%</b>",
+            "업로드 1일차 조회수 <b>7,437</b>"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "x": {
+          "bullets": [
+            "팔로워 <b>49,653</b>명 · 전일 동일",
+            "콘텐츠 분석은 API 연동 후 제공 예정 · 현재 수동 입력"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "facebook": {
+          "bullets": [
+            "팔로워 <b>165,020</b>명 · 전일 대비 +2 (+0.00%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        },
+        "discord": {
+          "bullets": [
+            "멤버 <b>32,403</b>명 · 전일 대비 −14 (−0.04%)",
+            "온라인 <b>6,153</b>명 / 전체 32,403명 (활성도 19.0%)"
+          ],
+          "generatedAt": "2026-05-14T09:17:57+00:00"
+        }
+      }
+    }
+  },
+  "apiErrors": [],
+  "platformsPendingCredentials": [],
+  "kpiTargets": {
+    "epic7": {
+      "youtube": 275000,
+      "facebook": 240000,
+      "x": 200000,
+      "instagram": 90000,
+      "discord": 100000
+    },
+    "czn": {
+      "youtube": 130000,
+      "x": 252000,
+      "discord": 68000
+    },
+    "l9": {
+      "youtube": 64000,
+      "facebook": 183000,
+      "x": 55000
+    }
+  }
+}
