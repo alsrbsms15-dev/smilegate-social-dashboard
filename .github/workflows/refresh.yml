@@ -1,10 +1,10 @@
 name: Refresh Smilegate Social Dashboard
 
 on:
-  schedule:
+# schedule:
     # Daily at 23:00 UTC = 08:00 KST the next morning.
     # Note: GitHub Actions cron can be delayed 5-15 min under load; that's fine.
-    - cron: '0 23 * * *'
+    # - cron: '0 23 * * *'  # Runs at 23:00
   workflow_dispatch:  # manual trigger via the Actions tab
 
 permissions:
